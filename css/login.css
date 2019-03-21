@@ -1,1 +1,19 @@
 /* Login CSS */
+
+/* layout */
+#header { background-color:#385898;  height: 82px; }
+#sign_up {background-color: #444; height: 500px;}
+#footer { background-color: #555; height: 300px; }
+
+/* container */
+.container { width: 1000px; height: inherit;  margin: 0 auto; /*background: rgba(0,0,0,0.3);*/ } /* 블록요소를 가운데 정렬하기 위해서는 { margin: 0 auto }  */
+
+/* header */
+.header { overflow: hidden; }
+.header h1 { font-size: 40px; font-weight: bold; padding-top: 17px; float: left; }
+.header h1 a { color: #fff;}
+.header .menu_login { float: right; padding-top: 10px; }
+.header .menu_login td { padding-left: 14px;}
+.header .menu_login .tr_head td { padding-bottom: 2px; color: #fff; font-size: 12px; }
+.header .menu_login .tr_body .input_btn { display: inline-block; cursor: pointer; background-color: #4267b2; border: 1px solid #29487d; color: #fff; padding: 2px 6px; font-size: 12px; font-weight: bold; line-height: 18px;}
+.header .menu_login .tr_footer td a { color: #9cb4d8; font-weight: normal; font-size: 12px; }
