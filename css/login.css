@@ -12,11 +12,15 @@
 .header { overflow: hidden; }
 .header h1 { font-size: 40px; font-weight: bold; padding-top: 17px; float: left; }
 .header h1 a { color: #fff;}
-.header .menu_login { float: right; padding-top: 10px; }
-.header .menu_login td { padding-left: 14px;}
-.header .menu_login .tr_head td { padding-bottom: 2px; color: #fff; font-size: 12px; }
-.header .menu_login .tr_body .input_btn { display: inline-block; cursor: pointer; background-color: #4267b2; border: 1px solid #29487d; color: #fff; padding: 2px 6px; font-size: 12px; font-weight: bold; line-height: 18px;}
-.header .menu_login .tr_footer td a { color: #9cb4d8; font-weight: normal; font-size: 12px; }
+.header .menu_login { float: right; padding-top: 10px; overflow: hidden; }
+.header .menu_login form h3 { color: #fff; padding-bottom: 4px; font-size: 12px; margin-left: 14px; }
+.header .menu_login form input { margin-left: 14px; margin-bottom: 4px; }
+.header .menu_login form input::placeholder { color: #fff; }
+.header .menu_login .form_left { float: left;}
+.header .menu_login .form_center { float: left; }
+.header .menu_login .form_right { float: left; }
+.header .menu_login .form_right .input_submit { padding: 2px 6px; font-size: 12px; cursor: pointer; border: 1px solid #29487d; border-radius: 2px; color: #fff; background-color: #4267b2;  }
+
 
 /* sign_up */
 .sign_up { overflow: hidden; padding: 20px 0;  }
@@ -46,3 +50,28 @@
 .footer ul { overflow: hidden; padding-top: 50px; }
 .footer li { float: left; padding-right: 20px; color: #365899; }
 .footer address { display: block; padding-top: 30px; }
+
+
+
+@media (max-width: 1024px) { 
+    .container { width: 100%; }
+    .row { padding: 0 20px; }
+
+    .header h1 { padding-top: 10px;}
+}
+
+@media (max-width: 768px) {
+    #header { height: 220px; background: none; }
+    .row { padding: 0; }
+
+    .header h1 { float: none; width: 100%; line-height: 70px; text-align: center; padding: 0; background-color:#385898; }
+    .header .menu_login { float: none; width: 100%; text-align: center; margin: 10px 0; }
+    .header .menu_login form { }
+    .header .menu_login form h3 { display: none;}
+    .header .menu_login .form_left { width: 100%; }
+    .header .menu_login form input { width: 75%; font-size: 14px; padding: 2px 0 2px 6px; box-sizing: border-box; margin-bottom: 10px; }
+    .header .menu_login form input::placeholder { color: #9e9e9e; }
+    .header .menu_login .form_center { width: 100%; }
+    .header .menu_login .form_right { width: 100%; }
+    .header .menu_login .form_right .input_submit { padding: 4px 6px; font-size: 16px; }
+}

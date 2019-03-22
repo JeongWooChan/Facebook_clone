@@ -15,29 +15,25 @@
 <body>
     <header id="header">
         <div class="container">
-            <div class="header">
-                <h1><a href="#">facebook</a></h1>
-                <div class="menu_login">
-                    <form action="#" method="post" id="login_form">
-                        <table>
-                            <tbody>
-                                <tr class="tr_head">
-                                    <td><label for="email">이메일 또는 휴대폰</label></td>
-                                    <td><label for="password">비밀번호</label></td>
-                                </tr>
-                                <tr class="tr_body">
-                                    <td><input type="email" name="email" id="email" class="input_email"></td>
-                                    <td><input type="password" name="password" id="password" class="input_pw"></td>
-                                    <td><input type="submit" name="login_btn" id="login_btn" class="input_btn"
-                                            value="로그인"></td>
-                                </tr>
-                                <tr class="tr_footer">
-                                    <td></td>
-                                    <td><a href="#">계정을 잊으셨나요?</a></td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </form>
+            <div class="row">
+                <div class="header">
+                    <h1><a href="#">facebook</a></h1>
+                    <div class="menu_login">
+                        <form action="#" method="post" id="login_form">
+                            <div class="form_left">
+                                <h3>이메일 또는 휴대폰</h3>
+                                <input type="text" id="email" name="email" class="input_email" placeholder="이메일 또는 휴대폰">
+                            </div>
+                            <div class="form_center">
+                                <h3>비밀번호</h3>
+                                <input type="password" id="pw" name="pw" class="input_pw" placeholder="비밀번호">
+                            </div>
+                            <div class="form_right">
+                                <h3>　</h3>
+                                <input type="submit" id="submit" name="submit" class="input_submit" value="로그인">
+                            </div>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
@@ -80,7 +76,7 @@
                         </form>
                     </div>
                     <div class="signup_right">
-                    
+
                     </div>
                 </div>
             </div>
