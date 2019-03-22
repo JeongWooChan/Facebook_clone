@@ -2,8 +2,8 @@
 
 /* layout */
 #header { background-color:#385898;  height: 82px; }
-#sign_up {background-color: #444; height: 500px;}
-#footer { background-color: #555; height: 300px; }
+#sign_up {background-color: #e9ebee; }
+#footer { background-color: #555;  }
 
 /* container */
 .container { width: 1000px; height: inherit;  margin: 0 auto; /*background: rgba(0,0,0,0.3);*/ } /* 블록요소를 가운데 정렬하기 위해서는 { margin: 0 auto }  */
@@ -17,3 +17,24 @@
 .header .menu_login .tr_head td { padding-bottom: 2px; color: #fff; font-size: 12px; }
 .header .menu_login .tr_body .input_btn { display: inline-block; cursor: pointer; background-color: #4267b2; border: 1px solid #29487d; color: #fff; padding: 2px 6px; font-size: 12px; font-weight: bold; line-height: 18px;}
 .header .menu_login .tr_footer td a { color: #9cb4d8; font-weight: normal; font-size: 12px; }
+
+/* sign_up */
+.sign_up { width: 50%; padding: 20px 0;  }
+.sign_up h2 { font-size: 36px; font-weight: bold; }
+.sign_up .p1 { font-size: 19px; margin-bottom: 20px; padding-bottom: 20px; }
+.sign_up form { padding-bottom: 30px; }
+.sign_up form input {  padding: 8px 10px; font-size: 18px; margin-bottom: 10px; border: 1px solid #bdc7d8; border-radius: 5px; }
+.sign_up .input_fname { width: 45%; box-sizing: border-box; margin-right: 2%;}
+.sign_up .input_name { width: 45%; box-sizing: border-box; margin-left: 2%; }
+.sign_up .input_phone { width: 90%; margin-bottom: 10px; }
+.sign_up .input_pw { width: 90%; }
+.sign_up form h3 { margin-top: 10px; margin-bottom: 5px; font-size: 18px; font-weight: normal; }
+.sign_up form select { padding: 8px; margin-right: 5px; border: 1px solid #bdc7d8; border-radius: 5px;  }
+.sign_up form .select_day { margin-right: 20px;}
+.sign_up form span { color: #365899}
+.sign_up form .chk_gender { padding: 10px 0;}
+.sign_up form .chk_gender label { font-size: 18px; padding: 0 10px 0 3px; }
+.sign_up form .p2 { font-size: 11px; padding-bottom: 25px; }
+.sign_up form .p2 a { color: #365899;}
+.sign_up form .btn_submit { width: 200px; cursor: pointer; font-size: 19px; font-weight: bold; color: #fff; background: linear-gradient(#79bc64, #578843); padding: 7px 20px; border: 1px solid; border-radius: 5px; }
+.sign_up form .btn_submit:hover { background: linear-gradient(#79bc64, #578843); }

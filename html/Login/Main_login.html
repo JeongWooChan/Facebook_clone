@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,6 +11,7 @@
     <link rel="stylesheet" href="../../css/login.css">
     <link rel="stylesheet" href="../../css/reset.css">
 </head>
+
 <body>
     <header id="header">
         <div class="container">
@@ -26,7 +28,8 @@
                                 <tr class="tr_body">
                                     <td><input type="email" name="email" id="email" class="input_email"></td>
                                     <td><input type="password" name="password" id="password" class="input_pw"></td>
-                                    <td><input type="submit" name="login_btn" id="login_btn" class="input_btn" value="로그인"></td>
+                                    <td><input type="submit" name="login_btn" id="login_btn" class="input_btn"
+                                            value="로그인"></td>
                                 </tr>
                                 <tr class="tr_footer">
                                     <td></td>
@@ -44,7 +47,34 @@
         <section id="sign_up">
             <div class="container">
                 <div class="sign_up">
-                    <h2>제목</h2>
+                    <h2>새 계정 만들기</h2>
+                    <p class="p1">항상 지금처럼 무료로 즐기실 수 있습니다.</p>
+                    <form>
+                        <input type="text" placeholder="성(姓)" id="fname" name="fname" class="input_fname">
+                        <input type="text" placeholder="이름(성은 제외)" id="name" name="name" class="input_name">
+                        <input type="text" placeholder="휴대폰 번호 또는 이메일" id="phone" name="phone" class="input_phone">
+                        <input type="password" placeholder="새 비밀번호" id="new_pw" name="new_pw" class="input_pw">
+                        <h3>생일</h3>
+                        <select name="year" id="year" aria-placeholder="연도" title="연도">
+                            <option value="0">연도</option>
+                            <option value="2019">2019</option>
+                        </select>
+                        <select name="month" id="month" aria-placeholder="월" title="월">
+                            <option value="0">월</option>
+                        </select>
+                        <select name="day" id="day" aria-placeholder="일" title="일" class="select_day">
+                            <option value="0">일</option>
+                        </select>
+                        <span>왜 생년월일을 입력해야 하나요?</span><br>
+                        <div class="chk_gender">
+                            <input type="radio" name="chk_gender" id="chk_boy" value="남성"><label
+                                for="chk_boy">남성</label>
+                            <input type="radio" name="chk_gender" id="chk_girl" value="여성"><label
+                                for="chk_girl">여성</label>
+                        </div>
+                        <p class="p2">가입하기 버튼을 클릭하면 Facebook의 <a href="#">약관</a>, <a href="#">데이터 정책</a> 및 <a href="#">쿠키 정책</a>에 동의하게 됩니다.<br> Facebook으로부터 SMS 알림을 받을 수 있으며 알림은 언제든지 옵트 아웃할 수 있습니다.</p>
+                        <button type="submit" id="btn_signup" name="btn_signup" class="btn_submit">가입하기</button>
+                    </form>
                 </div>
             </div>
         </section>
@@ -55,4 +85,5 @@
     </footer>
     <!-- // footer -->
 </body>
+
 </html>
