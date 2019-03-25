@@ -20,6 +20,7 @@
 .header .menu_login .form_center { float: left; }
 .header .menu_login .form_right { float: left; }
 .header .menu_login .form_right .input_submit { padding: 2px 6px; font-size: 12px; cursor: pointer; border: 1px solid #29487d; border-radius: 2px; color: #fff; background-color: #4267b2;  }
+.header .menu_login .header_signup { display: none; }
 
 
 /* sign_up */
@@ -28,11 +29,11 @@
 .sign_up h2 { font-size: 36px; font-weight: bold; }
 .sign_up .p1 { font-size: 19px; margin-bottom: 20px; padding-bottom: 20px; }
 .sign_up form { float: left; padding-bottom: 30px; }
-.sign_up form input {  padding: 8px 10px; font-size: 18px; margin-bottom: 10px; border: 1px solid #bdc7d8; border-radius: 5px; }
-.sign_up .input_fname { width: 45%; box-sizing: border-box; margin-right: 2%;}
-.sign_up .input_name { width: 45%; box-sizing: border-box; margin-left: 2%; }
-.sign_up .input_phone { width: 90%; margin-bottom: 10px; }
-.sign_up .input_pw { width: 90%; }
+.sign_up form input {  padding: 8px 10px; font-size: 18px; margin-bottom: 10px; border: 1px solid #bdc7d8; border-radius: 5px; box-sizing: border-box; }
+.sign_up .input_fname { float: left; width: 45%; box-sizing: border-box; margin-right: 2%;}
+.sign_up .input_name { float: right; width: 45%; box-sizing: border-box; margin-left: 2%; }
+.sign_up .input_phone { width: 100%; margin-bottom: 10px; }
+.sign_up .input_pw {  width: 100%; }
 .sign_up form h3 { margin-top: 10px; margin-bottom: 5px; font-size: 18px; font-weight: normal; }
 .sign_up form select { padding: 8px; margin-right: 5px; border: 1px solid #bdc7d8; border-radius: 5px;  }
 .sign_up form .select_day { margin-right: 20px;}
@@ -64,9 +65,9 @@
     #header { height: 220px; background: none; }
     .row { padding: 0; }
 
+    /* header */
     .header h1 { float: none; width: 100%; line-height: 70px; text-align: center; padding: 0; background-color:#385898; }
     .header .menu_login { float: none; width: 100%; text-align: center; margin: 10px 0; }
-    .header .menu_login form { }
     .header .menu_login form h3 { display: none;}
     .header .menu_login .form_left { width: 100%; }
     .header .menu_login form input { width: 75%; font-size: 14px; padding: 2px 0 2px 6px; box-sizing: border-box; margin-bottom: 10px; }
@@ -74,4 +75,32 @@
     .header .menu_login .form_center { width: 100%; }
     .header .menu_login .form_right { width: 100%; }
     .header .menu_login .form_right .input_submit { padding: 4px 6px; font-size: 16px; }
+    .header .menu_login .header_signup { display: none; }
+
+    /* sign_up */
+    .sign_up { padding: 10px 15px; }
+    .sign_up h2 { text-align: center; }
+    .sign_up .p1 { text-align: center; }
+    .sign_up .sign_up_left { width: 100%;}
+    .sign_up form { padding-bottom: 20px; }
+    .sign_up form .p2 { text-align: center; }
+    .sign_up form span { display: none; }
+    .sign_up form .btn_submit { width: 100%; }
+    .sign_up .signup_right { display: none; }  
+
+    /* footer */
+    .footer { padding: 10px 35px; }
+    .footer ul { padding-top: 13px; }
+}
+
+@media (max-width : 486px ) { 
+    #header { height: 100vh; }
+    #sign_up { display: none; }
+    #footer { display: none; }
+
+    .header h1 { height: 65vh; line-height: 65vh; }
+    .header .menu_login { padding-top: 7vh; }
+    .header .menu_login form input { font-size: 16px; }
+    .header .menu_login form .form_right { padding-bottom: 3vh; }
+    .header .menu_login .header_signup { display: block; font-size: 12px; }
 }
