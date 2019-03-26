@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Facebook - 로그인 또는 가입</title>
+
+    <!-- style -->
+    <link rel="stylesheet" href="../../css/login.css">
+    <link rel="stylesheet" href="../../css/reset.css">
+</head>
+
+<body>
+    <header id="header">
+        <div class="container">
+            <div class="row">
+                <div class="header">
+                    <h1><a href="html/test.html">facebook</a></h1>
+                    <div class="menu_login">
+                        <form action="#" method="post" id="login_form">
+                            <div class="form_left">
+                                <h3>이메일 또는 휴대폰</h3>
+                                <input type="text" id="email" name="email" class="input_email" placeholder="이메일 또는 휴대폰">
+                            </div>
+                            <div class="form_center">
+                                <h3>비밀번호</h3>
+                                <input type="password" id="pw" name="pw" class="input_pw" placeholder="비밀번호">
+                            </div>
+                            <div class="form_right">
+                                <h3>　</h3>
+                                <input type="submit" id="submit" name="submit" class="input_submit" value="로그인">
+                            </div>
+                        </form>
+                        <div class="header_signup">
+                            <a href="#">가입하기</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- // header-->
+    <main>
+        <section id="sign_up">
+            <div class="container">
+                <div class="row">
+                    <div class="sign_up">
+                        <div class="sign_up_left">
+                            <h2>새 계정 만들기</h2>
+                            <p class="p1">항상 지금처럼 무료로 즐기실 수 있습니다.</p>
+                            <form>
+                                <input type="text" placeholder="성(姓)" id="fname" name="fname" class="input_fname">
+                                <input type="text" placeholder="이름(성은 제외)" id="name" name="name" class="input_name">
+                                <input type="text" placeholder="휴대폰 번호 또는 이메일" id="phone" name="phone"
+                                    class="input_phone">
+                                <input type="password" placeholder="새 비밀번호" id="new_pw" name="new_pw" class="input_pw">
+                                <h3>생일</h3>
+                                <select name="year" id="year" aria-placeholder="연도" title="연도">
+                                    <option value="0">연도</option>
+                                    <option value="2019">2019</option>
+                                </select>
+                                <select name="month" id="month" aria-placeholder="월" title="월">
+                                    <option value="0">월</option>
+                                </select>
+                                <select name="day" id="day" aria-placeholder="일" title="일" class="select_day">
+                                    <option value="0">일</option>
+                                </select>
+                                <span>왜 생년월일을 입력해야 하나요?</span><br>
+                                <div class="chk_gender">
+                                    <input type="radio" name="chk_gender" id="chk_boy" value="남성"><label
+                                        for="chk_boy">남성</label>
+                                    <input type="radio" name="chk_gender" id="chk_girl" value="여성"><label
+                                        for="chk_girl">여성</label>
+                                </div>
+                                <p class="p2">가입하기 버튼을 클릭하면 Facebook의 <a href="#">약관</a>, <a href="#">데이터 정책</a> 및 <a
+                                        href="#">쿠키 정책</a>에 동의하게 됩니다.<br> Facebook으로부터 SMS 알림을 받을 수 있으며 알림은 언제든지 옵트 아웃할
+                                    수
+                                    있습니다.</p>
+                                <button type="submit" id="btn_signup" name="btn_signup" class="btn_submit">가입하기</button>
+                            </form>
+                        </div>
+                        <div class="signup_right">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- // sign_up -->
+    </main>
+    <footer id="footer">
+        <div class="container">
+            <div class="row">
+                <div class="footer">
+                    <ul>
+                        <li>가입하기</li>
+                        <li>로그인</li>
+                        <li>Messenger</li>
+                        <li>Facebook Lite</li>
+                        <li>친구찾기</li>
+                        <li>사람</li>
+                        <li>프로필</li>
+                        <li>페이지</li>
+                        <li>페이지 카테고리</li>
+                        <li>장소</li>
+                        <li>게임</li>
+                        <li>위치</li>
+                        <li>Marketplace</li>
+                        <li>그룹</li>
+                        <li>Instagram</li>
+                        <li>지역</li>
+                        <li>기부 캠페인</li>
+                        <li>회사소개</li>
+                        <li>광고 만들기</li>
+                        <li>페이지 만들기</li>
+                        <li>개발자</li>
+                        <li>채용 정보</li>
+                        <li>개인정보처리방침</li>
+                        <li>쿠키</li>
+                        <li>이용약관</li>
+                        <li>계정 보안</li>
+                        <li>로그인 도움말</li>
+                        <li>고객센터</li>
+                    </ul>
+                    <address>
+                        Facebook © 2019
+                    </address>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- // footer -->
+</body>
+
+</html>
