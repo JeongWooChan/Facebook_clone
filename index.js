@@ -2,19 +2,11 @@ console.log('hello');
 
 var express = require('express'); 
 var app = express(); 
-var mysql = require('mysql'); 
+var db = require('./js/db.js'); 
 var bodyParser = require('body-parser'); 
 
-// Database Setting
-var connection = mysql.createConnection({
-    host : 'localhost',
-    user : 'root',
-    password : 'wjddncks!', 
-    database : 'facebook'
-}); 
-
 // Database 연동 
-connection.connect(); 
+db.connect(); 
 
 app.use(express.static('public'));
 
@@ -25,7 +17,7 @@ app.post("/", function(req,res) {
    var body = req.body; 
    var fname = body.fname; 
    var lname = body.name; 
-   var email = body.phone; 
+   var email = body.email2; 
    var password = body.new_pw; 
    var gender = body.chk_gender; 
    var year = body.year;
@@ -34,12 +26,12 @@ app.post("/", function(req,res) {
 
    // 회원 가입정보 insert 
    var query =
-    connection.query('insert into users (fname, lname, email, password, gender, year, month, day) values ("' + fname + '","' + lname + '","' + email + '","' + password + '","' + gender + '","' + year + '","' + month + '","' + day + '")', 
+   db.query('insert into users (fname, lname, email, password, gender, year, month, day) values ("' + fname + '","' + lname + '","' + email + '","' + password + '","' + gender + '","' + year + '","' + month + '","' + day + '")', 
     function(err, rows) {
         if(err) {
             console.log(err); 
         } else {
-            
+            res.send(`<script type="text/javascript">alert("가입 완료");window.location="/";</script>`);
         }
    });
 });

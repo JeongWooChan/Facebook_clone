@@ -51,15 +51,16 @@
                             <h2>새 계정 만들기</h2>
                             <p class="p1">항상 지금처럼 무료로 즐기실 수 있습니다.</p>
                             <form action="/" method="POST" id="sign_up_form" onsubmit="return validate()">
-                                <input type="text" placeholder="성(姓)" id="fname" name="fname" class="input_fname">
-                                <input type="text" placeholder="이름(성은 제외)" id="name" name="name" class="input_name">
-                                <input type="text" placeholder="이메일" id="email2" name="email2"
-                                    class="input_email2">
+                                <input type="text" placeholder="성(姓)" id="fname" name="fname" class="input_fname"
+                                    autocomplete="off">
+                                <input type="text" placeholder="이름(성은 제외)" id="name" name="name" class="input_name"
+                                    autocomplete="off">
+                                <input type="email" placeholder="이메일" id="email2" name="email2" class="input_email2"
+                                    autocomplete="off">
                                 <input type="password" placeholder="새 비밀번호" id="new_pw" name="new_pw" class="input_pw">
                                 <h3>생일</h3>
                                 <select name="year" id="year" aria-placeholder="연도" title="연도">
                                     <option value="0">연도</option>
-                                    <option value="1">22</option>
                                 </select>
                                 <select name="month" id="month" aria-placeholder="월" title="월">
                                     <option value="0">월</option>
@@ -140,7 +141,7 @@
             var lname = document.getElementById('name');
             var email = document.getElementById('email2');
             var password = document.getElementById('new_pw');
-            var year = document.getElementById('year'); 
+            var year = document.getElementById('year');
             var month = document.getElementById('month');
             var day = document.getElementById('day');
             var gender = document.getElementsByName('chk_gender');
@@ -154,51 +155,85 @@
             var chk_password = /^(?=.*[a-zA-Z])(?=.*[^a-zA-Z0-9])(?=.*[0-9]).{8,16}$/;
 
             // 빈 항목 검사 
-            if(fname.value=="") {
-                alert("성을 입력해 주세요"); 
-                fname.focus(); 
+            if (fname.value == "") {
+                alert("성을 입력해 주세요");
+                fname.focus();
                 return false;
             }
-            if(lname.value=="") {
-                alert("이름을 입력해 주세요"); 
-                lname.focus(); 
+            if (lname.value == "") {
+                alert("이름을 입력해 주세요");
+                lname.focus();
                 return false;
             }
-            if(email.value=="") {
-                alert("이메일을 입력해 주세요"); 
+            if (email.value == "") {
+                alert("이메일을 입력해 주세요");
                 email.focus();
                 return false;
             }
-            if(year.value==0 || month.value==0 || day.value==0) {
-                alert("생년월일을 입력해 주세요."); 
+            if (year.value == 0 || month.value == 0 || day.value == 0) {
+                alert("생년월일을 입력해 주세요.");
                 return false;
             }
-            for(var i = 0; i < gender.length; i++) {
-                if(gender[i].checked == true) {
-                    alert(gender[i].value); 
+            for (var i = 0; i < gender.length; i++) {
+                if (gender[i].checked == true) {
                     radio_btn_check++; // 버튼이 클릭 되었으면 값을 증가시킨다. 
                 }
             }
-            if(radio_btn_check == 0) {
+            if (radio_btn_check == 0) {
                 alert("성별을 입력해 주세요.");
                 return false;
             }
 
 
             // 정규식 검사 
-            if(chk_email.test(email.value) == false) {
-                alert("잘못된 이메일 형식입니다."); 
+            if (chk_email.test(email.value) == false) {
+                alert("잘못된 이메일 형식입니다.");
                 email.focus();
                 return false;
             }
-
-            if(chk_password.test(password.value) == false) {
-                alert("영문, 숫자, 특수문자를 조합하여 8~16자리를 입력해 주세요."); 
+            if (chk_password.test(password.value) == false) {
+                alert("영문, 숫자, 특수문자를 조합하여 8~16자리를 입력해 주세요.");
                 password.focus();
                 return false;
             }
-
         }
+
+        // 년도 select box 에 option 추가 함수 
+        function appendYear() {
+            var date = new Date();
+            var year = date.getFullYear();
+            var selectValue = document.getElementById("year");
+            var optionIndex = 0;
+
+            for (var i = year - 90; i <= year; i++) {
+                selectValue.add(new Option(i + "년", i), optionIndex++);
+            }
+        }
+
+        // 월 select box 에 option 추가 함수 
+        function appendMonth() {
+            var selectValue = document.getElementById("month");
+            var optionIndex = 0;
+
+            for (var i = 1; i <= 12; i++) {
+                selectValue.add(new Option(i + "월", i), optionIndex++);
+            }
+        }
+
+        // 일 select box 에 option 추가 함수 
+        function appendday() {
+            var selectValue = document.getElementById("day");
+            var month = document.getElementById("month");
+            var optionIndex = 0;
+
+            for (var i = 1; i <= 31; i++) {
+                selectValue.add(new Option(i + "일", i), optionIndex++);
+            }
+        }
+
+        appendYear();
+        appendMonth();
+        appendday();
     </script>
 </body>
 
