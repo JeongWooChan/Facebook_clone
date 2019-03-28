@@ -32,14 +32,14 @@
 .sign_up form input {  padding: 8px 10px; font-size: 18px; margin-bottom: 10px; border: 1px solid #bdc7d8; border-radius: 5px; box-sizing: border-box; }
 .sign_up .input_fname { float: left; width: 45%; box-sizing: border-box; margin-right: 2%;}
 .sign_up .input_name { float: right; width: 45%; box-sizing: border-box; margin-left: 2%; }
-.sign_up .input_phone { width: 100%; margin-bottom: 10px; }
+.sign_up .input_email2 { width: 100%; margin-bottom: 10px; }
 .sign_up .input_pw {  width: 100%; }
 .sign_up form h3 { margin-top: 10px; margin-bottom: 5px; font-size: 18px; font-weight: normal; }
 .sign_up form select { padding: 8px; margin-right: 5px; border: 1px solid #bdc7d8; border-radius: 5px;  }
 .sign_up form .select_day { margin-right: 20px;}
 .sign_up form span { color: #365899}
-.sign_up form .chk_gender { padding: 10px 0;}
-.sign_up form .chk_gender label { font-size: 18px; padding: 0 10px 0 3px; }
+.sign_up form .chk_gender_div { padding: 10px 0;}
+.sign_up form .chk_gender_div label { font-size: 18px; padding: 0 10px 0 3px; }
 .sign_up form .p2 { font-size: 11px; padding-bottom: 25px; }
 .sign_up form .p2 a { color: #365899;}
 .sign_up form .btn_submit { width: 200px; cursor: pointer; font-size: 19px; font-weight: bold; color: #fff; background: linear-gradient(#79bc64, #578843); padding: 7px 20px; border: 1px solid; border-radius: 5px; }

@@ -1,3 +1,5 @@
+console.log('hello');
+
 var express = require('express'); 
 var app = express(); 
 var mysql = require('mysql'); 
@@ -26,9 +28,14 @@ app.post("/", function(req,res) {
    var email = body.phone; 
    var password = body.new_pw; 
    var gender = body.chk_gender; 
+   var year = body.year;
+   var month = body.month;
+   var day = body.day;
 
    // 회원 가입정보 insert 
-   var query = connection.query('insert into users (fname, lname, email, password, gender) values ("' + fname + '","' + lname + '","' + email + '","' + password + '","' + gender + '")', function(err, rows) {
+   var query =
+    connection.query('insert into users (fname, lname, email, password, gender, year, month, day) values ("' + fname + '","' + lname + '","' + email + '","' + password + '","' + gender + '","' + year + '","' + month + '","' + day + '")', 
+    function(err, rows) {
         if(err) {
             console.log(err); 
         } else {

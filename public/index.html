@@ -22,7 +22,7 @@
                         <form action="/login" method="post" id="login_form">
                             <div class="form_left">
                                 <h3>이메일 또는 휴대폰</h3>
-                                <input type="text" id="email" name="email" class="input_email" placeholder="이메일 또는 휴대폰">
+                                <input type="text" id="email" name="email" class="input_email" placeholder="이메일">
                             </div>
                             <div class="form_center">
                                 <h3>비밀번호</h3>
@@ -50,16 +50,16 @@
                         <div class="sign_up_left">
                             <h2>새 계정 만들기</h2>
                             <p class="p1">항상 지금처럼 무료로 즐기실 수 있습니다.</p>
-                            <form action="/" method="POST" id="sign_up_form">
+                            <form action="/" method="POST" id="sign_up_form" onsubmit="return validate()">
                                 <input type="text" placeholder="성(姓)" id="fname" name="fname" class="input_fname">
                                 <input type="text" placeholder="이름(성은 제외)" id="name" name="name" class="input_name">
-                                <input type="text" placeholder="휴대폰 번호 또는 이메일" id="phone" name="phone"
-                                    class="input_phone">
+                                <input type="text" placeholder="이메일" id="email2" name="email2"
+                                    class="input_email2">
                                 <input type="password" placeholder="새 비밀번호" id="new_pw" name="new_pw" class="input_pw">
                                 <h3>생일</h3>
                                 <select name="year" id="year" aria-placeholder="연도" title="연도">
                                     <option value="0">연도</option>
-                                    <option value="2019">2019</option>
+                                    <option value="1">22</option>
                                 </select>
                                 <select name="month" id="month" aria-placeholder="월" title="월">
                                     <option value="0">월</option>
@@ -68,7 +68,7 @@
                                     <option value="0">일</option>
                                 </select>
                                 <span>왜 생년월일을 입력해야 하나요?</span><br>
-                                <div class="chk_gender">
+                                <div class="chk_gender_div">
                                     <input type="radio" name="chk_gender" id="chk_boy" value="남성"><label
                                         for="chk_boy">남성</label>
                                     <input type="radio" name="chk_gender" id="chk_girl" value="여성"><label
@@ -132,6 +132,74 @@
         </div>
     </footer>
     <!-- // footer -->
+    <script type="text/javascript">
+
+        // 회원가입시 폼 유효성 검사 함수 
+        function validate() {
+            var fname = document.getElementById('fname');
+            var lname = document.getElementById('name');
+            var email = document.getElementById('email2');
+            var password = document.getElementById('new_pw');
+            var year = document.getElementById('year'); 
+            var month = document.getElementById('month');
+            var day = document.getElementById('day');
+            var gender = document.getElementsByName('chk_gender');
+
+            var radio_btn_check = 0; // 버튼 클릭 여부를 확인하기 위한 변수 
+
+
+            // 이메일 정규식 
+            var chk_email = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
+            // 비밀번호 정규식 ( 영문, 숫자, 특수문자 조합, 8~16자리 ) 
+            var chk_password = /^(?=.*[a-zA-Z])(?=.*[^a-zA-Z0-9])(?=.*[0-9]).{8,16}$/;
+
+            // 빈 항목 검사 
+            if(fname.value=="") {
+                alert("성을 입력해 주세요"); 
+                fname.focus(); 
+                return false;
+            }
+            if(lname.value=="") {
+                alert("이름을 입력해 주세요"); 
+                lname.focus(); 
+                return false;
+            }
+            if(email.value=="") {
+                alert("이메일을 입력해 주세요"); 
+                email.focus();
+                return false;
+            }
+            if(year.value==0 || month.value==0 || day.value==0) {
+                alert("생년월일을 입력해 주세요."); 
+                return false;
+            }
+            for(var i = 0; i < gender.length; i++) {
+                if(gender[i].checked == true) {
+                    alert(gender[i].value); 
+                    radio_btn_check++; // 버튼이 클릭 되었으면 값을 증가시킨다. 
+                }
+            }
+            if(radio_btn_check == 0) {
+                alert("성별을 입력해 주세요.");
+                return false;
+            }
+
+
+            // 정규식 검사 
+            if(chk_email.test(email.value) == false) {
+                alert("잘못된 이메일 형식입니다."); 
+                email.focus();
+                return false;
+            }
+
+            if(chk_password.test(password.value) == false) {
+                alert("영문, 숫자, 특수문자를 조합하여 8~16자리를 입력해 주세요."); 
+                password.focus();
+                return false;
+            }
+
+        }
+    </script>
 </body>
 
 </html>
