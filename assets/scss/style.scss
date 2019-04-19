@@ -1,3 +1,3 @@
-body {
-    background-color: red;
-}
+@import "./config/reset.scss";
+
+@import "./pages//login.scss"; 
