@@ -30,6 +30,7 @@
     "express": "^4.16.4",
     "extract-text-webpack-plugin": "^4.0.0-beta.0",
     "helmet": "^3.16.0",
+    "mysql": "^2.17.1",
     "node-sass": "^4.11.0",
     "nodemon": "^1.18.11",
     "postcss-loader": "^3.0.0",
