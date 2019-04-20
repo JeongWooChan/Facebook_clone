@@ -16,10 +16,8 @@ block content
                                 h3 비밀번호 
                                 input(type="password", id="login_pw", name="login_pw", class="login_pw", placeholder="비밀번호")
                             .form_right
-                                h3 
+                                h3 　 
                                 input(type="submit", id="login_submit", name="login_submit", class="login_submit", value="로그인")
-                        .header_signup 
-                            a(href="#") 가입하기 
     main
         section#signUp 
             .container 
@@ -41,14 +39,13 @@ block content
                                     option(value="0") 월 
                                 select(id="select_day", name="select_day", aria-placeholder="일", title="일") 
                                     option(value="0") 일 
-                                span 왜 생일을 입력해야 하나요? 
                                 .chk_gender 
                                     input(type="radio", name="chk_gender", id="chk_boy", value="남성")
                                     label(for="chk_boy") 남성
                                     input(type="radio", name="chk_gender", id="chk_girl", value="여성") 
                                     label(for="chk_girl") 여성
-                                p.p2 가입하기 버튼을 클릭하면 Facebook의 <a href="#">약관</a>, <a href="#">데이터 정책</a> 및 <a href="#">쿠키 정책</a>에 동의하게 됩니다. <br> 
-                                | Facebook으로부터 SMS 알림을 받을 수 있으며 알림은 언제든지 옵트 아웃 할 수 있습니다. 
+                                p.p2 가입하기 버튼을 클릭하면 Facebook의 <a href="#">약관</a>, <a href="#">데이터 정책</a> 및 <a href="#">쿠키 정책</a>에 동의하게 됩니다. <br> Facebook으로부터 SMS 알림을 받을 수 있으며 알림은 언제든지 옵트 아웃 할 수 있습니다. 
+                                button(type="submit", id="btn_signUp", name="btn_signUp", class="btn_signUp")  가입하기
                         .signUp_right
     footer#footer
         .container 

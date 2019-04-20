@@ -1,0 +1,168 @@
+/* layout */
+#header { background-color:#385898;  height: 82px; }
+#signUp {background-color: #e9ebee; }
+#footer { }
+
+/* container */
+.container { width: 1000px; height: inherit; margin: 0 auto; }
+
+/* header */
+.header {
+    overflow: hidden; 
+    h1 {
+        font-size: 40px; 
+        font-weight: bold;
+        padding-top: 10px;
+        float: left;
+        a {
+            color: #fff;
+        }
+    }
+    .menu_login {
+        float: right;
+        padding-top: 15px;
+        overflow: hidden;
+        form {
+            h3 {
+                color: #fff; 
+                padding-bottom: 4px; 
+                font-size: 12px;
+                margin-left: 14px;
+            }
+            input {
+                margin-left: 14px;
+                margin-bottom: 4px;
+                &::placeholder {
+                    color: #fff;
+                }
+            }
+        }
+        .form_left {
+            float: left;
+        }
+        .form_center {
+            float: left;
+        }
+        .form_right {
+            float: left;
+            .login_submit {
+                padding: 2px 6px; 
+                font-size: 12px;
+                cursor: pointer;
+                border: 1px solid #29487d;
+                border-radius: 2px;
+                color: #fff;
+                background-color: #4267b2;
+            }
+        }
+    }
+}
+
+/* signUp*/
+.signUp {
+    overflow: hidden; 
+    padding: 20px 0; 
+    .signUp_left {
+        width: 50%; float: left; 
+    }
+    h2 {
+        font-size: 36px;
+        font-weight: bold;
+    }
+    .p1 {
+        font-size: 19px; 
+        margin-bottom: 20px; 
+        padding-bottom: 20px; 
+    }
+    form {
+        float: left;
+        padding-bottom: 30px;
+        input {
+            padding: 8px 10px;
+            font-size: 18px;
+            margin-bottom: 10px;
+            border: 1px solid #bdc7d8; 
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        h3 {
+            margin-top: 10px;
+            margin-bottom: 5px;
+            font-size: 18px;
+            font-weight: normal;
+        }
+        select {
+            padding: 8px;
+            margin-right: 5px;
+            border: 1px solid #bdc7d8; 
+            border-radius: 5px;
+        }
+        .chk_gender {
+            padding: 10px 0;
+            label {
+                font-size: 18px;
+                padding: 0 10px 0 3px;
+            }
+        }
+        .p2 {
+            font-size: 11px; 
+            padding-bottom: 25px;
+            a {
+                color: #365899;
+            }
+        }
+        .btn_signUp {
+            width: 200px;
+            cursor: pointer;
+            font-size: 19px;
+            font-weight: bold;
+            color: #fff;
+            background: linear-gradient(#79bc64, #578843); 
+            padding: 7px 20px; 
+            border: 1px solid; 
+            border-radius: 5px;
+        }
+        .signUp_right {
+            float: right;
+        }
+    }
+    .signUp_fname {
+        float: left;
+        width: 45%; 
+        box-sizing: border-box;
+        margin-right: 2%;
+    }
+    .signUp_lname {
+        float: right;
+        width: 45%;
+        box-sizing: border-box;
+        margin-left: 2%;
+    }
+    .signUp_email {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+    .signUp_pw {
+        width: 100%;
+    }
+}
+
+/* footer */
+.footer {
+    ul {
+        overflow: hidden;
+        padding-top: 50px;
+        li {
+            float: left;
+            padding-right: 20px;
+            color: #365899;
+            a{
+                cursor: pointer;
+            }
+        }
+    }
+    address {
+        display: block;
+        padding-top: 30px;
+    }
+}
