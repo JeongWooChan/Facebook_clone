@@ -1,5 +1,6 @@
 extends layouts/main.pug 
 
+
 block content
     header#header 
         .container 
@@ -36,11 +37,16 @@ block content
                                 h3 생일
                                 select(id="select_year", name="select_year", aria-placeholder="연도", title="연도") 
                                     option(value="0") 연도 
-                                    option(value="2019") 2019 
+                                    -for(let i = new Date().getFullYear(); i > new Date().getFullYear()-100; i--) 
+                                        option(value=i) #{i}
                                 select(id="select_month", name="select_month", aria-placeholder="월", title="월") 
-                                    option(value="0") 월 
+                                    option(vlaue=0) 월
+                                    -for(let i = 1; i < 13; i++)
+                                        option(value=i) #{i}
                                 select(id="select_day", name="select_day", aria-placeholder="일", title="일") 
-                                    option(value="0") 일 
+                                    option(value="0") 일
+                                    -for(let i = 1; i < 32; i++) 
+                                        option(value=i) #{i} 
                                 .chk_gender 
                                     input(type="radio", name="chk_gender", id="chk_boy", value="남성")
                                     label(for="chk_boy") 남성
