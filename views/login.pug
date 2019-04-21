@@ -29,7 +29,7 @@ block content
                         .signUp_left 
                             h2 새 계정 만들기 
                             p(class="p1") 항상 지금처럼 무료로 즐기실 수 있습니다. 
-                            form 
+                            form(action="#", id="signUp_form", method="post")
                                 input(type="text", placeholder="성(姓)", id="signUp_fname", name="signUp_fname", class="signUp_fname") 
                                 input(type="text", placeholder="이름(성은 제외)", id="signUp_lname", name="signUp_lname", class="signUp_lname") 
                                 input(type="text", placeholder="이메일", id="signUp_email", name="signUp_email", class="signUp_email") 
