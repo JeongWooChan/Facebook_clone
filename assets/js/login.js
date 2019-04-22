@@ -3,7 +3,8 @@ const signUpPassword = document.getElementById("signUp_pw");
 const signUpYear = document.getElementById("select_year");
 const signUpMonth = document.getElementById("select_month"); 
 const signUpDay = document.getElementById("select_day"); 
-const signUpGender = document.getElementsByName("chk_gender"); 
+const signUpBoy = document.getElementById("chk_boy"); 
+const signUpGirl = document.getElementById("chk_girl"); 
 
 // 비밀번호 정규식 ( 영문, 숫자, 특수문자 조합, 8~16자리 ) 
 const chk_password = /^(?=.*[a-zA-Z])(?=.*[^a-zA-Z0-9])(?=.*[0-9]).{8,16}$/;
@@ -30,7 +31,7 @@ const handleValidate = (event) => {
     }
 
     // 성별 입력 검사 
-    if(signUpGender.value == null) {
+    if(signUpBoy.value == null && signUpGirl.value == null) {
         alert("성별을 입력해주세요."); 
         return false;
     }

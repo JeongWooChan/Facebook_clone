@@ -4,6 +4,7 @@ import bodyParser from "body-parser";
 import routes from "./routes"; 
 import globalRouter from "./routers/globalRouter"; 
 import { localMiddleware } from "./middleware";
+import connection from "./db"; 
 
 
 const app = express(); 
@@ -17,5 +18,17 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use(localMiddleware);
 app.use(routes.home, globalRouter); 
+
+const handleConnect = () => {
+    console.log("✅  Connected to DB");
+}
+
+connection.connect(err => {
+    if (err) {
+        console.log(err.stack); 
+    } else {
+        handleConnect();
+    }
+}); 
 
 export default app; 

@@ -11,15 +11,4 @@ const connection = mysql.createConnection({
     database: process.env.DB_DATABASE
 }); 
 
-const handleConnect = () => {
-    console.log("✅  Connected to DB");
-}
-
-connection.connect(err => {
-    if (err) {
-        console.log(err.stack); 
-    } else {
-        handleConnect();
-    }
-}); 
-
+module.exports = connection;
