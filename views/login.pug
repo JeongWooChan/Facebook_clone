@@ -7,7 +7,7 @@ block content
             .row    
                 .header
                     h1
-                        a(href="#") facebook
+                        a(href=routes.home) facebook
                     .menu_login
                         form(action="#", method="post", id="login_form") 
                             .form_left
@@ -29,11 +29,11 @@ block content
                         .signUp_left 
                             h2 새 계정 만들기 
                             p(class="p1") 항상 지금처럼 무료로 즐기실 수 있습니다. 
-                            form(action="#", id="signUp_form", method="post")
-                                input(type="text", placeholder="성(姓)", id="signUp_fname", name="signUp_fname", class="signUp_fname") 
-                                input(type="text", placeholder="이름(성은 제외)", id="signUp_lname", name="signUp_lname", class="signUp_lname") 
-                                input(type="text", placeholder="이메일", id="signUp_email", name="signUp_email", class="signUp_email") 
-                                input(type="password", placeholder="새 비밀번호", id="signUp_pw", name="signUp_pw", class="signUp_pw") 
+                            form(action=routes.join, id="signUp_form", method="post")
+                                input(type="text", placeholder="성(姓)", id="signUp_fname", name="signUp_fname", class="signUp_fname", required) 
+                                input(type="text", placeholder="이름(성은 제외)", id="signUp_lname", name="signUp_lname", class="signUp_lname", required) 
+                                input(type="email", placeholder="이메일", id="signUp_email", name="signUp_email", class="signUp_email", required) 
+                                input(type="password", placeholder="새 비밀번호", id="signUp_pw", name="signUp_pw", class="signUp_pw", required) 
                                 h3 생일
                                 select(id="select_year", name="select_year", aria-placeholder="연도", title="연도") 
                                     option(value="0") 연도 

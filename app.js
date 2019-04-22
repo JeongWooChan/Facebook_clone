@@ -3,6 +3,8 @@ import helmet from "helmet";
 import bodyParser from "body-parser"; 
 import routes from "./routes"; 
 import globalRouter from "./routers/globalRouter"; 
+import { localMiddleware } from "./middleware";
+
 
 const app = express(); 
 
@@ -13,6 +15,7 @@ app.use("/static", express.static("static"));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
+app.use(localMiddleware);
 app.use(routes.home, globalRouter); 
 
 export default app; 
