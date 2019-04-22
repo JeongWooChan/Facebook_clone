@@ -23,7 +23,6 @@ export const join = (req, res, next) => {
 
     let $username = signUp_fname + signUp_lname; 
     let $email = signUp_email; 
-    let $password = signUp_pw;
     let $birthday = select_year + "-" + select_month + "-" + select_day; 
     let $gender = chk_gender;
     
@@ -47,9 +46,32 @@ export const join = (req, res, next) => {
                     console.log("❌  Error :" + err); 
                 } else {
                     req.session.username = $username;
-                    res.send("success"); 
+                    next();
                 }
             })
-        })
+        });
     }
 }
+
+export const postLogin = (req, res) => {
+    const {
+        body : {login_email, login_pw}
+    } = req; 
+
+    let $sql = "SELECT * FROM users WHERE email=?"; 
+    connection.query($sql, [login_email], function(err, rows, results) {
+        if(err) {
+            console.log(err); 
+        }
+        let user_salt = rows[0].salt; 
+        // login form으로 부터 넘어온 비밀번호를 db에 저장된 salt값을 통해 다시 암호화 후 비교 
+        return hasher({ password: login_pw, salt:user_salt}, (err, pass, salt, hash) => {
+            if(hash === rows[0].password) {
+                res.send('ok');
+            } else {
+                res.redirect(routes.home);
+            }
+        })
+    });
+}
+

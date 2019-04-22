@@ -9,7 +9,7 @@ block content
                     h1
                         a(href=routes.home) facebook
                     .menu_login
-                        form(action="#", method="post", id="login_form") 
+                        form(action=routes.login, method="post", id="login_form") 
                             .form_left
                                 h3 이메일
                                 input(type="text", id="login_email", name="login_email", class="login_email", placeholder="이메일")
