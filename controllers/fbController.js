@@ -46,6 +46,7 @@ export const join = (req, res, next) => {
                 if(err) {
                     console.log("❌  Error :" + err); 
                 } else {
+                    req.session.username = $username;
                     res.send("success"); 
                 }
             })
