@@ -249,6 +249,12 @@
                 display: none;
             }
         }
+        #login_email_validate {
+            display: none;
+            font-size: 15px;
+            padding-bottom: 7px;
+            padding-left: 10px;
+        }
     }
     .signUp_fname {
         float: left;

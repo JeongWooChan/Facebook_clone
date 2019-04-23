@@ -2,15 +2,20 @@ import routes from "../routes";
 import pbkdf2 from "pbkdf2-password"; 
 import connection from "../db";
 
-const hasher = pbkdf2(); 
-
 export const home = (req, res) => {
     res.render("login", { pageTitle: "Facebook - 로그인 또는 가입" }); 
 }
 
-export const join = (req, res, next) => {
+// 회원가입 controller
+export const getJoin = (req, res) => {
+    // 회원가입 화면은 home에 있기때문에 url을 통해 join으로 들어오면 home으로 되돌려 보낸다. 
+    res.redirect(routes.home);
+}
+
+export const postJoin = (req, res, next) => {
+    // 회원가입 form으로 부터 받아온 request 정보 
     const {
-        body: {
+        body: { 
             signUp_fname, 
             signUp_lname, 
             signUp_email, 
@@ -18,60 +23,40 @@ export const join = (req, res, next) => {
             select_year, 
             select_month, 
             select_day, 
-            chk_gender}
+            chk_gender }
     } = req; 
 
-    let $username = signUp_fname + signUp_lname; 
+    // db에 insert할 변수와 값을 지정해줌 
+    let $username = signUp_fname + signUp_lname; //성과 이름을 한번에 넣어줌 
     let $email = signUp_email; 
     let $birthday = select_year + "-" + select_month + "-" + select_day; 
-    let $gender = chk_gender;
-    
+    let $gender = chk_gender; 
+
+    // 혹시나 비어 있는 값이 있는 상태에서 postJoin으로 들어오면 다시 home으로 돌려보냄 
+    // 이러한 유효성 검사는 프런트에서 처리하기 때문에 사실상 필요는 없음 
     if(signUp_fname == "" || signUp_lname == "" || signUp_email == "" || signUp_pw == "" || select_year =="" || select_month =="" || select_day == "" || chk_gender == "") {
         res.redirect(routes.home);
     } else {
-        hasher( {password: signUp_pw }, function (err, pass, salt, hash) {
-            let $sql = "INSERT INTO users SET ?";
-            // password에는 암호화가 된 hash 값을 넣고, 키 역할을 해주는 salt를 같이 insert 해준다.  
+        const hasher = pbkdf2(); 
+        // pbkdf2의 hasher 함수를 통해 비밀번호를 암호화 한다. 
+        hasher( { password: signUp_pw }, function (err, pass, salt, hash) {
+            let $sql = "INSERT INTO users SET ?"; 
             let $set = {
                 username: $username, 
-                password: hash, 
-                email: $email,
+                password: hash, // 비밀번호에는 hasher함수의 salt값을 통해 암호화 된 값인 hash 값을 넣어준다. 
+                email: $email, 
                 birthday: $birthday, 
-                gender: $gender,
-                salt: salt
+                gender: $gender, 
+                salt: salt // 로그인을 할 때 hash값 비교를 위해서 키 역할을 하는 salt값이 있어야 한다. 
             }
-            // 회원가입 정보 insert 
             let $query = connection.query($sql, $set, (err, result) => {
                 if(err) {
-                    console.log("❌  Error :" + err); 
+                    console.log("❌  ERROR : " + err); 
                 } else {
-                    req.session.username = $username;
-                    next();
+                    res.send("signUp Success"); 
                 }
-            })
+            });
         });
     }
-}
-
-export const postLogin = (req, res) => {
-    const {
-        body : {login_email, login_pw}
-    } = req; 
-
-    let $sql = "SELECT * FROM users WHERE email=?"; 
-    connection.query($sql, [login_email], function(err, rows, results) {
-        if(err) {
-            console.log(err); 
-        }
-        let user_salt = rows[0].salt; 
-        // login form으로 부터 넘어온 비밀번호를 db에 저장된 salt값을 통해 다시 암호화 후 비교 
-        return hasher({ password: login_pw, salt:user_salt}, (err, pass, salt, hash) => {
-            if(hash === rows[0].password) {
-                res.send('ok');
-            } else {
-                res.redirect(routes.home);
-            }
-        })
-    });
 }
 

@@ -5,12 +5,18 @@ const LOGIN = "/login";
 const LOGOUT = "/logout"; 
 const MAIN = "/main"; 
 
+// API 
+const API = "/api"; 
+const EMAIL_CHECK = "/email_check";
+
 const routes = {
     home : HOME,
     join : JOIN, 
     login : LOGIN,
     logout : LOGOUT,
-    main : MAIN
+    main : MAIN, 
+    api: API, 
+    email_check: EMAIL_CHECK
 }
 
 export default routes;

@@ -2,14 +2,13 @@ import express from "express";
 import bodyParser from "body-parser"; 
 import dotenv from "dotenv";
 import helmet from "helmet";
-import session from "express-session"; 
 import routes from "./routes"; 
-import globalRouter from "./routers/globalRouter"; 
 import { localMiddleware } from "./middleware";
 import connection from "./db"; 
+import globalRouter from "./routers/globalRouter"; 
+import apiRouter from "./routers/apiRouter";
 
 const app = express(); 
-const MySQLStore = require("express-mysql-session")(session); 
 dotenv.config();
 
 app.set("view engine", "pug"); 
@@ -19,15 +18,9 @@ app.use("/static", express.static("static"));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-app.use(session({
-    secret: process.env.SECRET, 
-    resave: false, 
-    saveUninitialized: true, 
-    store: new MySQLStore({}, connection)
-}));
-
 app.use(localMiddleware);
 app.use(routes.home, globalRouter); 
+app.use(routes.api, apiRouter);
 
 const handleConnect = () => {
     console.log("✅  Connected to DB");
