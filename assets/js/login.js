@@ -40,7 +40,7 @@ const handleSubmit = () => {
     signUpForm.submit();
 }
 
-const handleValidate = async (event) => {
+const handleValidate = (event) => {
     event.preventDefault();
 
     // 비밀번호 정규식 검사 

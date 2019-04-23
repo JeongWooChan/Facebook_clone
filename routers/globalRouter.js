@@ -8,7 +8,7 @@ globalRouter.get(routes.home, home);
 
 //join 
 globalRouter.get(routes.join, getJoin);
-globalRouter.post(routes.join, postJoin);
+globalRouter.post(routes.join, postJoin, postLogin);
 
 //Login 
 globalRouter.get(routes.login, getLogin); 

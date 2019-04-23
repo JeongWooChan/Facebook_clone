@@ -11,6 +11,7 @@ import connection from "./db";
 import globalRouter from "./routers/globalRouter"; 
 import apiRouter from "./routers/apiRouter";
 import "./passport";
+import feedRouter from "./routers/feedRouter";
 
 const app = express(); 
 dotenv.config();
@@ -35,6 +36,7 @@ app.use(passport.session());
 
 app.use(localMiddleware);
 app.use(routes.home, globalRouter); 
+app.use(routes.main, feedRouter); 
 app.use(routes.api, apiRouter);
 
 const handleConnect = () => {

@@ -3,6 +3,8 @@ const HOME = "/";
 const JOIN = "/join"; 
 const LOGIN = "/login"; 
 const LOGOUT = "/logout"; 
+
+// Feed 
 const MAIN = "/main"; 
 
 // API 
