@@ -1,17 +1,19 @@
 import routes from "../routes"; 
 import pbkdf2 from "pbkdf2-password"; 
+import passport from "passport"; 
 import connection from "../db";
 
 export const home = (req, res) => {
     res.render("login", { pageTitle: "Facebook - 로그인 또는 가입" }); 
+    console.log(req.user);
 }
+
 
 // 회원가입 controller
 export const getJoin = (req, res) => {
     // 회원가입 화면은 home에 있기때문에 url을 통해 join으로 들어오면 home으로 되돌려 보낸다. 
     res.redirect(routes.home);
 }
-
 export const postJoin = (req, res, next) => {
     // 회원가입 form으로 부터 받아온 request 정보 
     const {
@@ -43,7 +45,7 @@ export const postJoin = (req, res, next) => {
             let $sql = "INSERT INTO users SET ?"; 
             let $set = {
                 username: $username, 
-                password: hash, // 비밀번호에는 hasher함수의 salt값을 통해 암호화 된 값인 hash 값을 넣어준다. 
+                password: signUp_pw, // 비밀번호에는 hasher함수의 salt값을 통해 암호화 된 값인 hash 값을 넣어준다. 
                 email: $email, 
                 birthday: $birthday, 
                 gender: $gender, 
@@ -60,3 +62,12 @@ export const postJoin = (req, res, next) => {
     }
 }
 
+
+// 로그인 Controller 
+export const getLogin = (req, res) => {
+
+}
+export const postLogin = passport.authenticate("local", {
+    successRedirect: routes.main, 
+    failureRedirect: routes.home
+})
