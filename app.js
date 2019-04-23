@@ -13,7 +13,8 @@ import apiRouter from "./routers/apiRouter";
 import "./passport";
 import feedRouter from "./routers/feedRouter";
 
-const app = express(); 
+const app = express();
+const MySQLStore = require("express-mysql-session")(session);  
 dotenv.config();
 
 // 템플릿 엔진을 pug로 설정 
@@ -28,7 +29,8 @@ app.use (
     session({
         secret: process.env.COOKIE_SECRET, 
         resave: false, 
-        saveUninitialized: false
+        saveUninitialized: false,
+        store: new MySQLStore({}, connection) 
     })
 );
 app.use(passport.initialize()); 
