@@ -1,0 +1,143 @@
+/* layout */
+#join_header {
+    background-color: #385898; height: 82px;
+}
+
+#join_signUp {
+    background-color: #e9ebee;
+} 
+
+/* container */
+.join_container {
+    width: 1000px; 
+    height: inherit;
+    margin: 0 auto;
+    text-align: center;
+}
+
+/* header */
+.join_header {
+    h1 {
+        font-size: 40px;
+        font-weight: bold;
+        padding-top: 10px;
+        a {
+            color: #fff;
+        }
+    }
+}
+
+/* signUp */
+.join_signUp {
+    padding: 60px 0;
+    #join_signUp_Field1 {
+        width: 40%;
+        margin: 0 auto;
+        h3 {
+            font-size: 15px;
+            font-weight: 700;
+            margin-bottom: 3px;
+            overflow: hidden;
+            label {
+                float: left;
+            }
+        }
+        input {
+            width: 100%;
+            font-size: 18px;
+            padding: 8px 10px;
+            border: 1px solid #bdc7d8; 
+            margin-bottom: 20px;
+            box-sizing: border-box;
+        }
+    }
+    #join_signUp_Field2 {
+        width: 40%;
+        margin: 0 auto;
+        h3 {
+            font-size: 15px;
+            font-weight: 700;
+            margin-bottom: 3px;
+            overflow: hidden;
+            label {
+                float: left;
+            }
+        }
+        select {
+            width: 31.33%;
+            margin-right: 3%;
+            padding: 8px 10px;
+            font-size: 18px;
+            margin-bottom: 20px;
+            border: 1px solid #bdc7d8; 
+        }
+        #join_select_day {
+            margin-right: 0;
+        }
+    }
+    #join_signUp_Field3 {
+        width: 40%;
+        margin: 0 auto; 
+        h3 {
+            font-size: 15px;
+            font-weight: 700;
+            margin-bottom: 3px;
+            overflow: hidden;
+            label {
+                float: left;
+            }
+        }
+        #join_signUp_checkField {
+            overflow: hidden; 
+            margin-bottom: 40px;
+            #join_gender_boy {
+                margin-top: 8px;
+                margin-right: 5px;
+                float: left;  
+            }
+            #join_gender_girl {
+                float: left;
+                margin-top: 8px;
+                margin-right: 5px;
+                margin-left: 100px;
+            }
+            label {
+                float: left;
+                font-size: 18px;
+            }
+        }
+    }
+    #join_signUp_Field4 {
+        width: 40%; 
+        margin: 0 auto;
+        p {
+            text-align: start;
+            br {
+                display: none;
+            }
+            a {
+                color: #365899;
+            }
+        }
+        button {
+            width: 100%;
+            margin-top: 40px;
+            cursor: pointer;
+            font-size: 19px;
+            color: #fff;
+            background: linear-gradient(#79bc64, #578843); 
+            font-weight: bold;
+            padding: 7px 20px; 
+            border: 1px solid; 
+            border-radius: 5px;
+        }
+    }
+}
+
+/* footer */
+.join_footer {
+    address {
+        padding-top: 30px;
+    }
+}
+

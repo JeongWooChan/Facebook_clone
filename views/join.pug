@@ -13,36 +13,45 @@ block content
                 .join_row
                     .join_signUp 
                         form(action=routes.join, id="join_signUp_form", method="post")
-                            div#join_signUp_fnameField
+                            div#join_signUp_Field1
                                 h3#join_signUp_fnameText 
                                     label(for="join_signUp_fname") 성
                                 input(type="text", id="join_signUp_fname", name="signUp_fname", required) 
-                            h3#join_signUp_lnameText 이름(성은 제외) 
-                            input(type="text", id="join_signUp_lname", name="signUp_lname", required) 
-                            h3#join_signUp_emailText 이메일
-                            input(type="email", id="join_signUp_email", name="login_email", required) 
-                            h3#join_singUp_passwordText 비밀번호 
-                            input(type="password", id="join_signUp_password", name="login_pw", required) 
-                            h3#join_signUp_birthdayText 생일 
-                            select(id="join_select_year", name="select_year", required) 
-                                option(value="0") 연도 
-                                -for(let i = new Date().getFullYear(); i > new Date().getFullYear()-100; i--) 
-                                    option(value=i) #{i}
-                            select(id="join_select_month", name="select_month", required) 
-                                option(value="0") 월 
-                                -for(let i = 1; i < 13; i++)
-                                    option(value=i) #{i}
-                            select(id="join_select_day", name="select_day", required) 
-                                option(value="0") 일 
-                                -for(let i = 1; i < 32; i++) 
-                                    option(value=i) #{i}
-                            h3#join_signUp_gender 성별 
-                            input(type="radio", name="chk_gender", id="join_gender_boy", value="남성") 
-                            label(for="join_gender_boy") 남성 
-                            input(type="radio", name="chk_gender", id="join_gender_girl", value="여성") 
-                            label(for="join_gender_gir") 여성 
-                            p.p2 가입하기 버튼을 클릭하면 Facebook의 <a href="#">약관</a>, <a href="#">데이터 정책</a> 및 <a href="#">쿠키 정책</a>에 동의하게 됩니다. <br> Facebook으로부터 SMS 알림을 받을 수 있으며 알림은 언제든지 옵트 아웃 할 수 있습니다.
-                            button(type="submit", id="join_signUp_submit", name="btn_signUp") 가입하기 
+                                h3#join_signUp_lnameText
+                                    label(for="join_signUp_lname") 이름(성은 제외) 
+                                input(type="text", id="join_signUp_lname", name="signUp_lname", required)  
+                                h3#join_signUp_emailText
+                                    label(for="join_signUp_email") 이메일
+                                input(type="email", id="join_signUp_email", name="login_email", required) 
+                                h3#join_singUp_passwordText
+                                    label(for="join_signUp_password") 비밀번호 
+                                input(type="password", id="join_signUp_password", name="login_pw", required) 
+                            div#join_signUp_Field2
+                                h3#join_signUp_birthdayText
+                                    label(for="join_select_year") 생일 
+                                select(id="join_select_year", name="select_year", required) 
+                                    option(value="0") 연도 
+                                    -for(let i = new Date().getFullYear(); i > new Date().getFullYear()-100; i--) 
+                                        option(value=i) #{i}
+                                select(id="join_select_month", name="select_month", required) 
+                                    option(value="0") 월 
+                                    -for(let i = 1; i < 13; i++)
+                                        option(value=i) #{i}
+                                select(id="join_select_day", name="select_day", required) 
+                                    option(value="0") 일 
+                                    -for(let i = 1; i < 32; i++) 
+                                        option(value=i) #{i}
+                            div#join_signUp_Field3
+                                h3#join_signUp_gender 
+                                    label(for="join_gender_boy") 성별 
+                                div#join_signUp_checkField
+                                    input(type="radio", name="chk_gender", id="join_gender_boy", value="남성") 
+                                    label(for="join_gender_boy") 남성 
+                                    input(type="radio", name="chk_gender", id="join_gender_girl", value="여성") 
+                                    label(for="join_gender_girl") 여성 
+                            div#join_signUp_Field4 
+                                p.p2 가입하기 버튼을 클릭하면 Facebook의 <a href="#">약관</a>, <a href="#">데이터 정책</a> 및 <a href="#">쿠키 정책</a>에 동의하게 됩니다. <br> Facebook으로부터 SMS 알림을 받을 수 있으며 알림은 언제든지 옵트 아웃 할 수 있습니다.
+                                button(type="submit", id="join_signUp_submit", name="btn_signUp") 가입하기 
     footer#join_footer
         .join_container 
             .join_row 
