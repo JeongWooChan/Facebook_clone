@@ -137,7 +137,49 @@
 /* footer */
 .join_footer {
     address {
-        padding-top: 30px;
+        padding-top: 2.5%;
     }
 }
 
+
+
+
+@media (max-width: 1024px) {
+    .join_container {
+        width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .join_signUp {
+        #join_signUp_Field1 {
+            width: 60%;
+        }
+        #join_signUp_Field2 {
+            width: 60%;
+        }
+        #join_signUp_Field3 {
+            width: 60%;
+        }
+        #join_signUp_Field4 {
+            width: 60%;
+        }
+    }
+}
+
+@media (max-width: 486px) {
+    .join_signUp {
+        #join_signUp_Field1 {
+            width: 80%;
+        }
+        #join_signUp_Field2 {
+            width: 80%;
+        }
+        #join_signUp_Field3 {
+            width: 80%;
+        }
+        #join_signUp_Field4 {
+            width: 80%;
+        }
+    }
+}
