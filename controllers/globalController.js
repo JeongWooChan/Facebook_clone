@@ -14,8 +14,11 @@ export const home = (req, res) => {
 
 // 회원가입 controller
 export const getJoin = (req, res) => {
-    // 회원가입 화면은 home에 있기때문에 url을 통해 join으로 들어오면 home으로 되돌려 보낸다. 
-    res.redirect(routes.home);
+   if(req.user) {
+       res.redirect(routes.main);
+   } else {
+       res.render("join", { pageTitle: "회원가입" });
+   }
 }
 export const postJoin = (req, res, next) => {
     // 회원가입 form으로 부터 받아온 request 정보 
@@ -34,6 +37,7 @@ export const postJoin = (req, res, next) => {
             select_day, 
             chk_gender }
     } = req; 
+    console.log(signUp_fname);
 
     // db에 insert할 변수와 값을 지정해줌 
     let $username = signUp_fname + signUp_lname; //성과 이름을 한번에 넣어줌 
