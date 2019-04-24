@@ -37,7 +37,6 @@ export const postJoin = (req, res, next) => {
             select_day, 
             chk_gender }
     } = req; 
-    console.log(signUp_fname);
 
     // db에 insert할 변수와 값을 지정해줌 
     let $username = signUp_fname + signUp_lname; //성과 이름을 한번에 넣어줌 
