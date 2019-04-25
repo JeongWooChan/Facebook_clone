@@ -1,4 +1,5 @@
 extends layouts/mainLayout.pug
+include mixins/feedBlock.pug
 
 block content 
     header#main_header 
@@ -29,3 +30,9 @@ block content
                                     i.fas.fa-bell 
                             .main_header_logoutMenu
                                 a(href=routes.logout) 로그아웃 
+    main
+        section#main_contents 
+            .main_container 
+                .main_row 
+                    +feedBlock({})
+                    section#main_content_adSection

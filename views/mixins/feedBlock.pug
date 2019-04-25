@@ -1,0 +1,31 @@
+mixin feedBlock(feed = {}) 
+    section#main_content_feedSection 
+        article#main_content_feed
+            .main_content_header 
+                img(src="https://png.pngtree.com/element_origin_min_pic/16/09/02/1157c8f00e7c7d4.jpg") 
+                .main_content_headerTop
+                    a(href="#", id="main_content_writer")=user.username
+                    .main_content_more 
+                        i.fas.fa-ellipsis-h
+                .main_content_headerBottom
+                    span.main_content_time 시간
+            .main_content_main 
+                .main_content_mainContent 피드 내용 
+                .main_content_mainImage 
+                    img(src="https://png.pngtree.com/element_origin_min_pic/16/09/02/1157c8f00e7c7d4.jpg") 
+            .main_content_footer 
+                .main_content_countSection
+                    .main_content_like 
+                        i.far.fa-thumbs-up
+                        span.main_content_likeCount 312
+                    .main_content_comment
+                        span.main_content_commentText 댓글 
+                        span.main_content_commentCount 11
+                        span.main_content_commentCountText 개
+                .main_content_buttonSection 
+                    button.main_content_likeButton 
+                        i.far.fa-thumbs-up 
+                        span#main_content_likeButtonText 좋아요 
+                    button.main_content_commentButton 
+                        i.far.fa-comment-alt
+                        span#main_content_commentButtonText 댓글
