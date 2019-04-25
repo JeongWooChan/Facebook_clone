@@ -34,5 +34,15 @@ block content
         section#main_contents 
             .main_container 
                 .main_row 
+                    section#main_content_newFeedSection
+                        .main_content_newFeedHeader 
+                            span#main_content_newFeedText 게시물 만들기 
+                        .main_content_newFeedMain 
+                            a(href="#", id="main_content_newFeedImg")
+                                img(src="http://blogfiles.naver.net/20151120_88/wkib321_1448006625608ARKs0_JPEG/201511201703505.jpg") 
+                            textarea#main_content_newFeedTextarea(name="main_content_newFeedTextarea", cols="30", rows="2", placeholder=user.username+"님, 무슨 생각을 하고 계신가요? ")
+                        .main_content_newFeedFooter 
+                            .main_content_borderSection
+                                input(type="file")
                     +feedBlock({})
                     section#main_content_adSection

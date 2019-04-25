@@ -105,6 +105,7 @@
     }
 }
 
+
 #main_contents  {
     padding-top: 52px;
     background-color: #e9ebee;
@@ -113,11 +114,55 @@
     overflow: hidden;
     .main_container {
         width: 1000px;
-        #main_content_adSection {
+        #main_content_newFeedSection {
             float: left;
-            width: 30%; 
-            height: 500px;
-            background-color: blue;
+            width: 65%;
+            margin: 0 20px;
+            border: 1px solid #e5e5e5;
+            border-radius: 5px;
+            margin-bottom: 15px;
+            background-color: #fff;
+            .main_content_newFeedHeader {
+                background-color: #f5f6f7;
+                padding: 8px 24px 8px 0;
+                border-radius: 5px 5px 0 0;
+                #main_content_newFeedText {
+                    padding: 4px 6px 4px 8px;
+                    color: #4b4f56;
+                    font-size: 12px;
+                    font-weight: 600;
+                }
+            }
+            .main_content_newFeedMain {
+                padding: 10px 10px 0 10px; 
+                a {
+                    img {
+                        position: relative;
+                        top: -7px;
+                        width: 40px;
+                        height: 40px;
+                        border-radius: 50%;
+                        margin-right: 7px;
+                    }
+                }
+                textarea {
+                    width: 90%;
+                    resize: none;
+                    font-size: 15px;
+                    padding: 5px 0 0 5px;
+                    border: 1px solid #e6e6e6;
+                }
+            }
+            .main_content_newFeedFooter {
+                padding: 5px;
+                .main_content_borderSection {
+                    border-top: 1px solid #e6e6e6;
+                    padding-top: 5px;
+                }
+            }
+        }
+        #main_content_adSection {
+
         }
     }
 }
