@@ -1,6 +1,6 @@
 import express from "express"; 
 import routes from "../routes"; 
-import { home, postJoin, getJoin, getLogin, postLogin } from "../controllers/globalController";
+import { home, postJoin, getJoin, getLogin, postLogin, logout } from "../controllers/globalController";
 
 const globalRouter = express.Router(); 
 
@@ -13,5 +13,8 @@ globalRouter.post(routes.join, postJoin, postLogin);
 //Login 
 globalRouter.get(routes.login, getLogin); 
 globalRouter.post(routes.login, postLogin);
+
+//Logout 
+globalRouter.get(routes.logout, logout); 
 
 export default globalRouter; 

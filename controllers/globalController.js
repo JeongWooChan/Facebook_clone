@@ -85,3 +85,11 @@ export const postLogin = passport.authenticate("local", {
     successRedirect: routes.main, 
     failureRedirect: routes.home
 })
+export const logout = (req, res) => {
+    if(req.user) {
+        req.logout(); 
+        res.redirect(routes.home); 
+    } else {
+        res.redirect(routes.home);
+    }
+}
