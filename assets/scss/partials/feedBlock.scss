@@ -22,7 +22,6 @@
             .main_content_headerTop {
                 overflow: hidden;
                 padding-top: 8px;
-                position: relative;
                 #main_content_writer {
                     float: left;
                     color: #365899;
@@ -34,9 +33,6 @@
                 }
                 .main_content_more {
                     float: right;
-                    position: absolute; 
-                    top: -1px;
-                    right: 0;
                     font-size: 18px;
                     cursor: pointer;
                 }
