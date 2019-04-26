@@ -9,9 +9,9 @@ import routes from "./routes";
 import { localMiddleware } from "./middleware";
 import connection from "./db"; 
 import globalRouter from "./routers/globalRouter"; 
+import feedRouter from "./routers/feedRouter";
 import apiRouter from "./routers/apiRouter";
 import "./passport";
-import feedRouter from "./routers/feedRouter";
 
 const app = express();
 const MySQLStore = require("express-mysql-session")(session);  

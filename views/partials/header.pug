@@ -1,0 +1,28 @@
+header#main_header 
+    .main_container 
+        .main_row 
+            .main_header 
+                .main_header_section1 
+                    .main_header_logo
+                        a(href=routes.main)
+                            i.fab.fa-facebook
+                    .main_header_search 
+                        form(action="#", method="get", id="main_header_searchForm")
+                            input(type="text", placeholder="검색", id="main_header_searchText", name="main_header_searchText")
+                            button(type="submit", id="main_header_searchSubmit")
+                                i.fas.fa-search
+                .main_header_section2 
+                    .main_header_profile
+                        a(href=routes.person(user.id)) 
+                            img(src="http://blogfiles.naver.net/20151120_88/wkib321_1448006625608ARKs0_JPEG/201511201703505.jpg") 
+                            span(id="main_header_profileName")=user.username
+                    .main_header_menu
+                        .main_header_iconMenu
+                            a(href=routes.main) 
+                                i.fas.fa-home
+                            a(href="#")
+                                i.fas.fa-user-friends
+                            a(href="#")
+                                i.fas.fa-bell 
+                        .main_header_logoutMenu
+                            a(href=routes.logout) 로그아웃 

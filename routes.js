@@ -6,6 +6,7 @@ const LOGOUT = "/logout";
 
 // Feed 
 const MAIN = "/main"; 
+const PERSON = "/:id"; 
 
 // API 
 const API = "/api"; 
@@ -18,7 +19,14 @@ const routes = {
     logout : LOGOUT,
     main : MAIN, 
     api: API, 
-    email_check: EMAIL_CHECK
+    email_check: EMAIL_CHECK, 
+    person: (id) => {
+        if(id) {
+            return `/main/${id}`;
+        } else {
+            return PERSON;
+        }
+    }
 }
 
 export default routes;

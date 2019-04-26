@@ -11,3 +11,8 @@ export const getMain = (req, res) => {
 export const postMain = (req, res) => {
 
 }
+
+// 개인 피드 페이지 
+export const getPerson = (req, res) => {
+    res.render("person", { pageTitle: req.user.username })
+}
