@@ -2,6 +2,8 @@ extends layouts/mainLayout.pug
 include mixins/feedBlock.pug
 
 block content 
+    if(user)
+        include partials/header
     main
         section#main_contents 
             .main_container 

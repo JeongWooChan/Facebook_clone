@@ -1,13 +1,32 @@
+/* layout */
+#header_header {
+    position: fixed; 
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 42px;
+    z-index: 1000;
+    background-color: #4267b2;
+}
+
+/* container */
+.header_container {
+    width: 1000px;
+    height: inherit;
+    margin: 0 auto;
+    // background-color: rgba(0,0,0,0.3);
+}
+
 /* header */
-.main_header {
+.header_header {
     width: 100%;
     overflow: hidden;
-    .main_header_section1 {
+    .header_section1 {
         float: left;
         width: 65%;
         padding-top: 6px;
         overflow: hidden;
-        .main_header_logo {
+        .header_logo {
             float: left;
             i {
                 color: #fff;
@@ -15,7 +34,7 @@
                 font-size: 30px;
             }
         }
-        .main_header_search {
+        .header_search {
             input {
                 margin-top: 1.5px;
                 padding: 3px 5px 2px 5px;
@@ -37,11 +56,11 @@
             }
         }
     }
-    .main_header_section2 {
+    .header_section2 {
         float: left;
         overflow: hidden;
         width: 35%;
-        .main_header_profile {
+        .header_profile {
             float: left;
             height: 42px;
             overflow: hidden;
@@ -61,10 +80,10 @@
                 padding: 10px 0;
             }
         }
-        .main_header_menu {
+        .header_menu {
             float: right;
             overflow: hidden;
-            .main_header_iconMenu {
+            .header_iconMenu {
                 float: left;
                 margin-right: 40px;
                 padding: 8px 0;
@@ -73,7 +92,7 @@
                     margin-left: 20px;
                 }
             }      
-            .main_header_logoutMenu {
+            .header_logoutMenu {
                 float: right;
                 padding: 10px 0;
                 a{
