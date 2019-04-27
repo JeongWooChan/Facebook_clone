@@ -1,4 +1,4 @@
-section#person_infoSection
+section#person_coverSection
     .person_cover_coverImg
         img#person_cover_coverImg(src="http://blogfiles.naver.net/20151120_88/wkib321_1448006625608ARKs0_JPEG/201511201703505.jpg")
     .person_cover_coverProfile
@@ -8,7 +8,7 @@ section#person_infoSection
     nav#person_nav  
         ul
             li 
-                a(href="#") 타임라인 
+                a(href=routes.person(user.id)) 타임라인 
             li 
                 a(href=routes.personInfo(user.id)) 정보
             li 

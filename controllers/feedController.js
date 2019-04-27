@@ -18,6 +18,6 @@ export const getPerson = (req, res) => {
 }
 
 // 개인 정보 페이지 
-export const getPersonInfo = (Req, res) => {
-    res.send("111"); 
+export const getPersonInfo = (req, res) => {
+    res.render("personInfo",{ pageTitle: req.user.username })
 }

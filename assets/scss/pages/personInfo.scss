@@ -1,0 +1,316 @@
+#personInfo_contents {
+    padding: 41px 0;
+    width: 100%; 
+    height: 100%;
+    background-color: #e9ebee;
+}
+
+.personInfo_container {
+    width: 1000px;
+    height: inherit;
+    margin: 0 auto;
+}
+
+.personInfo_contents {
+    margin: 0 20px;
+    #person_infoSection {
+        margin-top: 30px;
+        border: 1px solid #d3d6db;
+        .person_infoSection_infoText {
+            background-color: #f5f6f7;
+            padding: 20px;
+            border-bottom: 1px solid #d3d6db;
+            i {
+                font-size: 24px; 
+                margin-right: 15px;
+            }
+            span {
+                color: #484f56; 
+                font-size: 20px;
+                font-weight: bold;
+            }
+        }
+        .person_infoSection_infoWrap {
+            overflow: hidden;
+            .person_infoWrap_menu {
+                float: left;
+                width: 30%;
+                background-color: #fff;
+                border-right: 1px solid #d3d6db;
+                box-sizing: border-box;
+                min-height: 450px;
+                div {
+                    padding: 10px 20px;
+                    color: #90949c; 
+                    font-size: 16px;
+                    cursor: pointer;
+                    &:hover {
+                        color: #000000;
+                    }
+                }
+                #person_infoWrap_menu1 {
+                    padding-top: 20px;
+                }
+            }
+            .person_infoWrap_content {
+                float: left;
+                width: 70%;
+                min-height: 450px;
+                overflow: hidden;
+                background-color: #fff;
+                #person_content_menu1 {
+                    display: none;
+                    .person_menu1_left {
+                        float: left;
+                        width: 65%;
+                        padding: 30px;
+                        box-sizing: border-box;
+                        .person_menu1_workspace {
+                            overflow: hidden;
+                            padding: 20px 0 35px 0;
+                            cursor: pointer;
+                            color: #3578e5;
+                            border-bottom: 1px solid #d3d6db;
+                            i {
+                                float: left;
+                                font-size: 35px;
+                                margin-right: 17px;
+                            }
+                            span {
+                                float: left;
+                                font-size: 18px;
+                                line-height: 35px;
+                            }
+                        }
+                        .person_menu1_school {
+                            overflow: hidden;
+                            padding: 20px 0 35px 0;
+                            cursor: pointer;
+                            color: #3578e5;
+                            border-bottom: 1px solid #d3d6db;
+                            i {
+                                float: left;
+                                font-size: 35px;
+                                margin-right: 17px;
+                            }
+                            span {
+                                float: left;
+                                font-size: 18px;
+                                line-height: 35px;
+                            }
+                        }
+                        .person_menu1_live {
+                            overflow: hidden;
+                            padding: 20px 0 35px 0;
+                            cursor: pointer;
+                            color: #3578e5;
+                            i {
+                                float: left;
+                                font-size: 35px;
+                                margin-right: 17px;
+                            }
+                            span {
+                                float: left;
+                                font-size: 18px;
+                                line-height: 35px;
+                            }
+                        }
+                    }
+                    .person_menu1_right {
+                        float: left;
+                        width: 35%;
+                        padding: 50px 30px 30px 30px;
+                        box-sizing: border-box;
+                        .person_menu1_phone {
+                            overflow: hidden;
+                            padding-bottom: 25px;
+                            i {
+                                float: left;
+                                font-size: 18px;
+                                margin-right: 14px;
+                            }
+                            span {
+                                float: left; 
+                                font-size: 15px;
+                                line-height: 18px;
+                            }
+                        }
+                        .person_menu1_birthday {
+                            overflow: hidden; 
+                            i {
+                                float: left;
+                                font-size: 18px;
+                                margin-right: 10px;
+                            }
+                            span {
+                                float: left;
+                                font-size: 15px;
+                                line-height: 18px;
+                            }
+                        }
+                    }
+                }
+                #person_content_menu2 {
+                    display: none;
+                    padding: 30px;
+                    .person_menu2_workspace {
+                        padding: 0 0 30px;
+                        .person_menu2_workspaceText {
+                            color: #90949c; 
+                            font-size: 14px;
+                            font-weight: bold;
+                            border-bottom: 1px solid #d3d6db;
+                            padding-bottom: 7px;
+                        }
+                        .person_menu2_workspaceAdd {
+                            padding: 12px 0 0;
+                            overflow: hidden;
+                            color: #3578e5;
+                            cursor: pointer;
+                            i {
+                                float: left;
+                                font-size: 35px;
+                                margin-right: 15px;
+                            }
+                            span {
+                                float: left;
+                                font-size: 16px;
+                                line-height: 35px;
+                            }
+                        }
+                    }
+                    .person_menu2_university {
+                        padding: 0 0 30px;
+                        .person_menu2_universityText {
+                            color: #90949c; 
+                            font-size: 14px;
+                            font-weight: bold;
+                            border-bottom: 1px solid #d3d6db;
+                            padding-bottom: 7px;
+                        }
+                        .person_menu2_universityAdd {
+                            padding: 12px 0 0;
+                            overflow: hidden;
+                            color: #3578e5;
+                            cursor: pointer;
+                            i {
+                                float: left;
+                                font-size: 35px;
+                                margin-right: 15px;
+                            }
+                            span {
+                                float: left;
+                                font-size: 16px;
+                                line-height: 35px;
+                            }
+                        }
+                    }
+                    .person_menu2_highschool {
+                        padding: 0 0 30px;
+                        .person_menu2_highschoolText {
+                            color: #90949c; 
+                            font-size: 14px;
+                            font-weight: bold;
+                            border-bottom: 1px solid #d3d6db;
+                            padding-bottom: 7px;
+                        }
+                        .person_menu2_highschoolAdd {
+                            padding: 12px 0 0;
+                            overflow: hidden;
+                            color: #3578e5;
+                            cursor: pointer;
+                            i {
+                                float: left;
+                                font-size: 35px;
+                                margin-right: 15px;
+                            }
+                            span {
+                                float: left;
+                                font-size: 16px;
+                                line-height: 35px;
+                            }
+                        }
+                    }
+                }
+                #person_content_menu3 {
+                    padding: 30px;
+                    display: none;
+                    .person_menu3_residence {
+                        padding: 0 0 30px;
+                        .person_menu3_residenceText {
+                            color: #90949c; 
+                            font-size: 14px;
+                            font-weight: bold;
+                            border-bottom: 1px solid #d3d6db;
+                            padding-bottom: 7px;
+                        }
+                        .person_menu3_residenceAdd {
+                            padding: 12px 0 12px 0;
+                            overflow: hidden;
+                            color: #3578e5;
+                            border-bottom: 1px solid #dfe2e7;
+                            cursor: pointer;
+                            i {
+                                float: left;
+                                font-size: 35px;
+                                margin-right: 15px;
+                            }
+                            span {
+                                float: left;
+                                font-size: 16px;
+                                line-height: 35px;
+                            }  
+                        }
+                        .person_menu3_hometownAdd {
+                            padding: 12px 0 12px 0;
+                            overflow: hidden;
+                            color: #3578e5;
+                            cursor: pointer;
+                            i {
+                                float: left;
+                                font-size: 35px;
+                                margin-right: 15px;
+                            }
+                            span {
+                                float: left;
+                                font-size: 16px;
+                                line-height: 35px;
+                            }  
+                        }
+                    }
+                    .person_menu3_liveEtc {
+                        .person_menu3_liveEtcText {
+                            color: #90949c; 
+                            font-size: 14px;
+                            font-weight: bold;
+                            border-bottom: 1px solid #d3d6db;
+                            padding-bottom: 7px;
+                        }
+                        .person_menu3_liveEtcAdd {
+                            padding: 12px 0 12px 0;
+                            overflow: hidden;
+                            color: #3578e5;
+                            cursor: pointer;
+                            i {
+                                float: left;
+                                font-size: 35px;
+                                margin-right: 15px;
+                            }
+                            span {
+                                float: left;
+                                font-size: 16px;
+                                line-height: 35px;
+                            }  
+                        }
+                    }
+                }
+                #person_content_menu4 {
+
+                }
+                #person_content_editInfo {
+
+                }
+            }
+        }
+    }
+}
