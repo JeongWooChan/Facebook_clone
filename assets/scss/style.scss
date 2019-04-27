@@ -2,7 +2,9 @@
 
 @import "./partials/header.scss";
 @import "./partials/feedWriteBlock.scss";
-@import "./partials/feedBlock.scss";
+@import "./partials/person_infoSection.scss";
+
+@import "./mixins/feedBlock.scss";
 
 @import "./pages/login.scss"; 
 @import "./pages/join.scss";

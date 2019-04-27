@@ -1,5 +1,4 @@
 extends layouts/mainLayout.pug
-include mixins/feedWriteBlock.pug
 include mixins/feedBlock.pug
 
 block content 
@@ -11,7 +10,7 @@ block content
                 .main_row
                     .main_contents 
                         section#main_contentFeedSection
-                            +feedWriteBlock({})
+                            include partials/feedWriteBlock.pug
                             +feedBlock({})
                         section#main_content_adSection
                             section#main_content_adContent  

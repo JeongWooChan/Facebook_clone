@@ -1,6 +1,5 @@
 extends layouts/mainLayout.pug
 include mixins/feedBlock.pug
-include mixins/feedWriteBlock.pug 
 
 block content
     if(user)
@@ -10,27 +9,7 @@ block content
             .person_container 
                 .person_row 
                     .person_contents 
-                        section#person_infoSection
-                            .person_cover_coverImg
-                                img#person_cover_coverImg(src="http://blogfiles.naver.net/20151120_88/wkib321_1448006625608ARKs0_JPEG/201511201703505.jpg")
-                            .person_cover_coverProfile
-                                .person_coverProfile_img
-                                    img#person_cover_profileImg(src="https://png.pngtree.com/element_origin_min_pic/16/09/02/1157c8f00e7c7d4.jpg") 
-                                .person_coverProfile_name=user.username
-                            nav#person_nav  
-                                ul
-                                    li 
-                                        a(href="#") 타임라인 
-                                    li 
-                                        a(href="#") 정보
-                                    li 
-                                        a(href="#") 친구
-                                    li 
-                                        a(href="#") 사진
-                                    li 
-                                        a(href="#") 보관함
-                                    li 
-                                        a(href="#") 더 보기
+                        include partials/person_infoSection.pug
                         section#person_feedSection  
                             .person_feed_detailInfo 
                                 article#person_detailInfo_introduce
@@ -72,6 +51,6 @@ block content
                                     address Facebook &copy; #{new Date().getFullYear()}
                                 
                             .person_feed_myFeed
-                                +feedWriteBlock({})
+                                include partials/feedWriteBlock.pug
                                 .person_myFeed_text 게시물 
                                 +feedBlock({})                            
