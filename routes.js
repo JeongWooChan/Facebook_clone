@@ -7,6 +7,7 @@ const LOGOUT = "/logout";
 // Feed 
 const MAIN = "/main"; 
 const PERSON = "/:id"; 
+const PERSON_INFO = "/:id/info"
 
 // API 
 const API = "/api"; 
@@ -25,6 +26,13 @@ const routes = {
             return `/main/${id}`;
         } else {
             return PERSON;
+        }
+    }, 
+    personInfo: (id) => {
+        if(id) {
+            return `/main/${id}/info`;
+        } else {
+            return PERSON_INFO;
         }
     }
 }

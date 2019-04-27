@@ -16,3 +16,8 @@ export const postMain = (req, res) => {
 export const getPerson = (req, res) => {
     res.render("person", { pageTitle: req.user.username })
 }
+
+// 개인 정보 페이지 
+export const getPersonInfo = (Req, res) => {
+    res.send("111"); 
+}
