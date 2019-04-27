@@ -1,5 +1,6 @@
 extends layouts/mainLayout.pug
 include mixins/feedBlock.pug
+include mixins/feedWriteBlock.pug 
 
 block content
     if(user)
@@ -31,5 +32,46 @@ block content
                                     li 
                                         a(href="#") 더 보기
                         section#person_feedSection  
-
-                           
+                            .person_feed_detailInfo 
+                                article#person_detailInfo_introduce
+                                    .person_introduce_text 
+                                        i.fas.fa-globe-asia 
+                                        span 소개 
+                                    .person_introduce_add 
+                                        i.far.fa-comment-alt
+                                        p.person_add_p 간단한 소개를 추가하여 회원님에 대해 자세히 알려주세요.
+                                        span.person_add_add 소개 추가 
+                                    .person_introduce_info 
+                                        p 정보 1 
+                                        p 정보 2 
+                                        p 정보 3 (가입일)
+                                article#person_detailInfo_friends 
+                                    .person_detailInfo_friendsText 
+                                        i.fas.fa-user-friends 
+                                        span 친구 
+                                        span.person_friendsText_count 100명 
+                                        span.person_friendsText_find 친구 찾기
+                                    .person_detailInfo_friendsGrid 
+                                        div 1
+                                        div 2
+                                        div 3
+                                        div 4
+                                        div 5
+                                        div 6
+                                        div 7
+                                        div 8
+                                        div 9
+                                article#person_detailInfo_footer 
+                                    ul
+                                        li 
+                                            a(href="#") 개인정보처리방침 
+                                        li 
+                                            a(href="#") 이용 약관 
+                                        li  
+                                            a(href="#") 광고 
+                                    address Facebook &copy; #{new Date().getFullYear()}
+                                
+                            .person_feed_myFeed
+                                +feedWriteBlock({})
+                                .person_myFeed_text 게시물 
+                                +feedBlock({})                            

@@ -3,6 +3,7 @@
     padding: 41px 0;
     width: 100%; 
     height: 100%;
+    background-color: #e9ebee;
 }
 
 /* container */
@@ -15,11 +16,11 @@
 /* main */
 .person_contents {
     margin: 0 20px; 
-    height: 400px;
-    border: 1px solid #e5e5e5;
-    border-radius: 0 0 5px 5px;
-    margin-bottom: 30px;
     #person_infoSection {
+        padding-bottom: 10px;
+        border-radius: 0 0 5px 5px;
+        border: 1px solid #d3d6db;
+        background-color: #fff;
         .person_cover_coverImg {
             width: 100%;
             height: 350px; 
@@ -62,25 +63,184 @@
             }
         }
         #person_nav {
-            margin-top: 34px;
+            margin-top: 32px;
             text-align: center;
             ul {
-                &:last-child > li > a {
-                    border-right: 1px solid #e5e5e5;
-                }
                 li {
                     display: inline-block;
                     a {
                         color: #365899; 
                         font-size: 16px; 
-                        padding: 14px 17px; 
+                        padding: 13px 17px 12px 17px; 
                         font-weight: 700;
-                        border-left: 1px solid #e5e5e5;
+                        border-left: 1px solid #d3d6db;
                         &:hover {
                             background: #f5f6f7;
                         }
                     }
+                    &:last-child > a {
+                        border-right: 1px solid #d3d6db;
+                    }
                 }
+            }
+        }
+    }
+    #person_feedSection {
+        margin-top: 30px;
+        overflow: hidden;
+        .person_feed_detailInfo {
+            float: left;
+            width: 38%;
+            #person_detailInfo_introduce {
+                background-color: #fff;
+                border: 1px solid #d3d6db;
+                border-radius: 5px;
+                margin-bottom: 15px;
+                .person_introduce_text {
+                    padding: 15px;
+                    overflow: hidden;
+                    i {
+                        float: left;
+                        font-size: 25px;
+                        margin-right: 10px;
+                        color: #4267b2;
+                    }
+                    span {
+                        float: left;
+                        color: #1c1e21; 
+                        font-size: 18px;
+                    }
+                }
+                .person_introduce_add {
+                    margin: 0 15px;
+                    text-align: center;
+                    border-bottom: 1px solid #d3d6db;
+                    i {
+                        font-size: 20px;
+                        margin-bottom: 2px;
+                    }
+                    p {
+                        color: #888888;
+                        margin-bottom: 3px;
+                    }
+                    span {
+                        display: inline-block;
+                        color: #3578e5;
+                        cursor: pointer;
+                        margin-bottom: 17px;
+                    }
+                }
+                .person_introduce_info {
+                    margin: 15px;
+                    p {
+                        font-size: 14px;
+                    }
+                }
+            }
+            #person_detailInfo_friends {
+                background-color: #fff;
+                border: 1px solid #d3d6db;
+                border-radius: 5px;
+                padding-bottom: 10px;
+                margin-bottom: 15px;
+                .person_detailInfo_friendsText {
+                    padding: 15px 15px 5px 15px;
+                    overflow: hidden;
+                    i {
+                        float: left;
+                        font-size: 25px; 
+                        margin-right: 10px;
+                        color: #f32183;
+                    }
+                    span {
+                        float: left;
+                        color: #1c1e21; 
+                        font-size: 18px;
+                    }
+                    .person_friendsText_count {
+                        color: #90949c; 
+                        font-size: 14px; 
+                        line-height: 26px;
+                        margin-left: 10px;
+                        position: relative;
+                        &:before {
+                            content: ''; 
+                            width: 2px;
+                            height: 2px;
+                            background-color: #90949c;
+                            border-radius: 50%;
+                            position: absolute;
+                            top: 13px;
+                            left: -5px;
+                        }
+                    }
+                    .person_friendsText_find {
+                        float: right;
+                        color: #365899; 
+                        font-size: 12px;
+                        cursor: pointer;
+                        line-height: 26px;
+                    }
+                }
+                .person_detailInfo_friendsGrid {
+                    margin-left: 9px;
+                    display: grid; 
+                    grid-template-columns: 33% 33% 33%; 
+                    grid-template-rows: 110px 110px 110px;
+                    div {
+                        margin-right: 5px;
+                        margin-top: 5px;
+                        background-color: black;
+                    }
+                }
+            }
+            #person_detailInfo_footer {
+                ul {
+                    li {
+                        display: inline-block;
+                        padding-right: 8px;
+                        position: relative;
+                        a {
+                            color: #90949C;
+                        }
+                        &:before {
+                            content: ''; 
+                            width: 3px;
+                            height: 3px;
+                            border-radius: 50%; 
+                            position: absolute; 
+                            right: 1.5px;
+                            top: 8px;
+                            background-color: #90949C;
+                        }
+                        &:last-child:before {
+                            width: 0;
+                        }
+                        &:first-child {
+                            font-weight: bold;
+                        }
+                        &:hover {
+                            text-decoration: underline;
+                        }
+                    }
+                }
+            }
+        }
+        .person_feed_myFeed {
+            float: right;
+            width: 60%;
+            height: 1000px;
+            #main_content_newFeedSection {
+                margin: 0 0 15px 0;
+            }
+            .person_myFeed_text {
+                color: #606770; 
+                font-size: 14px; 
+                margin-bottom: 15px;
+                font-weight: bold;
+            }
+            #main_content_feedSection {
+                margin: 0;
             }
         }
     }
