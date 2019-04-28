@@ -89,4 +89,14 @@ block content
                                                 .person_menu4_personBloodText 혈액형 
                                                 .person_menu4_personBlood O형  
                                     #person_content_changePassword  
-
+                                        form(action="#", method="post")
+                                            div
+                                                label(for="person_changePassword_now") 현재 비밀번호 
+                                                input(type="password", id="person_changePassword_now")
+                                            div
+                                                label(for="person_changePassword_change") 변경할 비밀번호 
+                                                input(type="password", id="person_changePassword_change")
+                                            div
+                                                label(for="person_changePassword_confirm 확인") 변경할 비밀번호 확인
+                                                input(type="password", id="person_changePassword_confirm") 
+                                            input(type="submit", id="person_changePassword_submit")

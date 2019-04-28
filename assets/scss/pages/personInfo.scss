@@ -306,7 +306,7 @@
                 }
                 #person_content_menu4 {
                     padding: 30px;
-                    display: block;
+                    display: none;
                     .person_menu4_phone {
                         padding: 0 0 50px;
                         .person_menu4_phoneText {
@@ -407,8 +407,40 @@
                         }
                     }
                 }
-                #person_content_editInfo {
-
+                #person_content_changePassword {
+                    padding: 30px;
+                    display: none;
+                    form {           
+                        div {
+                            width: 100%;
+                            overflow: hidden;
+                            label {
+                                float: left;
+                                width: 30%;
+                                color: #90949c;
+                                font-size: 16px;
+                                margin-bottom: 20px;
+                            }
+                            input {
+                                float: left;
+                                width: 40%;
+                                margin-bottom: 20px;
+                                padding: 2px;
+                            }
+                        }
+                        #person_changePassword_submit {
+                            width: 71%;
+                            display: block;
+                            padding: 3px;
+                            margin-left: 3px;
+                            font-size: 16px;
+                            background-color: #4267b2;
+                            color: #fff;
+                            font-weight: bold;
+                            border: none;
+                            border-radius: 3px;
+                        }
+                    }
                 }
             }
         }
