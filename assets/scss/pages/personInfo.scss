@@ -305,7 +305,107 @@
                     }
                 }
                 #person_content_menu4 {
-
+                    padding: 30px;
+                    display: block;
+                    .person_menu4_phone {
+                        padding: 0 0 50px;
+                        .person_menu4_phoneText {
+                            color: #90949c; 
+                            font-size: 14px;
+                            font-weight: bold;
+                            border-bottom: 1px solid #d3d6db;
+                            padding-bottom: 7px;
+                        }
+                        .person_menu4_phoneInfoDiv {
+                            padding: 12px 0;
+                            border-bottom: 1px solid #d3d6db;
+                            overflow: hidden;
+                            .person_menu4_phoneInfoText {
+                                float: left;
+                                width: 35%;
+                                color: #90949c;
+                                font-size: 16px;
+                            }
+                            .person_menu4_phoneInfo {
+                                float: left; 
+                                font-size: 16px;
+                                color: #1D2129; 
+                            }
+                        }
+                        .person_menu4_emailInfoDiv {
+                            padding: 12px 0;
+                            border-bottom: 1px solid #d3d6db;
+                            overflow: hidden;
+                            .person_menu4_emailInfoText {
+                                float: left;
+                                width: 35%;
+                                color: #90949c;
+                                font-size: 16px;
+                            }
+                            .person_menu4_emailInfo {
+                                float: left; 
+                                font-size: 16px;
+                                color: #1D2129; 
+                            }
+                        }
+                    }
+                    .person_menu4_person {
+                        .person_menu4_personText {
+                            color: #90949c; 
+                            font-size: 14px;
+                            font-weight: bold;
+                            border-bottom: 1px solid #d3d6db;
+                            padding-bottom: 7px;                            
+                        }
+                        .person_menu4_personBirthdayDiv {
+                            padding: 12px 0;
+                            border-bottom: 1px solid #d3d6db;
+                            overflow: hidden;
+                            .person_menu4_personBirthdayText {
+                                float: left;
+                                width: 35%;
+                                color: #90949c;
+                                font-size: 16px;
+                            }
+                            .person_menu4_personBirthday {
+                                float: left; 
+                                font-size: 16px;
+                                color: #1D2129; 
+                            }   
+                        }
+                        .person_menu4_personGenderDiv {
+                            padding: 12px 0;
+                            border-bottom: 1px solid #d3d6db;
+                            overflow: hidden;
+                            .person_menu4_personGenderText {
+                                float: left;
+                                width: 35%;
+                                color: #90949c;
+                                font-size: 16px;
+                            }
+                            .person_menu4_personGender {
+                                float: left; 
+                                font-size: 16px;
+                                color: #1D2129; 
+                            }
+                        }
+                        .person_menu4_personBloodDiv {
+                            padding: 12px 0;
+                            border-bottom: 1px solid #d3d6db;
+                            overflow: hidden;
+                            .person_menu4_personBloodText {
+                                float: left;
+                                width: 35%;
+                                color: #90949c;
+                                font-size: 16px;
+                            }
+                            .person_menu4_personBlood {
+                                float: left; 
+                                font-size: 16px;
+                                color: #1D2129; 
+                            }
+                        }
+                    }
                 }
                 #person_content_editInfo {
 
