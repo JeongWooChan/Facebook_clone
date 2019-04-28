@@ -39,6 +39,8 @@
                 border-right: 1px solid #d3d6db;
                 box-sizing: border-box;
                 min-height: 450px;
+                padding-top: 20px;
+                
                 div {
                     padding: 10px 20px;
                     color: #90949c; 
@@ -49,7 +51,8 @@
                     }
                 }
                 #person_infoWrap_menu1 {
-                    padding-top: 20px;
+                    border-left: 4px solid black; 
+                    color: black;
                 }
             }
             .person_infoWrap_content {
@@ -59,7 +62,7 @@
                 overflow: hidden;
                 background-color: #fff;
                 #person_content_menu1 {
-                    display: none;
+                    display: block;
                     .person_menu1_left {
                         float: left;
                         width: 65%;
