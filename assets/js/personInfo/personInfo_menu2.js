@@ -1,18 +1,18 @@
-const person_content_menu2 = document.getElementById("person_content_menu2");
+const personInfo_content_menu2 = document.getElementById("personInfo_content_menu2");
 // 직장 추가 
-const workspaceAdd = document.getElementById("person_menu2_workspaceAdd"); 
-const workspaceAddFormDiv = document.getElementById("person_menu2_workspaceAdd_formDiv");
+const workspaceAdd = document.getElementById("personInfo_menu2_workspaceAdd"); 
+const workspaceAddFormDiv = document.getElementById("personInfo_menu2_workspaceAdd_formDiv");
 // 대학교 추가 
-const universityAdd = document.getElementById("person_menu2_universityAdd"); 
-const universityAddFormDiv = document.getElementById("person_menu2_universityAdd_formDiv");
+const universityAdd = document.getElementById("personInfo_menu2_universityAdd"); 
+const universityAddFormDiv = document.getElementById("personInfo_menu2_universityAdd_formDiv");
 // 고등학교 추가 
-const highschoolAdd = document.getElementById("person_menu2_highschoolAdd"); 
-const highschoolAddFormDiv = document.getElementById("person_menu2_highschoolAdd_formDiv");
+const highschoolAdd = document.getElementById("personInfo_menu2_highschoolAdd"); 
+const highschoolAddFormDiv = document.getElementById("personInfo_menu2_highschoolAdd_formDiv");
 
 // cancel 버튼 
-const workspaceAddForm_cancel = document.getElementById("person_workspaceAddform_cancel");
-const universityAddForm_cancel = document.getElementById("person_universityAddform_cancel");
-const highschoolAddForm_cancel = document.getElementById("person_highschoolAddform_cancel");
+const workspaceAddForm_cancel = document.getElementById("personInfo_workspaceAddform_cancel");
+const universityAddForm_cancel = document.getElementById("personInfo_universityAddform_cancel");
+const highschoolAddForm_cancel = document.getElementById("personInfo_highschoolAddform_cancel");
 
 const AddWorkspaceFunction = () => {
     workspaceAdd.style.display = "none";
@@ -56,6 +56,6 @@ const init = () => {
     highschoolAddForm_cancel.addEventListener("click", highschoolDivCancel);
 }
 
-if(person_content_menu2) {
+if(personInfo_content_menu2) {
     init();
 }

@@ -7,3 +7,4 @@ import "./join";
 import "./personInfo/personInfo_overview";
 import "./personInfo/personInfo_menu2";
 import "./personInfo/personInfo_menu3"; 
+import "./personInfo/personInfo_menu4"; 

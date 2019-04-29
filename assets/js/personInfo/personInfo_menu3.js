@@ -1,15 +1,15 @@
-const person_content_menu3 = document.getElementById("person_content_menu3");
+const personInfo_content_menu3 = document.getElementById("personInfo_content_menu3");
 
 // 거주지 
-const residenceAdd = document.getElementById("person_menu3_residenceAdd"); 
-const residenceAddFormDiv = document.getElementById("person_menu3_residenceAddFormDiv");
+const residenceAdd = document.getElementById("personInfo_menu3_residenceAdd"); 
+const residenceAddFormDiv = document.getElementById("personInfo_menu3_residenceAddFormDiv");
 // 출신지 
-const hometownAdd = document.getElementById("person_menu3_hometownAdd"); 
-const hometownAddFormDiv = document.getElementById("person_menu3_hometownAddFormDiv");
+const hometownAdd = document.getElementById("personInfo_menu3_hometownAdd"); 
+const hometownAddFormDiv = document.getElementById("personInfo_menu3_hometownAddFormDiv");
 
 // 취소버튼 
-const residenceAddForm_cancel = document.getElementById("person_residenceAddform_cancel");
-const hometownAddForm_cancel = document.getElementById("person_hometownAddform_cancel");
+const residenceAddForm_cancel = document.getElementById("personInfo_residenceAddform_cancel");
+const hometownAddForm_cancel = document.getElementById("personInfo_hometownAddform_cancel");
 
 const AddResidenceFunction = () => {
     residenceAdd.style.display = "none"; 
@@ -40,6 +40,6 @@ const init = () => {
     hometownAddForm_cancel.addEventListener("click", hometownDivCancel);
 }
 
-if(person_content_menu3) {
+if(personInfo_content_menu3) {
     init(); 
 }

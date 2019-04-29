@@ -1,24 +1,24 @@
 const personInfo = document.getElementById("personInfo_contents");
 // 탭 메뉴 
-const menu1 = document.getElementById("person_infoWrap_menu1");
-const menu2 = document.getElementById("person_infoWrap_menu2");
-const menu3 = document.getElementById("person_infoWrap_menu3");
-const menu4 = document.getElementById("person_infoWrap_menu4");
-const menu5 = document.getElementById("person_infoWrap_editInfo"); 
+const menu1 = document.getElementById("personInfo_infoWrap_menu1");
+const menu2 = document.getElementById("personInfo_infoWrap_menu2");
+const menu3 = document.getElementById("personInfo_infoWrap_menu3");
+const menu4 = document.getElementById("personInfo_infoWrap_menu4");
+const menu5 = document.getElementById("personInfo_infoWrap_editInfo"); 
 
 // 탭 메뉴별 내용 
-const menu1Block = document.getElementById("person_content_menu1");
-const menu2Block = document.getElementById("person_content_menu2");
-const menu3Block = document.getElementById("person_content_menu3");
-const menu4Block = document.getElementById("person_content_menu4");
-const menu5Block = document.getElementById("person_content_changePassword");
+const menu1Block = document.getElementById("personInfo_content_menu1");
+const menu2Block = document.getElementById("personInfo_content_menu2");
+const menu3Block = document.getElementById("personInfo_content_menu3");
+const menu4Block = document.getElementById("personInfo_content_menu4");
+const menu5Block = document.getElementById("personInfo_content_changePassword");
 
 // 직장 추가 
-const addWorkspace = document.getElementById("person_menu1_workspace");
+const addWorkspace = document.getElementById("personInfo_menu1_workspace");
 // 학교 추가 
-const addSchool = document.getElementById("person_menu1_school");
+const addSchool = document.getElementById("personInfo_menu1_school");
 // 거주지 추가 
-const addLive = document.getElementById("person_menu1_live"); 
+const addLive = document.getElementById("personInfo_menu1_live"); 
 
 const handleMenu1 = () => {
     // display 
