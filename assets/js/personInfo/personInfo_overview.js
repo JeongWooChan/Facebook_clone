@@ -1,15 +1,24 @@
 const personInfo = document.getElementById("personInfo_contents");
+// 탭 메뉴 
 const menu1 = document.getElementById("person_infoWrap_menu1");
 const menu2 = document.getElementById("person_infoWrap_menu2");
 const menu3 = document.getElementById("person_infoWrap_menu3");
 const menu4 = document.getElementById("person_infoWrap_menu4");
 const menu5 = document.getElementById("person_infoWrap_editInfo"); 
 
+// 탭 메뉴별 내용 
 const menu1Block = document.getElementById("person_content_menu1");
 const menu2Block = document.getElementById("person_content_menu2");
 const menu3Block = document.getElementById("person_content_menu3");
 const menu4Block = document.getElementById("person_content_menu4");
 const menu5Block = document.getElementById("person_content_changePassword");
+
+// 직장 추가 
+const addWorkspace = document.getElementById("person_menu1_workspace");
+// 학교 추가 
+const addSchool = document.getElementById("person_menu1_school");
+// 거주지 추가 
+const addLive = document.getElementById("person_menu1_live"); 
 
 const handleMenu1 = () => {
     // display 
@@ -152,12 +161,32 @@ const handleMenu5 = () => {
     menu5.style.fontWeight = "bold";
 }
 
+const handleAddWorkspace = () => {
+    handleMenu2();
+}
+
+const handleAddSchool = () => {
+    handleMenu2(); 
+}
+
+const handleAddLive = () => {
+    handleMenu3();
+}
+
 const init = () => {
+    // 탭 메뉴 클릭 이벤트 
     menu1.addEventListener("click", handleMenu1);
     menu2.addEventListener("click", handleMenu2);
     menu3.addEventListener("click", handleMenu3);
     menu4.addEventListener("click", handleMenu4);
     menu5.addEventListener("click", handleMenu5);
+
+    // 직장 추가 클릭 이벤트 
+    addWorkspace.addEventListener("click", handleAddWorkspace); 
+    // 학교 추가 클릭 이벤트 
+    addSchool.addEventListener("click", handleAddSchool); 
+    // 거주지 추가 클릭 이벤트 
+    addLive.addEventListener("click", handleAddLive); 
 }
 
 if(personInfo) {
