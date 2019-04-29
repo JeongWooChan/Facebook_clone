@@ -19,17 +19,25 @@ const handleMenu1 = () => {
     menu4Block.style.display = "none";
     menu5Block.style.display = "none";
 
-    // border & color 
+    // border 
     menu1.style.borderLeft = "4px solid black";
-    menu1.style.color = "black";
     menu2.style.borderLeft = "none"; 
-    menu2.style.color = "#484f56";
     menu3.style.borderLeft = "none"; 
-    menu3.style.color = "#484f56";
     menu4.style.borderLeft = "none"; 
-    menu4.style.color = "#484f56";
     menu5.style.borderLeft = "none"; 
-    menu5.style.color = "#484f56";
+
+
+    //font 
+    menu1.style.color = "black";
+    menu1.style.fontWeight = "bold";
+    menu2.style.color = "#90949C";
+    menu2.style.fontWeight = "normal";
+    menu3.style.color = "#90949C";
+    menu3.style.fontWeight = "normal";
+    menu4.style.color = "#90949C";
+    menu4.style.fontWeight = "normal";
+    menu5.style.color = "#90949C";
+    menu5.style.fontWeight = "normal";
 }
 
 const handleMenu2 = () => {
@@ -39,16 +47,25 @@ const handleMenu2 = () => {
     menu4Block.style.display = "none";
     menu5Block.style.display = "none";
 
+    // border 
     menu1.style.borderLeft = "none";
-    menu1.style.color = "#484f56";
     menu2.style.borderLeft = "4px solid black"; 
-    menu2.style.color = "black";
     menu3.style.borderLeft = "none"; 
-    menu3.style.color = "#484f56";
     menu4.style.borderLeft = "none"; 
-    menu4.style.color = "#484f56";
     menu5.style.borderLeft = "none"; 
-    menu5.style.color = "#484f56";
+
+
+    //font 
+    menu1.style.color = "#90949C";
+    menu1.style.fontWeight = "normal";
+    menu2.style.color = "black";
+    menu2.style.fontWeight = "bold";
+    menu3.style.color = "#90949C";
+    menu3.style.fontWeight = "normal";
+    menu4.style.color = "#90949C";
+    menu4.style.fontWeight = "normal";
+    menu5.style.color = "#90949C";
+    menu5.style.fontWeight = "normal";
 }
 
 const handleMenu3 = () => {
@@ -58,16 +75,25 @@ const handleMenu3 = () => {
     menu4Block.style.display = "none";
     menu5Block.style.display = "none";
 
+    // border 
     menu1.style.borderLeft = "none";
-    menu1.style.color = "#484f56";
     menu2.style.borderLeft = "none"; 
-    menu2.style.color = "#484f56";
     menu3.style.borderLeft = "4px solid black"; 
-    menu3.style.color = "black";
     menu4.style.borderLeft = "none"; 
-    menu4.style.color = "#484f56";
     menu5.style.borderLeft = "none"; 
-    menu5.style.color = "#484f56";
+
+
+    //font 
+    menu1.style.color = "#90949C";
+    menu1.style.fontWeight = "normal";
+    menu2.style.color = "#90949C";
+    menu2.style.fontWeight = "normal";
+    menu3.style.color = "black";
+    menu3.style.fontWeight = "bold";
+    menu4.style.color = "#90949C";
+    menu4.style.fontWeight = "normal";
+    menu5.style.color = "#90949C";
+    menu5.style.fontWeight = "normal";
 }
 
 const handleMenu4 = () => {
@@ -77,16 +103,25 @@ const handleMenu4 = () => {
     menu4Block.style.display = "block";
     menu5Block.style.display = "none";
 
+    // border 
     menu1.style.borderLeft = "none";
-    menu1.style.color = "#484f56";
     menu2.style.borderLeft = "none"; 
-    menu2.style.color = "#484f56";
     menu3.style.borderLeft = "none"; 
-    menu3.style.color = "#484f56";
     menu4.style.borderLeft = "4px solid black"; 
-    menu4.style.color = "black";
     menu5.style.borderLeft = "none"; 
-    menu5.style.color = "#484f56";
+
+
+    //font 
+    menu1.style.color = "#90949C";
+    menu1.style.fontWeight = "normal";
+    menu2.style.color = "#90949C";
+    menu2.style.fontWeight = "normal";
+    menu3.style.color = "#90949C";
+    menu3.style.fontWeight = "normal";
+    menu4.style.color = "black";
+    menu4.style.fontWeight = "bold";
+    menu5.style.color = "#90949C";
+    menu5.style.fontWeight = "normal";
 }
 
 const handleMenu5 = () => {
@@ -96,16 +131,25 @@ const handleMenu5 = () => {
     menu4Block.style.display = "none";
     menu5Block.style.display = "block";
 
+    // border 
     menu1.style.borderLeft = "none";
-    menu1.style.color = "#484f56";
     menu2.style.borderLeft = "none"; 
-    menu2.style.color = "#484f56";
     menu3.style.borderLeft = "none"; 
-    menu3.style.color = "#484f56";
     menu4.style.borderLeft = "none"; 
-    menu4.style.color = "#484f56";
     menu5.style.borderLeft = "4px solid black"; 
+
+
+    //font 
+    menu1.style.color = "#90949C";
+    menu1.style.fontWeight = "normal";
+    menu2.style.color = "#90949C";
+    menu2.style.fontWeight = "normal";
+    menu3.style.color = "#90949C";
+    menu3.style.fontWeight = "normal";
+    menu4.style.color = "#90949C";
+    menu4.style.fontWeight = "normal";
     menu5.style.color = "black";
+    menu5.style.fontWeight = "bold";
 }
 
 const init = () => {
