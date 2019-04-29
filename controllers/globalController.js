@@ -41,7 +41,9 @@ export const postJoin = (req, res, next) => {
     // db에 insert할 변수와 값을 지정해줌 
     let $username = signUp_fname + signUp_lname; //성과 이름을 한번에 넣어줌 
     let $email = login_email; 
-    let $birthday = select_year + "-" + select_month + "-" + select_day; 
+    let $birthday_year = select_year; 
+    let $birthday_month = select_month; 
+    let $birthday_day = select_day;
     let $gender = chk_gender; 
 
     // 혹시나 비어 있는 값이 있는 상태에서 postJoin으로 들어오면 다시 home으로 돌려보냄 
@@ -57,7 +59,9 @@ export const postJoin = (req, res, next) => {
                 username: $username, 
                 password: hash, // 비밀번호에는 hasher함수의 salt값을 통해 암호화 된 값인 hash 값을 넣어준다. 
                 email: $email, 
-                birthday: $birthday, 
+                birthday_year: $birthday_year,
+                birthday_month: $birthday_month, 
+                birthday_day: $birthday_day,
                 gender: $gender, 
                 salt: salt // 로그인을 할 때 hash값 비교를 위해서 키 역할을 하는 salt값이 있어야 한다. 
             }

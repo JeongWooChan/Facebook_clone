@@ -9,7 +9,6 @@ passport.use(new LocalStrategy({
     usernameField: 'login_email', 
     passwordField: 'login_pw', 
 }, function(username, password, done) {
-    console.log(username, password);
     connection.query('SELECT * FROM users WHERE `email`=?', [username], function(err, rows) {
         const user = rows[0];
         let user_salt = user.salt; 
