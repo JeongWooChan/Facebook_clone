@@ -41,9 +41,23 @@ block content
                                     #person_content_menu2 
                                         .person_menu2_workspace 
                                             .person_menu2_workspaceText 직장  
-                                            .person_menu2_workspaceAdd 
+                                            #person_menu2_workspaceAdd 
                                                 i.far.fa-plus-square 
                                                 span 직장 추가 
+                                            #person_menu2_workspaceAdd_formDiv 
+                                                form(action="#", method="post", id="person_workspaceAdd_form") 
+                                                    div 
+                                                        label(for="person_workspaceAddform_company") 회사 
+                                                        input(type="text", id="person_workspaceAddform_company")
+                                                    div
+                                                        label(for="person_workspaceAddform_staff") 직위 
+                                                        input(type="text", id="person_workspaceAddform_staff")
+                                                    div 
+                                                        label(for="person_workspaceAddform_city") 도시 
+                                                        input(type="text", id="person_workspaceAddform_city") 
+                                                    div 
+                                                        button(type="submit", id="person_workspaceAddform_submit") 변경 내용 저장 
+                                                        button 취소
                                         .person_menu2_university
                                             .person_menu2_universityText 대학 
                                             .person_menu2_universityAdd

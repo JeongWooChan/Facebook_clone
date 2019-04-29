@@ -32,13 +32,11 @@
         }
         .person_infoSection_infoWrap {
             overflow: hidden;
+            background-color: #fff;
             .person_infoWrap_menu {
                 float: left;
                 width: 30%;
-                background-color: #fff;
-                border-right: 1px solid #d3d6db;
                 box-sizing: border-box;
-                min-height: 450px;
                 padding-top: 20px;
                 div {
                     padding: 10px 20px;
@@ -62,7 +60,7 @@
                 overflow: hidden;
                 background-color: #fff;
                 #person_content_menu1 {
-                    display: block;
+                    display: none;
                     .person_menu1_left {
                         float: left;
                         width: 65%;
@@ -154,8 +152,9 @@
                     }
                 }
                 #person_content_menu2 {
-                    display: none;
+                    display: block;
                     padding: 30px;
+                    border-left: 1px solid #d3d6db;
                     .person_menu2_workspace {
                         padding: 0 0 30px;
                         .person_menu2_workspaceText {
@@ -165,7 +164,8 @@
                             border-bottom: 1px solid #d3d6db;
                             padding-bottom: 7px;
                         }
-                        .person_menu2_workspaceAdd {
+                        #person_menu2_workspaceAdd {
+                            display: none;
                             padding: 12px 0 0;
                             overflow: hidden;
                             color: #3578e5;
@@ -181,6 +181,48 @@
                                 line-height: 35px;
                             }
                         }
+                        #person_menu2_workspaceAdd_formDiv {
+                            background-color: #f5f6f7;
+                            padding: 20px 0;
+                            form {
+                                width: 50%;
+                                margin: 0 auto;
+                                div {
+                                    overflow: hidden;
+                                    padding-bottom: 10px;
+                                    label {
+                                        float: left;
+                                        margin-right: 10px;
+                                        font-size: 16px;
+                                        color: #666666;
+                                    }
+                                    input {
+                                        float: left;
+                                        width: 65%;
+                                        padding: 2px;
+                                    }
+                                    &:nth-child(3) {
+                                        padding-bottom: 30px;
+                                    }
+                                    &:last-child {
+                                        padding-left: 43px;
+                                        button {
+                                            padding: 5px 10px;
+                                            margin-right: 5px;
+                                            &:first-child {
+                                                background-color: #4267b2;
+                                                color: #fff; 
+                                            }
+                                            &:last-child {
+                                                background-color: transparent; 
+                                                border: 1px solid #ccd0d5;
+                                            }
+                                        }
+                                    } 
+                                }
+                            }
+                        }
+
                     }
                     .person_menu2_university {
                         padding: 0 0 30px;
