@@ -57,17 +57,42 @@ block content
                                                         input(type="text", id="person_workspaceAddform_city") 
                                                     div 
                                                         button(type="submit", id="person_workspaceAddform_submit") 변경 내용 저장 
-                                                        button 취소
+                                                        button#person_workspaceAddform_cancel(type="button") 취소
                                         .person_menu2_university
                                             .person_menu2_universityText 대학 
-                                            .person_menu2_universityAdd
+                                            #person_menu2_universityAdd
                                                 i.far.fa-plus-square 
                                                 span 대학 추가
+                                            #person_menu2_universityAdd_formDiv
+                                                form(action="#", method="post", id="person_universityAdd_form") 
+                                                    div 
+                                                        label(for="person_universityAddform_university") 학교 
+                                                        input(type="text", id="person_universityAddform_university")
+                                                    div
+                                                        label(for="person_universityAddform_gradu") 졸업  
+                                                        input(type="checkbox", id="person_universityAddform_gradu")
+                                                    div 
+                                                        label(for="person_universityAddform_major") 전공 
+                                                        input(type="text", id="person_universityAddform_major") 
+                                                    div 
+                                                        button(type="submit", id="person_universityAddform_submit") 변경 내용 저장 
+                                                        button#person_universityAddform_cancel(type="button") 취소
                                         .person_menu2_highschool 
                                             .person_menu2_highschoolText 고등학교 
-                                            .person_menu2_highschoolAdd
+                                            #person_menu2_highschoolAdd
                                                 i.far.fa-plus-square 
                                                 span 고등학교 추가
+                                            #person_menu2_highschoolAdd_formDiv
+                                                form(action="#", method="post", id="person_highschoolAdd_form") 
+                                                    div 
+                                                        label(for="person_highschoolAddform_highschool") 학교 
+                                                        input(type="text", id="person_highschoolAddform_highschool")
+                                                    div
+                                                        label(for="person_highschoolAddform_gradu") 졸업  
+                                                        input(type="checkbox", id="person_highschoolAddform_gradu") 
+                                                    div 
+                                                        button(type="submit", id="person_highschoolAddform_submit") 변경 내용 저장 
+                                                        button#person_highschoolAddform_cancel(type="button") 취소
                                     #person_content_menu3
                                         .person_menu3_residence
                                             .person_menu3_residenceText 거주지와 출신지  

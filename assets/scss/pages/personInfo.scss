@@ -165,7 +165,7 @@
                             padding-bottom: 7px;
                         }
                         #person_menu2_workspaceAdd {
-                            display: none;
+                            display: block;
                             padding: 12px 0 0;
                             overflow: hidden;
                             color: #3578e5;
@@ -182,6 +182,7 @@
                             }
                         }
                         #person_menu2_workspaceAdd_formDiv {
+                            display: none;
                             background-color: #f5f6f7;
                             padding: 20px 0;
                             form {
@@ -222,7 +223,6 @@
                                 }
                             }
                         }
-
                     }
                     .person_menu2_university {
                         padding: 0 0 30px;
@@ -233,7 +233,7 @@
                             border-bottom: 1px solid #d3d6db;
                             padding-bottom: 7px;
                         }
-                        .person_menu2_universityAdd {
+                        #person_menu2_universityAdd {
                             padding: 12px 0 0;
                             overflow: hidden;
                             color: #3578e5;
@@ -247,6 +247,52 @@
                                 float: left;
                                 font-size: 16px;
                                 line-height: 35px;
+                            }
+                        }
+                        #person_menu2_universityAdd_formDiv {
+                            display: none;
+                            background-color: #f5f6f7;
+                            padding: 20px 0;
+                            form {
+                                width: 50%;
+                                margin: 0 auto;
+                                div {
+                                    overflow: hidden;
+                                    padding-bottom: 10px;
+                                    label {
+                                        float: left;
+                                        margin-right: 10px;
+                                        font-size: 16px;
+                                        color: #666666;
+                                    }
+                                    input {
+                                        float: left;
+                                        width: 65%;
+                                        padding: 2px;      
+                                    }
+                                    input[type=checkbox] {
+                                        width: auto;
+                                        margin-top: 6px;
+                                    }
+                                    &:nth-child(3) {
+                                        padding-bottom: 30px;
+                                    }
+                                    &:last-child {
+                                        padding-left: 43px;
+                                        button {
+                                            padding: 5px 10px;
+                                            margin-right: 5px;
+                                            &:first-child {
+                                                background-color: #4267b2;
+                                                color: #fff; 
+                                            }
+                                            &:last-child {
+                                                background-color: transparent; 
+                                                border: 1px solid #ccd0d5;
+                                            }
+                                        }
+                                    } 
+                                }
                             }
                         }
                     }
@@ -259,7 +305,7 @@
                             border-bottom: 1px solid #d3d6db;
                             padding-bottom: 7px;
                         }
-                        .person_menu2_highschoolAdd {
+                        #person_menu2_highschoolAdd {
                             padding: 12px 0 0;
                             overflow: hidden;
                             color: #3578e5;
@@ -273,6 +319,52 @@
                                 float: left;
                                 font-size: 16px;
                                 line-height: 35px;
+                            }
+                        }
+                        #person_menu2_highschoolAdd_formDiv {
+                            display: none;
+                            background-color: #f5f6f7;
+                            padding: 20px 0;
+                            form {
+                                width: 50%;
+                                margin: 0 auto;
+                                div {
+                                    overflow: hidden;
+                                    padding-bottom: 10px;
+                                    label {
+                                        float: left;
+                                        margin-right: 10px;
+                                        font-size: 16px;
+                                        color: #666666;
+                                    }
+                                    input {
+                                        float: left;
+                                        width: 65%;
+                                        padding: 2px;      
+                                    }
+                                    input[type=checkbox] {
+                                        width: auto;
+                                        margin-top: 6px;
+                                    }
+                                    &:nth-child(2) {
+                                        padding-bottom: 30px;
+                                    }
+                                    &:last-child {
+                                        padding-left: 43px;
+                                        button {
+                                            padding: 5px 10px;
+                                            margin-right: 5px;
+                                            &:first-child {
+                                                background-color: #4267b2;
+                                                color: #fff; 
+                                            }
+                                            &:last-child {
+                                                background-color: transparent; 
+                                                border: 1px solid #ccd0d5;
+                                            }
+                                        }
+                                    } 
+                                }
                             }
                         }
                     }
