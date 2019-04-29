@@ -96,17 +96,28 @@ block content
                                     #person_content_menu3
                                         .person_menu3_residence
                                             .person_menu3_residenceText 거주지와 출신지  
-                                            .person_menu3_residenceAdd 
+                                            #person_menu3_residenceAdd 
                                                 i.far.fa-plus-square 
                                                 span 거주지 추가
-                                            .person_menu3_hometownAdd
+                                            #person_menu3_residenceAddFormDiv 
+                                                form(action="#", method="post", id="person_residenceAddForm_form")
+                                                    div 
+                                                        label(for="person_residenceAddform_residence") 거주지 
+                                                        input(type="text", id="person_residenceAddform_residence")
+                                                    div 
+                                                        button(type="submit", id="person_residenceAddform_submit") 변경 내용 저장 
+                                                        button#person_residenceAddform_cancel(type="button") 취소
+                                            #person_menu3_hometownAdd
                                                 i.far.fa-plus-square 
-                                                span 출신지 추가  
-                                        .person_menu3_liveEtc 
-                                            .person_menu3_liveEtcText 기타 살았던 곳 
-                                            .person_menu3_liveEtcAdd 
-                                                i.far.fa-plus-square 
-                                                span 장소 추가
+                                                span 출신지 추가
+                                            #person_menu3_hometownAddFormDiv 
+                                                form(action="#", method="post", id="person_hometownAddForm_form")
+                                                    div 
+                                                        label(for="person_hometownAddform_hometown") 출신지 
+                                                        input(type="text", id="person_hometownAddform_hometown")
+                                                    div 
+                                                        button(type="submit", id="person_hometownAddform_submit") 변경 내용 저장 
+                                                        button#person_hometownAddform_cancel(type="button") 취소  
                                     #person_content_menu4
                                         .person_menu4_phone
                                             .person_menu4_phoneText 연락처 정보
