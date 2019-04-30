@@ -7,11 +7,17 @@ const LOGOUT = "/logout";
 // Feed 
 const MAIN = "/main"; 
 const PERSON = "/:id"; 
-const PERSON_INFO = "/:id/info"
+const PERSON_INFO = "/:id/info";
+
+// User 
+const USER = "/user";
+const CHANGE_PASSWORD = "/change-password";  
+
 
 // API 
 const API = "/api"; 
 const EMAIL_CHECK = "/email_check";
+const CHECK_PASSWORD = "/checkPassword";
 
 const routes = {
     home : HOME,
@@ -21,6 +27,8 @@ const routes = {
     main : MAIN, 
     api: API, 
     email_check: EMAIL_CHECK, 
+    user: USER, 
+    changePassword: CHANGE_PASSWORD,
     person: (id) => {
         if(id) {
             return `/main/${id}`;
@@ -34,7 +42,8 @@ const routes = {
         } else {
             return PERSON_INFO;
         }
-    }
+    }, 
+    checkPassword: CHECK_PASSWORD
 }
 
 export default routes;

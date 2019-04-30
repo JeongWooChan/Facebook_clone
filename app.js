@@ -10,6 +10,7 @@ import { localMiddleware } from "./middleware";
 import connection from "./db"; 
 import globalRouter from "./routers/globalRouter"; 
 import feedRouter from "./routers/feedRouter";
+import userRouter from "./routers/userRouter";
 import apiRouter from "./routers/apiRouter";
 import "./passport";
 
@@ -39,6 +40,7 @@ app.use(passport.session());
 app.use(localMiddleware);
 app.use(routes.home, globalRouter); 
 app.use(routes.main, feedRouter); 
+app.use(routes.user, userRouter);
 app.use(routes.api, apiRouter);
 
 const handleConnect = () => {

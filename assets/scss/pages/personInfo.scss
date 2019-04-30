@@ -60,7 +60,7 @@
                 overflow: hidden;
                 background-color: #fff;
                 #personInfo_content_menu1 {
-                    display: none;
+                    display: block;
                     .personInfo_menu1_left {
                         float: left;
                         width: 65%;
@@ -502,7 +502,7 @@
                 }
                 #personInfo_content_menu4 {
                     padding: 30px;
-                    display: block;
+                    display: none;
                     .personInfo_menu4_phone {
                         padding: 0 0 50px;
                         .personInfo_menu4_phoneText {
@@ -788,11 +788,28 @@
                                 margin-bottom: 20px;
                                 padding: 2px;
                             }
+                            &:nth-child(3) {
+                                label {
+                                    margin-bottom: 5px;
+                                }
+                                input {
+                                    margin-bottom: 5px;
+                                }
+                            }
+                            #personInfo_changePassword_fail {
+                                display: none;
+                                color: rgb(255, 0, 0);
+                            }
+                            #personInfo_changePassword_success {
+                                display: none;
+                                color: rgb(30, 172, 61);
+                            }
                         }
                         #personInfo_changePassword_submit {
                             width: 71%;
                             display: block;
                             padding: 3px;
+                            margin-top: 15px;
                             margin-left: 3px;
                             font-size: 16px;
                             background-color: #4267b2;
@@ -800,6 +817,7 @@
                             font-weight: bold;
                             border: none;
                             border-radius: 3px;
+                            cursor: pointer;
                         }
                     }
                 }

@@ -4,7 +4,8 @@ import "./login";
 import "./join"; 
 
 // personInfo 
-import "./personInfo/personInfo_overview";
-import "./personInfo/personInfo_menu2";
-import "./personInfo/personInfo_menu3"; 
-import "./personInfo/personInfo_menu4"; 
+import "./personInfo/overview";
+import "./personInfo/menu2";
+import "./personInfo/menu3"; 
+import "./personInfo/menu4"; 
+import "./personInfo/changePassword";

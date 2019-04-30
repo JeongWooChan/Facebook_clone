@@ -197,14 +197,18 @@ block content
                                                             button(type="submit") 적용 
                                                             button(type="button", id="personInfo_menu4_editBloodCancel") 취소 
                                     #personInfo_content_changePassword  
-                                        form(action="#", method="post")
+                                        form(action=`/user${routes.changePassword}`, method="post", id="personInfo_changePassword_form")
                                             div
                                                 label(for="personInfo_changePassword_now") 현재 비밀번호 
-                                                input(type="password", id="personInfo_changePassword_now")
+                                                input(type="password", id="personInfo_changePassword_now", name="personInfo_changePassword_now")
                                             div
                                                 label(for="personInfo_changePassword_change") 새로운 비밀번호 
-                                                input(type="password", id="personInfo_changePassword_change")
+                                                input(type="password", id="personInfo_changePassword_change", placeholder="영문,숫자,특수문자를 포함한 8~16자리", name="personInfo_changePassword_change")
                                             div
                                                 label(for="personInfo_changePassword_confirm 확인") 새로운 비밀번호 확인
-                                                input(type="password", id="personInfo_changePassword_confirm") 
-                                            input(type="submit", id="personInfo_changePassword_submit")
+                                                input(type="password", id="personInfo_changePassword_confirm", name="personInfo_changePassword_confirm") 
+                                            div
+                                                label 
+                                                span#personInfo_changePassword_fail ❌비밀번호가 일치하지 않습니다.
+                                                span#personInfo_changePassword_success ✅비밀번호가 일치 합니다. 
+                                            input(type="submit", id="personInfo_changePassword_submit", name="personInfo_changePassword_confirm")
