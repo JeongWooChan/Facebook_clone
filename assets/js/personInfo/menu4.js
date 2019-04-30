@@ -12,21 +12,23 @@ const personInfo_showBirthday = document.getElementById("personInfo_showBirthday
 const personInfo_editBirthday = document.getElementById("personInfo_editBirthday"); 
 const personInfo_birthdayEditBtn = document.getElementById("personInfo_birthdayEdit");
 
-// 성별 
-const personInfo_menu4_showGender = document.getElementById("personInfo_menu4_showGender");
-const personInfo_menu4_editGender = document.getElementById("personInfo_menu4_editGender");
-const personInfo_genderEditBtn = document.getElementById("personInfo_menu4_personGenderEdit"); 
-
 // 혈액형 
+// 추가 
 const personInfo_addBlood = document.getElementById("personInfo_addBlood");
-const personInfo_editBlood = document.getElementById("personInfo_editBlood");
+const personInfo_addBloodForm = document.getElementById("personInfo_addBloodFormDiv");
+// 수정 
+const editBloodBtn = document.getElementById("personInfo_editBlood"); 
+const showBlood = document.getElementById("personInfo_showBloodDiv"); 
+const editBloodForm = document.getElementById("personInfo_editBloodFormDiv"); 
+
 
 // 취소 
 const personInfo_menu4_phoneForm_cancel = document.getElementById("personInfo_menu4_phoneForm_cancel");
 const personinfo_birthdayEdit_cancel = document.getElementById("personInfo_editBirthday_cancel");
 const personInfo_menu4_genderForm_cancel = document.getElementById("personInfo_menu4_editGenderCancel");
-const personInfo_bloodEdit_cancel = document.getElementById("personInfo_menu4_editBloodCancel");
+const personInfo_bloodAdd_cancel = document.getElementById("personInfo_menu4_addBloodCancel");
 const personInfo_menu4_phoneForm_editFormcancel = document.getElementById("personInfo_menu4_phoneForm_editFormcancel");
+const personInfo_editBlood_cancel = document.getElementById("personInfo_menu4_editBloodCancel");
 
 // 연락처 수정 form 
 const editForm = document.getElementById("phoneInfo_editForm");
@@ -40,6 +42,17 @@ const addForm = document.getElementById("phoneInfo_addForm");
 const addForm_first = document.getElementById("phoneInfo_addForm_first"); 
 const addForm_second = document.getElementById("phoneInfo_addForm_second");
 const addForm_third = document.getElementById("phoneInfo_addForm_third");
+
+const cancelEditBlood = () => {
+    showBlood.style.display = "block"; 
+    editBloodForm.style.display = "none";
+}
+
+const showEditBloodForm = () => {
+    showBlood.style.display = "none"; 
+    editBloodForm.style.display = "block";
+}
+
 
 const checkInput2 = () => {
     // 비어 있는 값이 있으면 false를 리턴해 준다. 
@@ -101,12 +114,12 @@ const cancelEditBirthday = () => {
 
 const showEditBlood = () => {
     personInfo_addBlood.style.display = "none"; 
-    personInfo_editBlood.style.display = "block";
+    personInfo_addBloodForm.style.display = "block";
 }
 
-const cancelEditBlood = () => {
+const cancelAddBlood = () => {
     personInfo_addBlood.style.display = "block"; 
-    personInfo_editBlood.style.display = "none";
+    personInfo_addBloodForm.style.display = "none";
 }
 
 const init = () => {
@@ -121,18 +134,20 @@ const init = () => {
     personInfo_birthdayEditBtn.addEventListener("click", showEditBirthday);
     personinfo_birthdayEdit_cancel.addEventListener("click", cancelEditBirthday); 
 
-    personInfo_genderEditBtn.addEventListener("click", showEditGenderForm);
-    personInfo_menu4_genderForm_cancel.addEventListener("click", cancelEditGender);
-
-    personInfo_addBlood.addEventListener("click", showEditBlood); 
-    personInfo_bloodEdit_cancel.addEventListener("click", cancelEditBlood); 
-
     if(editForm) {
         editForm.addEventListener("submit", checkInput);
     } else {
         addForm.addEventListener("submit", checkInput2);
     }
-    
+
+    //혈액형 event 
+    if(showBlood) {
+        editBloodBtn.addEventListener("click", showEditBloodForm);
+        personInfo_editBlood_cancel.addEventListener("click", cancelEditBlood);
+    } else {
+        personInfo_addBlood.addEventListener("click", showEditBlood); 
+        personInfo_bloodAdd_cancel.addEventListener("click", cancelAddBlood); 
+    }
 }
 
 if(personInfo_content_menu4) {

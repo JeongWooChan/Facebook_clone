@@ -196,31 +196,37 @@ block content
                                             #personInfo_menu4_personGenderDiv 
                                                 .personInfo_menu4_personGenderText 성별 
                                                 #personInfo_menu4_showGender 
-                                                    #personInfo_menu4_personGender=user.gender
-                                                    button#personInfo_menu4_personGenderEdit 수정
-                                                #personInfo_menu4_editGender 
-                                                    form(action="#", method="post")
-                                                        select 
-                                                            option(value="남성") 남성
-                                                            option(value="여성") 여성
-                                                        div 
-                                                            button(type="submit") 적용  
-                                                            button(type="button", id="personInfo_menu4_editGenderCancel") 취소     
+                                                    #personInfo_menu4_personGender=user.gender     
                                             #personInfo_menu4_personBloodDiv 
                                                 .personInfo_menu4_personBloodText 혈액형 
-                                                #personInfo_addBlood 
-                                                    i.far.fa-plus-square
-                                                    span 혈액형 추가
-                                                #personInfo_editBlood 
-                                                    form(action="#", method="post") 
-                                                        select 
-                                                            option(value="A") A
-                                                            option(value="B") B
-                                                            option(vlaue="O") O
-                                                            option(value="AB") AB 
-                                                        div 
-                                                            button(type="submit") 적용 
-                                                            button(type="button", id="personInfo_menu4_editBloodCancel") 취소 
+                                                if(user.bloodType)
+                                                    #personInfo_showBloodDiv 
+                                                        #personInfo_showBlood=user.bloodType 
+                                                        #personInfo_editBlood 수정
+                                                    #personInfo_editBloodFormDiv 
+                                                        form(action=`/user${routes.changeBloodType}`, method="post") 
+                                                            select(name="bloodType") 
+                                                                option(value="A") A
+                                                                option(value="B") B
+                                                                option(vlaue="O") O
+                                                                option(value="AB") AB 
+                                                            div 
+                                                                button(type="submit") 적용 
+                                                                button(type="button", id="personInfo_menu4_editBloodCancel") 취소
+                                                else 
+                                                    #personInfo_addBlood  
+                                                        i.far.fa-plus-square
+                                                        span 혈액형 추가
+                                                    #personInfo_addBloodFormDiv 
+                                                        form(action=`/user${routes.changeBloodType}`, method="post") 
+                                                            select(name="bloodType") 
+                                                                option(value="A") A
+                                                                option(value="B") B
+                                                                option(vlaue="O") O
+                                                                option(value="AB") AB 
+                                                            div 
+                                                                button(type="submit") 적용 
+                                                                button(type="button", id="personInfo_menu4_addBloodCancel") 취소 
                                     #personInfo_content_changePassword  
                                         form(action=`/user${routes.changePassword}`, method="post", id="personInfo_changePassword_form")
                                             div

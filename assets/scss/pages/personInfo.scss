@@ -758,15 +758,34 @@
                                     font-size: 16px;
                                     color: #1D2129; 
                                 }
-                                #personInfo_menu4_personGenderEdit {
+                            }
+                        }
+                        #personInfo_menu4_personBloodDiv {
+                            padding: 12px 0;
+                            border-bottom: 1px solid #d3d6db;
+                            overflow: hidden;
+                            .personInfo_menu4_personBloodText {
+                                float: left;
+                                width: 35%;
+                                color: #90949c;
+                                font-size: 16px;
+                            }
+                            #personInfo_showBloodDiv {
+                                overflow: hidden;
+                                #personInfo_showBlood {
+                                    float: left;
+                                    color: #1d2129;
+                                    font-size: 16px; 
+                                }
+                                #personInfo_editBlood {
                                     float: right;
-                                    margin-top: 3px;
-                                    background-color: transparent;
                                     color: #3578e5;
+                                    font-size: 13px; 
+                                    margin-top: 3px; 
                                     cursor: pointer;
                                 }
                             }
-                            #personInfo_menu4_editGender {
+                            #personInfo_editBloodFormDiv {
                                 display: none;
                                 form {
                                     overflow: hidden;
@@ -793,17 +812,6 @@
                                     }
                                 }
                             }
-                        }
-                        #personInfo_menu4_personBloodDiv {
-                            padding: 12px 0;
-                            border-bottom: 1px solid #d3d6db;
-                            overflow: hidden;
-                            .personInfo_menu4_personBloodText {
-                                float: left;
-                                width: 35%;
-                                color: #90949c;
-                                font-size: 16px;
-                            }
                             #personInfo_addBlood {
                                 display: block;
                                 color: #3578e5;
@@ -819,7 +827,7 @@
                                     line-height: 23px;
                                 } 
                             }
-                            #personInfo_editBlood {
+                            #personInfo_addBloodFormDiv {
                                 display: none;
                                 form {
                                     overflow: hidden;
