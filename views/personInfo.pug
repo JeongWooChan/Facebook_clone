@@ -177,16 +177,16 @@ block content
                                                     .personInfo_menu4_personBirthday=user.birthday_year+"년 "+user.birthday_month+"월 "+user.birthday_day+"일"
                                                     button#personInfo_birthdayEdit 수정
                                                 #personInfo_editBirthday 
-                                                    form(action="#", method="post") 
-                                                        select 
+                                                    form(action=`/user${routes.changeBirthday}`, method="post", id="birthday_editForm") 
+                                                        select(id="birthday_editForm_year", name="year") 
                                                             option(value="0") 연도
                                                             -for(let i = new Date().getFullYear(); i > new Date().getFullYear()-100; i--) 
                                                                 option(value=i) #{i}
-                                                        select 
+                                                        select(id="birthday_editForm_month", name="month") 
                                                             option(value="0") 월 
                                                             -for(let i = 1; i < 13; i++)
                                                                 option(value=i) #{i}
-                                                        select 
+                                                        select(id="birthday_editForm_day", name="day") 
                                                             option(value="0") 일 
                                                             -for(let i = 1; i < 32; i++) 
                                                                 option(value=i) #{i}
