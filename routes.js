@@ -11,7 +11,8 @@ const PERSON_INFO = "/:id/info";
 
 // User 
 const USER = "/user";
-const CHANGE_PASSWORD = "/change-password";  
+const CHANGE_PASSWORD = "/change-password";
+const CHANGE_PHONE = "/change-phone";   
 
 
 // API 
@@ -29,6 +30,7 @@ const routes = {
     email_check: EMAIL_CHECK, 
     user: USER, 
     changePassword: CHANGE_PASSWORD,
+    changePhone: CHANGE_PHONE,
     person: (id) => {
         if(id) {
             return `/main/${id}`;

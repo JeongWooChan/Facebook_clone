@@ -32,12 +32,19 @@ block content
                                                 i.far.fa-plus-square 
                                                 span 거주지 추가
                                         .personInfo_menu1_right
-                                            .personInfo_menu1_phone 
-                                                i.fas.fa-mobile-alt
-                                                span 010-4017-8123
-                                            .personInfo_menu1_birthday  
+                                            if(user.phone)
+                                                #personInfo_menu1_phone 
+                                                    i.fas.fa-mobile-alt
+                                                    span=user.phone
+                                                    #personInfo_menu1_phoneEdit 수정
+                                            else 
+                                                #personInfo_menu1_phoneAdd 
+                                                    i.far.fa-plus-square 
+                                                    span 연락처 추가 
+                                            #personInfo_menu1_birthday  
                                                 i.fas.fa-birthday-cake 
-                                                span 1994년 9월 7일 
+                                                span=user.birthday_year+"년 "+user.birthday_month+"월 "+user.birthday_day+"일"
+                                                #personInfo_menu1_birthdayEdit 수정 
                                     #personInfo_content_menu2 
                                         .personInfo_menu2_workspace 
                                             .personInfo_menu2_workspaceText 직장  
@@ -124,20 +131,38 @@ block content
                                             .personInfo_menu4_phoneInfoDiv 
                                                 .personInfo_menu4_phoneInfoText 휴대폰 
                                                 .personInfo_menu4_phoneInfo 
-                                                    #personInfo_menu4_phoneInfo_Add
-                                                        i.far.fa-plus-square
-                                                        span 연락처 추가
-                                                    #personInfo_menu4_phoneInfo_number 
-                                                        form(action="#", method="post") 
-                                                            select 
+                                                    if(user.phone)
+                                                        #personInfo_menu4_phoneInfo_show=user.phone
+                                                        #personInfo_menu4_phoneInfo_edit 수정 
+                                                        #personInfo_menu4_phoneInfo_editForm 
+                                                            form(action=`/user${routes.changePhone}`, method="post", id="phoneInfo_editForm") 
+                                                                select(id="phoneInfo_editForm_first", name="phoneInfo_editForm_first")
+                                                                    option(value="010") 010 
+                                                                    option(value="011") 011 
+                                                                    option(value="017") 017 
+                                                                    option(value="019") 019 
+                                                                span -
+                                                                input(type="text", id="phoneInfo_editForm_second", name="phoneInfo_editForm_fInput") 
+                                                                span - 
+                                                                input(type="text", id="phoneInfo_editForm_third", name="phoneInfo_editForm_lInput")  
+                                                                div 
+                                                                    button(type="submit", id="") 적용 
+                                                                    button(type="button", id="personInfo_menu4_phoneForm_editFormcancel") 취소 
+                                                    else
+                                                        #personInfo_menu4_phoneInfo_Add
+                                                            i.far.fa-plus-square
+                                                            span 연락처 추가
+                                                    #personInfo_menu4_phoneInfo_addForm 
+                                                        form(action=`/user${routes.changePhone}`, method="post", id="phoneInfo_addForm") 
+                                                            select(id="phoneInfo_addForm_first", name="phoneInfo_editForm_first")
                                                                 option(value="010") 010 
                                                                 option(value="011") 011 
                                                                 option(value="017") 017 
                                                                 option(value="019") 019 
                                                             span -
-                                                            input(type="text") 
+                                                            input(type="text", id="phoneInfo_addForm_second", name="phoneInfo_editForm_fInput") 
                                                             span - 
-                                                            input(type="text")  
+                                                            input(type="text", id="phoneInfo_addForm_third", name="phoneInfo_editForm_lInput")  
                                                             div 
                                                                 button(type="submit") 적용 
                                                                 button(type="button", id="personInfo_menu4_phoneForm_cancel") 취소 

@@ -25,11 +25,31 @@ export const changePassword = async (req, res) => {
             }
             await connection.query($sql, $set, (err, result) => {
                 if(err) {
-                    onsole.log("❌  ERROR : " + err); 
+                    console.log("❌  ERROR : " + err); 
                 } else {
                     res.send(`<script type="text/javascript">alert("비밀번호가 성공적으로 변경되었습니다.");document.location.href='http://localhost:${PORT}${routes.personInfo(req.user.id)}';</script>`);
                 }
             });
          });
+    });
+}
+
+export const changePhone = async (req, res) => {
+    const {
+        body: {phoneInfo_editForm_first, phoneInfo_editForm_fInput, phoneInfo_editForm_lInput}
+    }=req;
+    let $phone = phoneInfo_editForm_first+"-"+phoneInfo_editForm_fInput+"-"+phoneInfo_editForm_lInput;
+    await connection.query('SELECT * FROM users WHERE `id`=?', [req.user.id], async (err, rows) => {
+        let $sql = "UPDATE users SET ?"; 
+        let $set = {
+            phone: $phone
+        }
+        await connection.query($sql, $set, (err, result) => {
+            if(err) {
+                console.log("❌  ERROR : " + err); 
+            } else {
+                res.send(`<script type="text/javascript">alert("전화번호가 성공적으로 변경되었습니다.");document.location.href='http://localhost:${PORT}${routes.personInfo(req.user.id)}';</script>`);
+            }
+        });
     });
 }

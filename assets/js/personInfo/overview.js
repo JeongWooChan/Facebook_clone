@@ -20,6 +20,14 @@ const addSchool = document.getElementById("personInfo_menu1_school");
 // 거주지 추가 
 const addLive = document.getElementById("personInfo_menu1_live"); 
 
+
+// 연락처 추가 
+const addPhone = document.getElementById("personInfo_menu1_phoneAdd");
+// 연락처 수정 
+const editPhone = document.getElementById("personInfo_menu1_phoneEdit");
+// 생일 수정 
+const editBirthday = document.getElementById("personInfo_menu1_birthdayEdit");
+
 const handleMenu1 = () => {
     // display 
     menu1Block.style.display = "block";
@@ -173,6 +181,18 @@ const handleAddLive = () => {
     handleMenu3();
 }
 
+const Addphone = () => {
+    handleMenu4();
+}
+
+const handleEditphone = () => {
+    handleMenu4();
+}
+
+const handleEditBirthday = () => {
+    handleMenu4();
+}
+
 const init = () => {
     // 탭 메뉴 클릭 이벤트 
     menu1.addEventListener("click", handleMenu1);
@@ -187,6 +207,17 @@ const init = () => {
     addSchool.addEventListener("click", handleAddSchool); 
     // 거주지 추가 클릭 이벤트 
     addLive.addEventListener("click", handleAddLive); 
+    
+    if(addPhone) {
+        // 연락처 추가 클릭 이벤트 
+        addPhone.addEventListener("click", Addphone); 
+    } else {
+        // 연락처 수정 클릭 이벤트 
+        editPhone.addEventListener("click", handleEditphone);
+    }
+
+    // 생일 수정 클릭 이벤트 
+    editBirthday.addEventListener("click", handleEditBirthday);  
 }
 
 if(personInfo) {

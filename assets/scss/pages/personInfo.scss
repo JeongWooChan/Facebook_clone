@@ -122,7 +122,8 @@
                         width: 35%;
                         padding: 50px 30px 30px 30px;
                         box-sizing: border-box;
-                        .personInfo_menu1_phone {
+                        #personInfo_menu1_phone {
+                            display: block;
                             overflow: hidden;
                             padding-bottom: 25px;
                             i {
@@ -135,8 +136,32 @@
                                 font-size: 15px;
                                 line-height: 18px;
                             }
+                            #personInfo_menu1_phoneEdit {
+                                float: right;
+                                cursor: pointer;
+                                font-size: 13px;
+                                line-height: 18px;
+                                color: #3578e5;
+                            }
                         }
-                        .personInfo_menu1_birthday {
+                        #personInfo_menu1_phoneAdd {
+                            overflow: hidden;
+                            padding-bottom: 25px;
+                            cursor: pointer;
+                            color: #3578e5;
+                            i {
+                                float: left;
+                                font-size: 20px;
+                                margin-right: 17px;
+                            }
+                            span {
+                                float: left;
+                                font-size: 13px;
+                                line-height: 20px;
+                            }
+                        }
+
+                        #personInfo_menu1_birthday {
                             overflow: hidden; 
                             i {
                                 float: left;
@@ -147,6 +172,13 @@
                                 float: left;
                                 font-size: 15px;
                                 line-height: 18px;
+                            }
+                            #personInfo_menu1_birthdayEdit {
+                                float: right;
+                                cursor: pointer;
+                                font-size: 13px;
+                                line-height: 18px;
+                                color: #3578e5;
                             }
                         }
                     }
@@ -527,6 +559,55 @@
                                 width: 65%;
                                 font-size: 16px;
                                 color: #1D2129; 
+                                overflow: hidden;
+                                #personInfo_menu4_phoneInfo_show {
+                                    float: left;
+                                }
+                                #personInfo_menu4_phoneInfo_edit {
+                                    float: right;
+                                    margin-top: 3px;
+                                    background-color: transparent;
+                                    color: #3578e5;
+                                    cursor: pointer;
+                                    font-size: 13px;
+                                }
+                                #personInfo_menu4_phoneInfo_editForm {
+                                    display: none;
+                                    form {
+                                        overflow: hidden;
+                                        select {
+                                            float: left;
+                                            font-size: 13px;
+                                            padding: 3px;
+                                        }
+                                        span {
+                                            float: left;
+                                            margin: 0 5px;
+                                        }
+                                        input {
+                                            float: left;
+                                            width: 20%;
+                                            padding: 3px;
+                                            font-size: 13px;
+                                        }
+                                        div {
+                                            float: right;
+                                            button {
+                                                float: left;
+                                                padding: 4px;
+                                                margin-top: 2px;
+                                                color: #fff; 
+                                                background-color: #4267b2;
+                                                cursor: pointer;
+                                                &:last-child {
+                                                    margin-left: 5px;
+                                                    color: black; 
+                                                    background-color: #e6e6e6;
+                                                } 
+                                            }
+                                        }
+                                    }
+                                }
                                 #personInfo_menu4_phoneInfo_Add {
                                     display: block;
                                     color: #3578e5;
@@ -542,7 +623,7 @@
                                         line-height: 23px;
                                     } 
                                 } 
-                                #personInfo_menu4_phoneInfo_number {
+                                #personInfo_menu4_phoneInfo_addForm {
                                     display: none;
                                     form {
                                         overflow: hidden;
