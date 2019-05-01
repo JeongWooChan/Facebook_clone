@@ -9,6 +9,9 @@
     width: 1000px;
     height: inherit;
     margin: 0 auto;
+    @media (max-width:1024px) {
+        width: 100%;
+    }
 }
 
 .personInfo_contents {
@@ -59,6 +62,8 @@
                 min-height: 450px;
                 overflow: hidden;
                 background-color: #fff;
+                border-left: 1px solid #d3d6db;
+                box-sizing: border-box;
                 #personInfo_content_menu1 {
                     display: block;
                     .personInfo_menu1_left {
@@ -66,6 +71,9 @@
                         width: 65%;
                         padding: 30px;
                         box-sizing: border-box;
+                        @media (max-width:1024px) {
+                            width: 55%;
+                        }
                         #menu1_workspace_showDiv {
                             overflow: hidden;
                             padding: 10px;
@@ -271,6 +279,9 @@
                         width: 35%;
                         padding: 50px 30px 30px 30px;
                         box-sizing: border-box;
+                        @media (max-width:1024px) {
+                            width: 45%;
+                        }
                         #personInfo_menu1_phone {
                             display: block;
                             overflow: hidden;
@@ -321,13 +332,18 @@
                                 float: left;
                                 font-size: 15px;
                                 line-height: 18px;
-                            }
+                                @media (max-width:1024px) {
+                                    margin-right: 3%
+                                }                            }
                             #personInfo_menu1_birthdayEdit {
                                 float: right;
                                 cursor: pointer;
                                 font-size: 13px;
                                 line-height: 18px;
                                 color: #3578e5;
+                                @media (max-width:1024px) {
+                                    float: left;
+                                }
                             }
                         }
                     }
@@ -335,7 +351,6 @@
                 #personInfo_content_menu2 { 
                     display: none;
                     padding: 30px;
-                    border-left: 1px solid #d3d6db;
                     .personInfo_menu2_workspace {
                         padding: 0 0 30px;
                         .personInfo_menu2_workspaceText {
@@ -728,7 +743,7 @@
                             background-color: #f5f6f7;
                             padding: 30px 0 20px 0;
                             form {
-                                width: 50%;
+                                width: 60%;
                                 margin: 0 auto;
                                 div {
                                     overflow: hidden;
@@ -787,7 +802,7 @@
                             background-color: #f5f6f7;
                             padding: 30px 0 20px 0;
                             form {
-                                width: 50%;
+                                width: 60%;
                                 margin: 0 auto;
                                 div {
                                     overflow: hidden;
@@ -869,7 +884,7 @@
                             background-color: #f5f6f7;
                             padding: 30px 0 20px 0;
                             form {
-                                width: 50%;
+                                width: 60%;
                                 margin: 0 auto;
                                 div {
                                     overflow: hidden;
@@ -927,7 +942,7 @@
                             background-color: #f5f6f7;
                             padding: 30px 0 20px 0;
                             form {
-                                width: 50%;
+                                width: 60%;
                                 margin: 0 auto;
                                 div {
                                     overflow: hidden;
@@ -984,13 +999,13 @@
                             overflow: hidden;
                             .personInfo_menu4_phoneInfoText {
                                 float: left;
-                                width: 35%;
+                                width: 30%;
                                 color: #90949c;
                                 font-size: 16px;
                             }
                             .personInfo_menu4_phoneInfo {
                                 float: left; 
-                                width: 65%;
+                                width: 70%;
                                 font-size: 16px;
                                 color: #1D2129; 
                                 overflow: hidden;
@@ -1112,7 +1127,7 @@
                             overflow: hidden;
                             .personInfo_menu4_emailInfoText {
                                 float: left;
-                                width: 35%;
+                                width: 30%;
                                 color: #90949c;
                                 font-size: 16px;
                             }
@@ -1137,7 +1152,7 @@
                             overflow: hidden;
                             .personInfo_menu4_personBirthdayText {
                                 float: left;
-                                width: 35%;
+                                width: 30%;
                                 color: #90949c;
                                 font-size: 16px;
                             }
@@ -1189,14 +1204,14 @@
                             border-bottom: 1px solid #d3d6db;      
                             .personInfo_menu4_personGenderText {
                                 float: left;
-                                width: 35%;
+                                width: 30%;
                                 color: #90949c;
                                 font-size: 16px;
                             }
                             #personInfo_menu4_showGender {
                                 overflow: hidden;
                                 display: block;
-                                width: 65%;
+                                width: 70%;
                                 #personInfo_menu4_personGender {
                                     float: left; 
                                     font-size: 16px;
@@ -1210,7 +1225,7 @@
                             overflow: hidden;
                             .personInfo_menu4_personBloodText {
                                 float: left;
-                                width: 35%;
+                                width: 30%;
                                 color: #90949c;
                                 font-size: 16px;
                             }
@@ -1320,14 +1335,14 @@
                             overflow: hidden;
                             label {
                                 float: left;
-                                width: 30%;
+                                width: 40%;
                                 color: #90949c;
                                 font-size: 16px;
                                 margin-bottom: 20px;
                             }
                             input {
                                 float: left;
-                                width: 40%;
+                                width: 50%;
                                 margin-bottom: 20px;
                                 padding: 2px;
                             }
@@ -1349,11 +1364,10 @@
                             }
                         }
                         #personInfo_changePassword_submit {
-                            width: 71%;
+                            width: 70%;
                             display: block;
                             padding: 3px;
-                            margin-top: 15px;
-                            margin-left: 3px;
+                            margin: 15px auto;
                             font-size: 16px;
                             background-color: #4267b2;
                             color: #fff;
