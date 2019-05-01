@@ -13,8 +13,9 @@ const menu3Block = document.getElementById("personInfo_content_menu3");
 const menu4Block = document.getElementById("personInfo_content_menu4");
 const menu5Block = document.getElementById("personInfo_content_changePassword");
 
-// 직장 추가 
+// 직장
 const addWorkspace = document.getElementById("personInfo_menu1_workspace");
+const workspaceEditBtn = document.getElementById("menu1_workspace_edit");
 // 학교 추가 
 const addSchool = document.getElementById("personInfo_menu1_school");
 // 거주지 추가 
@@ -171,34 +172,6 @@ const handleMenu5 = () => {
     menu5.style.fontWeight = "bold";
 }
 
-const handleAddWorkspace = () => {
-    handleMenu2();
-}
-
-const handleAddSchool = () => {
-    handleMenu2(); 
-}
-
-const handleAddLive = () => {
-    handleMenu3();
-}
-
-const Addphone = () => {
-    handleMenu4();
-}
-
-const handleEditphone = () => {
-    handleMenu4();
-}
-
-const handleEditBirthday = () => {
-    handleMenu4();
-}
-
-const handleEditResidence = () => {
-    handleMenu3();
-}
-
 const init = () => {
     // 탭 메뉴 클릭 이벤트 
     menu1.addEventListener("click", handleMenu1);
@@ -208,26 +181,31 @@ const init = () => {
     menu5.addEventListener("click", handleMenu5);
 
     // 직장 추가 클릭 이벤트 
-    addWorkspace.addEventListener("click", handleAddWorkspace); 
+    if(addWorkspace) {
+        addWorkspace.addEventListener("click", handleMenu2); 
+    } else {
+        workspaceEditBtn.addEventListener("click", handleMenu2);
+    }
+    
     // 학교 추가 클릭 이벤트 
-    addSchool.addEventListener("click", handleAddSchool); 
+    addSchool.addEventListener("click", handleMenu2); 
     // 거주지 클릭 이벤트
     if(editResidence) {
-        editResidence.addEventListener("click", handleEditResidence);
+        editResidence.addEventListener("click", handleMenu3);
     } else {
-        addLive.addEventListener("click", handleAddLive); 
+        addLive.addEventListener("click", handleMenu3); 
     }
     
     if(addPhone) {
         // 연락처 추가 클릭 이벤트 
-        addPhone.addEventListener("click", Addphone); 
+        addPhone.addEventListener("click", handleMenu4); 
     } else {
         // 연락처 수정 클릭 이벤트 
-        editPhone.addEventListener("click", handleEditphone);
+        editPhone.addEventListener("click", handleMenu4);
     }
 
     // 생일 수정 클릭 이벤트 
-    editBirthday.addEventListener("click", handleEditBirthday);  
+    editBirthday.addEventListener("click", handleMenu4);  
 
 }
 

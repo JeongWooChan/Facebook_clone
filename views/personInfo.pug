@@ -22,9 +22,22 @@ block content
                                 .personInfo_infoWrap_content 
                                     #personInfo_content_menu1 
                                         .personInfo_menu1_left 
-                                            #personInfo_menu1_workspace 
-                                                i.far.fa-plus-square 
-                                                span 직장 추가 
+                                            if(user.workspace)
+                                                #menu1_workspace_showDiv 
+                                                    #menu1_workspace_icon   
+                                                        i.fas.fa-building
+                                                    #menu1_workspace_showTextDiv 
+                                                        .menu1_workspace_showText1 
+                                                            h3=user.workspace 
+                                                        .menu1_workspace_showText2 
+                                                            h4=user.workspace_position  
+                                                            h5  
+                                                            h4=user.workspace_city
+                                                    span#menu1_workspace_edit 수정   
+                                            else  
+                                                #personInfo_menu1_workspace
+                                                    i.far.fa-plus-square 
+                                                    span 직장 추가 
                                             #personInfo_menu1_school 
                                                 i.far.fa-plus-square 
                                                 span 학교 추가  
@@ -65,23 +78,50 @@ block content
                                     #personInfo_content_menu2 
                                         .personInfo_menu2_workspace 
                                             .personInfo_menu2_workspaceText 직장  
-                                            #personInfo_menu2_workspaceAdd 
-                                                i.far.fa-plus-square 
-                                                span 직장 추가 
-                                            #personInfo_menu2_workspaceAdd_formDiv 
-                                                form(action="#", method="post", id="personInfo_workspaceAdd_form") 
-                                                    div 
-                                                        label(for="personInfo_workspaceAddform_company") 회사 
-                                                        input(type="text", id="personInfo_workspaceAddform_company")
-                                                    div
-                                                        label(for="personInfo_workspaceAddform_staff") 직위 
-                                                        input(type="text", id="personInfo_workspaceAddform_staff")
-                                                    div 
-                                                        label(for="personInfo_workspaceAddform_city") 도시 
-                                                        input(type="text", id="personInfo_workspaceAddform_city") 
-                                                    div 
-                                                        button(type="submit", id="personInfo_workspaceAddform_submit") 변경 내용 저장 
-                                                        button#personInfo_workspaceAddform_cancel(type="button") 취소
+                                            if(user.workspace)
+                                                #menu2_workspaceShowDiv 
+                                                    #workspace_icon 
+                                                        i.fas.fa-building 
+                                                    #workspace_showTextDiv  
+                                                        .workspace_showText1
+                                                            h3=user.workspace
+                                                        .workspace_showText2 
+                                                            h4=user.workspace_position 
+                                                            h5  
+                                                            h4=user.workspace_city
+                                                    span#workspace_edit 수정 
+                                                #personInfo_menu2_workspaceEdit_formDiv 
+                                                    form(action=`/user${routes.changeCompany}`, method="post", id="personInfo_workspaceEdit_form") 
+                                                        div 
+                                                            label(for="personInfo_workspaceEditform_company") 회사 
+                                                            input(type="text", id="personInfo_workspaceEditform_company", name="company", value=user.workspace, required)
+                                                        div
+                                                            label(for="personInfo_workspaceEditform_staff") 직위 
+                                                            input(type="text", id="personInfo_workspaceEditform_staff", name="position", value=user.workspace_position, required)
+                                                        div 
+                                                            label(for="personInfo_workspaceEditform_city") 도시 
+                                                            input(type="text", id="personInfo_workspaceEditform_city", name="city", value=user.workspace_city, required) 
+                                                        div 
+                                                            button(type="submit", id="personInfo_workspaceEditform_submit") 변경 내용 저장 
+                                                            button#personInfo_workspaceEditform_cancel(type="button") 취소
+                                            else 
+                                                #personInfo_menu2_workspaceAdd 
+                                                    i.far.fa-plus-square 
+                                                    span 직장 추가 
+                                                #personInfo_menu2_workspaceAdd_formDiv 
+                                                    form(action=`/user${routes.changeCompany}`, method="post", id="personInfo_workspaceAdd_form") 
+                                                        div 
+                                                            label(for="personInfo_workspaceAddform_company") 회사 
+                                                            input(type="text", id="personInfo_workspaceAddform_company", name="company", required)
+                                                        div
+                                                            label(for="personInfo_workspaceAddform_staff") 직위 
+                                                            input(type="text", id="personInfo_workspaceAddform_staff", name="position", required)
+                                                        div 
+                                                            label(for="personInfo_workspaceAddform_city") 도시 
+                                                            input(type="text", id="personInfo_workspaceAddform_city", name="city", required) 
+                                                        div 
+                                                            button(type="submit", id="personInfo_workspaceAddform_submit") 변경 내용 저장 
+                                                            button#personInfo_workspaceAddform_cancel(type="button") 취소
                                         .personInfo_menu2_university
                                             .personInfo_menu2_universityText 대학 
                                             #personInfo_menu2_universityAdd

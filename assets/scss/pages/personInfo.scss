@@ -66,6 +66,48 @@
                         width: 65%;
                         padding: 30px;
                         box-sizing: border-box;
+                        #menu1_workspace_showDiv {
+                            overflow: hidden;
+                            padding: 10px;
+                            border-bottom: 1px solid #d3d6db;
+                            #menu1_workspace_icon {
+                                float: left; 
+                                font-size: 30px;
+                                margin-right: 10px;
+                            }
+                            #menu1_workspace_showTextDiv {
+                                float: left; 
+                                .menu1_workspace_showText1 {
+                                    h3 {
+                                        font-size: 18px; 
+                                        font-weight: bold;
+                                        color: #365899; 
+                                    }
+                                }
+                                .menu1_workspace_showText2 {
+                                    h4 {
+                                        display: inline-block;
+                                        font-size: 13px; 
+                                        color: #90949c;
+                                    }
+                                    h5 {
+                                        width: 3px;
+                                        height: 3px; 
+                                        border-radius: 50%; 
+                                        background-color: #90949c;
+                                        display: inline-block;
+                                        margin: 0 5px 3px 5px;
+                                    }
+                                }
+                            }
+                            #menu1_workspace_edit {
+                                float: right;
+                                color: #3578E5; 
+                                font-size: 13px;
+                                margin-top: 13px;
+                                cursor: pointer;
+                            }
+                        }
                         #personInfo_menu1_workspace {
                             overflow: hidden;
                             padding: 20px 0 35px 0;
@@ -230,6 +272,90 @@
                             font-weight: bold;
                             border-bottom: 1px solid #d3d6db;
                             padding-bottom: 7px;
+                        }
+                        #menu2_workspaceShowDiv {
+                            overflow: hidden;
+                            padding: 10px;
+                            border-bottom: 1px solid #d3d6db;
+                            #workspace_icon {
+                                float: left; 
+                                font-size: 30px;
+                                margin-right: 10px;
+                            }
+                            #workspace_showTextDiv {
+                                float: left; 
+                                .workspace_showText1 {
+                                    h3 {
+                                        font-size: 18px; 
+                                        font-weight: bold;
+                                        color: #365899; 
+                                    }
+                                }
+                                .workspace_showText2 {
+                                    h4 {
+                                        display: inline-block;
+                                        font-size: 13px; 
+                                        color: #90949c;
+                                    }
+                                    h5 {
+                                        width: 3px;
+                                        height: 3px; 
+                                        border-radius: 50%; 
+                                        background-color: #90949c;
+                                        display: inline-block;
+                                        margin: 0 5px 3px 5px;
+                                    }
+                                }
+                            }
+                            #workspace_edit {
+                                float: right;
+                                color: #3578E5; 
+                                font-size: 13px;
+                                margin-top: 13px;
+                                cursor: pointer;
+                            }
+                        }
+                        #personInfo_menu2_workspaceEdit_formDiv {
+                            display: none;
+                            background-color: #f5f6f7;
+                            padding: 20px 0;
+                            form {
+                                width: 50%;
+                                margin: 0 auto;
+                                div {
+                                    overflow: hidden;
+                                    padding-bottom: 10px;
+                                    label {
+                                        float: left;
+                                        margin-right: 10px;
+                                        font-size: 16px;
+                                        color: #666666;
+                                    }
+                                    input {
+                                        float: left;
+                                        width: 65%;
+                                        padding: 2px;
+                                    }
+                                    &:nth-child(3) {
+                                        padding-bottom: 30px;
+                                    }
+                                    &:last-child {
+                                        padding-left: 43px;
+                                        button {
+                                            padding: 5px 10px;
+                                            margin-right: 5px;
+                                            &:first-child {
+                                                background-color: #4267b2;
+                                                color: #fff; 
+                                            }
+                                            &:last-child {
+                                                background-color: transparent; 
+                                                border: 1px solid #ccd0d5;
+                                            }
+                                        }
+                                    } 
+                                }
+                            }
                         }
                         #personInfo_menu2_workspaceAdd {
                             display: block;
