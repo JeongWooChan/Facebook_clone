@@ -27,10 +27,19 @@ block content
                                                 span 직장 추가 
                                             #personInfo_menu1_school 
                                                 i.far.fa-plus-square 
-                                                span 학교 추가 
-                                            #personInfo_menu1_live 
-                                                i.far.fa-plus-square 
-                                                span 거주지 추가
+                                                span 학교 추가  
+                                            if(user.residence)
+                                                #menu1_residence_showDiv
+                                                    .residence_icon
+                                                        i.fas.fa-map-marker-alt 
+                                                    #menu1_residence_showText 
+                                                        h3=user.residence 
+                                                        h4 현재 거주지 
+                                                    span#menu1_residence_edit 수정 
+                                            else     
+                                                #personInfo_menu1_live    
+                                                    i.far.fa-plus-square 
+                                                    span 거주지 추가
                                         .personInfo_menu1_right
                                             if(user.phone)
                                                 #personInfo_menu1_phone 
@@ -102,18 +111,35 @@ block content
                                                         button#personInfo_highschoolAddform_cancel(type="button") 취소
                                     #personInfo_content_menu3
                                         .personInfo_menu3_residence
-                                            .personInfo_menu3_residenceText 거주지와 출신지  
-                                            #personInfo_menu3_residenceAdd 
-                                                i.far.fa-plus-square 
-                                                span 거주지 추가
-                                            #personInfo_menu3_residenceAddFormDiv 
-                                                form(action="#", method="post", id="personInfo_residenceAddForm_form")
-                                                    div 
-                                                        label(for="personInfo_residenceAddform_residence") 거주지 
-                                                        input(type="text", id="personInfo_residenceAddform_residence")
-                                                    div 
-                                                        button(type="submit", id="personInfo_residenceAddform_submit") 변경 내용 저장 
-                                                        button#personInfo_residenceAddform_cancel(type="button") 취소
+                                            .personInfo_menu3_residenceText 거주지와 출신지
+                                            if(user.residence)
+                                                #residence_showDiv 
+                                                    .residence_icon
+                                                        i.fas.fa-map-marker-alt  
+                                                    #residence_showText 
+                                                        h3=user.residence 
+                                                        h4 현재 거주지
+                                                    span#residence_edit 수정
+                                                #personInfo_menu3_residenceEditFormDiv 
+                                                    form(action=`/user${routes.changeResidence}`, method="post", id="personInfo_residenceEditForm_form")
+                                                        div 
+                                                            label(for="personInfo_residenceEidtform_residence") 거주지 
+                                                            input(type="text", id="personInfo_residenceEditform_residence", placeholder="도시명을 입력해주세요.", name="residence", value=user.residence)
+                                                        div 
+                                                            button(type="submit", id="personInfo_residenceEditform_submit") 변경 내용 저장 
+                                                            button#personInfo_residenceEditform_cancel(type="button") 취소
+                                            else
+                                                #personInfo_menu3_residenceAdd 
+                                                    i.far.fa-plus-square 
+                                                    span 거주지 추가
+                                                #personInfo_menu3_residenceAddFormDiv 
+                                                    form(action=`/user${routes.changeResidence}`, method="post", id="personInfo_residenceAddForm_form")
+                                                        div 
+                                                            label(for="personInfo_residenceAddform_residence") 거주지 
+                                                            input(type="text", id="personInfo_residenceAddform_residence", placeholder="도시명을 입력해주세요.", name="residence")
+                                                        div 
+                                                            button(type="submit", id="personInfo_residenceAddform_submit") 변경 내용 저장 
+                                                            button#personInfo_residenceAddform_cancel(type="button") 취소 
                                             #personInfo_menu3_hometownAdd
                                                 i.far.fa-plus-square 
                                                 span 출신지 추가

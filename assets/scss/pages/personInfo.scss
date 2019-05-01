@@ -116,6 +116,35 @@
                                 line-height: 35px;
                             }
                         }
+                        #menu1_residence_showDiv {
+                            overflow: hidden;
+                            padding: 10px;
+                            display: block;
+                            .residence_icon {
+                                float: left;
+                                font-size: 30px;
+                                margin-right: 10px;
+                            }
+                            #menu1_residence_showText {
+                                float: left;
+                                h3 {
+                                    font-size: 18px; 
+                                    font-weight: bold;
+                                    color: #365899;
+                                }
+                                h4 {
+                                    font-size: 13px; 
+                                    color: #90949c;
+                                }
+                            }
+                            span {
+                                float: right;
+                                color: #3578E5; 
+                                font-size: 13px; 
+                                margin-top: 13px;
+                                cursor: pointer;
+                            }
+                        }
                     }
                     .personInfo_menu1_right {
                         float: left;
@@ -412,6 +441,78 @@
                             font-weight: bold;
                             border-bottom: 1px solid #d3d6db;
                             padding-bottom: 7px;
+                        }
+                        #residence_showDiv {
+                            overflow: hidden;
+                            padding: 10px;
+                            border-bottom: 1px solid #d3d6db;
+                            display: block;
+                            .residence_icon {
+                                float: left;
+                                font-size: 30px;
+                                margin-right: 10px;
+                            }
+                            #residence_showText {
+                                float: left;
+                                h3 {
+                                    font-size: 18px; 
+                                    font-weight: bold;
+                                    color: #365899;
+                                }
+                                h4 {
+                                    font-size: 13px; 
+                                    color: #90949c;
+                                }
+                            }
+                            #residence_edit {
+                                float: right;
+                                color: #3578E5; 
+                                font-size: 13px; 
+                                margin-top: 13px;
+                                cursor: pointer;
+                            }
+                        }
+                        #personInfo_menu3_residenceEditFormDiv {
+                            display: none;
+                            background-color: #f5f6f7;
+                            padding: 30px 0 20px 0;
+                            form {
+                                width: 50%;
+                                margin: 0 auto;
+                                div {
+                                    overflow: hidden;
+                                    padding-bottom: 10px;
+                                    label {
+                                        float: left;
+                                        margin-right: 10px;
+                                        font-size: 16px;
+                                        color: #666666;
+                                    }
+                                    input {
+                                        float: left;
+                                        width: 65%;
+                                        padding: 2px;      
+                                    }
+                                    &:first-child {
+                                        padding-bottom: 30px;
+                                    }
+                                    &:last-child {
+                                        padding-left: 60px;
+                                        button {
+                                            padding: 5px 10px;
+                                            margin-right: 5px;
+                                            &:first-child {
+                                                background-color: #4267b2;
+                                                color: #fff; 
+                                            }
+                                            &:last-child {
+                                                background-color: transparent; 
+                                                border: 1px solid #ccd0d5;
+                                            }
+                                        }
+                                    } 
+                                }
+                            }
                         }
                         #personInfo_menu3_residenceAdd {
                             padding: 12px 0 12px 0;

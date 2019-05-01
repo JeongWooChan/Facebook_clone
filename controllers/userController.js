@@ -93,3 +93,22 @@ export const changeBloodType = async (req, res) => {
         })
     })
 }
+
+export const changeResidence = async (req, res) => {
+    const {
+        body: {residence}
+    }=req;
+    await connection.query('SELECT * FROM users WHERE `id`=?', [req.user.id], async(err, rows) => {
+        let $sql = "UPDATE users SET ?"; 
+        let $set = {
+            residence
+        }
+        await connection.query($sql, $set, (err, result) => {
+            if(err) {
+                console.log("❌  ERROR : " + err);
+            } else {
+                res.send(`<script type="text/javascript">alert("성공적으로 변경되었습니다.");document.location.href='http://localhost:${PORT}${routes.personInfo(req.user.id)}';</script>`);
+            }
+        })
+    })
+}
