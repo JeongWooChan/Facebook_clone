@@ -32,9 +32,17 @@ block content
                                                 #menu1_residence_showDiv
                                                     .residence_icon
                                                         i.fas.fa-map-marker-alt 
-                                                    #menu1_residence_showText 
-                                                        h3=user.residence 
-                                                        h4 현재 거주지 
+                                                    #menu1_residence_showText
+                                                        if(user.hometown)
+                                                            .residence_showText_residence
+                                                                h3=user.residence
+                                                                h5 현재 거주지 
+                                                            .residence_showText_hometown 
+                                                                h3=user.hometown
+                                                                h5 출신지
+                                                        else  
+                                                            h3=user.residence 
+                                                            h4 현재 거주지 
                                                     span#menu1_residence_edit 수정 
                                             else     
                                                 #personInfo_menu1_live    
@@ -139,18 +147,35 @@ block content
                                                             input(type="text", id="personInfo_residenceAddform_residence", placeholder="도시명을 입력해주세요.", name="residence")
                                                         div 
                                                             button(type="submit", id="personInfo_residenceAddform_submit") 변경 내용 저장 
-                                                            button#personInfo_residenceAddform_cancel(type="button") 취소 
-                                            #personInfo_menu3_hometownAdd
-                                                i.far.fa-plus-square 
-                                                span 출신지 추가
-                                            #personInfo_menu3_hometownAddFormDiv 
-                                                form(action="#", method="post", id="personInfo_hometownAddForm_form")
-                                                    div 
-                                                        label(for="personInfo_hometownAddform_hometown") 출신지 
-                                                        input(type="text", id="personInfo_hometownAddform_hometown")
-                                                    div 
-                                                        button(type="submit", id="personInfo_hometownAddform_submit") 변경 내용 저장 
-                                                        button#personInfo_hometownAddform_cancel(type="button") 취소  
+                                                            button#personInfo_residenceAddform_cancel(type="button") 취소
+                                            if(user.hometown)
+                                                #hometown_showDiv 
+                                                    .hometown_icon 
+                                                        i.fas.fa-map-marker-alt 
+                                                    #hometown_showText 
+                                                        h3=user.hometown 
+                                                        h4 출신지 
+                                                    span#hometown_edit 수정 
+                                                #personInfo_menu3_hometownEditFormDiv 
+                                                    form(action=`/user${routes.changeHometown}`, method="post", id="personInfo_hometownEditForm_form")
+                                                        div 
+                                                            label(for="personInfo_hometownEditform_hometown") 출신지 
+                                                            input(type="text", id="personInfo_hometownEditform_hometown", name="hometown", value=user.hometown)
+                                                        div 
+                                                            button(type="submit", id="personInfo_hometownEditform_submit") 변경 내용 저장 
+                                                            button#personInfo_hometownEditform_cancel(type="button") 취소
+                                            else 
+                                                #personInfo_menu3_hometownAdd
+                                                    i.far.fa-plus-square 
+                                                    span 출신지 추가
+                                                #personInfo_menu3_hometownAddFormDiv 
+                                                    form(action=`/user${routes.changeHometown}`, method="post", id="personInfo_hometownAddForm_form")
+                                                        div 
+                                                            label(for="personInfo_hometownAddform_hometown") 출신지 
+                                                            input(type="text", id="personInfo_hometownAddform_hometown", name="hometown")
+                                                        div 
+                                                            button(type="submit", id="personInfo_hometownAddform_submit") 변경 내용 저장 
+                                                            button#personInfo_hometownAddform_cancel(type="button") 취소  
                                     #personInfo_content_menu4
                                         .personInfo_menu4_phone
                                             .personInfo_menu4_phoneText 연락처 정보
