@@ -110,7 +110,7 @@
                         }
                         #personInfo_menu1_workspace {
                             overflow: hidden;
-                            padding: 20px 0 35px 0;
+                            padding: 20px 10px 35px 10px;
                             cursor: pointer;
                             color: #3578e5;
                             border-bottom: 1px solid #d3d6db;
@@ -169,7 +169,7 @@
                         }
                         #personInfo_menu1_school {
                             overflow: hidden;
-                            padding: 20px 0 35px 0;
+                            padding: 20px 10px 35px 10px;
                             cursor: pointer;
                             color: #3578e5;
                             border-bottom: 1px solid #d3d6db;
@@ -186,7 +186,7 @@
                         }
                         #personInfo_menu1_live {
                             overflow: hidden;
-                            padding: 20px 0 35px 0;
+                            padding: 20px 0 35px 10px;
                             cursor: pointer;
                             color: #3578e5;
                             i {
@@ -223,6 +223,36 @@
                                 }
                                 h5 {
                                     display: inline-block;
+                                    font-size: 13px; 
+                                    color: #90949c;
+                                }
+                            }
+                            span {
+                                float: right;
+                                color: #3578E5; 
+                                font-size: 13px; 
+                                margin-top: 13px;
+                                cursor: pointer;
+                            }
+                        }
+                        #menu1_hometown_showDiv {
+                            overflow: hidden;
+                            padding: 10px;
+                            display: block;
+                            .hometown_icon {
+                                float: left;
+                                font-size: 30px;
+                                margin-right: 10px;
+                            }
+                            #menu1_hometown_showText {
+                                float: left;
+                                h3 {
+                                    display: inline-block;
+                                    font-size: 18px; 
+                                    font-weight: bold;
+                                    color: #365899;
+                                }
+                                h4 {
                                     font-size: 13px; 
                                     color: #90949c;
                                 }
@@ -355,6 +385,16 @@
                                 font-size: 13px;
                                 margin-top: 13px;
                                 cursor: pointer;
+                                margin-right: 5px;
+                            }
+                            #workspace_delete {
+                                float: right; 
+                                font-size: 13px;
+                                margin-top: 13px;
+                                cursor: pointer;
+                                color: #EB0000;
+                                background-color: transparent;
+                                border: none;
                             }
                         }
                         #personInfo_menu2_workspaceEdit_formDiv {
@@ -502,12 +542,22 @@
                                     }
                                 }
                             }
+                            #university_delete {
+                                float: right; 
+                                font-size: 13px;
+                                margin-top: 13px;
+                                cursor: pointer;
+                                color: #EB0000;
+                                background-color: transparent;
+                                border: none;
+                            }
                             #university_edit {
                                 float: right;
                                 color: #3578E5; 
                                 font-size: 13px;
                                 margin-top: 13px;
                                 cursor: pointer;
+                                margin-right: 5px;
                             }
                         }
                         #personInfo_menu2_universityEdit_formDiv {
@@ -654,14 +704,25 @@
                                     color: #90949c;
                                 }
                             }
+                            #residence_delete {
+                                float: right; 
+                                font-size: 13px;
+                                margin-top: 13px;
+                                cursor: pointer;
+                                color: #EB0000;
+                                background-color: transparent;
+                                border: none;
+                            }
                             #residence_edit {
                                 float: right;
                                 color: #3578E5; 
                                 font-size: 13px; 
                                 margin-top: 13px;
                                 cursor: pointer;
+                                margin-right: 5px;
                             }
                         }
+                        
                         #personInfo_menu3_residenceEditFormDiv {
                             display: none;
                             background-color: #f5f6f7;
@@ -785,12 +846,22 @@
                                     color: #90949c;
                                 }
                             }
+                            #hometown_delete {
+                                float: right; 
+                                font-size: 13px;
+                                margin-top: 13px;
+                                cursor: pointer;
+                                color: #EB0000;
+                                background-color: transparent;
+                                border: none;
+                            }
                             #hometown_edit {
                                 float: right;
                                 color: #3578E5; 
                                 font-size: 13px; 
                                 margin-top: 13px;
                                 cursor: pointer;
+                                margin-right: 5px;
                             }
                         }
                         #personInfo_menu3_hometownEditFormDiv {
@@ -926,6 +997,15 @@
                                 #personInfo_menu4_phoneInfo_show {
                                     float: left;
                                 }
+                                #phone_delete {
+                                    float: right; 
+                                    font-size: 13px;
+                                    margin-top: 3px;
+                                    cursor: pointer;
+                                    color: #EB0000;
+                                    background-color: transparent;
+                                    border: none;
+                                }
                                 #personInfo_menu4_phoneInfo_edit {
                                     float: right;
                                     margin-top: 3px;
@@ -933,6 +1013,7 @@
                                     color: #3578e5;
                                     cursor: pointer;
                                     font-size: 13px;
+                                    margin-right: 5px;
                                 }
                                 #personInfo_menu4_phoneInfo_editForm {
                                     display: none;
@@ -1140,12 +1221,22 @@
                                     color: #1d2129;
                                     font-size: 16px; 
                                 }
+                                #bloodType_delete {
+                                    float: right; 
+                                    font-size: 13px;
+                                    margin-top: 3px;
+                                    cursor: pointer;
+                                    color: #EB0000;
+                                    background-color: transparent;
+                                    border: none;
+                                }
                                 #personInfo_editBlood {
                                     float: right;
                                     color: #3578e5;
                                     font-size: 13px; 
                                     margin-top: 3px; 
                                     cursor: pointer;
+                                    margin-right: 5px;
                                 }
                             }
                             #personInfo_editBloodFormDiv {

@@ -12,13 +12,26 @@ const PERSON_INFO = "/:id/info";
 // User 
 const USER = "/user";
 const CHANGE_PASSWORD = "/change-password";
+
 const CHANGE_PHONE = "/change-phone";   
+const DELETE_PHONE = "/delete-phone";
+
 const CHANGE_BIRTHDAY = "/change-birthday"; 
-const CHANGE_BLOODTYPE = "/change-bloodtype"; 
+
+const CHANGE_BLOODTYPE = "/change-bloodtype";
+const DELETE_BLOODTYPE = "/delete-bloodtype";
+
 const CHANGE_RESIDENCE = "/change-residence"; 
+const DELETE_RESIDENCE = "/delete-residence";
+
 const CHANGE_HOMETOWN = "/change-hometown"; 
+const DELETE_HOMETOWN = "/delete-hometown";
+
 const CHANGE_COMPANY = "/change-company"; 
+const DELETE_COMPANY = "/delete-company"; 
+
 const CHANGE_UNIVERSITY = "/change-university"; 
+const DELETE_UNIVERSITY = "/delete-university"; 
 
 // API 
 const API = "/api"; 
@@ -36,12 +49,18 @@ const routes = {
     user: USER, 
     changePassword: CHANGE_PASSWORD,
     changePhone: CHANGE_PHONE,
+    deletePhone: DELETE_PHONE,
     changeBirthday: CHANGE_BIRTHDAY,
     changeBloodType: CHANGE_BLOODTYPE,
+    deleteBloodType: DELETE_BLOODTYPE,
     changeResidence: CHANGE_RESIDENCE,
+    deleteResidence: DELETE_RESIDENCE,
     changeHometown: CHANGE_HOMETOWN,
+    deleteHometown: DELETE_HOMETOWN,
     changeCompany: CHANGE_COMPANY,
+    deleteCompany: DELETE_COMPANY,
     changeUniversity: CHANGE_UNIVERSITY,
+    deleteUniversity: DELETE_UNIVERSITY,
     person: (id) => {
         if(id) {
             return `/main/${id}`;

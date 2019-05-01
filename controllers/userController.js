@@ -54,6 +54,22 @@ export const changePhone = async (req, res) => {
     });
 }
 
+export const deletePhone = async (req, res) => {
+    await connection.query('SELECT * FROM users WHERE `id`=?', [req.user.id], async(err, rows) => {
+        let $sql = "UPDATE users SET ?"; 
+        let $set = {
+            phone: null
+        }
+        await connection.query($sql, $set, (err, result) => {
+            if(err) {
+                console.log("❌  ERROR : " + err);
+            } else {
+                res.send(`<script type="text/javascript">alert("성공적으로 삭제되었습니다.");document.location.href='http://localhost:${PORT}${routes.personInfo(req.user.id)}';</script>`);
+            }
+        });
+    });
+}
+
 export const changeBirthday = async (req, res) => {
     const {
         body: {year, month, day}
@@ -94,6 +110,22 @@ export const changeBloodType = async (req, res) => {
     })
 }
 
+export const deleteBloodType = async (req, res) => {
+    await connection.query('SELECT * FROM users WHERE `id`=?', [req.user.id], async(err, rows) => {
+        let $sql = "UPDATE users SET ?"; 
+        let $set = {
+            bloodType: null
+        }
+        await connection.query($sql, $set, (err, result) => {
+            if(err) {
+                console.log("❌  ERROR : " + err);
+            } else {
+                res.send(`<script type="text/javascript">alert("성공적으로 삭제되었습니다.");document.location.href='http://localhost:${PORT}${routes.personInfo(req.user.id)}';</script>`);
+            }
+        });
+    });
+}
+
 export const changeResidence = async (req, res) => {
     const {
         body: {residence}
@@ -113,6 +145,22 @@ export const changeResidence = async (req, res) => {
     });
 }
 
+export const deleteResidence = async (req, res) => {
+    await connection.query('SELECT * FROM users WHERE `id`=?', [req.user.id], async(err, rows) => {
+        let $sql = "UPDATE users SET ?"; 
+        let $set = {
+            residence: null
+        }
+        await connection.query($sql, $set, (err, result) => {
+            if(err) {
+                console.log("❌  ERROR : " + err);
+            } else {
+                res.send(`<script type="text/javascript">alert("성공적으로 삭제되었습니다.");document.location.href='http://localhost:${PORT}${routes.personInfo(req.user.id)}';</script>`);
+            }
+        });
+    });
+}
+
 export const changeHometown = async (req, res) => {
     const {
         body: {hometown} 
@@ -127,6 +175,22 @@ export const changeHometown = async (req, res) => {
                 console.log("❌  ERROR : " + err);
             } else {
                 res.send(`<script type="text/javascript">alert("성공적으로 변경되었습니다.");document.location.href='http://localhost:${PORT}${routes.personInfo(req.user.id)}';</script>`);
+            }
+        });
+    });
+}
+
+export const deleteHometown = async (req, res) => {
+    await connection.query('SELECT * FROM users WHERE `id`=?', [req.user.id], async(err, rows) => {
+        let $sql = "UPDATE users SET ?"; 
+        let $set = {
+            hometown: null
+        }
+        await connection.query($sql, $set, (err, result) => {
+            if(err) {
+                console.log("❌  ERROR : " + err);
+            } else {
+                res.send(`<script type="text/javascript">alert("성공적으로 삭제되었습니다.");document.location.href='http://localhost:${PORT}${routes.personInfo(req.user.id)}';</script>`);
             }
         });
     });
@@ -153,6 +217,25 @@ export const changeCompany = async (req, res) => {
     });
 }
 
+export const deleteCompany = async (req, res) => {
+    await connection.query('SELECT * FROM users WHERE `id`=?', [req.user.id], async(err, rows) => {
+        let $sql = "UPDATE users SET ?"; 
+        let $set = {
+            workspace: null, 
+            workspace_position: null, 
+            workspace_city: null
+        }
+        await connection.query($sql, $set, (err, result) => {
+            if(err) {
+                console.log("❌  ERROR : " + err);
+            } else {
+                res.send(`<script type="text/javascript">alert("성공적으로 삭제되었습니다.");document.location.href='http://localhost:${PORT}${routes.personInfo(req.user.id)}';</script>`);
+            }
+        });
+    });
+}
+
+
 export const changeUniversity = async (req, res) => {
     const {
         body: { university, major, graduate }
@@ -163,7 +246,7 @@ export const changeUniversity = async (req, res) => {
         if(graduate == null) {
             $set = {
                 university, 
-                graduate: null,
+                university_graduate: null,
                 university_major: major
             }
         } else {
@@ -181,5 +264,22 @@ export const changeUniversity = async (req, res) => {
             }
         });
     });
+}
 
+export const deleteUniversity = async (req, res) => {
+    await connection.query('SELECT * FROM users WHERE `id`=?', [req.user.id], async(err, rows) => {
+        let $sql = "UPDATE users SET ?"; 
+        let $set = {
+            university: null, 
+            university_graduate: null,
+            university_major: null
+        }
+        await connection.query($sql, $set, (err, result) => {
+            if(err) {
+                console.log("❌  ERROR : " + err);
+            } else {
+                res.send(`<script type="text/javascript">alert("성공적으로 삭제되었습니다.");document.location.href='http://localhost:${PORT}${routes.personInfo(req.user.id)}';</script>`);
+            }
+        });
+    });
 }

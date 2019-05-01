@@ -10,6 +10,7 @@ const residenceEditForm = document.getElementById("personInfo_residenceEditForm_
 const residenceEditInput = document.getElementById("personInfo_residenceEditform_residence");
 const residenceAddForm = document.getElementById("personInfo_residenceAddForm_form"); 
 const residenceAddInput = document.getElementById("personInfo_residenceAddform_residence");
+const residenceDeleteForm = document.getElementById("delete_residenceForm");
 
 // 출신지 
 const hometownAdd = document.getElementById("personInfo_menu3_hometownAdd"); 
@@ -21,6 +22,7 @@ const hometownEditForm = document.getElementById("personInfo_hometownEditForm_fo
 const hometownEditInput = document.getElementById("personInfo_hometownEditform_hometown");
 const hometownAddForm = document.getElementById("personInfo_hometownAddForm_form");
 const hometownAddInput = document.getElementById("personInfo_hometownAddform_hometown");
+const hometownDeleteForm = document.getElementById("delete_hometownForm");
 
 // 취소버튼 
 const residenceAddForm_cancel = document.getElementById("personInfo_residenceAddform_cancel");
@@ -28,6 +30,28 @@ const hometownAddForm_cancel = document.getElementById("personInfo_hometownAddfo
 const editCancel = document.getElementById("personInfo_residenceEditform_cancel");
 const hometownEditForm_cancel = document.getElementById("personInfo_hometownEditform_cancel");
 
+
+const checkHometownDelete = event => {
+    event.preventDefault(); 
+
+    let check = confirm("출신지 정보를 삭제하시겠습니까?"); 
+    if(check == true) {
+        hometownDeleteForm.submit();
+    } else {
+        return false;
+    }
+}
+
+const checkResidenceDelete = event => {
+    event.preventDefault(); 
+
+    let check = confirm("거주지 정보를 삭제하시겠습니까?"); 
+    if(check == true) {
+        residenceDeleteForm.submit();
+    } else {
+        return false;
+    }
+}
 
 const checkInput_hometownAdd = event => {
     event.preventDefault();
@@ -121,6 +145,7 @@ const init = () => {
         residence_editBtn.addEventListener("click", showEditForm); 
         editCancel.addEventListener("click", cancelEditForm);
         residenceEditForm.addEventListener("submit", checkInput);
+        residenceDeleteForm.addEventListener("submit", checkResidenceDelete);
     } else {
         residenceAdd.addEventListener("click", AddResidenceFunction); 
         residenceAddForm_cancel.addEventListener("click", residenceDivCancel);
@@ -132,6 +157,7 @@ const init = () => {
         hometownEditBtn.addEventListener("click", showHometownEditForm);
         hometownEditForm_cancel.addEventListener("click", hometownEditFormCancel)
         hometownEditForm.addEventListener("submit", checkInput_hometownEdit);
+        hometownDeleteForm.addEventListener("submit", checkHometownDelete);
     } else {
         hometownAdd.addEventListener("click", AddHometownFunction); 
         hometownAddForm_cancel.addEventListener("click", hometownDivCancel);

@@ -31,6 +31,8 @@ const editPhone = document.getElementById("personInfo_menu1_phoneEdit");
 const editBirthday = document.getElementById("personInfo_menu1_birthdayEdit");
 // 거주지 수정 
 const editResidence = document.getElementById("menu1_residence_edit");
+// 출신지 수정 
+const editHometown = document.getElementById("menu1_hometown_edit");
 
 const handleMenu1 = () => {
     // display 
@@ -198,6 +200,8 @@ const init = () => {
     // 거주지 클릭 이벤트
     if(editResidence) {
         editResidence.addEventListener("click", handleMenu3);
+    } else if(editHometown) {
+        editHometown.addEventListener("click", handleMenu3);
     } else {
         addLive.addEventListener("click", handleMenu3); 
     }

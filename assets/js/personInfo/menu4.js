@@ -6,6 +6,7 @@ const personInfo_menu4_phoneAdd = document.getElementById("personInfo_menu4_phon
 const personInfo_menu4_phoneInfo_show = document.getElementById("personInfo_menu4_phoneInfo_show");
 const personInfo_menu4_phoneInfo_edit = document.getElementById("personInfo_menu4_phoneInfo_edit");
 const personInfo_menu4_phoneInfo_editForm = document.getElementById("personInfo_menu4_phoneInfo_editForm");
+const deletePhoneForm = document.getElementById("delete_phoneForm");
 
 // 생일 
 const personInfo_showBirthday = document.getElementById("personInfo_showBirthday"); 
@@ -20,6 +21,7 @@ const personInfo_addBloodForm = document.getElementById("personInfo_addBloodForm
 const editBloodBtn = document.getElementById("personInfo_editBlood"); 
 const showBlood = document.getElementById("personInfo_showBloodDiv"); 
 const editBloodForm = document.getElementById("personInfo_editBloodFormDiv"); 
+const deleteBloodTypeForm = document.getElementById("delete_bloodTypeForm");
 
 
 // 취소 
@@ -42,6 +44,29 @@ const addForm = document.getElementById("phoneInfo_addForm");
 const addForm_first = document.getElementById("phoneInfo_addForm_first"); 
 const addForm_second = document.getElementById("phoneInfo_addForm_second");
 const addForm_third = document.getElementById("phoneInfo_addForm_third");
+
+
+const checkDeleteBlood = event => {
+    event.preventDefault();
+
+    let check = confirm("혈액형 정보를 삭제하시겠습니까?"); 
+    if(check == true) {
+        deleteBloodTypeForm.submit();
+    } else {
+        return false;
+    }
+}
+
+const checkDeletePhone = event => {
+    event.preventDefault();
+
+    let check = confirm("휴대전화 정보를 삭제하시겠습니까?"); 
+    if(check == true) {
+        deletePhoneForm.submit();
+    } else {
+        return false;
+    }
+}
 
 const cancelEditBlood = () => {
     showBlood.style.display = "block"; 
@@ -126,6 +151,7 @@ const init = () => {
     if(personInfo_menu4_phoneInfo_show) {
         personInfo_menu4_phoneInfo_edit.addEventListener("click", showPhoneEditForm);
         personInfo_menu4_phoneForm_editFormcancel.addEventListener("click", cancelPhoneEditForm);
+        deletePhoneForm.addEventListener("submit", checkDeletePhone);
     }else {
         personInfo_menu4_phoneAdd.addEventListener("click", showPhoneAddForm); 
         personInfo_menu4_phoneForm_cancel.addEventListener("click", cancelPhoneAddForm);
@@ -144,6 +170,7 @@ const init = () => {
     if(showBlood) {
         editBloodBtn.addEventListener("click", showEditBloodForm);
         personInfo_editBlood_cancel.addEventListener("click", cancelEditBlood);
+        deleteBloodTypeForm.addEventListener("submit", checkDeleteBlood)
     } else {
         personInfo_addBlood.addEventListener("click", showEditBlood); 
         personInfo_bloodAdd_cancel.addEventListener("click", cancelAddBlood); 

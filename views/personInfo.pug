@@ -71,6 +71,14 @@ block content
                                                             h3=user.residence 
                                                             h4 현재 거주지 
                                                     span#menu1_residence_edit 수정 
+                                            else if(!user.residence && user.hometown) 
+                                                #menu1_hometown_showDiv 
+                                                    .hometown_icon 
+                                                        i.fas.fa-map-marker-alt 
+                                                    #menu1_hometown_showText 
+                                                        h3=user.hometown 
+                                                        h4 출신지 
+                                                    span#menu1_hometown_edit 수정 
                                             else     
                                                 #personInfo_menu1_live    
                                                     i.far.fa-plus-square 
@@ -103,6 +111,8 @@ block content
                                                             h4=user.workspace_position 
                                                             h5  
                                                             h4=user.workspace_city
+                                                    form(action=`/user${routes.deleteCompany}`, method="post", id="workspace_deleteform")
+                                                        input(type="submit", id="workspace_delete", value="삭제")                                                            
                                                     span#workspace_edit 수정 
                                                 #personInfo_menu2_workspaceEdit_formDiv 
                                                     form(action=`/user${routes.changeCompany}`, method="post", id="personInfo_workspaceEdit_form") 
@@ -149,7 +159,10 @@ block content
                                                             h4=user.university_major 
                                                             if(user.university_graduate) 
                                                                 h5
-                                                                h4 졸업 
+                                                                h4 졸업
+                                                    form(action=`/user${routes.deleteUniversity}`, method="post", id="university_deleteForm")
+                                                        input(type="submit", id="university_delete", value="삭제")
+	                                                    
                                                     span#university_edit 수정 
                                                 #personInfo_menu2_universityEdit_formDiv
                                                     form(action=`/user${routes.changeUniversity}`, method="post", id="personInfo_universityEdit_form") 
@@ -193,6 +206,8 @@ block content
                                                     #residence_showText 
                                                         h3=user.residence 
                                                         h4 현재 거주지
+                                                    form(action=`/user${routes.deleteResidence}`, method="post", id="delete_residenceForm")
+                                                        input(type="submit", id="residence_delete", value="삭제")    
                                                     span#residence_edit 수정
                                                 #personInfo_menu3_residenceEditFormDiv 
                                                     form(action=`/user${routes.changeResidence}`, method="post", id="personInfo_residenceEditForm_form")
@@ -221,6 +236,8 @@ block content
                                                     #hometown_showText 
                                                         h3=user.hometown 
                                                         h4 출신지 
+                                                    form(action=`/user${routes.deleteHometown}`, method="post", id="delete_hometownForm")
+                                                        input(type="submit", id="hometown_delete", value="삭제")
                                                     span#hometown_edit 수정 
                                                 #personInfo_menu3_hometownEditFormDiv 
                                                     form(action=`/user${routes.changeHometown}`, method="post", id="personInfo_hometownEditForm_form")
@@ -250,6 +267,8 @@ block content
                                                 .personInfo_menu4_phoneInfo 
                                                     if(user.phone)
                                                         #personInfo_menu4_phoneInfo_show=user.phone
+                                                        form(action=`/user${routes.deletePhone}`, method="post", id="delete_phoneForm")
+                                                            input(type="submit", id="phone_delete", value="삭제")
                                                         #personInfo_menu4_phoneInfo_edit 수정 
                                                         #personInfo_menu4_phoneInfo_editForm 
                                                             form(action=`/user${routes.changePhone}`, method="post", id="phoneInfo_editForm") 
@@ -319,6 +338,8 @@ block content
                                                 if(user.bloodType)
                                                     #personInfo_showBloodDiv 
                                                         #personInfo_showBlood=user.bloodType 
+                                                        form(action=`/user${routes.deleteBloodType}`, method="post", id="delete_bloodTypeForm")
+                                                            input(type="submit", id="bloodType_delete", value="삭제")
                                                         #personInfo_editBlood 수정
                                                     #personInfo_editBloodFormDiv 
                                                         form(action=`/user${routes.changeBloodType}`, method="post") 

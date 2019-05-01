@@ -4,6 +4,7 @@ const personInfo_content_menu2 = document.getElementById("personInfo_content_men
 const workspaceEditBtn = document.getElementById("workspace_edit");
 const workspaceEditFormDiv = document.getElementById("personInfo_menu2_workspaceEdit_formDiv"); 
 const showWorkspace = document.getElementById("menu2_workspaceShowDiv"); 
+const deleteWorkspaceForm = document.getElementById("workspace_deleteform");
 // 추가 
 const workspaceAdd = document.getElementById("personInfo_menu2_workspaceAdd"); 
 const workspaceAddFormDiv = document.getElementById("personInfo_menu2_workspaceAdd_formDiv");
@@ -16,12 +17,36 @@ const universityAddFormDiv = document.getElementById("personInfo_menu2_universit
 const universityEditBtn = document.getElementById("university_edit");
 const showUniversity = document.getElementById("menu2_universityShowDiv");
 const universityEditFormDiv = document.getElementById("personInfo_menu2_universityEdit_formDiv");
+const deleteUniversityForm = document.getElementById("university_deleteForm");
 
 // cancel 버튼 
 const workspaceAddForm_cancel = document.getElementById("personInfo_workspaceAddform_cancel");
 const workspaceEditForm_cancel = document.getElementById("personInfo_workspaceEditform_cancel");
 const universityAddForm_cancel = document.getElementById("personInfo_universityAddform_cancel");
 const universityEditForm_cancel = document.getElementById("personInfo_universityEditform_cancel");
+
+
+const checkDeleteUniversity = event => {
+    event.preventDefault();
+
+    let check = confirm("대학 정보를 삭제하시겠습니까?"); 
+    if(check == true) {
+        deleteUniversityForm.submit();
+    } else {
+        return false;
+    }
+}
+
+const checkDeleteWorkspace = event => {
+    event.preventDefault();
+
+    let check = confirm("직장 정보를 삭제하시겠습니까?"); 
+    if(check == true) {
+        deleteWorkspaceForm.submit();
+    } else {
+        return false;
+    }
+}
 
 const universityEditCancel = () => {
     showUniversity.style.display = "block";
@@ -78,6 +103,7 @@ const init = () => {
     if(showWorkspace) {
         workspaceEditBtn.addEventListener("click", showEditForm);
         workspaceEditForm_cancel.addEventListener("click", EditWorkspaceCancel);
+        deleteWorkspaceForm.addEventListener("submit", checkDeleteWorkspace);
     } else {
         workspaceAdd.addEventListener("click", AddWorkspaceFunction); 
         workspaceAddForm_cancel.addEventListener("click", workspaceDivCancel);
@@ -87,6 +113,7 @@ const init = () => {
     if(showUniversity) {
         universityEditBtn.addEventListener("click", showuniversityEditForm);
         universityEditForm_cancel.addEventListener("click", universityEditCancel);
+        deleteUniversityForm.addEventListener("submit", checkDeleteUniversity);
     } else {
         universityAdd.addEventListener("click", AddUniversityFunction);
         universityAddForm_cancel.addEventListener("click", universityDivCancel);
