@@ -152,3 +152,34 @@ export const changeCompany = async (req, res) => {
         });
     });
 }
+
+export const changeUniversity = async (req, res) => {
+    const {
+        body: { university, major, graduate }
+    }= req; 
+    await connection.query('SELECT * FROM users WHERE `id`=?', [req.user.id], async(err, rows) => {
+        let $sql = "UPDATE users SET ?"; 
+        let $set;
+        if(graduate == null) {
+            $set = {
+                university, 
+                graduate: null,
+                university_major: major
+            }
+        } else {
+            $set = {
+                university, 
+                university_graduate: graduate, 
+                university_major: major 
+            }
+        }
+        await connection.query($sql, $set, (err, result) => {
+            if(err) {
+                console.log("❌  ERROR : " + err);
+            } else {
+                res.send(`<script type="text/javascript">alert("성공적으로 변경되었습니다.");document.location.href='http://localhost:${PORT}${routes.personInfo(req.user.id)}';</script>`);
+            }
+        });
+    });
+
+}

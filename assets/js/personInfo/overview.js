@@ -16,8 +16,9 @@ const menu5Block = document.getElementById("personInfo_content_changePassword");
 // 직장
 const addWorkspace = document.getElementById("personInfo_menu1_workspace");
 const workspaceEditBtn = document.getElementById("menu1_workspace_edit");
-// 학교 추가 
+// 대학교  
 const addSchool = document.getElementById("personInfo_menu1_school");
+const universityEditBtn = document.getElementById("menu1_university_edit");
 // 거주지 추가 
 const addLive = document.getElementById("personInfo_menu1_live"); 
 
@@ -187,8 +188,13 @@ const init = () => {
         workspaceEditBtn.addEventListener("click", handleMenu2);
     }
     
-    // 학교 추가 클릭 이벤트 
-    addSchool.addEventListener("click", handleMenu2); 
+    // 학교 클릭 이벤트 
+    if(addSchool) {
+        addSchool.addEventListener("click", handleMenu2); 
+    } else {
+        universityEditBtn.addEventListener("click", handleMenu2);
+    }
+    
     // 거주지 클릭 이벤트
     if(editResidence) {
         editResidence.addEventListener("click", handleMenu3);

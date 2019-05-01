@@ -1,6 +1,6 @@
 import express from "express"; 
 import routes from "../routes";
-import { changePassword, user, changePhone, changeBirthday, changeBloodType, changeResidence, changeHometown, changeCompany } from "../controllers/userController";
+import { changePassword, user, changePhone, changeBirthday, changeBloodType, changeResidence, changeHometown, changeCompany, changeUniversity } from "../controllers/userController";
 
 const userRouter = express.Router(); 
 
@@ -13,5 +13,6 @@ userRouter.post(routes.changeBloodType, changeBloodType);
 userRouter.post(routes.changeResidence, changeResidence);
 userRouter.post(routes.changeHometown, changeHometown); 
 userRouter.post(routes.changeCompany, changeCompany);
+userRouter.post(routes.changeUniversity, changeUniversity);
 
 export default userRouter;

@@ -38,9 +38,23 @@ block content
                                                 #personInfo_menu1_workspace
                                                     i.far.fa-plus-square 
                                                     span 직장 추가 
-                                            #personInfo_menu1_school 
-                                                i.far.fa-plus-square 
-                                                span 학교 추가  
+                                            if(user.university) 
+                                                #menu1_university_showDiv 
+                                                    #menu1_university_icon
+                                                        i.fas.fa-university 
+                                                    #menu1_university_showTextDiv 
+                                                        .menu1_university_showText1 
+                                                            h3=user.university 
+                                                        .menu1_university_showText2 
+                                                            h4=user.university_major 
+                                                            if(user.university_graduate) 
+                                                                h5
+                                                                h4 졸업 
+                                                    span#menu1_university_edit 수정 
+                                            else 
+                                                #personInfo_menu1_school  
+                                                    i.far.fa-plus-square 
+                                                    span 학교 추가  
                                             if(user.residence)
                                                 #menu1_residence_showDiv
                                                     .residence_icon
@@ -124,39 +138,51 @@ block content
                                                             button#personInfo_workspaceAddform_cancel(type="button") 취소
                                         .personInfo_menu2_university
                                             .personInfo_menu2_universityText 대학 
-                                            #personInfo_menu2_universityAdd
-                                                i.far.fa-plus-square 
-                                                span 대학 추가
-                                            #personInfo_menu2_universityAdd_formDiv
-                                                form(action="#", method="post", id="personInfo_universityAdd_form") 
-                                                    div 
-                                                        label(for="personInfo_universityAddform_university") 학교 
-                                                        input(type="text", id="personInfo_universityAddform_university")
-                                                    div
-                                                        label(for="personInfo_universityAddform_gradu") 졸업  
-                                                        input(type="checkbox", id="personInfo_universityAddform_gradu")
-                                                    div 
-                                                        label(for="personInfo_universityAddform_major") 전공 
-                                                        input(type="text", id="personInfo_universityAddform_major") 
-                                                    div 
-                                                        button(type="submit", id="personInfo_universityAddform_submit") 변경 내용 저장 
-                                                        button#personInfo_universityAddform_cancel(type="button") 취소
-                                        .personInfo_menu2_highschool 
-                                            .personInfo_menu2_highschoolText 고등학교 
-                                            #personInfo_menu2_highschoolAdd
-                                                i.far.fa-plus-square 
-                                                span 고등학교 추가
-                                            #personInfo_menu2_highschoolAdd_formDiv
-                                                form(action="#", method="post", id="personInfo_highschoolAdd_form") 
-                                                    div 
-                                                        label(for="personInfo_highschoolAddform_highschool") 학교 
-                                                        input(type="text", id="personInfo_highschoolAddform_highschool")
-                                                    div
-                                                        label(for="personInfo_highschoolAddform_gradu") 졸업  
-                                                        input(type="checkbox", id="personInfo_highschoolAddform_gradu") 
-                                                    div 
-                                                        button(type="submit", id="personInfo_highschoolAddform_submit") 변경 내용 저장 
-                                                        button#personInfo_highschoolAddform_cancel(type="button") 취소
+                                            if(user.university)
+                                                #menu2_universityShowDiv 
+                                                    #university_icon 
+                                                        i.fas.fa-university 
+                                                    #university_showTextDiv 
+                                                        .university_showText1
+                                                            h3=user.university 
+                                                        .university_showText2 
+                                                            h4=user.university_major 
+                                                            if(user.university_graduate) 
+                                                                h5
+                                                                h4 졸업 
+                                                    span#university_edit 수정 
+                                                #personInfo_menu2_universityEdit_formDiv
+                                                    form(action=`/user${routes.changeUniversity}`, method="post", id="personInfo_universityEdit_form") 
+                                                        div 
+                                                            label(for="personInfo_universityEditform_university") 학교 
+                                                            input(type="text", id="personInfo_universityEditform_university", name="university", value=user.university, required)
+                                                        div
+                                                            label(for="personInfo_universityEditform_gradu") 졸업  
+                                                            input(type="checkbox", id="personInfo_universityEditform_gradu", name="graduate")
+                                                        div 
+                                                            label(for="personInfo_universityEditform_major") 전공 
+                                                            input(type="text", id="personInfo_universityEditform_major", name="major", value=user.university_major, required) 
+                                                        div 
+                                                            button(type="submit", id="personInfo_universityEditform_submit") 변경 내용 저장 
+                                                            button#personInfo_universityEditform_cancel(type="button") 취소
+                                            else 
+                                                #personInfo_menu2_universityAdd
+                                                    i.far.fa-plus-square 
+                                                    span 대학 추가
+                                                #personInfo_menu2_universityAdd_formDiv
+                                                    form(action=`/user${routes.changeUniversity}`, method="post", id="personInfo_universityAdd_form") 
+                                                        div 
+                                                            label(for="personInfo_universityAddform_university") 학교 
+                                                            input(type="text", id="personInfo_universityAddform_university", name="university", required)
+                                                        div
+                                                            label(for="personInfo_universityAddform_gradu") 졸업  
+                                                            input(type="checkbox", id="personInfo_universityAddform_gradu", name="graduate")
+                                                        div 
+                                                            label(for="personInfo_universityAddform_major") 전공 
+                                                            input(type="text", id="personInfo_universityAddform_major", name="major", required) 
+                                                        div 
+                                                            button(type="submit", id="personInfo_universityAddform_submit") 변경 내용 저장 
+                                                            button#personInfo_universityAddform_cancel(type="button") 취소
                                     #personInfo_content_menu3
                                         .personInfo_menu3_residence
                                             .personInfo_menu3_residenceText 거주지와 출신지

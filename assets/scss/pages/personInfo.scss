@@ -125,6 +125,48 @@
                                 line-height: 35px;
                             }
                         }
+                        #menu1_university_showDiv {
+                            overflow: hidden;
+                            padding: 10px;
+                            border-bottom: 1px solid #d3d6db;
+                            #menu1_university_icon {
+                                float: left; 
+                                font-size: 30px;
+                                margin-right: 10px;
+                            }
+                            #menu1_university_showTextDiv {
+                                float: left; 
+                                .menu1_university_showText1 {
+                                    h3 {
+                                        font-size: 18px; 
+                                        font-weight: bold;
+                                        color: #365899; 
+                                    }
+                                }
+                                .menu1_university_showText2 {
+                                    h4 {
+                                        display: inline-block;
+                                        font-size: 13px; 
+                                        color: #90949c;
+                                    }
+                                    h5 {
+                                        width: 3px;
+                                        height: 3px; 
+                                        border-radius: 50%; 
+                                        background-color: #90949c;
+                                        display: inline-block;
+                                        margin: 0 5px 3px 5px;
+                                    }
+                                }
+                            }
+                            #menu1_university_edit {
+                                float: right;
+                                color: #3578E5; 
+                                font-size: 13px;
+                                margin-top: 13px;
+                                cursor: pointer;
+                            }
+                        }
                         #personInfo_menu1_school {
                             overflow: hidden;
                             padding: 20px 0 35px 0;
@@ -426,23 +468,49 @@
                             border-bottom: 1px solid #d3d6db;
                             padding-bottom: 7px;
                         }
-                        #personInfo_menu2_universityAdd {
-                            padding: 12px 0 0;
+                        #menu2_universityShowDiv {
                             overflow: hidden;
-                            color: #3578e5;
-                            cursor: pointer;
-                            i {
-                                float: left;
-                                font-size: 35px;
-                                margin-right: 15px;
+                            padding: 10px;
+                            border-bottom: 1px solid #d3d6db;
+                            #university_icon {
+                                float: left; 
+                                font-size: 30px;
+                                margin-right: 10px;
                             }
-                            span {
-                                float: left;
-                                font-size: 16px;
-                                line-height: 35px;
+                            #university_showTextDiv {
+                                float: left; 
+                                .university_showText1 {
+                                    h3 {
+                                        font-size: 18px; 
+                                        font-weight: bold;
+                                        color: #365899; 
+                                    }
+                                }
+                                .university_showText2 {
+                                    h4 {
+                                        display: inline-block;
+                                        font-size: 13px; 
+                                        color: #90949c;
+                                    }
+                                    h5 {
+                                        width: 3px;
+                                        height: 3px; 
+                                        border-radius: 50%; 
+                                        background-color: #90949c;
+                                        display: inline-block;
+                                        margin: 0 5px 3px 5px;
+                                    }
+                                }
+                            }
+                            #university_edit {
+                                float: right;
+                                color: #3578E5; 
+                                font-size: 13px;
+                                margin-top: 13px;
+                                cursor: pointer;
                             }
                         }
-                        #personInfo_menu2_universityAdd_formDiv {
+                        #personInfo_menu2_universityEdit_formDiv {
                             display: none;
                             background-color: #f5f6f7;
                             padding: 20px 0;
@@ -488,17 +556,7 @@
                                 }
                             }
                         }
-                    }
-                    .personInfo_menu2_highschool {
-                        padding: 0 0 30px;
-                        .personInfo_menu2_highschoolText {
-                            color: #90949c; 
-                            font-size: 14px;
-                            font-weight: bold;
-                            border-bottom: 1px solid #d3d6db;
-                            padding-bottom: 7px;
-                        }
-                        #personInfo_menu2_highschoolAdd {
+                        #personInfo_menu2_universityAdd {
                             padding: 12px 0 0;
                             overflow: hidden;
                             color: #3578e5;
@@ -514,7 +572,7 @@
                                 line-height: 35px;
                             }
                         }
-                        #personInfo_menu2_highschoolAdd_formDiv {
+                        #personInfo_menu2_universityAdd_formDiv {
                             display: none;
                             background-color: #f5f6f7;
                             padding: 20px 0;
@@ -539,7 +597,7 @@
                                         width: auto;
                                         margin-top: 6px;
                                     }
-                                    &:nth-child(2) {
+                                    &:nth-child(3) {
                                         padding-bottom: 30px;
                                     }
                                     &:last-child {

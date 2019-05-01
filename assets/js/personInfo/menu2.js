@@ -1,5 +1,5 @@
 const personInfo_content_menu2 = document.getElementById("personInfo_content_menu2");
-// 직장
+//// 직장
 // 수정 
 const workspaceEditBtn = document.getElementById("workspace_edit");
 const workspaceEditFormDiv = document.getElementById("personInfo_menu2_workspaceEdit_formDiv"); 
@@ -8,18 +8,30 @@ const showWorkspace = document.getElementById("menu2_workspaceShowDiv");
 const workspaceAdd = document.getElementById("personInfo_menu2_workspaceAdd"); 
 const workspaceAddFormDiv = document.getElementById("personInfo_menu2_workspaceAdd_formDiv");
 
-// 대학교 추가 
+//// 대학교
+// 추가 
 const universityAdd = document.getElementById("personInfo_menu2_universityAdd"); 
 const universityAddFormDiv = document.getElementById("personInfo_menu2_universityAdd_formDiv");
-// 고등학교 추가 
-const highschoolAdd = document.getElementById("personInfo_menu2_highschoolAdd"); 
-const highschoolAddFormDiv = document.getElementById("personInfo_menu2_highschoolAdd_formDiv");
+// 수정 
+const universityEditBtn = document.getElementById("university_edit");
+const showUniversity = document.getElementById("menu2_universityShowDiv");
+const universityEditFormDiv = document.getElementById("personInfo_menu2_universityEdit_formDiv");
 
 // cancel 버튼 
 const workspaceAddForm_cancel = document.getElementById("personInfo_workspaceAddform_cancel");
 const workspaceEditForm_cancel = document.getElementById("personInfo_workspaceEditform_cancel");
 const universityAddForm_cancel = document.getElementById("personInfo_universityAddform_cancel");
-const highschoolAddForm_cancel = document.getElementById("personInfo_highschoolAddform_cancel");
+const universityEditForm_cancel = document.getElementById("personInfo_universityEditform_cancel");
+
+const universityEditCancel = () => {
+    showUniversity.style.display = "block";
+    universityEditFormDiv.style.display = "none";
+}
+
+const showuniversityEditForm = () => {
+    showUniversity.style.display = "none";
+    universityEditFormDiv.style.display = "block";
+}
 
 const EditWorkspaceCancel = () => {
     showWorkspace.style.display = "block"; 
@@ -72,11 +84,13 @@ const init = () => {
     }
    
     // 대학 
-    universityAdd.addEventListener("click", AddUniversityFunction);
-    universityAddForm_cancel.addEventListener("click", universityDivCancel);
-    // 고등학교 
-    highschoolAdd.addEventListener("click", AddHighschoolFunction);
-    highschoolAddForm_cancel.addEventListener("click", highschoolDivCancel);
+    if(showUniversity) {
+        universityEditBtn.addEventListener("click", showuniversityEditForm);
+        universityEditForm_cancel.addEventListener("click", universityEditCancel);
+    } else {
+        universityAdd.addEventListener("click", AddUniversityFunction);
+        universityAddForm_cancel.addEventListener("click", universityDivCancel);
+    }
 }
 
 if(personInfo_content_menu2) {

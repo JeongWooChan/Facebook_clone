@@ -18,6 +18,7 @@ const CHANGE_BLOODTYPE = "/change-bloodtype";
 const CHANGE_RESIDENCE = "/change-residence"; 
 const CHANGE_HOMETOWN = "/change-hometown"; 
 const CHANGE_COMPANY = "/change-company"; 
+const CHANGE_UNIVERSITY = "/change-university"; 
 
 // API 
 const API = "/api"; 
@@ -40,6 +41,7 @@ const routes = {
     changeResidence: CHANGE_RESIDENCE,
     changeHometown: CHANGE_HOMETOWN,
     changeCompany: CHANGE_COMPANY,
+    changeUniversity: CHANGE_UNIVERSITY,
     person: (id) => {
         if(id) {
             return `/main/${id}`;
