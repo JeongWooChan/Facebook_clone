@@ -145,6 +145,10 @@
                         @media (max-width:768px) {
                             width: 50%;
                         }
+                        @media (max-width: 600px) {
+                            width: 100%;
+                            border-bottom: 1px solid #d3d6db;
+                        }
                         #menu1_workspace_showDiv {
                             overflow: hidden;
                             padding: 10px;
@@ -356,19 +360,33 @@
                         @media (max-width:768px) {
                             width: 50%;
                         }
+                        @media (max-width: 600px) {
+                            width: 100%;
+                            padding: 30px;
+                        }
                         #personInfo_menu1_phone {
                             display: block;
                             overflow: hidden;
                             padding-bottom: 25px;
+                            @media (max-width: 600px) {
+                                padding: 0 10px 35px 10px;
+                            }
                             i {
                                 float: left;
                                 font-size: 18px;
                                 margin-right: 14px;
+                                @media (max-width: 600px) {
+                                    font-size: 35px;
+                                }
                             }
                             span {
                                 float: left; 
                                 font-size: 15px;
                                 line-height: 18px;
+                                @media (max-width: 600px) {
+                                    font-size: 18px;
+                                    line-height: 35px;
+                                }
                             }
                             #personInfo_menu1_phoneEdit {
                                 float: right;
@@ -376,6 +394,9 @@
                                 font-size: 13px;
                                 line-height: 18px;
                                 color: #3578e5;
+                                @media (max-width: 600px) {
+                                    line-height: 35px;
+                                }
                             }
                         }
                         #personInfo_menu1_phoneAdd {
@@ -387,20 +408,36 @@
                                 float: left;
                                 font-size: 20px;
                                 margin-right: 17px;
+                                @media (max-width: 600px) {
+                                    font-size: 35px;
+                                }
                             }
                             span {
                                 float: left;
                                 font-size: 13px;
                                 line-height: 20px;
+                                @media (max-width: 600px) {
+                                    font-size: 18px; 
+                                    line-height: 35px;
+                                }
+                            }
+                            @media (max-width: 600px) {
+                                padding: 0 10px 35px 10px;
                             }
                         }
 
                         #personInfo_menu1_birthday {
                             overflow: hidden; 
+                            @media (max-width: 600px) {
+                                padding: 0 10px 35px 10px;
+                            }
                             i {
                                 float: left;
                                 font-size: 18px;
                                 margin-right: 10px;
+                                @media (max-width: 600px) {
+                                    font-size: 35px; 
+                                }
                             }
                             span {
                                 float: left;
@@ -408,7 +445,11 @@
                                 line-height: 18px;
                                 @media (max-width:1024px) {
                                     margin-right: 3%
-                                }       
+                                }  
+                                @media (max-width:600px) {
+                                    font-size: 18px;
+                                    line-height: 35px;
+                                }      
                             }
                             #personInfo_menu1_birthdayEdit {
                                 float: right;
@@ -421,6 +462,9 @@
                                 }
                                 @media (max-width: 768px) {
                                     float: right;
+                                } 
+                                @media (max-width:600px) {
+                                    margin-top: 9px;
                                 } 
                             }
                         }
@@ -516,6 +560,9 @@
                                     }
                                     &:last-child {
                                         padding-left: 43px;
+                                        @media (max-width: 486px) {
+                                            padding-left: 18px;
+                                        }
                                         button {
                                             padding: 5px 10px;
                                             margin-right: 5px;
@@ -575,6 +622,9 @@
                                     }
                                     &:last-child {
                                         padding-left: 43px;
+                                        @media (max-width: 486px) {
+                                            padding-left: 18px;
+                                        }
                                         button {
                                             padding: 5px 10px;
                                             margin-right: 5px;
@@ -683,6 +733,9 @@
                                     }
                                     &:last-child {
                                         padding-left: 43px;
+                                        @media (max-width: 486px) {
+                                            padding-left: 18px;
+                                        }
                                         button {
                                             padding: 5px 10px;
                                             margin-right: 5px;
@@ -745,6 +798,9 @@
                                     }
                                     &:last-child {
                                         padding-left: 43px;
+                                        @media (max-width: 486px) {
+                                            padding-left: 18px;
+                                        }
                                         button {
                                             padding: 5px 10px;
                                             margin-right: 5px;
@@ -848,6 +904,9 @@
                                     }
                                     &:last-child {
                                         padding-left: 60px;
+                                        @media (max-width: 486px) {
+                                            padding-left: 18px;
+                                        }
                                         button {
                                             padding: 5px 10px;
                                             margin-right: 5px;
@@ -1153,6 +1212,9 @@
                                         }
                                         div {
                                             float: right;
+                                            @media (max-width:486px) {
+                                                float: left;
+                                            }
                                             button {
                                                 float: left;
                                                 padding: 4px;

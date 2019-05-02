@@ -104,11 +104,14 @@ const showPhoneEditForm = () => {
     personInfo_menu4_phoneInfo_show.style.display = "none"; 
     personInfo_menu4_phoneInfo_editForm.style.display = "block";
     personInfo_menu4_phoneInfo_edit.style.display = "none";
+    deletePhoneForm.style.display="none";
 }
 
 const cancelPhoneAddForm = () => {
     personInfo_menu4_phoneAdd.style.display = "block"; 
     personInfo_menu4_phoneForm.style.display = "none";
+    deletePhoneForm.style.display="block";
+    
 }
 
 const cancelPhoneEditForm = () => {
