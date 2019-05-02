@@ -13,12 +13,27 @@ block content
                                 i.fas.fa-user 
                                 span 정보 
                             .personInfo_infoSection_infoWrap 
-                                .personInfo_infoWrap_menu 
-                                    #personInfo_infoWrap_menu1 개요 
-                                    #personInfo_infoWrap_menu2 경력 및 학력 
-                                    #personInfo_infoWrap_menu3 거주 장소 
-                                    #personInfo_infoWrap_menu4 연락처 및 기본 정보 
-                                    #personInfo_infoWrap_editInfo 비밀번호 변경 
+                                #personInfo_infoWrap_menu 
+                                    #personInfo_infoWrap_menu1
+                                        span 개요 
+                                    #menu1_dropdown
+                                        i.fas.fa-sort-down
+                                    #personInfo_infoWrap_menu2 
+                                        span 경력 및 학력 
+                                    #menu2_dropdown
+                                        i.fas.fa-sort-down
+                                    #personInfo_infoWrap_menu3 
+                                        span 거주 장소
+                                    #menu3_dropdown
+                                        i.fas.fa-sort-down
+                                    #personInfo_infoWrap_menu4 
+                                        span 연락처 및 기본 정보 
+                                    #menu4_dropdown
+                                        i.fas.fa-sort-down
+                                    #personInfo_infoWrap_editInfo 
+                                        span 비밀번호 변경
+                                    #menu5_dropdown
+                                        i.fas.fa-sort-down
                                 .personInfo_infoWrap_content 
                                     #personInfo_content_menu1 
                                         .personInfo_menu1_left 
@@ -255,7 +270,7 @@ block content
                                                     form(action=`/user${routes.changeHometown}`, method="post", id="personInfo_hometownAddForm_form")
                                                         div 
                                                             label(for="personInfo_hometownAddform_hometown") 출신지 
-                                                            input(type="text", id="personInfo_hometownAddform_hometown", name="hometown")
+                                                            input(type="text", id="personInfo_hometownAddform_hometown", name="hometown", placeholder="출신지를 입력해주세요.")
                                                         div 
                                                             button(type="submit", id="personInfo_hometownAddform_submit") 변경 내용 저장 
                                                             button#personInfo_hometownAddform_cancel(type="button") 취소  

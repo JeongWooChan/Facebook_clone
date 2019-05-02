@@ -16,9 +16,16 @@
 
 .personInfo_contents {
     margin: 0 20px;
+    @media (max-width:768px) {
+        margin: 0;
+    }
     #personInfo_infoSection {
         margin-top: 30px;
         border: 1px solid #d3d6db;
+        @media (max-width:768px) {
+            border-left: none; 
+            border-right: none;
+        }
         .personInfo_infoSection_infoText {
             background-color: #f5f6f7;
             padding: 20px;
@@ -32,15 +39,25 @@
                 font-size: 20px;
                 font-weight: bold;
             }
+            @media (max-width:768px) {
+                padding: 10px 20px;
+            }
         }
         .personInfo_infoSection_infoWrap {
             overflow: hidden;
             background-color: #fff;
-            .personInfo_infoWrap_menu {
+            #personInfo_infoWrap_menu {
                 float: left;
                 width: 30%;
                 box-sizing: border-box;
                 padding-top: 20px;
+                overflow: hidden;
+                @media (max-width: 768px) {
+                    width: 100%;
+                    text-align: center;
+                    padding-top: 0;
+                    border-bottom: 1px solid #d3d6db;
+                }
                 div {
                     padding: 10px 20px;
                     color: #90949c; 
@@ -54,6 +71,53 @@
                     border-left: 4px solid black; 
                     color: black;
                     font-weight: bold;
+                    @media (max-width: 768px) {
+                        display: inline-block;
+                        border-left: none;
+                        padding-left: 90px;
+                    }
+                }
+                #menu1_dropdown {
+                    display: none; 
+                    @media (max-width: 768px) {
+                        display: inline-block;
+                    }
+                }
+                #personInfo_infoWrap_menu2 {
+                    @media (max-width: 768px) {
+                        display: none;
+                        padding-left: 40px;
+                    }
+                }
+                #menu2_dropdown {
+                    display: none;
+                }
+                #personInfo_infoWrap_menu3 {
+                    @media (max-width: 768px) {
+                        display: none;
+                        padding-left: 40px;
+                    }
+                }
+                #menu3_dropdown {
+                    display: none;
+                }
+                #personInfo_infoWrap_menu4 {
+                    @media (max-width: 768px) {
+                        display: none;
+                        padding-left: 40px;
+                    }
+                }
+                #menu4_dropdown {
+                    display: none;
+                }
+                #personInfo_infoWrap_editInfo {
+                    @media (max-width: 768px) {
+                        display: none;
+                        padding-left: 40px;
+                    }
+                }
+                #menu5_dropdown {
+                    display: none;
                 }
             }
             .personInfo_infoWrap_content {
@@ -64,6 +128,10 @@
                 background-color: #fff;
                 border-left: 1px solid #d3d6db;
                 box-sizing: border-box;
+                @media (max-width: 768px) {
+                    width: 100%; 
+                    border: none;
+                }
                 #personInfo_content_menu1 {
                     display: block;
                     .personInfo_menu1_left {
@@ -73,6 +141,9 @@
                         box-sizing: border-box;
                         @media (max-width:1024px) {
                             width: 55%;
+                        }
+                        @media (max-width:768px) {
+                            width: 50%;
                         }
                         #menu1_workspace_showDiv {
                             overflow: hidden;
@@ -282,6 +353,9 @@
                         @media (max-width:1024px) {
                             width: 45%;
                         }
+                        @media (max-width:768px) {
+                            width: 50%;
+                        }
                         #personInfo_menu1_phone {
                             display: block;
                             overflow: hidden;
@@ -334,7 +408,8 @@
                                 line-height: 18px;
                                 @media (max-width:1024px) {
                                     margin-right: 3%
-                                }                            }
+                                }       
+                            }
                             #personInfo_menu1_birthdayEdit {
                                 float: right;
                                 cursor: pointer;
@@ -344,6 +419,9 @@
                                 @media (max-width:1024px) {
                                     float: left;
                                 }
+                                @media (max-width: 768px) {
+                                    float: right;
+                                } 
                             }
                         }
                     }
@@ -417,7 +495,7 @@
                             background-color: #f5f6f7;
                             padding: 20px 0;
                             form {
-                                width: 50%;
+                                width: 51%;
                                 margin: 0 auto;
                                 div {
                                     overflow: hidden;
@@ -476,7 +554,7 @@
                             background-color: #f5f6f7;
                             padding: 20px 0;
                             form {
-                                width: 50%;
+                                width: 51%;
                                 margin: 0 auto;
                                 div {
                                     overflow: hidden;
@@ -580,7 +658,7 @@
                             background-color: #f5f6f7;
                             padding: 20px 0;
                             form {
-                                width: 50%;
+                                width: 51%;
                                 margin: 0 auto;
                                 div {
                                     overflow: hidden;
@@ -642,7 +720,7 @@
                             background-color: #f5f6f7;
                             padding: 20px 0;
                             form {
-                                width: 50%;
+                                width: 51%;
                                 margin: 0 auto;
                                 div {
                                     overflow: hidden;
@@ -688,6 +766,9 @@
                 #personInfo_content_menu3 {
                     padding: 30px;
                     display: none;
+                    @media (max-width:768px) {
+                        padding: 30px 50px;
+                    }
                     .personInfo_menu3_residence {
                         padding: 0 0 30px;
                         .personInfo_menu3_residenceText {
@@ -745,6 +826,9 @@
                             form {
                                 width: 60%;
                                 margin: 0 auto;
+                                @media (max-width: 768px) {
+                                    width: 70%;
+                                }
                                 div {
                                     overflow: hidden;
                                     padding-bottom: 10px;
@@ -804,6 +888,9 @@
                             form {
                                 width: 60%;
                                 margin: 0 auto;
+                                @media (max-width: 768px) {
+                                    width: 70%;
+                                }
                                 div {
                                     overflow: hidden;
                                     padding-bottom: 10px;
@@ -886,6 +973,9 @@
                             form {
                                 width: 60%;
                                 margin: 0 auto;
+                                @media (max-width: 768px) {
+                                    width: 70%;
+                                }
                                 div {
                                     overflow: hidden;
                                     padding-bottom: 10px;
@@ -944,6 +1034,9 @@
                             form {
                                 width: 60%;
                                 margin: 0 auto;
+                                @media (max-width: 768px) {
+                                    width: 70%;
+                                }
                                 div {
                                     overflow: hidden;
                                     padding-bottom: 10px;
@@ -984,6 +1077,9 @@
                 #personInfo_content_menu4 {
                     padding: 30px;
                     display: none;
+                    @media (max-width: 768px) {
+                        padding: 30px 70px;
+                    }
                     .personInfo_menu4_phone {
                         padding: 0 0 50px;
                         .personInfo_menu4_phoneText {
@@ -1002,6 +1098,9 @@
                                 width: 30%;
                                 color: #90949c;
                                 font-size: 16px;
+                                @media (max-width: 768px) {
+                                    width: 25%;
+                                }
                             }
                             .personInfo_menu4_phoneInfo {
                                 float: left; 
@@ -1009,6 +1108,9 @@
                                 font-size: 16px;
                                 color: #1D2129; 
                                 overflow: hidden;
+                                @media (max-width: 768px) {
+                                    width: 75%;
+                                }
                                 #personInfo_menu4_phoneInfo_show {
                                     float: left;
                                 }
@@ -1062,7 +1164,7 @@
                                                     margin-left: 5px;
                                                     color: black; 
                                                     background-color: #e6e6e6;
-                                                } 
+                                                }
                                             }
                                         }
                                     }
@@ -1100,6 +1202,9 @@
                                             width: 20%;
                                             padding: 3px;
                                             font-size: 13px;
+                                            @media (max-width: 600px) {
+                                                width: 25%;
+                                            }
                                         }
                                         div {
                                             float: right;
@@ -1116,6 +1221,9 @@
                                                     background-color: #e6e6e6;
                                                 } 
                                             }
+                                            @media (max-width: 600px) {
+                                                float: left;
+                                            }
                                         }
                                     }
                                 }
@@ -1130,6 +1238,9 @@
                                 width: 30%;
                                 color: #90949c;
                                 font-size: 16px;
+                                @media (max-width: 768px) {
+                                    width: 25%;
+                                }
                             }
                             .personInfo_menu4_emailInfo {
                                 float: left; 
@@ -1155,6 +1266,9 @@
                                 width: 30%;
                                 color: #90949c;
                                 font-size: 16px;
+                                @media (max-width: 768px) {
+                                    width: 25%;
+                                }
                             }
                             #personInfo_showBirthday {
                                 overflow: hidden;
@@ -1207,6 +1321,9 @@
                                 width: 30%;
                                 color: #90949c;
                                 font-size: 16px;
+                                @media (max-width: 768px) {
+                                    width: 25%;
+                                }
                             }
                             #personInfo_menu4_showGender {
                                 overflow: hidden;
@@ -1228,6 +1345,9 @@
                                 width: 30%;
                                 color: #90949c;
                                 font-size: 16px;
+                                @media (max-width: 768px) {
+                                    width: 25%;
+                                }
                             }
                             #personInfo_showBloodDiv {
                                 overflow: hidden;
