@@ -119,6 +119,15 @@
                 #menu5_dropdown {
                     display: none;
                 }
+                #perwsonInfo_infoWrap_changeProfile {
+                    @media (max-width: 768px) {
+                        display: none;
+                        padding-left: 40px;
+                    }
+                }
+                #menu6_dropdown {
+                    display: none;
+                }
             }
             .personInfo_infoWrap_content {
                 float: left;
@@ -1557,6 +1566,32 @@
                             border: none;
                             border-radius: 3px;
                             cursor: pointer;
+                        }
+                    }
+                }
+                #personInfo_content_changeProfileImg {
+                    display: none;
+                    padding: 30px;
+                    form {
+                        width: 35%;
+                        margin: 0 auto;
+                        img {
+                            width: 200px;
+                            height: 200px;
+                            border: 3px solid #fff;
+                            border-radius: 50%;
+                            margin-bottom: 15px;
+                        }
+                        input[type=file] {
+                           margin-bottom: 15px;
+                        }
+                        input[type=submit] {
+                            border: none;
+                            width: 100%;
+                            background-color: #4267b2;
+                            color: white; 
+                            padding: 5px 0;
+                            border-radius: 3px;
                         }
                     }
                 }

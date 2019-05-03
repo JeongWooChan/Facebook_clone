@@ -33,6 +33,9 @@ block content
                                     #personInfo_infoWrap_editInfo 
                                         span 비밀번호 변경
                                     #menu5_dropdown
+                                    #perwsonInfo_infoWrap_changeProfile 
+                                        span 프로필 사진 변경 
+                                    #menu6_dropdown
                                         i.fas.fa-sort-down
                                 .personInfo_infoWrap_content 
                                     #personInfo_content_menu1 
@@ -396,3 +399,8 @@ block content
                                                 span#personInfo_changePassword_fail ❌비밀번호가 일치하지 않습니다.
                                                 span#personInfo_changePassword_success ✅비밀번호가 일치 합니다. 
                                             input(type="submit", id="personInfo_changePassword_submit", name="personInfo_changePassword_confirm", value="변경")
+                                    #personInfo_content_changeProfileImg 
+                                        form(action="#", method="post", id="personInfo_changeProfileImg_form") 
+                                            img(src="https://png.pngtree.com/element_origin_min_pic/16/09/02/1157c8f00e7c7d4.jpg") 
+                                            input(type="file")
+                                            input(type="submit", value="변경")
