@@ -11,7 +11,18 @@ block content
                     .main_contents 
                         section#main_contentFeedSection
                             include partials/feedWriteBlock.pug
-                            +feedBlock({})
+                            each item in feeds
+                                +feedBlock({
+                                    id: item.id, 
+                                    date: item.date,
+                                    userId: item.userId,
+                                    userName: item.username,
+                                    content: item.content,
+                                    avatar: item.avatarUrl, 
+                                    feedImg: item.feedImg,
+                                    likeCount: item.likeCount, 
+                                    commentCount: item.commentCount
+                                })
                         section#main_content_adSection
                             section#main_content_adContent  
                             section#main_content_footerContent 

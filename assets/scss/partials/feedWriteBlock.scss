@@ -43,6 +43,17 @@
         .main_content_borderSection {
             border-top: 1px solid #e6e6e6;
             padding-top: 5px;
+            overflow: hidden;
+            input[type=submit] {
+                float: right; 
+                margin-right: 10px;
+                padding: 3px 10px;
+                background-color: #4267b2; 
+                color: #fff;
+                border: none;
+                font: bold;
+                cursor: pointer;
+            }
         }
     }
 }

@@ -1,12 +1,20 @@
 import routes from "../routes"; 
+import connection from "../db"; 
 
 // Main 페이지 
-export const getMain = (req, res) => {
-    if(req.user){
-        res.render("main", { pageTitle: "FaceBook" });     
-    } else {
-        res.redirect(routes.home);
-    }
+export const getMain = async (req, res) => {
+    await connection.query(
+        'SELECT feed.content, feed.id, feed.userId, feed.feedImg, feed.date, feed.likeCount, feed.commentCount, users.username, users.avatarUrl FROM feed left join users on feed.userId=users.id ORDER BY date DESC', (err, feeds) => {
+        if (err) {
+            console.log("❌  ERROR : " + err);
+        } else {
+            if(req.user){
+                res.render("main", { pageTitle: "FaceBook", feeds });     
+            } else {
+                res.redirect(routes.home);
+            }
+        }
+    }); 
 }
 export const postMain = (req, res) => {
 
@@ -20,4 +28,32 @@ export const getPerson = (req, res) => {
 // 개인 정보 페이지 
 export const getPersonInfo = (req, res) => {
     res.render("personInfo",{ pageTitle: req.user.username })
+}
+
+export const postUpload = async (req, res) => {
+    const {
+        body: {content},
+        file
+    } = req;
+    let $set; 
+    if(file == null) {
+        $set = {
+            userId: req.user.id, 
+            content: content, 
+        }
+    } else {
+        $set = {
+            userId: req.user.id, 
+            content: content, 
+            feedImg: file.path
+        }
+    }
+    let $sql = "INSERT INTO feed SET ?"; 
+    await connection.query($sql, $set, (err, result) => {
+        if(err) {
+            console.log("❌  ERROR : " + err); 
+        } else {
+            res.redirect(routes.main)
+        }
+    });
 }

@@ -25,7 +25,10 @@ const init = () => {
         })(image)
         
 
-        if(get_file) {
+        if(get_file) { 
+            // get_file[0]을 읽어서 read 행위가 종료되면 loadend 이벤트가 트리거 되고 
+            // onload 에 설정했던 return으로 넘어간다. 
+            // 이와 함께 base64 인코딩 된 스트링 데이터가 result 속성에 담겨진다. 
             reader.readAsDataURL(get_file[0]); 
         }
         basicPreview.remove();
