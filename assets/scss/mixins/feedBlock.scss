@@ -6,6 +6,7 @@
     border-radius: 5px;
     margin-bottom: 15px;
     #main_content_feed {
+        position: relative;
         .main_content_header {
             overflow: hidden;
             padding: 15px;
@@ -42,6 +43,44 @@
                     &:hover {
                         text-decoration: underline;
                     }
+                }
+            }
+        }
+        #main_menuDiv {
+            background-color: #fff;
+            position: absolute;
+            width: 160px;
+            right: 15px;
+            top: 50px;
+            padding: 5px 0px;
+            border-radius: 3px; 
+            border: 1px solid rgba(0,0,0,.15);
+            box-shadow: 0 3px 8px rgba(0,0,0,.3);
+            z-index: 10;
+            ul {
+                li {
+                    color: #1d2129;
+                    padding: 10px;
+                    border-bottom: 1px solid #e9ebee;
+                    box-sizing: border-box;
+                    cursor: pointer;
+                    i {
+                        display: inline-block;
+                        width: 15%;
+                        font-size: 16px;
+                    }
+                    span {
+                        display: inline-block; 
+                        font-size: 13px;
+                        line-height: 16px;
+                    }
+                    &:hover {
+                        background-color: #4267b2;
+                        color: #fff;
+                    }
+                }
+                #menu_cancel {
+                    border-bottom: none;
                 }
             }
         }

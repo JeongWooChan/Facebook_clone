@@ -9,6 +9,24 @@ mixin feedBlock(feed = {})
                         i.fas.fa-ellipsis-h
                 .main_content_headerBottom
                     span.main_content_time=feed.date
+                #main_menuDiv
+                    ul
+                        if(user.id != feed.userId)
+                            li#menu_store 
+                                i.far.fa-bookmark
+                                span 이 게시물 보관하기
+                            li#menu_noView 
+                                i.far.fa-eye-slash 
+                                span 이 게시물 보지 않기 
+                        else 
+                            li#menu_edit 
+                                i.far.fa-edit 
+                                span 게시물 수정하기 
+                            li#menu_delete
+                                i.far.fa-trash-alt 
+                                span 게시물 삭제하기 
+                        li#menu_cancel  
+                            span 취소
             .main_content_main 
                 .main_content_mainContent=feed.content
                 if(feed.feedImg == null)
