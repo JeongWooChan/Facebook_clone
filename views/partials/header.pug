@@ -14,7 +14,7 @@ header#header_header
                 .header_section2 
                     .header_profile
                         a(href=routes.person(user.id)) 
-                            img(src="http://blogfiles.naver.net/20151120_88/wkib321_1448006625608ARKs0_JPEG/201511201703505.jpg") 
+                            img(src=`/${user.avatarUrl}`) 
                             span(id="main_header_profileName")=user.username
                     .header_menu
                         .header_iconMenu

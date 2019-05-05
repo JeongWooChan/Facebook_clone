@@ -1,6 +1,7 @@
 import express from "express"; 
 import routes from "../routes";
-import { changePassword, user, changePhone, changeBirthday, changeBloodType, changeResidence, changeHometown, changeCompany, changeUniversity, deleteCompany, deleteUniversity, deleteResidence, deleteHometown, deletePhone, deleteBloodType } from "../controllers/userController";
+import { changePassword, user, changePhone, changeBirthday, changeBloodType, changeResidence, changeHometown, changeCompany, changeUniversity, deleteCompany, deleteUniversity, deleteResidence, deleteHometown, deletePhone, deleteBloodType, editProfile } from "../controllers/userController";
+import { uploadAvatar } from "../middleware";
 
 const userRouter = express.Router(); 
 
@@ -27,5 +28,7 @@ userRouter.post(routes.deleteCompany, deleteCompany);
 
 userRouter.post(routes.changeUniversity, changeUniversity);
 userRouter.post(routes.deleteUniversity, deleteUniversity);
+
+userRouter.post(routes.editProfile, uploadAvatar, editProfile);
 
 export default userRouter;

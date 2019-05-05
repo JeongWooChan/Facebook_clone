@@ -8,6 +8,7 @@ const LOGOUT = "/logout";
 const MAIN = "/main"; 
 const PERSON = "/:id"; 
 const PERSON_INFO = "/:id/info";
+const UPLOAD = "/upload";
 
 // User 
 const USER = "/user";
@@ -32,6 +33,9 @@ const DELETE_COMPANY = "/delete-company";
 
 const CHANGE_UNIVERSITY = "/change-university"; 
 const DELETE_UNIVERSITY = "/delete-university"; 
+
+const EDIT_PROFILE = "/edit-profile";
+
 
 // API 
 const API = "/api"; 
@@ -61,6 +65,7 @@ const routes = {
     deleteCompany: DELETE_COMPANY,
     changeUniversity: CHANGE_UNIVERSITY,
     deleteUniversity: DELETE_UNIVERSITY,
+    editProfile: EDIT_PROFILE,
     person: (id) => {
         if(id) {
             return `/main/${id}`;
@@ -75,7 +80,8 @@ const routes = {
             return PERSON_INFO;
         }
     }, 
-    checkPassword: CHECK_PASSWORD
+    checkPassword: CHECK_PASSWORD, 
+    upload: UPLOAD
 }
 
 export default routes;

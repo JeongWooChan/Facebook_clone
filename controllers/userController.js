@@ -14,224 +14,188 @@ export const user = (req, res) => {
 
 export const changePassword = async (req, res) => {
     const {
-        body: {personInfo_changePassword_change}
-    }= req;
-    await connection.query('SELECT * FROM users WHERE `id`=?', [req.user.id], function(err, rows) {
-         hasher({password: personInfo_changePassword_change}, async (err, pass, salt, hash) => {
-            let $sql = "UPDATE users SET ?"; 
-            let $set = {
-                password: hash, 
-                salt: salt 
+        body: { personInfo_changePassword_change }
+    } = req;
+    hasher({ password: personInfo_changePassword_change }, async (err, pass, salt, hash) => {
+        let $set = {
+            password: hash,
+            salt: salt
+        }
+        await connection.query('UPDATE users SET ? WHERE `id`= ?', [$set, req.user.id], (err, rows) => {
+            if (err) {
+                console.log("❌  ERROR : " + err);
+            } else {
+                res.send(`<script type="text/javascript">alert("비밀번호가 성공적으로 변경되었습니다.");document.location.href='http://localhost:${PORT}${routes.personInfo(req.user.id)}';</script>`);
             }
-            await connection.query($sql, $set, (err, result) => {
-                if(err) {
-                    console.log("❌  ERROR : " + err); 
-                } else {
-                    res.send(`<script type="text/javascript">alert("비밀번호가 성공적으로 변경되었습니다.");document.location.href='http://localhost:${PORT}${routes.personInfo(req.user.id)}';</script>`);
-                }
-            });
-         });
+        });
     });
 }
 
 export const changePhone = async (req, res) => {
     const {
-        body: {phoneInfo_editForm_first, phoneInfo_editForm_fInput, phoneInfo_editForm_lInput}
-    }=req;
-    let $phone = phoneInfo_editForm_first+"-"+phoneInfo_editForm_fInput+"-"+phoneInfo_editForm_lInput;
-    await connection.query('SELECT * FROM users WHERE `id`=?', [req.user.id], async (err, rows) => {
-        let $sql = "UPDATE users SET ?"; 
-        let $set = {
-            phone: $phone
+        body: { phoneInfo_editForm_first, phoneInfo_editForm_fInput, phoneInfo_editForm_lInput }
+    } = req;
+    let $phone = phoneInfo_editForm_first + "-" + phoneInfo_editForm_fInput + "-" + phoneInfo_editForm_lInput;
+    let $set = {
+        phone: $phone
+    }
+    await connection.query('UPDATE users SET ? WHERE `id`= ?', [$set, req.user.id], (err, rows) => {
+        if (err) {
+            console.log("❌  ERROR : " + err);
+        } else {
+            res.send(`<script type="text/javascript">alert("전화번호가 성공적으로 변경되었습니다.");document.location.href='http://localhost:${PORT}${routes.personInfo(req.user.id)}';</script>`);
         }
-        await connection.query($sql, $set, (err, result) => {
-            if(err) {
-                console.log("❌  ERROR : " + err); 
-            } else {
-                res.send(`<script type="text/javascript">alert("전화번호가 성공적으로 변경되었습니다.");document.location.href='http://localhost:${PORT}${routes.personInfo(req.user.id)}';</script>`);
-            }
-        });
     });
 }
 
 export const deletePhone = async (req, res) => {
-    await connection.query('SELECT * FROM users WHERE `id`=?', [req.user.id], async(err, rows) => {
-        let $sql = "UPDATE users SET ?"; 
-        let $set = {
-            phone: null
+    let $set = {
+        phone: null
+    }
+    await connection.query('UPDATE users SET ? WHERE `id`= ?', [$set, req.user.id], (err, rows) => {
+        if (err) {
+            console.log("❌  ERROR : " + err);
+        } else {
+            res.send(`<script type="text/javascript">alert("성공적으로 삭제되었습니다.");document.location.href='http://localhost:${PORT}${routes.personInfo(req.user.id)}';</script>`);
         }
-        await connection.query($sql, $set, (err, result) => {
-            if(err) {
-                console.log("❌  ERROR : " + err);
-            } else {
-                res.send(`<script type="text/javascript">alert("성공적으로 삭제되었습니다.");document.location.href='http://localhost:${PORT}${routes.personInfo(req.user.id)}';</script>`);
-            }
-        });
     });
 }
 
 export const changeBirthday = async (req, res) => {
     const {
-        body: {year, month, day}
-    }=req;
-    await connection.query('SELECT * FROM users WHERE `id`=?', [req.user.id], async(err, rows) => {
-        let $sql = "UPDATE users SET ?"; 
-        let $set = {
-            birthday_year: year,
-            birthday_month: month,
-            birthday_day: day
+        body: { year, month, day }
+    } = req;
+    let $set = {
+        birthday_year: year,
+        birthday_month: month,
+        birthday_day: day
+    }
+    await connection.query('UPDATE users SET ? WHERE `id`= ?', [$set, req.user.id], (err, rows) => {
+        if (err) {
+            console.log("❌  ERROR : " + err);
+        } else {
+            res.send(`<script type="text/javascript">alert("성공적으로 변경되었습니다.");document.location.href='http://localhost:${PORT}${routes.personInfo(req.user.id)}';</script>`);
         }
-        await connection.query($sql, $set, (err, result) => {
-            if(err) {
-                console.log("❌  ERROR : " + err);
-            } else {
-                res.send(`<script type="text/javascript">alert("성공적으로 변경되었습니다.");document.location.href='http://localhost:${PORT}${routes.personInfo(req.user.id)}';</script>`);
-            }
-        })
     })
 }
 
 export const changeBloodType = async (req, res) => {
     const {
         body: { bloodType }
-    }=req; 
-    await connection.query('SELECT * FROM users WHERE `id`=?', [req.user.id], async(err, rows) => {
-        let $sql = "UPDATE users SET ?"; 
-        let $set = {
-            bloodType
+    } = req;
+    let $set = {
+        bloodType
+    }
+    await connection.query('UPDATE users SET ? WHERE `id`= ?', [$set, req.user.id], (err, rows) => {
+        if (err) {
+            console.log("❌  ERROR : " + err);
+        } else {
+            res.send(`<script type="text/javascript">alert("성공적으로 변경되었습니다.");document.location.href='http://localhost:${PORT}${routes.personInfo(req.user.id)}';</script>`);
         }
-        await connection.query($sql, $set, (err, result) => {
-            if(err) {
-                console.log("❌  ERROR : " + err);
-            } else {
-                res.send(`<script type="text/javascript">alert("성공적으로 변경되었습니다.");document.location.href='http://localhost:${PORT}${routes.personInfo(req.user.id)}';</script>`);
-            }
-        })
-    })
+    });
 }
 
 export const deleteBloodType = async (req, res) => {
-    await connection.query('SELECT * FROM users WHERE `id`=?', [req.user.id], async(err, rows) => {
-        let $sql = "UPDATE users SET ?"; 
-        let $set = {
-            bloodType: null
+    let $set = {
+        bloodType: null
+    }
+    await connection.query('UPDATE users SET ? WHERE `id`= ?', [$set, req.user.id], (err, rows) => {
+        if (err) {
+            console.log("❌  ERROR : " + err);
+        } else {
+            res.send(`<script type="text/javascript">alert("성공적으로 삭제되었습니다.");document.location.href='http://localhost:${PORT}${routes.personInfo(req.user.id)}';</script>`);
         }
-        await connection.query($sql, $set, (err, result) => {
-            if(err) {
-                console.log("❌  ERROR : " + err);
-            } else {
-                res.send(`<script type="text/javascript">alert("성공적으로 삭제되었습니다.");document.location.href='http://localhost:${PORT}${routes.personInfo(req.user.id)}';</script>`);
-            }
-        });
     });
 }
 
 export const changeResidence = async (req, res) => {
     const {
-        body: {residence}
-    }=req;
-    await connection.query('SELECT * FROM users WHERE `id`=?', [req.user.id], async(err, rows) => {
-        let $sql = "UPDATE users SET ?"; 
-        let $set = {
-            residence
+        body: { residence }
+    } = req;
+    let $set = {
+        residence
+    }
+    await connection.query('UPDATE users SET ? WHERE `id`= ?', [$set, req.user.id], (err, rows) => {
+        if (err) {
+            console.log("❌  ERROR : " + err);
+        } else {
+            res.send(`<script type="text/javascript">alert("성공적으로 변경되었습니다.");document.location.href='http://localhost:${PORT}${routes.personInfo(req.user.id)}';</script>`);
         }
-        await connection.query($sql, $set, (err, result) => {
-            if(err) {
-                console.log("❌  ERROR : " + err);
-            } else {
-                res.send(`<script type="text/javascript">alert("성공적으로 변경되었습니다.");document.location.href='http://localhost:${PORT}${routes.personInfo(req.user.id)}';</script>`);
-            }
-        });
     });
 }
 
 export const deleteResidence = async (req, res) => {
-    await connection.query('SELECT * FROM users WHERE `id`=?', [req.user.id], async(err, rows) => {
-        let $sql = "UPDATE users SET ?"; 
-        let $set = {
-            residence: null
+    let $set = {
+        residence: null
+    }
+    await connection.query('UPDATE users SET ? WHERE `id`= ?', [$set, req.user.id], (err, rows) => {
+        if (err) {
+            console.log("❌  ERROR : " + err);
+        } else {
+            res.send(`<script type="text/javascript">alert("성공적으로 삭제되었습니다.");document.location.href='http://localhost:${PORT}${routes.personInfo(req.user.id)}';</script>`);
         }
-        await connection.query($sql, $set, (err, result) => {
-            if(err) {
-                console.log("❌  ERROR : " + err);
-            } else {
-                res.send(`<script type="text/javascript">alert("성공적으로 삭제되었습니다.");document.location.href='http://localhost:${PORT}${routes.personInfo(req.user.id)}';</script>`);
-            }
-        });
     });
 }
 
 export const changeHometown = async (req, res) => {
     const {
-        body: {hometown} 
-    }= req; 
-    await connection.query('SELECT * FROM users WHERE `id`=?', [req.user.id], async(err, rows) => {
-        let $sql = "UPDATE users SET ?"; 
-        let $set = {
-            hometown
+        body: { hometown }
+    } = req;
+    let $set = {
+        hometown
+    }
+    await connection.query('UPDATE users SET ? WHERE `id`= ?', [$set, req.user.id], (err, rows) => {
+        if (err) {
+            console.log("❌  ERROR : " + err);
+        } else {
+            res.send(`<script type="text/javascript">alert("성공적으로 변경되었습니다.");document.location.href='http://localhost:${PORT}${routes.personInfo(req.user.id)}';</script>`);
         }
-        await connection.query($sql, $set, (err, result) => {
-            if(err) {
-                console.log("❌  ERROR : " + err);
-            } else {
-                res.send(`<script type="text/javascript">alert("성공적으로 변경되었습니다.");document.location.href='http://localhost:${PORT}${routes.personInfo(req.user.id)}';</script>`);
-            }
-        });
     });
 }
 
 export const deleteHometown = async (req, res) => {
-    await connection.query('SELECT * FROM users WHERE `id`=?', [req.user.id], async(err, rows) => {
-        let $sql = "UPDATE users SET ?"; 
-        let $set = {
-            hometown: null
+    let $set = {
+        hometown: null
+    }
+    await connection.query('UPDATE users SET ? WHERE `id`= ?', [$set, req.user.id], (err, rows) => {
+        if (err) {
+            console.log("❌  ERROR : " + err);
+        } else {
+            res.send(`<script type="text/javascript">alert("성공적으로 삭제되었습니다.");document.location.href='http://localhost:${PORT}${routes.personInfo(req.user.id)}';</script>`);
         }
-        await connection.query($sql, $set, (err, result) => {
-            if(err) {
-                console.log("❌  ERROR : " + err);
-            } else {
-                res.send(`<script type="text/javascript">alert("성공적으로 삭제되었습니다.");document.location.href='http://localhost:${PORT}${routes.personInfo(req.user.id)}';</script>`);
-            }
-        });
     });
 }
 
 export const changeCompany = async (req, res) => {
     const {
         body: { company, position, city }
-    }=req; 
-    await connection.query('SELECT * FROM users WHERE `id`=?', [req.user.id], async(err, rows) => {
-        let $sql = "UPDATE users SET ?"; 
-        let $set = {
-            workspace: company, 
-            workspace_position: position, 
-            workspace_city: city
+    } = req;
+    let $set = {
+        workspace: company,
+        workspace_position: position,
+        workspace_city: city
+    }
+    await connection.query('UPDATE users SET ? WHERE `id`= ?', [$set, req.user.id], (err, rows) => {
+        if (err) {
+            console.log("❌  ERROR : " + err);
+        } else {
+            res.send(`<script type="text/javascript">alert("성공적으로 변경되었습니다.");document.location.href='http://localhost:${PORT}${routes.personInfo(req.user.id)}';</script>`);
         }
-        await connection.query($sql, $set, (err, result) => {
-            if(err) {
-                console.log("❌  ERROR : " + err);
-            } else {
-                res.send(`<script type="text/javascript">alert("성공적으로 변경되었습니다.");document.location.href='http://localhost:${PORT}${routes.personInfo(req.user.id)}';</script>`);
-            }
-        });
     });
 }
 
 export const deleteCompany = async (req, res) => {
-    await connection.query('SELECT * FROM users WHERE `id`=?', [req.user.id], async(err, rows) => {
-        let $sql = "UPDATE users SET ?"; 
-        let $set = {
-            workspace: null, 
-            workspace_position: null, 
-            workspace_city: null
+    let $set = {
+        workspace: null,
+        workspace_position: null,
+        workspace_city: null
+    }
+    await connection.query('UPDATE users SET ? WHERE `id`= ?', [$set, req.user.id], (err, rows) => {
+        if (err) {
+            console.log("❌  ERROR : " + err);
+        } else {
+            res.send(`<script type="text/javascript">alert("성공적으로 삭제되었습니다.");document.location.href='http://localhost:${PORT}${routes.personInfo(req.user.id)}';</script>`);
         }
-        await connection.query($sql, $set, (err, result) => {
-            if(err) {
-                console.log("❌  ERROR : " + err);
-            } else {
-                res.send(`<script type="text/javascript">alert("성공적으로 삭제되었습니다.");document.location.href='http://localhost:${PORT}${routes.personInfo(req.user.id)}';</script>`);
-            }
-        });
     });
 }
 
@@ -239,47 +203,57 @@ export const deleteCompany = async (req, res) => {
 export const changeUniversity = async (req, res) => {
     const {
         body: { university, major, graduate }
-    }= req; 
-    await connection.query('SELECT * FROM users WHERE `id`=?', [req.user.id], async(err, rows) => {
-        let $sql = "UPDATE users SET ?"; 
-        let $set;
-        if(graduate == null) {
-            $set = {
-                university, 
-                university_graduate: null,
-                university_major: major
-            }
-        } else {
-            $set = {
-                university, 
-                university_graduate: graduate, 
-                university_major: major 
-            }
+    } = req;
+    let $set;
+    if (graduate == null) {
+        $set = {
+            university,
+            university_graduate: null,
+            university_major: major
         }
-        await connection.query($sql, $set, (err, result) => {
-            if(err) {
-                console.log("❌  ERROR : " + err);
-            } else {
-                res.send(`<script type="text/javascript">alert("성공적으로 변경되었습니다.");document.location.href='http://localhost:${PORT}${routes.personInfo(req.user.id)}';</script>`);
-            }
-        });
+    } else {
+        $set = {
+            university,
+            university_graduate: graduate,
+            university_major: major
+        }
+    }
+    await connection.query('UPDATE users SET ? WHERE `id`= ?', [$set, req.user.id], (err, rows) => {
+        if (err) {
+            console.log("❌  ERROR : " + err);
+        } else {
+            res.send(`<script type="text/javascript">alert("성공적으로 변경되었습니다.");document.location.href='http://localhost:${PORT}${routes.personInfo(req.user.id)}';</script>`);
+        }
     });
 }
 
 export const deleteUniversity = async (req, res) => {
-    await connection.query('SELECT * FROM users WHERE `id`=?', [req.user.id], async(err, rows) => {
-        let $sql = "UPDATE users SET ?"; 
-        let $set = {
-            university: null, 
-            university_graduate: null,
-            university_major: null
+    let $set = {
+        university: null,
+        university_graduate: null,
+        university_major: null
+    }
+    await connection.query('UPDATE users SET ? WHERE `id`= ?', [$set, req.user.id], (err, rows) => {
+        if (err) {
+            console.log("❌  ERROR : " + err);
+        } else {
+            res.send(`<script type="text/javascript">alert("성공적으로 삭제되었습니다.");document.location.href='http://localhost:${PORT}${routes.personInfo(req.user.id)}';</script>`);
         }
-        await connection.query($sql, $set, (err, result) => {
-            if(err) {
-                console.log("❌  ERROR : " + err);
-            } else {
-                res.send(`<script type="text/javascript">alert("성공적으로 삭제되었습니다.");document.location.href='http://localhost:${PORT}${routes.personInfo(req.user.id)}';</script>`);
-            }
-        });
     });
+}
+
+export const editProfile = async (req, res) => {
+    const {
+        file
+    }=req;
+    let $set = {
+        avatarUrl: file ? file.path : req.user.avatarUrl
+    }
+    await connection.query('UPDATE users SET ? WHERE `id`= ?', [$set, req.user.id], (err, rows) => {
+        if(err) {
+            console.log("❌  ERROR : " + err);
+        } else {
+            res.send(`<script type="text/javascript">alert("성공적으로 적용되었습니다.");document.location.href='http://localhost:${PORT}${routes.personInfo(req.user.id)}';</script>`);
+        }
+    })
 }
