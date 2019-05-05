@@ -2,6 +2,7 @@ import "../scss/style.scss";
 
 import "./login";
 import "./join"; 
+import "./feed";
 
 // personInfo 
 import "./personInfo/overview";

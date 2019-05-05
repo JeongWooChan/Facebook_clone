@@ -1,11 +1,11 @@
-#main_content_feedSection {
+.main_content_feedSection {
     background-color: #fff;
     margin: 0 20px;
     box-sizing: border-box;
     border: 1px solid #d3d6db;
     border-radius: 5px;
     margin-bottom: 15px;
-    #main_content_feed {
+    .main_content_feed {
         position: relative;
         .main_content_header {
             overflow: hidden;
@@ -46,7 +46,8 @@
                 }
             }
         }
-        #main_menuDiv {
+        .main_menuDiv {
+            display: none;
             background-color: #fff;
             position: absolute;
             width: 160px;

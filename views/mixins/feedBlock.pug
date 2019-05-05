@@ -1,6 +1,6 @@
 mixin feedBlock(feed = {}) 
-    section#main_content_feedSection 
-        article#main_content_feed
+    section.main_content_feedSection 
+        article.main_content_feed
             .main_content_header 
                 img(src=`/${feed.avatar}`) 
                 .main_content_headerTop
@@ -9,7 +9,7 @@ mixin feedBlock(feed = {})
                         i.fas.fa-ellipsis-h
                 .main_content_headerBottom
                     span.main_content_time=feed.date
-                #main_menuDiv
+                .main_menuDiv(style="display: none;")
                     ul
                         if(user.id != feed.userId)
                             li#menu_store 
