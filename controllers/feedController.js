@@ -1,5 +1,11 @@
 import routes from "../routes"; 
 import connection from "../db"; 
+import dotenv from "dotenv";
+import { networkInterfaces } from "os";
+
+dotenv.config();
+
+const PORT = process.env.PORT;
 
 // Main 페이지 
 export const getMain = async (req, res) => {
@@ -39,7 +45,7 @@ export const postUpload = async (req, res) => {
     if(file == null) {
         $set = {
             userId: req.user.id, 
-            content: content, 
+            content: content
         }
     } else {
         $set = {
@@ -56,4 +62,31 @@ export const postUpload = async (req, res) => {
             res.redirect(routes.main)
         }
     });
+}
+
+export const editFeed = async (req, res) => {
+    const {
+        params: {id},
+        body:{content},
+        file
+    }=req;
+    let $set; 
+    if(file == null) {
+        $set = {
+            content,
+            date: new Date()
+        }
+    } else {
+        $set = {
+            content, 
+            feedImg: file.path
+        }
+    }
+    await connection.query('UPDATE feed SET ? WHERE `id`= ?', [$set, id], (err, rows) => {
+        if(err) {
+            console.log("❌  ERROR : " + err);
+        } else {
+            res.send(`<script type="text/javascript">alert("성공적으로 수정되었습니다.");document.location.href='http://localhost:${PORT}${routes.main}';</script>`);
+        }
+    })
 }

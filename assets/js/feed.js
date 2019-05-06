@@ -1,3 +1,5 @@
+import routes from "../../routes";
+
 const feed = document.querySelector(".main_content_feed");
 const menuIcon = document.getElementsByClassName("main_content_more");
 const menu = document.getElementsByClassName("main_menuDiv");
@@ -7,10 +9,12 @@ const editFeed = document.getElementsByClassName("menu_edit");
 const editFormSection = document.querySelector("#main_content_editFeed");
 const editFormText = document.querySelector("#main_content_editFeed #main_content_newFeedText");
 const editFormCancel = document.querySelector("#main_content_editFeed #editFormCancel");
-const feedId = document.getElementById("feedId"); 
 const editFormContent = document.querySelector("#main_content_editFeed #main_content_newFeedTextarea")
 const editFormSubmit = document.querySelector("#main_content_editFeed #writeFromSubmit");
 const editFormImg = document.querySelector("#main_content_editFeed #write_feedImg");
+const editForm = document.querySelector("#main_content_editFeed #feedWriteForm");
+
+const feedId = document.getElementsByClassName("feedId");
 
 const handleEditFormCancel = () => {
     editFormSection.style.display = "none";
@@ -27,6 +31,7 @@ const handleEditForm = i => {
     editFormText.innerHTML = "게시물 수정하기";
     editFormSubmit.value = "수정";
     editFormCancel.style.display = "block";
+    editForm.action=`${routes.editFeed(feedId[i].innerHTML)}`;
     // 기존의 피드 내용 가져오기 
     const content = document.getElementsByClassName("main_content_mainContent")[i].innerHTML;
     editFormContent.innerHTML = content;
@@ -38,10 +43,8 @@ const handleEditForm = i => {
         editFormImg.src=imgSrc;
     } else {
         editFormImg.style.display="none";
-        editFormImg.src=null;
+        editFormImg.src="";
     }
-
-    //console.log(feedId.innerHTML);
 }
 
 const handelMenuCancel = (i) => {

@@ -9,6 +9,7 @@ const MAIN = "/main";
 const PERSON = "/:id"; 
 const PERSON_INFO = "/:id/info";
 const UPLOAD = "/upload";
+const EDIT_FEED = "/:id/edit-feed";
 
 // User 
 const USER = "/user";
@@ -81,7 +82,14 @@ const routes = {
         }
     }, 
     checkPassword: CHECK_PASSWORD, 
-    upload: UPLOAD
+    upload: UPLOAD, 
+    editFeed: (id) => {
+        if(id) {
+            return `/main/${id}/edit-feed`; 
+        } else {
+            return EDIT_FEED;
+        }
+    }
 }
 
 export default routes;
