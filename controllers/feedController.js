@@ -90,3 +90,19 @@ export const editFeed = async (req, res) => {
         }
     })
 }
+
+export const deleteFeed = async (req, res) => {
+    const {
+        params: { id }
+    } = req;
+    await connection.query('DELETE from feed WHERE `id`= ?', [id], (err, rows) => {
+        if(err) {
+            console.log("❌  ERROR : " + err);
+            res.status(400);
+            res.end();
+        } else {
+            res.status(200);
+            res.end();
+        }
+    })
+}

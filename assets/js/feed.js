@@ -1,10 +1,12 @@
 import routes from "../../routes";
+import axios from "axios";
 
 const feed = document.querySelector(".main_content_feed");
 const menuIcon = document.getElementsByClassName("main_content_more");
 const menu = document.getElementsByClassName("main_menuDiv");
 const menuCancel = document.getElementsByClassName("menu_cancel");
 const editFeed = document.getElementsByClassName("menu_edit");
+const menuDelete = document.getElementsByClassName("menu_delete");
 // edit Form 
 const editFormSection = document.querySelector("#main_content_editFeed");
 const editFormText = document.querySelector("#main_content_editFeed #main_content_newFeedText");
@@ -15,6 +17,24 @@ const editFormImg = document.querySelector("#main_content_editFeed #write_feedIm
 const editForm = document.querySelector("#main_content_editFeed #feedWriteForm");
 
 const feedId = document.getElementsByClassName("feedId");
+
+const handeDelete = async (i) => {
+    for(let j = 0; j < menuIcon.length; j++) {
+        menu[j].style.display="none";
+    }
+    let check = confirm("게시물을 삭제하시겠습니가?"); 
+    if(check == true) {
+        const response = await axios({
+            url: `${routes.deleteFeed(feedId[i].innerHTML)}`,
+            method: "post"
+        });
+        if(response.status === 200) {
+            window.location.reload();
+        }
+    } else {
+        return false;
+    }
+}
 
 const handleEditFormCancel = () => {
     editFormSection.style.display = "none";
@@ -65,6 +85,7 @@ const init = () => {
         menuCancel[i].addEventListener("click", handelMenuCancel.bind(null, i), false); 
         if(editFeed[i]){
             editFeed[i].addEventListener("click", handleEditForm.bind(null,i), false);
+            menuDelete[i].addEventListener("click", handeDelete.bind(null,i), false);
         }
         if(editFormCancel) {
             editFormCancel.addEventListener("click", handleEditFormCancel);

@@ -10,6 +10,7 @@ const PERSON = "/:id";
 const PERSON_INFO = "/:id/info";
 const UPLOAD = "/upload";
 const EDIT_FEED = "/:id/edit-feed";
+const DELETE_FEED = "/:id/delete-feed"; 
 
 // User 
 const USER = "/user";
@@ -88,6 +89,13 @@ const routes = {
             return `/main/${id}/edit-feed`; 
         } else {
             return EDIT_FEED;
+        }
+    }, 
+    deleteFeed: (id) => {
+        if(id) {
+            return `/main/${id}/delete-feed`;
+        } else {
+            return DELETE_FEED;
         }
     }
 }
