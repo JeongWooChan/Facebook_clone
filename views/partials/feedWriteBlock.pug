@@ -1,12 +1,16 @@
 section#main_content_newFeedSection
-    form(action=`/main${routes.upload}`, method="post", enctype="multipart/form-data")
+    form(action=`/main${routes.upload}`, method="post", enctype="multipart/form-data", id="feedWriteForm")
         .main_content_newFeedHeader 
             span#main_content_newFeedText 게시물 만들기 
         .main_content_newFeedMain 
-            a(href=routes.person(user.id), id="main_content_newFeedImg")
-                img(src=`/${user.avatarUrl}`) 
-            textarea#main_content_newFeedTextarea(name="content", cols="30", rows="3", placeholder=user.username+"님, 무슨 생각을 하고 계신가요? ")
+            .profile_section 
+                a(href=routes.person(user.id), id="main_content_newFeedImg")
+                    img(src=`/${user.avatarUrl}`)
+            .content_section 
+                textarea#main_content_newFeedTextarea(name="content", cols="30", rows="3", placeholder=user.username+"님, 무슨 생각을 하고 계신가요? ")
+                img(src="#", alt="feed_img", style="display: none;", id="write_feedImg", )
         .main_content_newFeedFooter 
             .main_content_borderSection
                 input(type="file", name="feed", id="feed", accept="image/*")
-                input(type="submit", value="등록")
+                input(type="button", value="취소", id="editFormCancel", style="display: none")
+                input(type="submit", id="writeFromSubmit", value="등록")

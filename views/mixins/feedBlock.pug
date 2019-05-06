@@ -18,14 +18,28 @@ mixin feedBlock(feed = {})
                             li#menu_noView 
                                 i.far.fa-eye-slash 
                                 span 이 게시물 보지 않기 
-                        else 
-                            li#menu_edit 
+                            li.menu_edit(style="display: none;")  
                                 i.far.fa-edit 
-                                span 게시물 수정하기 
+                                span 게시물 수정하기
+                                div#feedId(style="display: none;")=feed.id 
+                            li#menu_delete(style="display: none;")
+                                i.far.fa-trash-alt 
+                                span 게시물 삭제하기 
+                        else 
+                            li#menu_store(style="display: none;") 
+                                i.far.fa-bookmark
+                                span 이 게시물 보관하기
+                            li#menu_noView(style="display: none;")  
+                                i.far.fa-eye-slash 
+                                span 이 게시물 보지 않기 
+                            li.menu_edit 
+                                i.far.fa-edit 
+                                span 게시물 수정하기
+                                div#feedId(style="display: none;")=feed.id 
                             li#menu_delete
                                 i.far.fa-trash-alt 
                                 span 게시물 삭제하기 
-                        li#menu_cancel  
+                        li.menu_cancel  
                             span 취소
             .main_content_main 
                 .main_content_mainContent=feed.content

@@ -4,7 +4,7 @@
   "description": "Facebook clone project ",
   "main": "index.js",
   "scripts": {
-    "dev:server": "nodemon --exec babel-node init.js --delay 2 --ignore '.scss' --ignore 'static' ",
+    "dev:server": "nodemon --exec babel-node init.js --ignore '.scss' --ignore 'static' ",
     "dev:assets": "webpack --mode development -w",
     "build:assets": "webpack --mode production"
   },

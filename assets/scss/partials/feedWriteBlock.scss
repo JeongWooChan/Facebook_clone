@@ -16,26 +16,40 @@
         }
     }
     .main_content_newFeedMain {
-        padding: 10px 10px 0 10px;
-        overflow: hidden; 
-        a {
-            img {
-                float: left;
-                width: 50px;
-                height: 50px;
-                border-radius: 50%;
-                margin-top: 15px;
+        padding: 10px 10px 0 10px; 
+        box-sizing: border-box;
+        overflow: hidden;
+        .profile_section {
+            width: 10%;
+            float: left;
+            a {
+                img {
+                    width: 50px;
+                    height: 50px;
+                    border-radius: 50%;
+                    margin-top: 15px;
+                }
             }
         }
-        textarea {
+        .content_section {
+            width: 85%;
             float: left;
-            width: 88%;
-            resize: none;
-            font-size: 15px;
-            padding: 5px 0 0 5px;
-            border: 1px solid #e6e6e6;
-            margin-bottom: 5px;
-            margin-left: 8px;
+            textarea {
+                width: 100%;
+                resize: none;
+                font-size: 15px;
+                padding: 5px 0 0 5px;
+                border: 1px solid #e6e6e6;
+                margin-bottom: 5px;
+                margin-left: 8px;
+            }
+            img {
+                width: 100px;
+                height: 100px;
+                margin-left: 8px;
+                object-fit: cover;
+                object-position: top;
+            }
         }
     }
     .main_content_newFeedFooter {
@@ -44,6 +58,14 @@
             border-top: 1px solid #e6e6e6;
             padding-top: 5px;
             overflow: hidden;
+            input[type=button] {
+                float: right;
+                margin-right: 10px;
+                padding: 3px 10px;
+                border: none;
+                font-weight: bold;
+                cursor: pointer;
+            }
             input[type=submit] {
                 float: right; 
                 margin-right: 10px;
@@ -51,7 +73,7 @@
                 background-color: #4267b2; 
                 color: #fff;
                 border: none;
-                font: bold;
+                font-weight: bold;
                 cursor: pointer;
             }
         }
