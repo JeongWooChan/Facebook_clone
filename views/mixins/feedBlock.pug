@@ -8,7 +8,8 @@ mixin feedBlock(feed = {})
                     .main_content_more 
                         i.fas.fa-ellipsis-h
                 .main_content_headerBottom
-                    span.main_content_time=feed.date
+                    span.main_content_time(hidden="hidden")=feed.date
+                    span.main_time_gap 
                 .main_menuDiv(style="display: none;")
                     ul
                         if(user.id != feed.userId)

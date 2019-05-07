@@ -30,6 +30,10 @@ const feedImgPreview = document.getElementById("imgPreview");
 const realFileBtn = document.getElementById("feed"); 
 const customBtn = document.getElementById("custom-button"); 
 
+// TimeStamp 
+const writeTime = document.getElementsByClassName("main_content_time");
+const TimeGap = document.getElementsByClassName("main_time_gap");
+
 const handeDelete = async (i) => {
     for(let j = 0; j < menuIcon.length; j++) {
         menu[j].style.display="none";
@@ -171,9 +175,12 @@ const init = () => {
             editRealFileBtn.click();
         });
     }
+
+    // 메뉴 부분 이외의 부분을 클릭시 메뉴를 display none 시킨다. 
     document.addEventListener("click", function(e) {
+        // event.target.getAttribute('class')로 현재 클릭한 부분의 classname을 가져온 후 비교한다. 
         if(e.target.getAttribute('class') == "main_content_more") {
-            console.log(123);
+            
         } else if (e.target.getAttribute('class') == "fas fa-ellipsis-h") {
 
         } else {
@@ -181,7 +188,31 @@ const init = () => {
                 menu[i].style.display="none";
             }
         }
-    })
+    }); 
+
+    // 시간 경과 
+    for(let i = 0; i < menu.length; i++) {
+        let old = new Date(writeTime[i].innerHTML).getTime(); 
+        let now = new Date().getTime();
+        
+        let sec_gap = Math.floor((now-old) /1000); 
+        let min_gap = Math.floor(sec_gap/60);
+        let hour_gap = Math.floor(min_gap / 60);
+        let day_gap = Math.floor(hour_gap/24);
+        let month_gap = Math.floor(day_gap/30); 
+
+        if(month_gap == 0 && day_gap == 0 && hour_gap == 0 && min_gap == 0) {
+            TimeGap[i].innerHTML = "방금";
+        } else if ( month_gap == 0 && day_gap == 0 && hour_gap == 0) {
+            TimeGap[i].innerHTML = min_gap +"분";
+        } else if ( month_gap == 0 && day_gap == 0) {
+            TimeGap[i].innerHTML = hour_gap + "시간";
+        } else if (month_gap == 0) {
+            TimeGap[i].innerHTML = day_gap + "일";
+        } else {
+            TimeGap[i].innerHTML = month_gap + "달";
+        }
+    }
 }
 
 if(feed) {

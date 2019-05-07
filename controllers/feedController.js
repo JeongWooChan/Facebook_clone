@@ -1,7 +1,6 @@
 import routes from "../routes"; 
 import connection from "../db"; 
 import dotenv from "dotenv";
-import { networkInterfaces } from "os";
 
 dotenv.config();
 
