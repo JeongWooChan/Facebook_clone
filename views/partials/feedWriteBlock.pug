@@ -13,6 +13,9 @@ section#main_content_newFeedSection
                         img(src="#", alt="feed_img", style="display: none;", id="write_feedImg")
         .main_content_newFeedFooter 
             .main_content_borderSection
-                input(type="file", name="feed", id="feed", accept="image/*")
+                input(type="file", id="feed", name="feed", hidden="hidden", accept="image/*")
+                #custom-button 
+                    i.far.fa-image
+                    span 사진선택
                 input(type="button", value="취소", id="editFormCancel", style="display: none")
                 input(type="submit", id="writeFromSubmit", value="등록")

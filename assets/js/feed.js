@@ -18,10 +18,17 @@ const editForm = document.querySelector("#main_content_editFeed #feedWriteForm")
 const feedId = document.getElementsByClassName("feedId");
 const editFeedFile = document.querySelector("#main_content_editFeed #feed");
 const editFeedImgPreview = document.querySelector("#main_content_editFeed #imgPreview");
+// editForm > Custom input=file 
+const editRealFileBtn = document.querySelector("#main_content_editFeed #feed");
+const editCustomBtn = document.querySelector("#main_content_editFeed #custom-button");
+
 
 // Feed write 
 const feedFile = document.getElementById("feed");
 const feedImgPreview = document.getElementById("imgPreview");
+// Feed write > Custom input=file 
+const realFileBtn = document.getElementById("feed"); 
+const customBtn = document.getElementById("custom-button"); 
 
 const handeDelete = async (i) => {
     for(let j = 0; j < menuIcon.length; j++) {
@@ -96,6 +103,8 @@ const init = () => {
             editFormCancel.addEventListener("click", handleEditFormCancel);
         }
     }
+
+    // 피드 새로 작성에서의 이미지 프리뷰 
     feedFile.addEventListener("change", function (e) {
         const existImg = document.getElementById("imagePreview_img"); 
 
@@ -121,6 +130,8 @@ const init = () => {
         image.id = "imagePreview_img";
         feedImgPreview.appendChild(image);
     }); 
+    
+    // 피드 수정에서의 이미지 프리뷰 
     editFeedFile.addEventListener("change", function (e) {
         const existImg = document.getElementById("edit_imagePreview_img"); 
 
@@ -149,7 +160,17 @@ const init = () => {
         }
         image.id = "edit_imagePreview_img"; 
         editFeedImgPreview.appendChild(image);
-    });    
+    });
+
+    customBtn.addEventListener("click", function() {
+        realFileBtn.click();
+    }); 
+
+    if(editCustomBtn) {
+        editCustomBtn.addEventListener("click", function() {
+            editRealFileBtn.click();
+        });
+    }
 }
 
 if(feed) {
