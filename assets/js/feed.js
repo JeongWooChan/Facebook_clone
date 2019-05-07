@@ -171,6 +171,17 @@ const init = () => {
             editRealFileBtn.click();
         });
     }
+    document.addEventListener("click", function(e) {
+        if(e.target.getAttribute('class') == "main_content_more") {
+            console.log(123);
+        } else if (e.target.getAttribute('class') == "fas fa-ellipsis-h") {
+
+        } else {
+            for(let i = 0; i < menu.length; i++){
+                menu[i].style.display="none";
+            }
+        }
+    })
 }
 
 if(feed) {
