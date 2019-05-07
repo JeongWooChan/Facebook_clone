@@ -15,8 +15,11 @@ const editFormContent = document.querySelector("#main_content_editFeed #main_con
 const editFormSubmit = document.querySelector("#main_content_editFeed #writeFromSubmit");
 const editFormImg = document.querySelector("#main_content_editFeed #write_feedImg");
 const editForm = document.querySelector("#main_content_editFeed #feedWriteForm");
-
 const feedId = document.getElementsByClassName("feedId");
+
+// Feed write 
+const feedFile = document.getElementById("feed");
+const feedImgPreview = document.getElementById("imgPreview");
 
 const handeDelete = async (i) => {
     for(let j = 0; j < menuIcon.length; j++) {
@@ -90,7 +93,32 @@ const init = () => {
         if(editFormCancel) {
             editFormCancel.addEventListener("click", handleEditFormCancel);
         }
-    }    
+    }
+    feedFile.addEventListener("change", function (e) {
+        const existImg = document.getElementById("imagePreview_img"); 
+
+        if(existImg) {
+            existImg.remove();
+        }
+        
+        const get_file = e.target.files; 
+
+        let image = document.createElement('img'); 
+
+        const reader = new FileReader(); 
+
+        reader.onload = (function (aImg) {
+            return function (e) {
+                aImg.src = e.target.result
+            }
+        })(image) 
+
+        if(get_file) {
+            reader.readAsDataURL(get_file[0]); 
+        }
+        image.id = "imagePreview_img";
+        feedImgPreview.appendChild(image);
+    })    
 }
 
 if(feed) {
