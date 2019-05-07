@@ -16,6 +16,8 @@ const editFormSubmit = document.querySelector("#main_content_editFeed #writeFrom
 const editFormImg = document.querySelector("#main_content_editFeed #write_feedImg");
 const editForm = document.querySelector("#main_content_editFeed #feedWriteForm");
 const feedId = document.getElementsByClassName("feedId");
+const editFeedFile = document.querySelector("#main_content_editFeed #feed");
+const editFeedImgPreview = document.querySelector("#main_content_editFeed #imgPreview");
 
 // Feed write 
 const feedFile = document.getElementById("feed");
@@ -118,7 +120,36 @@ const init = () => {
         }
         image.id = "imagePreview_img";
         feedImgPreview.appendChild(image);
-    })    
+    }); 
+    editFeedFile.addEventListener("change", function (e) {
+        const existImg = document.getElementById("edit_imagePreview_img"); 
+
+        if(existImg) {
+            existImg.remove();
+        }
+        
+        if(editFormImg) {
+            editFormImg.remove();
+        }
+
+        const get_file = e.target.files; 
+
+        let image = document.createElement('img'); 
+
+        const reader = new FileReader(); 
+
+        reader.onload = (function (aImg) {
+            return function (e) {
+                aImg.src = e.target.result
+            }
+        })(image)
+
+        if(get_file) {
+            reader.readAsDataURL(get_file[0]); 
+        }
+        image.id = "edit_imagePreview_img"; 
+        editFeedImgPreview.appendChild(image);
+    });    
 }
 
 if(feed) {
