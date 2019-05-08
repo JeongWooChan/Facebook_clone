@@ -1,3 +1,5 @@
+include ./commentBlock.pug
+
 mixin feedBlock(feed = {}) 
     section.main_content_feedSection 
         article.main_content_feed
@@ -64,8 +66,9 @@ mixin feedBlock(feed = {})
                     button.main_content_commentButton 
                         i.far.fa-comment-alt
                         span#main_content_commentButtonText 댓글
-            .main_content_Comment(style="display: none;")   
+            .main_content_Comment(style="display: block;")   
                 .writeComment 
                     form(action="#", method="post")
                         img(src=`/${feed.avatar}`)
                         input(type="text", placeholder="댓글을 입력하세요...", class="writeComment_input") 
+                +commentBlock({})

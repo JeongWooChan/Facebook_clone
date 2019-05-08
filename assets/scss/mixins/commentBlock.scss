@@ -1,0 +1,65 @@
+.commentBlock_section {
+    .registered_comments {
+        overflow: hidden;
+        padding: 8px 12px;
+        .registered_comments_img {
+            float: left;
+            width: 6%;
+            margin-right: 3%;
+            img {
+                width: 40px;
+                border-radius: 50%; 
+            }
+        }
+        .registered_comments_comment {
+            float: left;
+            width: 80%;
+            background-color: #f2f3f5; 
+            border-radius: 16px;
+            padding: 8px 12px; 
+            a {
+                color: #385898; 
+                font-size: 13px; 
+                font-weight: bold;
+                margin-right: 2%;
+            }
+            .registered_comment_content {
+                display: inline-block;
+                font-size: 13px;
+            }
+        }   
+        i {
+            float: left;
+            line-height: 40px;
+            margin-left: 3%;
+            cursor: pointer;
+            color: #e9ebee;
+            &:hover {
+                color: black;
+            }
+        }
+        .registered_comments_menu {
+            float: left;
+            margin-left: 10px;
+            overflow: hidden;
+            a{
+                float: left;
+                cursor: pointer;
+                color: #385898;
+            }
+            span {
+                float: left;
+                display: block;
+                width: 2px;
+                height: 2px; 
+                border-radius: 50%;
+                background-color: black;
+                margin: 9px 4px;
+            }
+            .registerd_comments_time {
+                float: left;
+                color: #606770;
+            }
+        }
+    }
+}

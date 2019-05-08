@@ -1,0 +1,13 @@
+mixin commentBlock(comment = {}) 
+    .commentBlock_section 
+        .registered_comments
+            .registered_comments_img  
+                img(src=`/${user.avatarUrl}`)
+            .registered_comments_comment
+                a.registered_comment_name(href="#") 정우찬
+                span.registered_comment_content 123 
+            i.fas.fa-ellipsis-h
+            .registered_comments_menu 
+                a 답글달기 
+                span
+                .registerd_comments_time 시간
