@@ -7,6 +7,7 @@ const menu = document.getElementsByClassName("main_menuDiv");
 const menuCancel = document.getElementsByClassName("menu_cancel");
 const editFeed = document.getElementsByClassName("menu_edit");
 const menuDelete = document.getElementsByClassName("menu_delete");
+
 // edit Form 
 const editFormSection = document.querySelector("#main_content_editFeed");
 const editFormText = document.querySelector("#main_content_editFeed #main_content_newFeedText");
@@ -18,14 +19,17 @@ const editForm = document.querySelector("#main_content_editFeed #feedWriteForm")
 const feedId = document.getElementsByClassName("feedId");
 const editFeedFile = document.querySelector("#main_content_editFeed #feed");
 const editFeedImgPreview = document.querySelector("#main_content_editFeed #imgPreview");
+
 // editForm > Custom input=file 
 const editRealFileBtn = document.querySelector("#main_content_editFeed #feed");
 const editCustomBtn = document.querySelector("#main_content_editFeed #custom-button");
 
-
 // Feed write 
 const feedFile = document.getElementById("feed");
 const feedImgPreview = document.getElementById("imgPreview");
+const feedWriteForm = document.getElementById("feedWriteForm");
+const feedWriteArea = document.getElementById("main_content_newFeedTextarea");
+
 // Feed write > Custom input=file 
 const realFileBtn = document.getElementById("feed"); 
 const customBtn = document.getElementById("custom-button"); 
@@ -33,6 +37,19 @@ const customBtn = document.getElementById("custom-button");
 // TimeStamp 
 const writeTime = document.getElementsByClassName("main_content_time");
 const TimeGap = document.getElementsByClassName("main_time_gap");
+
+
+const test = event => {
+    event.preventDefault();
+
+    if(feedWriteArea.value == "" && realFileBtn.value == "") {
+        alert("사진 혹은 글을 작성해 주세요."); 
+        return false; 
+    } else {
+        feedWriteForm.submit();
+    }
+}
+
 
 const handeDelete = async (i) => {
     for(let j = 0; j < menuIcon.length; j++) {
@@ -107,6 +124,9 @@ const init = () => {
             editFormCancel.addEventListener("click", handleEditFormCancel);
         }
     }
+
+    // 게시글 등록할 때 검사 
+    feedWriteForm.addEventListener("submit", test); 
 
     // 피드 새로 작성에서의 이미지 프리뷰 
     feedFile.addEventListener("change", function (e) {
