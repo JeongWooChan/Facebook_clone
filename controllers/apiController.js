@@ -72,5 +72,31 @@ export const addComment = async (req, res) => {
                 }
             })
         }
-    } )
+    });
+}
+
+export const deleteComment = async (req, res) => {
+    const {
+        params: {id}
+    }=req; 
+    await connection.query('SELECT feedId from comment WHERE `id`=?', id, async (err, rows, result) => {
+        if(err) {
+            console.log("❌  ERROR : " + err); 
+        } else {
+            const feedId = rows[0].feedId;
+            await connection.query('UPDATE feed SET commentCount=commentCount-1 WHERE `id`=?', feedId, (err, result) => {
+                if(err) {
+                    console.log("❌  ERROR : " + err); 
+                }
+            }); 
+            await connection.query('DELETE from comment WHERE `id`=?', id, (err, result) => {
+                if(err) {
+                    console.log("❌  ERROR : " + err); 
+                } else {
+                    res.status(200);
+                    res.end();
+                }
+            });
+        }
+    })
 }

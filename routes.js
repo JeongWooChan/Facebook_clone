@@ -44,6 +44,7 @@ const API = "/api";
 const EMAIL_CHECK = "/email_check";
 const CHECK_PASSWORD = "/checkPassword";
 const ADD_COMMENT = "/:id/comment"; 
+const DELETE_COMMENT = "/:id/deleteComment";
 
 
 const routes = {
@@ -100,7 +101,8 @@ const routes = {
             return DELETE_FEED;
         }
     }, 
-    addComment: ADD_COMMENT
+    addComment: ADD_COMMENT, 
+    deleteComment: DELETE_COMMENT
 }
 
 export default routes;

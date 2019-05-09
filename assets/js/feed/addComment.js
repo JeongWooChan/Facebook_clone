@@ -11,51 +11,56 @@ const increaseNumber = i => {
 }
 
 const fakeAddComment = (comment, i) => {
-    const section = document.createElement("div"); 
+    // const section = document.createElement("div"); 
+    // const commentPart = document.createElement("div");
     
-    const imgDiv = document.createElement("div"); 
-    const commentDiv = document.createElement("div"); 
-    const icon = document.createElement("i"); 
-    const menuDiv = document.createElement("div"); 
+    // const imgDiv = document.createElement("div"); 
+    // const commentDiv = document.createElement("div"); 
+    // const icon = document.createElement("i"); 
+    // const menuDiv = document.createElement("div"); 
     
-    const img = document.createElement("img"); 
-    const username = document.createElement("a"); 
-    const commentSpan = document.createElement("span"); 
-    const co_comentA = document.createElement("a"); 
-    const dot_span = document.createElement("span");
-    const date = document.createElement("div"); 
+    // const img = document.createElement("img"); 
+    // const username = document.createElement("a"); 
+    // const commentSpan = document.createElement("span"); 
+    // const co_comentA = document.createElement("a"); 
+    // const dot_span = document.createElement("span");
+    // const date = document.createElement("div"); 
     
-    section.className = "registered_comments"; 
+    // section.className = "registered_comments"; 
+    // commentPart.className = "commentPart";
     
-    imgDiv.className = "registered_comments_img"; 
-    commentDiv.className = "registered_comments_comment"; 
-    icon.className="fas fa-ellipsis-h";
-    menuDiv.className="registered_comments_menu";
+    // imgDiv.className = "registered_comments_img"; 
+    // commentDiv.className = "registered_comments_comment"; 
+    // icon.className="fas fa-ellipsis-h";
+    // menuDiv.className="registered_comments_menu";
     
-    img.src=avatar[i].src; 
-    username.className="registered_comment_name";
-    username.href="#"; 
-    username.innerHTML="정우찬"; 
-    commentSpan.className= "registered_comment_content";
-    commentSpan.innerHTML=comment; 
-    co_comentA.innerHTML = "답글달기"; 
-    date.className="registerd_comments_time";
-    date.innerHTML="방금";
+    // img.src=avatar[i].src; 
+    // username.className="registered_comment_name";
+    // username.href="#"; 
+    // username.innerHTML="정우찬"; 
+    // commentSpan.className= "registered_comment_content";
+    // commentSpan.innerHTML=comment; 
+    // co_comentA.innerHTML = "답글달기"; 
+    // date.className="registerd_comments_time";
+    // date.innerHTML="방금";
     
-    imgDiv.appendChild(img); 
-    commentDiv.appendChild(username); 
-    commentDiv.appendChild(commentSpan);
-    menuDiv.appendChild(co_comentA); 
-    menuDiv.appendChild(dot_span); 
-    menuDiv.appendChild(date);
+    // imgDiv.appendChild(img); 
+    // commentDiv.appendChild(username); 
+    // commentDiv.appendChild(commentSpan);
+    // menuDiv.appendChild(co_comentA); 
+    // menuDiv.appendChild(dot_span); 
+    // menuDiv.appendChild(date);
 
-    section.appendChild(imgDiv);
-    section.appendChild(commentDiv);  
-    section.appendChild(icon);
-    section.appendChild(menuDiv);
+    // commentPart.appendChild(imgDiv);
+    // commentPart.appendChild(commentDiv);  
+    // commentPart.appendChild(icon);
+    // commentPart.appendChild(menuDiv);
 
-    commentSection[i].appendChild(section);
-    increaseNumber(i);
+    // section.appendChild(commentPart);
+
+    // commentSection[i].appendChild(section);
+    // increaseNumber(i);
+    window.location.reload(true);
 }
 
 const sendComment = async (comment, id, i) => {

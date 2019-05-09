@@ -18,4 +18,5 @@ mixin commentBlock(comment = {})
                     span 댓글 수정하기 
                 li
                     i.far.fa-trash-alt 
-                    span.comment_deleteText 댓글 삭제하기 
+                    span.comment_deleteText 댓글 삭제하기
+                    span.comment_commentId(style="display:none")=comment.id 
