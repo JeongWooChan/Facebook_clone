@@ -62,6 +62,31 @@
                     float: left;
                     color: #606770;
                 }
+            }
+            .editCommentDiv {
+                display: none;
+                float: left;
+                background-color: #f2f3f5; 
+                width: 80%;
+                padding: 8px 12px;
+                border-radius: 16px;
+                border: 1px solid #ccd0d5;
+                form {
+                    input {
+                        width: 100%;
+                        background-color: #f2f3f5;
+                        outline-style: none;
+                        border: none;
+                    }
+                }
+            }
+            .editComment_cancelDiv {
+                display: none;
+                float: left;  
+                margin-top: 9px;
+                margin-left: 10px;
+                cursor: pointer;
+                color: blue;
             }  
         }
         .menu {

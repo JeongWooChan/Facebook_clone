@@ -11,11 +11,15 @@ mixin commentBlock(comment = {})
                 a 답글달기 
                 span
                 .registerd_comments_time=comment.date
+            .editCommentDiv 
+                form.editComment_form  
+                    input.editComment_input(type="text")
+            .editComment_cancelDiv 취소 
         .menu(style="display:none;") 
             ul
                 li
                     i.far.fa-edit
-                    span 댓글 수정하기 
+                    span.comment_editText 댓글 수정하기 
                 li
                     i.far.fa-trash-alt 
                     span.comment_deleteText 댓글 삭제하기
