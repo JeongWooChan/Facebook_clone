@@ -39,7 +39,7 @@ const writeTime = document.getElementsByClassName("main_content_time");
 const TimeGap = document.getElementsByClassName("main_time_gap");
 
 
-const test = event => {
+const submitValidate = event => {
     event.preventDefault();
 
     if(feedWriteArea.value == "" && realFileBtn.value == "") {
@@ -55,7 +55,7 @@ const handeDelete = async (i) => {
     for(let j = 0; j < menuIcon.length; j++) {
         menu[j].style.display="none";
     }
-    let check = confirm("게시물을 삭제하시겠습니가?"); 
+    let check = confirm("게시물을 삭제하시겠습니까?"); 
     if(check == true) {
         const response = await axios({
             url: `${routes.deleteFeed(feedId[i].innerHTML)}`,
@@ -126,7 +126,7 @@ const init = () => {
     }
 
     // 게시글 등록할 때 검사 
-    feedWriteForm.addEventListener("submit", test); 
+    feedWriteForm.addEventListener("submit", submitValidate); 
 
     // 피드 새로 작성에서의 이미지 프리뷰 
     feedFile.addEventListener("change", function (e) {
