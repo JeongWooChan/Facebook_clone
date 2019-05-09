@@ -1,12 +1,21 @@
 mixin commentBlock(comment = {})  
     .registered_comments
-        .registered_comments_img  
-            img(src=`/${user.avatarUrl}`)
-        .registered_comments_comment
-            a.registered_comment_name(href="#")=comment.username
-            span.registered_comment_content=comment.comment 
-        i.fas.fa-ellipsis-h
-        .registered_comments_menu 
-            a 답글달기 
-            span
-            .registerd_comments_time=comment.date
+        .commentPart 
+            .registered_comments_img  
+                img(src=`/${user.avatarUrl}`)
+            .registered_comments_comment
+                a.registered_comment_name(href="#")=comment.username
+                span.registered_comment_content=comment.comment 
+            i.fas.fa-ellipsis-h
+            .registered_comments_menu 
+                a 답글달기 
+                span
+                .registerd_comments_time=comment.date
+        .menu(style="display:block;") 
+            ul
+                li
+                    i.far.fa-edit
+                    span 댓글 수정하기 
+                li
+                    i.far.fa-trash-alt 
+                    span.comment_deleteText 댓글 삭제하기 
