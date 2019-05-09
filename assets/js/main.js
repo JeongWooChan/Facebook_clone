@@ -14,3 +14,4 @@ import "./personInfo/changeProfile";
 
 // feed 
 import "./feed/feedBlock";
+import "./feed/addComment";

@@ -68,7 +68,15 @@ mixin feedBlock(feed = {})
                         span#main_content_commentButtonText 댓글
             .main_content_Comment(style="display: block;")   
                 .writeComment 
-                    form(action="#", method="post")
+                    form.addCommentForm
+                        span.main_content_feedId(style="display: none")=feed.id
                         img(src=`/${feed.avatar}`)
                         input(type="text", placeholder="댓글을 입력하세요...", class="writeComment_input") 
-                +commentBlock({})
+                each item in comment 
+                    if(feed.id == item.feedId)
+                        +commentBlock({
+                            id: item.id,
+                            username: item.username, 
+                            comment: item.content, 
+                            date: item.date 
+                        })

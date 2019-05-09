@@ -43,6 +43,8 @@ const EDIT_PROFILE = "/edit-profile";
 const API = "/api"; 
 const EMAIL_CHECK = "/email_check";
 const CHECK_PASSWORD = "/checkPassword";
+const ADD_COMMENT = "/:id/comment"; 
+
 
 const routes = {
     home : HOME,
@@ -97,7 +99,8 @@ const routes = {
         } else {
             return DELETE_FEED;
         }
-    }
+    }, 
+    addComment: ADD_COMMENT
 }
 
 export default routes;

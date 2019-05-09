@@ -49,3 +49,28 @@ export const passwordCheck = async (req, res) => {
         });
     })
 }
+
+export const addComment = async (req, res) => {
+    const {
+        body: {id, comment}
+    } = req; 
+    let $set = {
+        feedId: id,
+        username: req.user.username,
+        content: comment 
+    }
+    await connection.query('INSERT INTO comment SET ?', $set, async (err, rows) => {
+        if(err) {
+            console.log("❌  ERROR : " + err); 
+        } else { 
+            await connection.query('UPDATE feed SET commentCount=commentCount+1 WHERE `id`=?', id, (err, result) => {
+                if(err) {
+                    console.log("❌  ERROR : " + err); 
+                } else {
+                    res.status(200); 
+                    res.end();
+                }
+            })
+        }
+    } )
+}
