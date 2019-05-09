@@ -1,13 +1,12 @@
-mixin commentBlock(comment = {}) 
-    .commentBlock_section 
-        .registered_comments
-            .registered_comments_img  
-                img(src=`/${user.avatarUrl}`)
-            .registered_comments_comment
-                a.registered_comment_name(href="#")=comment.username
-                span.registered_comment_content=comment.comment 
-            i.fas.fa-ellipsis-h
-            .registered_comments_menu 
-                a 답글달기 
-                span
-                .registerd_comments_time=comment.date
+mixin commentBlock(comment = {})  
+    .registered_comments
+        .registered_comments_img  
+            img(src=`/${user.avatarUrl}`)
+        .registered_comments_comment
+            a.registered_comment_name(href="#")=comment.username
+            span.registered_comment_content=comment.comment 
+        i.fas.fa-ellipsis-h
+        .registered_comments_menu 
+            a 답글달기 
+            span
+            .registerd_comments_time=comment.date

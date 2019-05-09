@@ -70,13 +70,14 @@ mixin feedBlock(feed = {})
                 .writeComment 
                     form.addCommentForm
                         span.main_content_feedId(style="display: none")=feed.id
-                        img(src=`/${feed.avatar}`)
+                        img.addCommentForm_avatar(src=`/${feed.avatar}`)
                         input(type="text", placeholder="댓글을 입력하세요...", class="writeComment_input") 
-                each item in comment 
-                    if(feed.id == item.feedId)
-                        +commentBlock({
-                            id: item.id,
-                            username: item.username, 
-                            comment: item.content, 
-                            date: item.date 
-                        })
+                .commentBlock_section
+                    each item in comment 
+                        if(feed.id == item.feedId)
+                            +commentBlock({
+                                id: item.id,
+                                username: item.username, 
+                                comment: item.content, 
+                                date: item.date 
+                            })
