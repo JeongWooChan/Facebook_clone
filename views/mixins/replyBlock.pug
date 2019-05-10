@@ -19,6 +19,6 @@ mixin replyBlock(reply = {})
                     span.reply_editText 댓글 수정하기 
                 li 
                     i.far.fa-trash-alt 
-                    span.reply_deleteText 댓글 삭제하기
-
+                    span.reply_deleteText 댓글 삭제하기 
+                    span.reply_id(style="display:none")=reply.id 
                 

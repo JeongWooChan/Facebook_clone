@@ -128,7 +128,8 @@ export const addReply = async (req, res) => {
         commentId: id, 
         userName: req.user.username, 
         userAvatar: req.user.avatarUrl, 
-        reply: comment 
+        reply: comment, 
+        feedId: feedId 
     }
     await connection.query('INSERT INTO reply SET ?', $set, async (err,result) => {
         if(err) {
@@ -144,4 +145,47 @@ export const addReply = async (req, res) => {
             });
         }
     });
+}
+
+export const deleteReply = async (req, res) => {
+    const {
+        params: {id}
+    }=req;
+    await connection.query('SELECT feedId from reply WHERE `id`=?', id, async (err, rows, result) => {
+        if(err) {
+            console.log("❌  ERROR : " + err); 
+        } else {
+            const feedId = rows[0].feedId;
+            await connection.query('UPDATE feed SET commentCount=commentCount-1 WHERE `id`=?', feedId, (err, result) => {
+                if(err) {
+                    console.log("❌  ERROR : " + err); 
+                }
+            }); 
+            await connection.query('DELETE from reply WHERE `id`=?', id, (err, result) => {
+                if(err) {
+                    console.log("❌  ERROR : " + err); 
+                } else {
+                    res.status(200);
+                    res.end();
+                }
+            });
+        }
+    });
+}
+
+export const editReply = async (req, res) => {
+    const {
+        body: { id, reply }
+    }=req; 
+    let $set = {
+        reply: reply
+    }
+    await connection.query('UPDATE reply SET ? WHERE `id`=?', [$set, id], (err, result) => {
+        if(err) {
+            console.log("❌  ERROR : " + err); 
+        } else {
+            res.status(200);
+            res.end();
+        }
+    })
 }

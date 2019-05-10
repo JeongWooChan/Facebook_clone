@@ -1,3 +1,5 @@
+import axios from "axios"; 
+
 const registered_reply_Div = document.getElementsByClassName("registered_reply"); 
 const replyMenuIcon = document.getElementsByClassName("reply_menuIcon");
 const replyMenu = document.getElementsByClassName("reply_menu");
@@ -8,7 +10,44 @@ const registered_reply = document.getElementsByClassName("registered_reply_reply
 const replyEditForm_cancel = document.getElementsByClassName("editReply_cancel");
 const replyEdit_input = document.getElementsByClassName("editReply_input");
 const registered_content = document.getElementsByClassName("registered_reply_content");
+const replyDeleteBtn = document.getElementsByClassName("reply_deleteText");
+const replyEditForm = document.getElementsByClassName("editReply_form");
 
+
+const sendReply = async (reply, id) => {
+    const response = await axios({
+        url: `/api/${id}/editReply`, 
+        method: "POST", 
+        data: {
+            id, 
+            reply
+        }
+    }); 
+    if(response.status === 200) {
+        window.location.reload(true);
+    }
+}
+
+const submitEditReply = (i, event) => {
+    event.preventDefault(); 
+    const editInput_data = replyEdit_input[i].value; 
+    const editReply_id = document.getElementsByClassName("editReply_id")[i].innerHTML;
+
+    sendReply(editInput_data, editReply_id); 
+
+}
+
+const deleteReply = async i => {
+    const replyid = document.getElementsByClassName("reply_id")[i].innerHTML; 
+
+    const response = await axios({
+        url: `/api/${replyid}/deleteReply`, 
+        method: 'POST'
+    }); 
+    if(response.status === 200) {
+        window.location.reload(true);
+    }
+}
 
 const cancelEditForm = i => {
     registered_reply[i].style.display = "block"; 
@@ -46,6 +85,8 @@ const init = () => {
         replyMenuIcon[i].addEventListener("click", showReplyMenu.bind(null, i), false);
         replyEditBtn[i].addEventListener("click", showEditFrom.bind(null,i),false);
         replyEditForm_cancel[i].addEventListener("click", cancelEditForm.bind(null, i), false);
+        replyDeleteBtn[i].addEventListener("click", deleteReply.bind(null, i), false); 
+        replyEditForm[i].addEventListener("submit", submitEditReply.bind(this,i), false);
     }
 
     document.addEventListener("click", function(e) {

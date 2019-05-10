@@ -43,10 +43,14 @@ const EDIT_PROFILE = "/edit-profile";
 const API = "/api"; 
 const EMAIL_CHECK = "/email_check";
 const CHECK_PASSWORD = "/checkPassword";
+
 const ADD_COMMENT = "/:id/comment"; 
 const DELETE_COMMENT = "/:id/deleteComment";
-const EDIT_COMMENT = "/:id/editComment"; 
+const EDIT_COMMENT = "/:id/editComment";
+
 const ADD_REPLY = "/:id/reply"; 
+const DELETE_REPLY = "/:id/deleteReply"; 
+const EDIT_REPLY = "/:id/editReply";
 
 
 const routes = {
@@ -106,7 +110,9 @@ const routes = {
     addComment: ADD_COMMENT, 
     deleteComment: DELETE_COMMENT,
     editComment: EDIT_COMMENT,
-    addReply: ADD_REPLY
+    addReply: ADD_REPLY,
+    deleteReply: DELETE_REPLY,
+    editReply: EDIT_REPLY
 }
 
 export default routes;
