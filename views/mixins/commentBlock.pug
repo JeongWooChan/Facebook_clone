@@ -27,14 +27,14 @@ mixin commentBlock(comment = {})
                         img(src=`/${user.avatarUrl}`) 
                         input(type="text", placeholder="댓글 입력", class="reply_input")
                 .editComment_Reply_cancel 취소 
-            each item in reply
-                if(comment.id == item.commentId)
-                    +replyBlock({
-                        commentId: item.commentId,
-                        userName : item.userName, 
-                        userAvatar : item.userAvatar, 
-                        reply : item.reply 
-                    })
+        each item in reply
+            if(comment.id == item.commentId)
+                +replyBlock({
+                    commentId: item.commentId,
+                    userName : item.userName, 
+                    userAvatar : item.userAvatar, 
+                    reply : item.reply 
+                })
         .menu(style="display:none;") 
             ul
                 li
