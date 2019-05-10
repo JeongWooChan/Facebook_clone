@@ -57,7 +57,8 @@ export const addComment = async (req, res) => {
     let $set = {
         feedId: id,
         username: req.user.username,
-        content: comment 
+        content: comment,
+        userAvatar: req.user.avatarUrl
     }
     await connection.query('INSERT INTO comment SET ?', $set, async (err, rows) => {
         if(err) {
