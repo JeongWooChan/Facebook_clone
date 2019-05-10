@@ -14,6 +14,7 @@ mixin commentBlock(comment = {})
             .editCommentDiv 
                 form.editComment_form  
                     input.editComment_input(type="text")
+                    span.editComment_id(style="display:none")=comment.id
             .editComment_cancelDiv 취소 
         .menu(style="display:none;") 
             ul

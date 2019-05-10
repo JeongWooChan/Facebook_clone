@@ -98,5 +98,22 @@ export const deleteComment = async (req, res) => {
                 }
             });
         }
+    });
+}
+
+export const editComment = async (req, res) => {
+    const {
+        body: { id, comment }
+    }=req; 
+    let $set = {
+        content: comment
+    }
+    await connection.query('UPDATE comment SET ? WHERE `id`=?', [$set, id], (err, result) => {
+        if(err) {
+            console.log("❌  ERROR : " + err); 
+        } else {
+            res.status(200);
+            res.end();
+        }
     })
 }

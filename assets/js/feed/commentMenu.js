@@ -15,8 +15,31 @@ const commentContent = document.getElementsByClassName("registered_comment_conte
 // 수정 div 
 const editComment_Div = document.getElementsByClassName("editCommentDiv"); 
 const editCommentInput = document.getElementsByClassName("editComment_input");
+const editComment_form = document.getElementsByClassName("editComment_form"); 
 
- const editCancel = i => {
+const sendComment = async (comment, id) => {
+    const response = await axios({
+        url: `/api/${id}/editComment`, 
+        method: "POST", 
+        data: {
+            id, 
+            comment
+        }
+    });
+    if(response.status === 200) {
+        window.location.reload(true);
+    }
+}
+
+const submitEditComment = (i, event) => {
+    event.preventDefault();
+    const editInput_data = editCommentInput[i].value; 
+    const editComment_id_span = document.getElementsByClassName("editComment_id"); 
+    const editComment_id = editComment_id_span[i].innerHTML; 
+    sendComment(editInput_data, editComment_id); 
+}
+
+const editCancel = i => {
     commentDiv[i].style.display = "block";
     commentDiv2[i].style.display = "block"; 
     commentMenuIcon[i].style.display = "block";
@@ -64,10 +87,12 @@ const init = () => {
         commentMenuIcon[i].addEventListener("click", toggleMenu.bind(null, i), false); 
         // 댓글 삭제 
         commentDeleteBtn[i].addEventListener("click", deleteComment.bind(null, i), false);
-        // 댓글 수정 
+        // 댓글 수정 폼 띄우기  
         commentEditBtn[i].addEventListener("click", editComment.bind(null, i), false);
         // 수정 취소 
         editComment_cancel[i].addEventListener("click", editCancel.bind(null,i), false);
+        // 댓글 수정 
+        editComment_form[i].addEventListener("submit", submitEditComment.bind(this,i), false); 
     }
 
     document.addEventListener("click", function(e) {
