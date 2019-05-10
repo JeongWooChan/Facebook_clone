@@ -1,6 +1,7 @@
 .commentBlock_section {
     .registered_comments {
         position: relative;
+        overflow: hidden;
         .commentPart {
             overflow: hidden;
             padding: 12px;
@@ -10,6 +11,7 @@
                 margin-right: 3%;
                 img {
                     width: 40px;
+                    height: 40px;
                     border-radius: 50%; 
                 }
             }
@@ -91,7 +93,46 @@
                 margin-left: 10px;
                 cursor: pointer;
                 color: blue;
-            }  
+            }
+            .editComment_replyDiv {
+                display: none;
+                .editComment_writeReply {
+                    float: left;
+                    width: 83%;
+                    overflow: hidden;
+                    margin-left: 10%;
+                    margin-top: 10px;
+                    form {
+                        span {
+                            display: none;
+                        }
+                        img {
+                            float: left;
+                            width: 30px;
+                            height: 30px;
+                            border-radius: 50%;
+                            margin-right: 2%;
+                            margin-top: 4px;
+                        }
+                        input {
+                            float: left;
+                            width: 86%;
+                            background-color: #f2f3f5; 
+                            border: 1px solid #ccd0d5; 
+                            border-radius: 16px;
+                            padding: 8px 12px;
+                            outline-style: none;
+                        }
+                    }
+                }  
+                .editComment_Reply_cancel {
+                    float: left;
+                    margin-top: 17px;
+                    margin-left: 2%;
+                    cursor: pointer;
+                    color: blue;
+                }
+            }
         }
         .menu {
             position: absolute;

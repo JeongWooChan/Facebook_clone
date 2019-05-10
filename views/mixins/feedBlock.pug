@@ -70,7 +70,7 @@ mixin feedBlock(feed = {})
                 .writeComment 
                     form.addCommentForm
                         span.main_content_feedId(style="display: none")=feed.id
-                        img.addCommentForm_avatar(src=`/${feed.avatar}`)
+                        img.addCommentForm_avatar(src=`/${user.avatarUrl}`)
                         input(type="text", placeholder="댓글을 입력하세요...", class="writeComment_input") 
                 .commentBlock_section
                     each item in comment 
@@ -80,5 +80,6 @@ mixin feedBlock(feed = {})
                                 feedId: item.feedId,
                                 username: item.username, 
                                 comment: item.content, 
-                                date: item.date
+                                date: item.date,
+                                avatar: item.userAvatar
                             })

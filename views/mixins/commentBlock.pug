@@ -1,14 +1,16 @@
+include ./replyBlock.pug
+
 mixin commentBlock(comment = {})  
     .registered_comments
         .commentPart 
             .registered_comments_img  
-                img(src=`/${user.avatarUrl}`)
+                img(src=`/${comment.avatar}`)
             .registered_comments_comment
                 a.registered_comment_name(href="#")=comment.username
                 span.registered_comment_content=comment.comment 
             i.fas.fa-ellipsis-h.commentMenu_icon
             .registered_comments_menu 
-                a 답글달기 
+                a.write_reply_button 답글달기 
                 span.dot
                 .registerd_comments_time(hidden="hidden")=comment.date
                 span.registered_time_gap 
@@ -17,6 +19,14 @@ mixin commentBlock(comment = {})
                     input.editComment_input(type="text")
                     span.editComment_id(style="display:none")=comment.id
             .editComment_cancelDiv 취소 
+            .editComment_replyDiv 
+                .editComment_writeReply
+                    form
+                        span 1
+                        img(src=`/${comment.avatar}`)
+                        input(type="text", placeholder="댓글 입력")
+                .editComment_Reply_cancel 취소 
+                +replyBlock({})
         .menu(style="display:none;") 
             ul
                 li
