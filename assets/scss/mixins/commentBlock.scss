@@ -49,7 +49,7 @@
                     cursor: pointer;
                     color: #385898;
                 }
-                span {
+                .dot {
                     float: left;
                     display: block;
                     width: 2px;
@@ -59,6 +59,10 @@
                     margin: 9px 4px;
                 }
                 .registerd_comments_time {
+                    float: left;
+                    color: #606770;
+                }
+                .registered_time_gap {
                     float: left;
                     color: #606770;
                 }

@@ -16,3 +16,4 @@ import "./personInfo/changeProfile";
 import "./feed/feedBlock";
 import "./feed/addComment";
 import "./feed/commentMenu";
+import "./feed/commentBlock";
