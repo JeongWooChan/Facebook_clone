@@ -18,3 +18,4 @@ import "./feed/addComment";
 import "./feed/commentMenu";
 import "./feed/commentBlock";
 import "./feed/reply";
+import "./feed/replyMenu";

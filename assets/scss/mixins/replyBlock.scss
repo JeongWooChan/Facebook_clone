@@ -3,9 +3,11 @@
     .replyPart {
         overflow: hidden;
         padding-left: 11.5%;
+        margin-bottom: 10px;
         .registered_reply_img {
             float: left;
             margin-right: 2%;
+            margin-top: 3px;
             img {
                 width: 30px;
                 height: 30px;
@@ -39,6 +41,67 @@
             color: #e9ebee;
             &:hover {
                 color: black;
+            }
+        }
+        .editReplyDiv {
+            display: none;
+            float: left; 
+            background-color: #f2f3f5; 
+            width: 83%;
+            padding: 8px 12px;
+            border-radius: 16px;
+            border: 1px solid #ccd0d5;
+            box-sizing: border-box;
+            form {
+                input {
+                    width: 100%;
+                    background-color: #f2f3f5;
+                    outline-style: none;
+                    border: none;
+                }
+            }
+        }
+        .editReply_cancel {
+            display: none;
+            float: left;
+            margin-top: 9px;
+            margin-left: 10px;
+            cursor: pointer;
+            color: blue;
+        }
+    }
+    .reply_menu {
+        display: none;
+        position: absolute;
+        width: 135px;
+        right: 30px;
+        top: 27px;
+        background-color: white;
+        z-index: 10;
+        border: 1px solid rgba(0,0,0,.15); 
+        box-shadow: 0 2px 8px rgba(0,0,0,.3);
+        box-sizing: border-box;
+        padding: 3px 0;
+        border-radius: 5px;
+        ul {
+            cursor: pointer;
+            li {
+                padding: 3px 8px;
+                    box-sizing: border-box; 
+                    font-size: 14px;
+                    &:first-child {
+                        border-bottom: 1px solid #e9ebee; 
+                    }
+                    &:hover {
+                        background-color: #385898;
+                        color: #fff;
+                    }
+                    i {
+                        margin-right: 5%;
+                    }
+                    .reply_deleteText {
+                        margin-left: 3%;
+                    }
             }
         }
     }

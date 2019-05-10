@@ -5,7 +5,20 @@ mixin replyBlock(reply = {})
                 img(src=`/${reply.userAvatar}`)
             .registered_reply_reply 
                 a.registered_reply_name(href="#")=reply.userName
-                span.registered_comment_content=reply.reply
-            i.fas.fa-ellipsis-h
+                span.registered_reply_content=reply.reply
+            i.fas.fa-ellipsis-h.reply_menuIcon 
+            .editReplyDiv 
+                form.editReply_form 
+                    input.editReply_input(type="text") 
+                    span.editReply_id(style="display:none")=reply.id
+            .editReply_cancel 취소 
+        .reply_menu(style="display:none;") 
+            ul 
+                li 
+                    i.far.fa-edit
+                    span.reply_editText 댓글 수정하기 
+                li 
+                    i.far.fa-trash-alt 
+                    span.reply_deleteText 댓글 삭제하기
 
                 

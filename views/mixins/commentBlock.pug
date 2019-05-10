@@ -30,6 +30,7 @@ mixin commentBlock(comment = {})
         each item in reply
             if(comment.id == item.commentId)
                 +replyBlock({
+                    id: item.id,
                     commentId: item.commentId,
                     userName : item.userName, 
                     userAvatar : item.userAvatar, 
