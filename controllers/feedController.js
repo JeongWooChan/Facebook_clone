@@ -10,16 +10,17 @@ const PORT = process.env.PORT;
 export const getMain = async (req, res) => {
     await connection.query(
         'SELECT feed.content, feed.id, feed.userId, feed.feedImg, feed.date, feed.likeCount, feed.commentCount, users.username, users.avatarUrl FROM feed left join users on feed.userId=users.id ORDER BY date DESC', async (err, feeds) => {
-            await connection.query(
-                'SELECT * from comment', (err, comment) => {
+            await connection.query('SELECT * from comment', async (err, comment) => {
                     if (err) {
                         console.log("❌  ERROR : " + err);
                     } else {
-                        if(req.user){
-                            res.render("main", { pageTitle: "FaceBook", feeds, comment });     
-                        } else {
-                            res.redirect(routes.home);
-                        }
+                        await connection.query('SELECT * from reply', (err, reply) => {
+                            if(req.user){
+                                res.render("main", { pageTitle: "FaceBook", feeds, comment, reply });     
+                            } else {
+                                res.redirect(routes.home);
+                            }
+                        })
                     }
                 }
             )

@@ -46,6 +46,7 @@ const CHECK_PASSWORD = "/checkPassword";
 const ADD_COMMENT = "/:id/comment"; 
 const DELETE_COMMENT = "/:id/deleteComment";
 const EDIT_COMMENT = "/:id/editComment"; 
+const ADD_REPLY = "/:id/reply"; 
 
 
 const routes = {
@@ -104,7 +105,8 @@ const routes = {
     }, 
     addComment: ADD_COMMENT, 
     deleteComment: DELETE_COMMENT,
-    editComment: EDIT_COMMENT
+    editComment: EDIT_COMMENT,
+    addReply: ADD_REPLY
 }
 
 export default routes;

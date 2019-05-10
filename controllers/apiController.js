@@ -118,3 +118,30 @@ export const editComment = async (req, res) => {
         }
     })
 }
+
+export const addReply = async (req, res) => {
+    const {
+        params: {id},
+        body: {comment, feedId}
+    } = req; 
+    let $set = {
+        commentId: id, 
+        userName: req.user.username, 
+        userAvatar: req.user.avatarUrl, 
+        reply: comment 
+    }
+    await connection.query('INSERT INTO reply SET ?', $set, async (err,result) => {
+        if(err) {
+            console.log("❌  ERROR : " + err); 
+        } else {
+            await connection.query('UPDATE feed SET commentCount=commentCount+1 WHERE `id`=?', feedId, (err, result) => {
+                if(err) {
+                    console.log("❌  ERROR : " + err); 
+                } else {
+                    res.status(200); 
+                    res.end();
+                }
+            });
+        }
+    });
+}
