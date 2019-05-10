@@ -17,3 +17,4 @@ import "./feed/feedBlock";
 import "./feed/addComment";
 import "./feed/commentMenu";
 import "./feed/commentBlock";
+import "./feed/reply";

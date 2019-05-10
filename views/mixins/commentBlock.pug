@@ -19,14 +19,14 @@ mixin commentBlock(comment = {})
                     input.editComment_input(type="text")
                     span.editComment_id(style="display:none")=comment.id
             .editComment_cancelDiv 취소 
-            .editComment_replyDiv 
+            .editComment_replyDiv
                 .editComment_writeReply
                     form
                         span 1
                         img(src=`/${comment.avatar}`)
                         input(type="text", placeholder="댓글 입력")
                 .editComment_Reply_cancel 취소 
-                +replyBlock({})
+            +replyBlock({})
         .menu(style="display:none;") 
             ul
                 li
