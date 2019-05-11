@@ -1,5 +1,6 @@
 extends layouts/mainLayout.pug
 include mixins/feedBlock.pug
+include mixins/adBlock.pug
 
 block content 
     if(user)
@@ -24,8 +25,18 @@ block content
                                     commentCount: item.commentCount
                                 })
                         section#main_content_adSection
-                            section#main_content_adContent  
-                            section#main_content_footerContent 
+                            article#main_content_adContent  
+                                .main_content_ad 
+                                    .main_ad_text Advertisement
+                                each item in ad 
+                                    +adBlock({
+                                        title: item.title,
+                                        img: item.img,
+                                        address: item.address,
+                                        addressName: item.address_name, 
+                                        description: item.description
+                                    })
+                            article#main_content_footerContent 
                                 ul
                                     li 
                                         a(href="#") 개인정보처리방침 
@@ -36,3 +47,4 @@ block content
                                 address Facebook &copy; #{new Date().getFullYear()}
                         section#main_content_editFeed 
                             include partials/feedWriteBlock.pug 
+                    

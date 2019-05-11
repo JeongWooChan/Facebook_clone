@@ -13,23 +13,24 @@ export const getMain = async (req, res) => {
     const $comment = 'SELECT * from comment;'; 
     const $reply = 'SELECT * from reply;'; 
     const $like = `SELECT feedid from liketable where userid="${req.user.id}";`;
-
+    const $ad = 'SELECT * from ad'; 
     // 다중쿼리문 방식을 사용하였으며 
     // 다중쿼리문을 사용하기 위해서는 db connection을 할 때, 
     // multipleStatements: true 를 추가해줘야 한다. 
-    await connection.query($feed + $comment + $reply + $like, (err, rows) => {
+    await connection.query($feed + $comment + $reply + $like + $ad, (err, rows) => {
         if (err) {
             console.log("❌  ERROR : " + err);
         } else {
             const feeds = rows[0];
             const comment = rows[1];
             const reply = rows[2];
-            const likeList = [];         
+            const likeList = [];   
+            const ad = rows[4]      
             if (req.user) {
                 for(let i = 0; i < rows[3].length; i++){
                     likeList.push(rows[3][i].feedid);
                 }
-                res.render("main", { pageTitle: "FaceBook", feeds, comment, reply, likeList });
+                res.render("main", { pageTitle: "FaceBook", feeds, comment, reply, likeList, ad });
             } else {
                 res.redirect(routes.home);
             }

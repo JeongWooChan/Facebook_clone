@@ -1,0 +1,13 @@
+mixin adBlock(ad = {}) 
+    a(href=ad.address) 
+        .adBlock_ad_section
+            .adBlock_img_div 
+                img(src=ad.img,alt="ad_image")
+            .adBlock_title_div 
+                h3=ad.title  
+            .adBlock_address_div 
+                a(href=ad.address)=ad.addressName
+            .adBlock_description_div 
+                h4=ad.description 
+
+        
