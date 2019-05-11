@@ -85,22 +85,52 @@ export const deleteComment = async (req, res) => {
     const {
         params: {id}
     }=req; 
-    await connection.query('SELECT feedId from comment WHERE `id`=?', id, async (err, rows, result) => {
-        if(err) {
-            console.log("❌  ERROR : " + err); 
-        } else {
-            const feedId = rows[0].feedId;
-            await connection.query('UPDATE feed SET commentCount=commentCount-1 WHERE `id`=?', feedId, (err, result) => {
+    // 댓글을 삭제하기 전에 해당 id의 댓글에 대댓글이 있는지 확인 한다. 
+    // 대댓글이 없으면 댓글만 삭제하고, 대댓글이 있으면 대댓글을 삭제한 후 댓글을 삭제한다. 
+    await connection.query('SELECT EXISTS(SELECT * FROM reply WHERE commentId=?) AS SUCCESS', id, async (err, row) => {
+        // 대댓글이 존재 
+        if(row[0].SUCCESS == 1) {
+            const $feedid = 'SELECT feedId from comment WHERE id=?;';
+            const $replyCount = 'SELECT COUNT(*) FROM reply WHERE commentId=?;'; 
+            const $deleteReply = 'DELETE FROM reply WHERE commentId=?;';
+            const $deleteComment = 'DELETE FROM comment WHERE id=?;'; 
+
+            await connection.query($feedid + $deleteReply + $replyCount + $deleteComment, [id,id,id,id], async (err, result) => {
+                const feedId = result[0][0].feedId;
+                const replyCount = result[1].affectedRows; 
+                console.log(feedId);
                 if(err) {
-                    console.log("❌  ERROR : " + err); 
+                    console.log("❌  ERROR1 : " + err); 
+                } else {
+                    await connection.query(`UPDATE feed SET commentCount=commentCount-${replyCount+1} WHERE id=?`, feedId, (err, results) => {
+                        if(err) {
+                            console.log("❌  ERROR2 : " + err); 
+                        } else {
+                            res.status(200);
+                            res.end();
+                        }
+                    });
                 }
-            }); 
-            await connection.query('DELETE from comment WHERE `id`=?', id, (err, result) => {
+            });
+        }
+        // 대댓글이 없음  
+        else {
+            await connection.query('SELECT feedId from comment WHERE `id`=?', id, async (err, rows) => {
+                const feedId = rows[0].feedId;
                 if(err) {
                     console.log("❌  ERROR : " + err); 
                 } else {
-                    res.status(200);
-                    res.end();
+                    const $update_CommentCnt = 'UPDATE feed SET commentCount=commentCount-1 WHERE `id`=?;'; 
+                    const $deleteComment = 'DELETE FROM comment WHERE id=?;'; 
+
+                    await connection.query($update_CommentCnt + $deleteComment, [feedId, id], (err, result) => {
+                        if(err) {
+                            console.log("❌  ERROR : " + err); 
+                        } else {
+                            res.status(200);
+                            res.end();
+                        }
+                    });
                 }
             });
         }
