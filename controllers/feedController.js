@@ -6,25 +6,30 @@ dotenv.config();
 
 const PORT = process.env.PORT;
 
+
 // Main 페이지 
 export const getMain = async (req, res) => {
-    await connection.query(
-        'SELECT feed.content, feed.id, feed.userId, feed.feedImg, feed.date, feed.likeCount, feed.commentCount, users.username, users.avatarUrl FROM feed left join users on feed.userId=users.id ORDER BY date DESC', async (err, feeds) => {
-            await connection.query('SELECT * from comment', async (err, comment) => {
-                    if (err) {
-                        console.log("❌  ERROR : " + err);
-                    } else {
-                        await connection.query('SELECT * from reply', (err, reply) => {
-                            if(req.user){
-                                res.render("main", { pageTitle: "FaceBook", feeds, comment, reply });     
-                            } else {
-                                res.redirect(routes.home);
-                            }
-                        })
-                    }
-                }
-            )
-    }); 
+    const $feed = 'SELECT feed.content, feed.id, feed.userId, feed.feedImg, feed.date, feed.likeCount, feed.commentCount, users.username, users.avatarUrl FROM feed left join users on feed.userId=users.id ORDER BY date DESC;';
+    const $comment = 'SELECT * from comment;'; 
+    const $reply = 'SELECT * from reply;'; 
+    const $like = `SELECT feedid from liketable where userid="${req.user.id}";`;
+
+    await connection.query($feed + $comment + $reply + $like, (err, rows) => {
+        if (err) {
+            console.log("❌  ERROR : " + err);
+        } else {
+            const feeds = rows[0];
+            const comment = rows[1];
+            const reply = rows[2];
+            const like = rows[3];         
+            if (req.user) {
+                console.log(like);
+                res.render("main", { pageTitle: "FaceBook", feeds, comment, reply, like });
+            } else {
+                res.redirect(routes.home);
+            }
+        }
+    });
 }
 export const postMain = (req, res) => {
 
