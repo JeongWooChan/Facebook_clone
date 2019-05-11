@@ -54,24 +54,29 @@ export const addComment = async (req, res) => {
     const {
         body: {id, comment}
     } = req; 
-    let $set = {
-        feedId: id,
-        username: req.user.username,
-        content: comment,
-        userAvatar: req.user.avatarUrl
-    }
-    await connection.query('INSERT INTO comment SET ?', $set, async (err, rows) => {
+    await connection.query('SELECT userid from feed WHERE id=?', id, async (err,rows)=> {
         if(err) {
-            console.log("❌  ERROR : " + err); 
-        } else { 
-            await connection.query('UPDATE feed SET commentCount=commentCount+1 WHERE `id`=?', id, (err, result) => {
+            console.log("❌  ERROR : " + err);
+        } else {
+            let $set = {
+                feedId: id,
+                userid: req.user.id,
+                feed_userid: rows[0].userid,
+                username: req.user.username,
+                content: comment,
+                userAvatar: req.user.avatarUrl
+            }
+            const $addComment = 'INSERT INTO comment SET ?;'; 
+            const $update_CommentCnt = 'UPDATE feed SET commentCount=commentCount+1 WHERE `id`=?;'; 
+
+            await connection.query($addComment + $update_CommentCnt, [$set,id], (err, result)=> {
                 if(err) {
                     console.log("❌  ERROR : " + err); 
                 } else {
                     res.status(200); 
                     res.end();
                 }
-            })
+            });
         }
     });
 }
@@ -124,18 +129,23 @@ export const addReply = async (req, res) => {
         params: {id},
         body: {comment, feedId}
     } = req; 
-    let $set = {
-        commentId: id, 
-        userName: req.user.username, 
-        userAvatar: req.user.avatarUrl, 
-        reply: comment, 
-        feedId: feedId 
-    }
-    await connection.query('INSERT INTO reply SET ?', $set, async (err,result) => {
+    await connection.query('SELECT userid from feed WHERE id=?', feedId, async( err, rows) => {
         if(err) {
-            console.log("❌  ERROR : " + err); 
+            console.log("❌  ERROR : " + err);
         } else {
-            await connection.query('UPDATE feed SET commentCount=commentCount+1 WHERE `id`=?', feedId, (err, result) => {
+            let $set = {
+                commentId: id, 
+                feed_userid: rows[0].userid,
+                userid: req.user.id,
+                userName: req.user.username, 
+                userAvatar: req.user.avatarUrl, 
+                reply: comment, 
+                feedId: feedId 
+            }
+            const $addReply = 'INSERT INTO reply SET ?;'; 
+            const $update_CommentCnt = 'UPDATE feed SET commentCount=commentCount+1 WHERE `id`=?;'; 
+
+            await connection.query($addReply + $update_CommentCnt, [$set, feedId], (err, result) => {
                 if(err) {
                     console.log("❌  ERROR : " + err); 
                 } else {
@@ -212,7 +222,6 @@ export const like = async (req, res) => {
                         if(err) {
                             console.log("❌  ERROR : " + err); 
                         } else {
-                            console.log(rows[0].likeCount);
                             res.status(200).json({result: 0, likeCnt : rows[0].likeCount})
                             res.end();
                         }
@@ -231,7 +240,6 @@ export const like = async (req, res) => {
                         if(err) {
                             console.log("❌  ERROR : " + err); 
                         } else {
-                            console.log(rows[0].likeCount);
                             // status값과 함께 json형태로 데이터를 보내줄 수 있다.
                             res.status(200).json({result: 1, likeCnt : rows[0].likeCount})
                             res.end();

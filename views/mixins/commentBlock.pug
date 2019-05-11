@@ -8,7 +8,10 @@ mixin commentBlock(comment = {})
             .registered_comments_comment
                 a.registered_comment_name(href="#")=comment.username
                 span.registered_comment_content=comment.comment 
-            i.fas.fa-ellipsis-h.commentMenu_icon
+            if(comment.feed_userid == user.id || comment.userid == user.id)
+                i.fas.fa-ellipsis-h.commentMenu_icon
+            else 
+                i.fas.fa-ellipsis-h.commentMenu_icon(style="display:none")
             .registered_comments_menu 
                 a.write_reply_button 답글달기 
                 span.dot
@@ -31,6 +34,8 @@ mixin commentBlock(comment = {})
             if(comment.id == item.commentId)
                 +replyBlock({
                     id: item.id,
+                    feed_userid: item.feed_userid, 
+                    userid : item.userid,
                     commentId: item.commentId,
                     userName : item.userName, 
                     userAvatar : item.userAvatar, 

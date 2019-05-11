@@ -87,7 +87,9 @@ mixin feedBlock(feed = {})
                         if(feed.id == item.feedId)
                             +commentBlock({
                                 id: item.id,
+                                userid: item.userid, 
                                 feedId: item.feedId,
+                                feed_userid: item.feed_userid,
                                 username: item.username, 
                                 comment: item.content, 
                                 date: item.date,

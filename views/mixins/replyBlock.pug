@@ -6,7 +6,10 @@ mixin replyBlock(reply = {})
             .registered_reply_reply 
                 a.registered_reply_name(href="#")=reply.userName
                 span.registered_reply_content=reply.reply
-            i.fas.fa-ellipsis-h.reply_menuIcon 
+            if(reply.feed_userid == user.id || reply.userid == user.id)
+                i.fas.fa-ellipsis-h.reply_menuIcon 
+            else 
+                i.fas.fa-ellipsis-h.reply_menuIcon(style="display:none;") 
             .editReplyDiv 
                 form.editReply_form 
                     input.editReply_input(type="text") 
