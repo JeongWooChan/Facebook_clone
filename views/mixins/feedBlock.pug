@@ -60,9 +60,19 @@ mixin feedBlock(feed = {})
                         span.main_content_commentCount=feed.commentCount
                         span.main_content_commentCountText 개
                 .main_content_buttonSection 
-                    button.main_content_likeButton 
-                        i.far.fa-thumbs-up 
-                        span#main_content_likeButtonText 좋아요 
+                    //- 현재 계정이 좋아요 누른 feedId가 likeList에 배열로 담겨져 있다. 
+                    //- 새로운 feedBlock이 만들어질 때마다 indexOf함수를 통해 배열안에 자신의 feedId와 같은 값이 있는지 확인한다. 
+                    //- 같은 값이 있으면 파란색 버튼을 띄어주고, 없으면 그냥 버튼을 띄워준다.  
+                    if(likeList.indexOf(feed.id) != -1)
+                        button.main_content_likeButton 
+                            i.far.fa-thumbs-up.main_likeButton_icon(style="color: blue")
+                            span.main_content_likeButtonText(style="color: blue") 좋아요 
+                            span.feedBlock_feedId(style="display:none;")=feed.id
+                    else 
+                        button.main_content_likeButton 
+                            i.far.fa-thumbs-up.main_likeButton_icon
+                            span.main_content_likeButtonText 좋아요 
+                            span.feedBlock_feedId(style="display:none;")=feed.id
                     button.main_content_commentButton 
                         i.far.fa-comment-alt
                         span#main_content_commentButtonText 댓글

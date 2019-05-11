@@ -189,3 +189,56 @@ export const editReply = async (req, res) => {
         }
     })
 }
+
+export const like = async (req, res) => {
+    const {
+        params: {id}
+    }=req; 
+    let $set = {
+        feedid: id,
+        userid: req.user.id
+    }
+    // EXSISTS의 안에 조건절 값이 존재하는지 아닌지가 0과1로 값이 리턴됨 
+    await connection.query('SELECT EXISTS(SELECT feedid FROM liketable WHERE userid=? AND feedid=?) AS SUCCESS', [req.user.id,id], async (err, row) => {
+        if(row[0].SUCCESS == 1) {
+            const $like_cancel = `DELETE FROM liketable WHERE feedid=? AND userid=?;`;
+            const $update_likeCnt = `UPDATE feed SET likeCount=likeCount-1 WHERE id=?;`;
+            await connection.query($like_cancel + $update_likeCnt, [id, req.user.id, id], async (err, rows) => {
+                if(err) {
+                    console.log("❌  ERROR : " + err); 
+                } else {
+                    const $likeCnt = `SELECT likeCount from feed WHERE id=?;`;
+                    await connection.query($likeCnt, id, (err, rows) => {
+                        if(err) {
+                            console.log("❌  ERROR : " + err); 
+                        } else {
+                            console.log(rows[0].likeCount);
+                            res.status(200).json({result: 0, likeCnt : rows[0].likeCount})
+                            res.end();
+                        }
+                    });  
+                }
+            })
+        } else {
+            const $like = `INSERT INTO liketable SET ?;`; 
+            const $update_likeCnt = `UPDATE feed SET likeCount=likeCount+1 WHERE id=?;`; 
+            await connection.query($like + $update_likeCnt, [$set, id], async (err, rows) => {
+                if(err) {
+                    console.log("❌  ERROR : " + err); 
+                } else {
+                    const $likeCnt = `SELECT likeCount from feed WHERE id=?;`;
+                    await connection.query($likeCnt, id, (err, rows) => {
+                        if(err) {
+                            console.log("❌  ERROR : " + err); 
+                        } else {
+                            console.log(rows[0].likeCount);
+                            // status값과 함께 json형태로 데이터를 보내줄 수 있다.
+                            res.status(200).json({result: 1, likeCnt : rows[0].likeCount})
+                            res.end();
+                        }
+                    });                 
+                }
+            })
+        }
+    })
+}
