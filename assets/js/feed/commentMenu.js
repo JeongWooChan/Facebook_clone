@@ -17,7 +17,7 @@ const editComment_Div = document.getElementsByClassName("editCommentDiv");
 const editCommentInput = document.getElementsByClassName("editComment_input");
 const editComment_form = document.getElementsByClassName("editComment_form"); 
 
-const sendComment = async (comment, id) => {
+const sendComment = async (comment, id, i) => {
     const response = await axios({
         url: `/api/${id}/editComment`, 
         method: "POST", 
@@ -27,7 +27,13 @@ const sendComment = async (comment, id) => {
         }
     });
     if(response.status === 200) {
-        window.location.reload(true);
+        commentDiv[i].style.display = "block";
+        commentDiv2[i].style.display = "block"; 
+        commentMenuIcon[i].style.display = "block";
+        commentContent[i].innerHTML = comment;
+
+        editComment_Div[i].style.display = "none";
+        editComment_cancel[i].style.display = "none";
     }
 }
 
@@ -36,7 +42,7 @@ const submitEditComment = (i, event) => {
     const editInput_data = editCommentInput[i].value; 
     const editComment_id_span = document.getElementsByClassName("editComment_id"); 
     const editComment_id = editComment_id_span[i].innerHTML; 
-    sendComment(editInput_data, editComment_id); 
+    sendComment(editInput_data, editComment_id, i); 
 }
 
 const editCancel = i => {
