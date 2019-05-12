@@ -74,7 +74,7 @@ const deleteComment = async i => {
         method: "POST"
     });
     if(response.status === 200) {
-        window.location.reload(true);
+        commentPart[i].remove();
     }
 }
 
