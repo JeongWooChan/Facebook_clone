@@ -13,7 +13,7 @@ export const getMain = async (req, res) => {
     const $comment = 'SELECT * from comment;'; 
     const $reply = 'SELECT * from reply;'; 
     const $like = `SELECT feedid from liketable where userid="${req.user.id}";`;
-    const $ad = 'SELECT * from ad'; 
+    const $ad = 'SELECT * from ad order by RAND() LIMIT 3;'; 
     // 다중쿼리문 방식을 사용하였으며 
     // 다중쿼리문을 사용하기 위해서는 db connection을 할 때, 
     // multipleStatements: true 를 추가해줘야 한다. 
