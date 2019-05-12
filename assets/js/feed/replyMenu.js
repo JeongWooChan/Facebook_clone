@@ -13,8 +13,19 @@ const registered_content = document.getElementsByClassName("registered_reply_con
 const replyDeleteBtn = document.getElementsByClassName("reply_deleteText");
 const replyEditForm = document.getElementsByClassName("editReply_form");
 
+const fakeEditReply = (reply, i) => {
+    registered_reply[i].style.display = "block"; 
+    replyEditDiv[i].style.display = "none"; 
 
-const sendReply = async (reply, id) => {
+    replyEditForm_cancel[i].style.display = "none";
+    replyMenuIcon[i].style.display = "block";
+
+    registered_content[i].innerHTML = reply;
+
+}
+
+
+const sendReply = async (reply, id, i) => {
     const response = await axios({
         url: `/api/${id}/editReply`, 
         method: "POST", 
@@ -24,7 +35,7 @@ const sendReply = async (reply, id) => {
         }
     }); 
     if(response.status === 200) {
-        window.location.reload(true);
+        fakeEditReply(reply, i); 
     }
 }
 
@@ -33,7 +44,7 @@ const submitEditReply = (i, event) => {
     const editInput_data = replyEdit_input[i].value; 
     const editReply_id = document.getElementsByClassName("editReply_id")[i].innerHTML;
 
-    sendReply(editInput_data, editReply_id); 
+    sendReply(editInput_data, editReply_id, i); 
 
 }
 

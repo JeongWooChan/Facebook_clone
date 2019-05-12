@@ -1,5 +1,4 @@
 import axios from "axios";
-import "./replyMenu";
 
 const comment = document.getElementsByClassName("registered_comments"); 
 const writeReplyBtn = document.getElementsByClassName("write_reply_button"); 
@@ -88,7 +87,8 @@ const handleSubmit = async (i, event) => {
     const comment = commentInput[i].value;
     const feedId = document.getElementsByClassName("feed_Id")[i].innerHTML;
 
-    sendReply(comment, commentId, feedId, i); 
+    sendReply(comment, commentId, feedId, i);
+    commentInput.value == ""; 
 }
 
 const cancelWriteReply = i => {
