@@ -129,7 +129,7 @@
                                 margin-right: 10px;
                                 font-size: 30px;
                             }
-                            .header_section3_logoName {
+                            #header_section3_logoName {
                                 float: left;
                                 font-size: 22px;
                                 line-height: 30px;
@@ -180,6 +180,7 @@
     }
 }
 #header_menu {
+    display: none;
     margin-top: 55px;
     text-align: center;
     ul {

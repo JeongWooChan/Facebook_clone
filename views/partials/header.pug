@@ -29,15 +29,15 @@ header#header_header
                     .header_logo
                         a(href=routes.main) 
                             i.fab.fa-facebook
-                            h3.header_section3_logoName Facebook
-                        form(action="#", method="get")
+                            h3#header_section3_logoName Facebook
+                        form(action="#", method="get", id="section3_search_form")
                             input(type="text", placeholder="검색")
                             button(type="submit")
                                 i.fas.fa-search
                     .header_menu 
-                        i.fas.fa-search
-                        i.fas.fa-bars
-#header_menu
+                        i.fas.fa-search#section3_search_icon
+                        i.fas.fa-bars#section3_menu_icon
+#header_menu(style="display:none;")
     ul 
         li 개인페이지
         li 친구

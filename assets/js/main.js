@@ -3,6 +3,7 @@ import "../scss/style.scss";
 import "./login";
 import "./join"; 
 import "./feed";
+import "./header";
 
 // personInfo 
 import "./personInfo/overview";
