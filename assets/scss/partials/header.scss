@@ -179,3 +179,16 @@
         }
     }
 }
+#header_menu {
+    margin-top: 55px;
+    text-align: center;
+    ul {
+        li {
+            padding: 15px 0;
+            border-bottom: 1px solid #e6e6e6;
+            font-size: 16px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+    }
+}
