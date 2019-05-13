@@ -20,8 +20,21 @@
             border-radius: 16px;
             padding: 8px 12px; 
             overflow: hidden;
-            width: 78%;
-            margin-right: 3.5%;
+            width: 70%;
+            margin-right: 6.5%;
+            @media(max-width: 850px) {
+                margin-right: 3.5%;
+            }
+            @media(max-width: 786px) {
+                width: 75%;
+            }
+            @media(max-width: 700px) {
+                width: 73%;
+            }
+            @media(max-width: 550px) {
+                width: 70%;
+                margin-right: 5.5%;
+            }
             a {
                 float: left;
                 color: #385898; 

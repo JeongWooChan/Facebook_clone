@@ -7,7 +7,6 @@
             .registered_comments_img {
                 float: left;
                 width: 6%;
-                margin-right: 3%;
                 img {
                     width: 40px;
                     height: 40px;
@@ -19,7 +18,28 @@
                 width: 80%;
                 background-color: #f2f3f5; 
                 border-radius: 16px;
-                padding: 8px 12px; 
+                padding: 8px 12px;  
+                margin-left: 3%;
+                @media(max-width: 960px) {
+                    width: 79%;
+                    margin-left: 4%;
+                }
+                @media(max-width: 850px) {
+                    width: 76%;
+                    margin-left: 5%;
+                }
+                @media(max-width: 786px) {
+                    margin-left: 2%;
+                    width: 80%;
+                }
+                @media(max-width: 650px) {
+                    margin-left: 4%;
+                    width: 75%;
+                }
+                @media(max-width: 500px) {
+                    margin-left: 6%;
+                    width: 74%;
+                }
                 a {
                     color: #385898; 
                     font-size: 13px; 
@@ -43,7 +63,7 @@
             }
             .registered_comments_menu {
                 float: left;
-                margin-left: 10px;
+                margin-left: 25px;
                 overflow: hidden;
                 a{
                     float: left;
@@ -97,7 +117,7 @@
                 display: none;
                 .editComment_writeReply {
                     float: left;
-                    width: 83%;
+                    width: 80%;
                     overflow: hidden;
                     margin-left: 10%;
                     margin-top: 10px;
@@ -115,21 +135,32 @@
                         }
                         input {
                             float: left;
-                            width: 86%;
+                            width: 80%;
                             background-color: #f2f3f5; 
                             border: 1px solid #ccd0d5; 
                             border-radius: 16px;
                             padding: 8px 12px;
                             outline-style: none;
+                            @media (max-width: 786px) {
+                                width: 86%;
+                            }
+                            @media (max-width: 700px) {
+                                width: 83%;
+                            }
+                            @media (max-width: 550px) {
+                                width: 80%;
+                            }
                         }
                     }
                 }  
                 .editComment_Reply_cancel {
                     float: left;
                     margin-top: 17px;
-                    margin-left: 2%;
                     cursor: pointer;
                     color: blue;
+                    @media (max-width: 550px) {
+                        margin-left: 8px;
+                    }
                 }
             }
         }
