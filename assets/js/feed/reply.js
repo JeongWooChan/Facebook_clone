@@ -5,6 +5,8 @@ const writeReplyBtn = document.getElementsByClassName("write_reply_button");
 const replyDiv = document.getElementsByClassName("editComment_replyDiv");
 const replyDiv_cancel = document.getElementsByClassName("editComment_Reply_cancel");
 const replyForm = document.getElementsByClassName("replyForm");
+const commentInput = document.getElementsByClassName("reply_input");
+
 
 const fakeAddReply = (comment, i) => {
     const avatar = document.getElementsByClassName("addCommentForm_avatar");
@@ -74,7 +76,7 @@ const sendReply = async (comment, id, feedId, i) => {
     });
     if(response.status === 200) {
         replyDiv[i].style.display = "none";
-        
+
         fakeAddReply(comment, i);
     }
 }
@@ -83,12 +85,10 @@ const handleSubmit = async (i, event) => {
     event.preventDefault();
 
     const commentId = document.getElementsByClassName("comment_Id")[i].innerHTML; 
-    const commentInput = document.getElementsByClassName("reply_input");
     const comment = commentInput[i].value;
     const feedId = document.getElementsByClassName("feed_Id")[i].innerHTML;
 
     sendReply(comment, commentId, feedId, i);
-    commentInput.value == ""; 
 }
 
 const cancelWriteReply = i => {

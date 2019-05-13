@@ -47,6 +47,7 @@ mixin feedBlock(feed = {})
             .main_content_main 
                 .main_content_mainContent=feed.content
                 if(feed.feedImg == null)
+                    .main_content_mainImage(style="display: none;")
                 else 
                     .main_content_mainImage 
                         img(src=`/${feed.feedImg}`) 

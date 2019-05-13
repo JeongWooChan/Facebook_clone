@@ -91,11 +91,13 @@ const handleEditForm = i => {
     const content = document.getElementsByClassName("main_content_mainContent")[i].innerHTML;
     editFormContent.innerHTML = content;
     // 피드의 이미지 여부에 따라 이미지 가져오기 
-    if(document.getElementsByClassName("main_content_mainImage")[i]) {
+    if(document.getElementsByClassName("main_content_mainImage")[i].style.display != "none") {
         editFormImg.style.display="block";
 
         const imgSrc = document.getElementsByClassName("main_content_mainImage")[i].querySelector("img").getAttribute('src');
-        editFormImg.src=imgSrc;
+        if(imgSrc) {
+            editFormImg.src=imgSrc;
+        }
     } else {
         editFormImg.style.display="none";
         editFormImg.src="";

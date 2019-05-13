@@ -1,5 +1,5 @@
-header#header_header 
-    .header_container 
+header#header_header
+    .header_container
         .header_row 
             .header_header 
                 .header_section1 
@@ -11,13 +11,12 @@ header#header_header
                             input(type="text", placeholder="검색", id="header_searchText", name="header_searchText")
                             button(type="submit", id="header_searchSubmit")
                                 i.fas.fa-search
-                .header_section2 
-                    .header_profile
-                        a(href=routes.person(user.id)) 
-                            img(src=`/${user.avatarUrl}`) 
-                            span(id="main_header_profileName")=user.username
+                .header_section2                      
                     .header_menu
                         .header_iconMenu
+                            a(href=routes.person(user.id)) 
+                                img(src=`/${user.avatarUrl}`) 
+                                span(id="main_header_profileName")=user.username
                             a(href=routes.main) 
                                 i.fas.fa-home
                             a(href="#")
@@ -26,3 +25,15 @@ header#header_header
                                 i.fas.fa-bell 
                         .header_logoutMenu
                             a(href=routes.logout) 로그아웃 
+                .header_section3 
+                    .header_logo
+                        a(href=routes.main) 
+                            i.fab.fa-facebook
+                            h3.header_section3_logoName Facebook
+                        form(action="#", method="get")
+                            input(type="text", placeholder="검색")
+                            button(type="submit")
+                                i.fas.fa-search
+                    .header_menu 
+                        i.fas.fa-search
+                        i.fas.fa-bars
