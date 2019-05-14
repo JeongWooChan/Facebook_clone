@@ -1,10 +1,10 @@
 section#person_coverSection
     .person_cover_coverImg
-        img#person_cover_coverImg(src="http://blogfiles.naver.net/20151120_88/wkib321_1448006625608ARKs0_JPEG/201511201703505.jpg")
+        img#person_cover_coverImg(src="https://images.unsplash.com/photo-1557728218-65b0f8ca4b2c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1353&q=80")
     .person_cover_coverProfile
         .person_coverProfile_img
-            img#person_cover_profileImg(src=`/${user.avatarUrl}`) 
-        .person_coverProfile_name=user.username
+            img#person_cover_profileImg(src=`/${personUser.avatarUrl}`) 
+        .person_coverProfile_name=personUser.username
     nav#person_nav  
         ul
             li 

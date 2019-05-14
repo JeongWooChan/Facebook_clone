@@ -42,13 +42,35 @@ export const postMain = (req, res) => {
 }
 
 // 개인 피드 페이지 
-export const getPerson = (req, res) => {
-    res.render("person", { pageTitle: req.user.username })
+export const getPerson = async (req, res) => {
+    const {
+        params : { id }
+    }= req;
+    const $user = `select * from users WHERE id=${id}`;
+    await connection.query($user, (err, rows) => {
+        if( err ) {
+            console.log("❌  ERROR : " + err);
+        } else {
+            const personUser = rows[0];
+            res.render("person", { pageTitle: personUser.username, personUser })
+        }
+    })
 }
 
 // 개인 정보 페이지 
-export const getPersonInfo = (req, res) => {
-    res.render("personInfo",{ pageTitle: req.user.username })
+export const getPersonInfo = async (req, res) => {
+    const {
+        params : { id }
+    }= req;
+    const $user = `select * from users WHERE id=${id}`; 
+    await connection.query($user, (err, rows) => {
+        if( err ) {
+            console.log("❌  ERROR : " + err);
+        } else {
+            const personUser = rows[0]; 
+            res.render("personInfo", { pageTitle: personUser.username, personUser })
+        }
+    });
 }
 
 export const postUpload = async (req, res) => {
