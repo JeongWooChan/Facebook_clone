@@ -152,16 +152,23 @@ const cancelAddBlood = () => {
 
 const init = () => {
     if(personInfo_menu4_phoneInfo_show) {
-        personInfo_menu4_phoneInfo_edit.addEventListener("click", showPhoneEditForm);
-        personInfo_menu4_phoneForm_editFormcancel.addEventListener("click", cancelPhoneEditForm);
-        deletePhoneForm.addEventListener("submit", checkDeletePhone);
+        if(personInfo_menu4_phoneInfo_edit) {
+            personInfo_menu4_phoneInfo_edit.addEventListener("click", showPhoneEditForm);
+            personInfo_menu4_phoneForm_editFormcancel.addEventListener("click", cancelPhoneEditForm);
+            deletePhoneForm.addEventListener("submit", checkDeletePhone);
+        }
     }else {
-        personInfo_menu4_phoneAdd.addEventListener("click", showPhoneAddForm); 
-        personInfo_menu4_phoneForm_cancel.addEventListener("click", cancelPhoneAddForm);
+        if(personInfo_menu4_phoneAdd) {
+            personInfo_menu4_phoneAdd.addEventListener("click", showPhoneAddForm); 
+            personInfo_menu4_phoneForm_cancel.addEventListener("click", cancelPhoneAddForm);
+        }
     }
    
-    personInfo_birthdayEditBtn.addEventListener("click", showEditBirthday);
-    personinfo_birthdayEdit_cancel.addEventListener("click", cancelEditBirthday); 
+    if(personInfo_birthdayEditBtn) {
+        personInfo_birthdayEditBtn.addEventListener("click", showEditBirthday);
+        personinfo_birthdayEdit_cancel.addEventListener("click", cancelEditBirthday); 
+    } 
+   
 
     if(editForm) {
         editForm.addEventListener("submit", checkInput);
@@ -175,8 +182,10 @@ const init = () => {
         personInfo_editBlood_cancel.addEventListener("click", cancelEditBlood);
         deleteBloodTypeForm.addEventListener("submit", checkDeleteBlood)
     } else {
-        personInfo_addBlood.addEventListener("click", showEditBlood); 
-        personInfo_bloodAdd_cancel.addEventListener("click", cancelAddBlood); 
+        if(personInfo_addBlood) {
+            personInfo_addBlood.addEventListener("click", showEditBlood); 
+            personInfo_bloodAdd_cancel.addEventListener("click", cancelAddBlood); 
+        }
     }
 }
 

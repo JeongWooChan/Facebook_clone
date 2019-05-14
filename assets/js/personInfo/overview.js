@@ -52,14 +52,18 @@ const mqHandleMenu6 = () => {
     menu2.style.display = "block";
     menu3.style.display = "block";
     menu4.style.display = "block";
-    menu5.style.display = "block";
 
     menu1.style.paddingLeft = "40px";
     menu2.style.paddingLeft = "40px";
     menu3.style.paddingLeft = "40px";
     menu4.style.paddingLeft = "40px";
-    menu5.style.paddingLeft = "40px";
-    menu6.style.paddingLeft = "90px";
+
+
+    if(menu5) {
+        menu5.style.display = "block";
+        menu5.style.paddingLeft = "40px";
+        menu6.style.paddingLeft = "90px";
+    }
 }
 
 const mqHandleMenu5 = () => {
@@ -67,75 +71,89 @@ const mqHandleMenu5 = () => {
     menu2.style.display = "block";
     menu3.style.display = "block";
     menu4.style.display = "block";
-    menu6.style.display = "block";
-
 
     menu1.style.paddingLeft = "40px";
     menu2.style.paddingLeft = "40px";
     menu3.style.paddingLeft = "40px";
     menu4.style.paddingLeft = "40px";
-    menu5.style.paddingLeft = "90px";
-    menu6.style.paddingLeft = "40px";
+
+    if(menu5) {
+        menu6.style.display = "block";
+        menu5.style.paddingLeft = "90px";
+        menu6.style.paddingLeft = "40px";
+    }
 }
 
 const mqHandleMenu4 = () => {
     menu1.style.display = "block";
     menu2.style.display = "block";
     menu3.style.display = "block";
-    menu5.style.display = "block";
-    menu6.style.display = "block";
 
     menu1.style.paddingLeft = "40px";
     menu2.style.paddingLeft = "40px";
     menu3.style.paddingLeft = "40px";
     menu4.style.paddingLeft = "90px";
-    menu5.style.paddingLeft = "40px";
-    menu6.style.paddingLeft = "40px";
+
+    if(menu5) {
+        menu5.style.display = "block";
+        menu6.style.display = "block";
+        menu5.style.paddingLeft = "40px";
+        menu6.style.paddingLeft = "40px";
+    }
 }
 
 const mqHandleMenu3 = () => {
     menu1.style.display = "block";
     menu2.style.display = "block";
     menu4.style.display = "block";
-    menu5.style.display = "block";
-    menu6.style.display = "block";
 
     menu1.style.paddingLeft = "40px";
     menu2.style.paddingLeft = "40px";
     menu3.style.paddingLeft = "90px";
     menu4.style.paddingLeft = "40px";
-    menu5.style.paddingLeft = "40px";
-    menu6.style.paddingLeft = "40px";
+
+    if(menu5) {
+        menu5.style.display = "block";
+        menu6.style.display = "block";
+        menu5.style.paddingLeft = "40px";
+        menu6.style.paddingLeft = "40px";
+    }
 }
 
 const mqHandleMenu2 = () => {
     menu1.style.display = "block";
     menu3.style.display = "block";
     menu4.style.display = "block";
-    menu5.style.display = "block";
-    menu6.style.display = "block";
 
     menu1.style.paddingLeft = "40px";
     menu2.style.paddingLeft = "90px";
     menu3.style.paddingLeft = "40px";
     menu4.style.paddingLeft = "40px";
-    menu5.style.paddingLeft = "40px";
-    menu6.style.paddingLeft = "40px";
+
+    if(menu5) {
+        menu5.style.display = "block";
+        menu6.style.display = "block";
+        menu5.style.paddingLeft = "40px";
+        menu6.style.paddingLeft = "40px";
+    }
 }
 
 const mqHandleMenu1 = () => {
     menu2.style.display = "block";
     menu3.style.display = "block";
     menu4.style.display = "block";
-    menu5.style.display = "block";
-    menu6.style.display = "block";
 
     menu1.style.paddingLeft = "90px";
     menu2.style.paddingLeft = "40px";
     menu3.style.paddingLeft = "40px";
     menu4.style.paddingLeft = "40px";
-    menu5.style.paddingLeft = "40px";
-    menu6.style.paddingLeft = "40px";
+
+    if(menu5) {
+        menu5.style.display = "block";
+        menu6.style.display = "block";
+        menu5.style.paddingLeft = "40px";
+        menu6.style.paddingLeft = "40px";
+    }
 }
 
 const handleMenu1 = () => {
@@ -145,8 +163,10 @@ const handleMenu1 = () => {
     menu2Block.style.display = "none";
     menu3Block.style.display = "none";
     menu4Block.style.display = "none";
-    menu5Block.style.display = "none";
-    menu6Block.style.display = "none";
+    if(menu5Block) {
+        menu5Block.style.display = "none";
+        menu6Block.style.display = "none";
+    }
 
     if(!matchMedia("(max-width: 768px").matches) {
         // border 
@@ -154,22 +174,28 @@ const handleMenu1 = () => {
         menu2.style.borderLeft = "none"; 
         menu3.style.borderLeft = "none"; 
         menu4.style.borderLeft = "none"; 
-        menu5.style.borderLeft = "none"; 
-        menu6.style.borderLeft = "none"; 
+        if(menu5) {
+            menu5.style.borderLeft = "none"; 
+            menu6.style.borderLeft = "none"; 
+        }
     } else {
         menu1.style.display = "inline-block";
         menu2.style.display = "none";
         menu3.style.display = "none";
         menu4.style.display = "none";
-        menu5.style.display = "none";
-        menu6.style.display = "none";
+        if(menu5) {
+            menu5.style.display = "none";
+            menu6.style.display = "none";
+        }
 
         menu1_dropdown.style.display = "inline-block";
         menu2_dropdown.style.display = "none";
         menu3_dropdown.style.display = "none";
         menu4_dropdown.style.display = "none";
-        menu5_dropdown.style.display = "none";
-        menu6_dropdown.style.display = "none";
+        if(menu5_dropdown) {
+            menu5_dropdown.style.display = "none";
+            menu6_dropdown.style.display = "none";
+        }
     }
 
     //font 
@@ -181,10 +207,12 @@ const handleMenu1 = () => {
     menu3.style.fontWeight = "normal";
     menu4.style.color = "#90949C";
     menu4.style.fontWeight = "normal";
-    menu5.style.color = "#90949C";
-    menu5.style.fontWeight = "normal";
-    menu6.style.color = "#90949C";
-    menu6.style.fontWeight = "normal";
+    if(menu5) {
+        menu5.style.color = "#90949C";
+        menu5.style.fontWeight = "normal";
+        menu6.style.color = "#90949C";
+        menu6.style.fontWeight = "normal";
+    }
 }
 
 const handleMenu2 = () => {
@@ -194,8 +222,10 @@ const handleMenu2 = () => {
     menu2Block.style.display = "block";
     menu3Block.style.display = "none";
     menu4Block.style.display = "none";
-    menu5Block.style.display = "none";
-    menu6Block.style.display = "none";
+    if(menu5Block) {
+        menu5Block.style.display = "none";
+        menu6Block.style.display = "none";
+    }
 
     if(!matchMedia("(max-width: 768px").matches) {
         // border 
@@ -203,22 +233,28 @@ const handleMenu2 = () => {
         menu2.style.borderLeft = "4px solid black"; 
         menu3.style.borderLeft = "none"; 
         menu4.style.borderLeft = "none"; 
-        menu5.style.borderLeft = "none";
-        menu6.style.borderLeft = "none";          
+        if(menu5) {
+            menu5.style.borderLeft = "none";
+            menu6.style.borderLeft = "none";  
+        }        
     } else {
         menu1.style.display = "none";
         menu2.style.display = "inline-block";
         menu3.style.display = "none";
         menu4.style.display = "none";
-        menu5.style.display = "none";
-        menu6.style.display = "none";
+        if(menu5) {
+            menu5.style.display = "none";
+            menu6.style.display = "none";
+        }
 
         menu1_dropdown.style.display = "none";
         menu2_dropdown.style.display = "inline-block";
         menu3_dropdown.style.display = "none";
         menu4_dropdown.style.display = "none";
-        menu5_dropdown.style.display = "none";
-        menu6_dropdown.style.display = "none";
+        if(menu5_dropdown) {
+            menu5_dropdown.style.display = "none";
+            menu6_dropdown.style.display = "none";
+        }
     }
 
     //font 
@@ -230,10 +266,12 @@ const handleMenu2 = () => {
     menu3.style.fontWeight = "normal";
     menu4.style.color = "#90949C";
     menu4.style.fontWeight = "normal";
-    menu5.style.color = "#90949C";
-    menu5.style.fontWeight = "normal";
-    menu6.style.color = "#90949C";
-    menu6.style.fontWeight = "normal";
+    if(menu5) {
+        menu5.style.color = "#90949C";
+        menu5.style.fontWeight = "normal";
+        menu6.style.color = "#90949C";
+        menu6.style.fontWeight = "normal";
+    }
 }
 
 const handleMenu3 = () => {
@@ -243,31 +281,39 @@ const handleMenu3 = () => {
     menu2Block.style.display = "none";
     menu3Block.style.display = "block";
     menu4Block.style.display = "none";
-    menu5Block.style.display = "none";
-    menu6Block.style.display = "none";
+    if(menu5Block) {
+        menu5Block.style.display = "none";
+        menu6Block.style.display = "none";
+    }
 
     if(!matchMedia("(max-width: 768px").matches) {
         // border 
         menu1.style.borderLeft = "none";
         menu2.style.borderLeft = "none"; 
         menu3.style.borderLeft = "4px solid black"; 
-        menu4.style.borderLeft = "none"; 
-        menu5.style.borderLeft = "none"; 
-        menu6.style.borderLeft = "none"; 
+        menu4.style.borderLeft = "none";
+        if(menu5) {
+            menu5.style.borderLeft = "none"; 
+            menu6.style.borderLeft = "none"; 
+        } 
     } else {
         menu1.style.display = "none";
         menu2.style.display = "none";
         menu3.style.display = "inline-block";
         menu4.style.display = "none";
-        menu5.style.display = "none";
-        menu6.style.display = "none";
+        if(menu5) {
+            menu5.style.display = "none";
+            menu6.style.display = "none";
+        }
 
         menu1_dropdown.style.display = "none";
         menu2_dropdown.style.display = "none";
         menu3_dropdown.style.display = "inline-block";
         menu4_dropdown.style.display = "none";
-        menu5_dropdown.style.display = "none";
-        menu6_dropdown.style.display = "none";
+        if(menu5) {
+            menu5_dropdown.style.display = "none";
+            menu6_dropdown.style.display = "none";
+        }
     }
     
     //font 
@@ -279,10 +325,12 @@ const handleMenu3 = () => {
     menu3.style.fontWeight = "bold";
     menu4.style.color = "#90949C";
     menu4.style.fontWeight = "normal";
-    menu5.style.color = "#90949C";
-    menu5.style.fontWeight = "normal";
-    menu6.style.color = "#90949C";
-    menu6.style.fontWeight = "normal";
+    if(menu5) {
+        menu5.style.color = "#90949C";
+        menu5.style.fontWeight = "normal";
+        menu6.style.color = "#90949C";
+        menu6.style.fontWeight = "normal";
+    }
 }
 
 const handleMenu4 = () => {
@@ -292,8 +340,10 @@ const handleMenu4 = () => {
     menu2Block.style.display = "none";
     menu3Block.style.display = "none";
     menu4Block.style.display = "block";
-    menu5Block.style.display = "none";
-    menu6Block.style.display = "none";
+    if(menu5Block) {
+        menu5Block.style.display = "none";
+        menu6Block.style.display = "none";
+    }
 
     if(!matchMedia("(max-width: 768px").matches) {
         // border 
@@ -301,22 +351,28 @@ const handleMenu4 = () => {
         menu2.style.borderLeft = "none"; 
         menu3.style.borderLeft = "none"; 
         menu4.style.borderLeft = "4px solid black"; 
-        menu5.style.borderLeft = "none"; 
-        menu6.style.borderLeft = "none"; 
+        if(menu5) {
+            menu5.style.borderLeft = "none"; 
+            menu6.style.borderLeft = "none"; 
+        }
     } else {
         menu1.style.display = "none";
         menu2.style.display = "none";
         menu3.style.display = "none";
         menu4.style.display = "inline-block";
-        menu5.style.display = "none";
-        menu6.style.display = "none";
-
+        if(menu5) {
+            menu5.style.display = "none";
+            menu6.style.display = "none";
+        }
+  
         menu1_dropdown.style.display = "none";
         menu2_dropdown.style.display = "none";
         menu3_dropdown.style.display = "none";
         menu4_dropdown.style.display = "inline-block";
-        menu5_dropdown.style.display = "none";
-        menu6_dropdown.style.display = "none";
+        if(menu5) {
+            menu5_dropdown.style.display = "none";
+            menu6_dropdown.style.display = "none";
+        }   
     }
 
     //font 
@@ -328,10 +384,12 @@ const handleMenu4 = () => {
     menu3.style.fontWeight = "normal";
     menu4.style.color = "black";
     menu4.style.fontWeight = "bold";
-    menu5.style.color = "#90949C";
-    menu5.style.fontWeight = "normal";
-    menu6.style.color = "#90949C";
-    menu6.style.fontWeight = "normal";
+    if(menu5) {
+        menu5.style.color = "#90949C";
+        menu5.style.fontWeight = "normal";
+        menu6.style.color = "#90949C";
+        menu6.style.fontWeight = "normal";
+    }
 }
 
 const handleMenu5 = () => {
@@ -440,8 +498,10 @@ const onResize = () => {
         menu2.style.borderLeft = "none"; 
         menu3.style.borderLeft = "none"; 
         menu4.style.borderLeft = "none"; 
-        menu5.style.borderLeft = "none"; 
-        menu6.style.borderLeft = "none"; 
+        if(menu5) {
+            menu5.style.borderLeft = "none"; 
+            menu6.style.borderLeft = "none"; 
+        }
 
         menu2.style.display = "none";
     } else if (matchMedia("(min-width: 768px) and (max-width: 1024px)").matches) {
@@ -449,22 +509,28 @@ const onResize = () => {
         menu2.style.display = "block";
         menu3.style.display = "block";
         menu4.style.display = "block";
-        menu5.style.display = "block";
-        menu6.style.display = "block";
+        if(menu5) {
+            menu5.style.display = "block";
+            menu6.style.display = "block";
+        }
 
         menu1_dropdown.style.display = "none";
         menu2_dropdown.style.display = "none";
         menu3_dropdown.style.display = "none";
         menu4_dropdown.style.display = "none";
-        menu5_dropdown.style.display = "none"; 
-        menu6_dropdown.style.display = "none"; 
+        if(menu5) {
+            menu5_dropdown.style.display = "none"; 
+            menu6_dropdown.style.display = "none"; 
+        }
 
         menu1.style.paddingLeft = "40px";
         menu2.style.paddingLeft = "40px";
         menu3.style.paddingLeft = "40px";
         menu4.style.paddingLeft = "40px";
-        menu5.style.paddingLeft = "40px";
-        menu6.style.paddingLeft = "40px";
+        if(menu5) {
+            menu5.style.paddingLeft = "40px";
+            menu6.style.paddingLeft = "40px";
+        }
     } 
     if(curruentPage == 1) {
         handleMenu1();
@@ -497,14 +563,18 @@ const init = () => {
     if(addWorkspace) {
         addWorkspace.addEventListener("click", handleMenu2); 
     } else {
-        workspaceEditBtn.addEventListener("click", handleMenu2);
+        if(workspaceEditBtn) {
+            workspaceEditBtn.addEventListener("click", handleMenu2);
+        }
     }
     
     // 학교 클릭 이벤트 
     if(addSchool) {
         addSchool.addEventListener("click", handleMenu2); 
     } else {
-        universityEditBtn.addEventListener("click", handleMenu2);
+        if(universityEditBtn) {
+            universityEditBtn.addEventListener("click", handleMenu2);
+        }
     }
     
     // 거주지 클릭 이벤트
@@ -513,7 +583,9 @@ const init = () => {
     } else if(editHometown) {
         editHometown.addEventListener("click", handleMenu3);
     } else {
-        addLive.addEventListener("click", handleMenu3); 
+        if(addLive) {
+            addLive.addEventListener("click", handleMenu3); 
+        }
     }
     
     if(addPhone) {
@@ -521,18 +593,22 @@ const init = () => {
         addPhone.addEventListener("click", handleMenu4); 
     } else {
         // 연락처 수정 클릭 이벤트 
-        editPhone.addEventListener("click", handleMenu4);
+        if(editPhone) {
+            editPhone.addEventListener("click", handleMenu4);
+        }
     }
 
     // 생일 수정 클릭 이벤트 
-    editBirthday.addEventListener("click", handleMenu4); 
-
+    if(editBirthday) {
+        editBirthday.addEventListener("click", handleMenu4); 
+    }
+    
     // dropdown 
     menu1_dropdown.addEventListener("click", mqHandleMenu1);
     menu2_dropdown.addEventListener("click", mqHandleMenu2);
     menu3_dropdown.addEventListener("click", mqHandleMenu3);
-    if(menu4_dropdown) {
-        menu4_dropdown.addEventListener("click", mqHandleMenu4);
+    menu4_dropdown.addEventListener("click", mqHandleMenu4);
+    if(menu5_dropdown) {
         menu5_dropdown.addEventListener("click", mqHandleMenu5);
     }
     window.addEventListener("resize", onResize);

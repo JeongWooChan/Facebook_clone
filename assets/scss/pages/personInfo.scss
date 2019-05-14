@@ -217,6 +217,22 @@
                                 line-height: 35px;
                             }
                         }
+                        #personInfo_menu1_nothing {
+                            overflow: hidden;
+                            padding: 20px 10px 35px 10px; 
+                            color: #90949c;
+                            border-bottom: 1px solid #d3d6db;
+                            i {
+                                float: left;
+                                font-size: 35px;
+                                margin-right: 17px;
+                            }
+                            div {
+                                float: left;
+                                font-size: 18px;
+                                line-height: 35px;
+                            }
+                        }
                         #menu1_university_showDiv {
                             overflow: hidden;
                             padding: 10px;
@@ -276,6 +292,22 @@
                                 line-height: 35px;
                             }
                         }
+                        #person_school_nothing {
+                            overflow: hidden;
+                            padding: 20px 10px 35px 10px; 
+                            color: #90949c;
+                            border-bottom: 1px solid #d3d6db;
+                            i {
+                                float: left;
+                                font-size: 35px;
+                                margin-right: 17px;
+                            }
+                            div {
+                                float: left;
+                                font-size: 18px;
+                                line-height: 35px;
+                            }
+                        }
                         #personInfo_menu1_live {
                             overflow: hidden;
                             padding: 20px 0 35px 10px;
@@ -287,6 +319,21 @@
                                 margin-right: 17px;
                             }
                             span {
+                                float: left;
+                                font-size: 18px;
+                                line-height: 35px;
+                            }
+                        }
+                        #person_live_nothing {
+                            overflow: hidden;
+                            padding: 20px 10px 35px 10px; 
+                            color: #90949c;
+                            i {
+                                float: left;
+                                font-size: 35px;
+                                margin-right: 17px;
+                            }
+                            div {
                                 float: left;
                                 font-size: 18px;
                                 line-height: 35px;
@@ -434,7 +481,6 @@
                                 padding: 0 10px 35px 10px;
                             }
                         }
-
                         #personInfo_menu1_birthday {
                             overflow: hidden; 
                             @media (max-width: 600px) {
@@ -650,6 +696,22 @@
                                 }
                             }
                         }
+                        #person_menu2_workspaceNothing {
+                            overflow: hidden;
+                            padding: 20px 10px; 
+                            color: #90949c;
+                            border-bottom: 1px solid #d3d6db;
+                            i {
+                                float: left;
+                                font-size: 35px;
+                                margin-right: 17px;
+                            }
+                            div {
+                                float: left;
+                                font-size: 18px;
+                                line-height: 35px;
+                            }
+                        }
                     }
                     .personInfo_menu2_university {
                         padding: 0 0 30px;
@@ -826,6 +888,22 @@
                                 }
                             }
                         }
+                        #person_menu2_universityNothing {
+                            overflow: hidden;
+                            padding: 20px 10px; 
+                            color: #90949c;
+                            border-bottom: 1px solid #d3d6db;
+                            i {
+                                float: left;
+                                font-size: 35px;
+                                margin-right: 17px;
+                            }
+                            div {
+                                float: left;
+                                font-size: 18px;
+                                line-height: 35px;
+                            }
+                        }
                     }
                 }
                 #personInfo_content_menu3 {
@@ -994,6 +1072,22 @@
                                 }
                             }
                         }
+                        #person_menu3_residenceNothing {
+                            overflow: hidden;
+                            padding: 20px 10px; 
+                            color: #90949c;
+                            border-bottom: 1px solid #d3d6db;
+                            i {
+                                float: left;
+                                font-size: 35px;
+                                margin-right: 17px;
+                            }
+                            div {
+                                float: left;
+                                font-size: 18px;
+                                line-height: 35px;
+                            }
+                        }
                         #hometown_showDiv {
                             overflow: hidden;
                             padding: 10px;
@@ -1077,6 +1171,22 @@
                                         }
                                     } 
                                 }
+                            }
+                        }
+                        #person_menu3_liveNothing {
+                            overflow: hidden;
+                            padding: 20px 10px; 
+                            color: #90949c;
+                            border-bottom: 1px solid #d3d6db;
+                            i {
+                                float: left;
+                                font-size: 35px;
+                                margin-right: 17px;
+                            }
+                            div {
+                                float: left;
+                                font-size: 18px;
+                                line-height: 35px;
                             }
                         }
                         #personInfo_menu3_hometownAdd {
@@ -1254,6 +1364,18 @@
                                         font-size: 16px;
                                         line-height: 23px;
                                     } 
+                                }
+                                #person_menu4_phoneNothing {
+                                    overflow: hidden;
+                                    color: #90949c;
+                                    i {
+                                        float: left;
+                                        margin-top: 3px;
+                                        margin-right: 10px;
+                                    }
+                                    div {
+                                        float: left;
+                                    }
                                 } 
                                 #personInfo_menu4_phoneInfo_addForm {
                                     display: none;
@@ -1514,6 +1636,18 @@
                                     }
                                 }
                             }
+                            #person_menu3_bloodNothing {
+                                overflow: hidden;
+                                color: #90949c;
+                                i {
+                                    float: left;
+                                    margin-top: 3px;
+                                    margin-right: 10px;
+                                }
+                                div {
+                                    float: left;
+                                }
+                            } 
                         }
                     }
                 }

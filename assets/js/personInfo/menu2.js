@@ -101,22 +101,30 @@ const highschoolDivCancel = () => {
 const init = () => {
     //직장 
     if(showWorkspace) {
-        workspaceEditBtn.addEventListener("click", showEditForm);
-        workspaceEditForm_cancel.addEventListener("click", EditWorkspaceCancel);
-        deleteWorkspaceForm.addEventListener("submit", checkDeleteWorkspace);
+        if(workspaceEditBtn) {
+            workspaceEditBtn.addEventListener("click", showEditForm);
+            workspaceEditForm_cancel.addEventListener("click", EditWorkspaceCancel);
+            deleteWorkspaceForm.addEventListener("submit", checkDeleteWorkspace);
+        }
     } else {
-        workspaceAdd.addEventListener("click", AddWorkspaceFunction); 
-        workspaceAddForm_cancel.addEventListener("click", workspaceDivCancel);
+        if(workspaceAdd) {
+            workspaceAdd.addEventListener("click", AddWorkspaceFunction); 
+            workspaceAddForm_cancel.addEventListener("click", workspaceDivCancel);
+        }
     }
    
     // 대학 
     if(showUniversity) {
-        universityEditBtn.addEventListener("click", showuniversityEditForm);
-        universityEditForm_cancel.addEventListener("click", universityEditCancel);
-        deleteUniversityForm.addEventListener("submit", checkDeleteUniversity);
+        if(universityEditBtn) {
+            universityEditBtn.addEventListener("click", showuniversityEditForm);
+            universityEditForm_cancel.addEventListener("click", universityEditCancel);
+            deleteUniversityForm.addEventListener("submit", checkDeleteUniversity);
+        }
     } else {
-        universityAdd.addEventListener("click", AddUniversityFunction);
-        universityAddForm_cancel.addEventListener("click", universityDivCancel);
+        if(universityAdd) {
+            universityAdd.addEventListener("click", AddUniversityFunction);
+            universityAddForm_cancel.addEventListener("click", universityDivCancel);
+        }
     }
 }
 

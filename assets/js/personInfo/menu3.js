@@ -142,26 +142,34 @@ const hometownDivCancel = () => {
 const init = () => {
     // 거주지 클릭 이벤트 
     if(showResidence) {
-        residence_editBtn.addEventListener("click", showEditForm); 
-        editCancel.addEventListener("click", cancelEditForm);
-        residenceEditForm.addEventListener("submit", checkInput);
-        residenceDeleteForm.addEventListener("submit", checkResidenceDelete);
+        if(residence_editBtn) {
+            residence_editBtn.addEventListener("click", showEditForm); 
+            editCancel.addEventListener("click", cancelEditForm);
+            residenceEditForm.addEventListener("submit", checkInput);
+            residenceDeleteForm.addEventListener("submit", checkResidenceDelete);
+        }
     } else {
-        residenceAdd.addEventListener("click", AddResidenceFunction); 
-        residenceAddForm_cancel.addEventListener("click", residenceDivCancel);
-        residenceAddForm.addEventListener("submit", checkInput2); 
+        if(residenceAdd) {
+            residenceAdd.addEventListener("click", AddResidenceFunction); 
+            residenceAddForm_cancel.addEventListener("click", residenceDivCancel);
+            residenceAddForm.addEventListener("submit", checkInput2); 
+        }
     }
     
     // 출신지 클릭 이벤트 
     if(showHometown) {
-        hometownEditBtn.addEventListener("click", showHometownEditForm);
-        hometownEditForm_cancel.addEventListener("click", hometownEditFormCancel)
-        hometownEditForm.addEventListener("submit", checkInput_hometownEdit);
-        hometownDeleteForm.addEventListener("submit", checkHometownDelete);
+        if(hometownEditBtn) {
+            hometownEditBtn.addEventListener("click", showHometownEditForm);
+            hometownEditForm_cancel.addEventListener("click", hometownEditFormCancel)
+            hometownEditForm.addEventListener("submit", checkInput_hometownEdit);
+            hometownDeleteForm.addEventListener("submit", checkHometownDelete);
+        }
     } else {
-        hometownAdd.addEventListener("click", AddHometownFunction); 
-        hometownAddForm_cancel.addEventListener("click", hometownDivCancel);
-        hometownAddForm.addEventListener("submit", checkInput_hometownAdd);
+        if(hometownAdd) {
+            hometownAdd.addEventListener("click", AddHometownFunction); 
+            hometownAddForm_cancel.addEventListener("click", hometownDivCancel);
+            hometownAddForm.addEventListener("submit", checkInput_hometownAdd);
+        }
     }
 }
 

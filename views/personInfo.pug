@@ -51,258 +51,305 @@ block content
                                             i.fas.fa-sort-down
                                         #personInfo_infoWrap_menu4 
                                             span 연락처 및 기본 정보 
-                                         
+                                        #menu4_dropdown
+                                            i.fas.fa-sort-down                          
                                 .personInfo_infoWrap_content 
                                     #personInfo_content_menu1 
                                         .personInfo_menu1_left 
-                                            if(user.workspace)
+                                            if(personUser.workspace)
                                                 #menu1_workspace_showDiv 
                                                     #menu1_workspace_icon   
                                                         i.fas.fa-building
                                                     #menu1_workspace_showTextDiv 
                                                         .menu1_workspace_showText1 
-                                                            h3=user.workspace 
-                                                        .menu1_workspace_showText2 
-                                                            h4=user.workspace_position  
-                                                            h5  
-                                                            h4=user.workspace_city
-                                                    span#menu1_workspace_edit 수정   
-                                            else  
-                                                #personInfo_menu1_workspace
-                                                    i.far.fa-plus-square 
-                                                    span 직장 추가 
-                                            if(user.university) 
+                                                            h3=personUser.workspace 
+                                                        .menu1_workspace_showText2
+                                                                h4=personUser.workspace_position  
+                                                                h5  
+                                                                h4=personUser.workspace_city 
+                                                    if(user.id == personUser.id)
+                                                        span#menu1_workspace_edit 수정   
+                                            else 
+                                                if(user.id == personUser.id) 
+                                                    #personInfo_menu1_workspace
+                                                        i.far.fa-plus-square 
+                                                        span 직장 추가
+                                                else 
+                                                    #personInfo_menu1_nothing 
+                                                        i.fas.fa-exclamation-circle
+                                                        .personInfo_menu1_nothingText 등록된 직장이 없습니다. 
+                                            if(personUser.university) 
                                                 #menu1_university_showDiv 
                                                     #menu1_university_icon
                                                         i.fas.fa-university 
                                                     #menu1_university_showTextDiv 
                                                         .menu1_university_showText1 
-                                                            h3=user.university 
+                                                            h3=personUser.university 
                                                         .menu1_university_showText2 
-                                                            h4=user.university_major 
-                                                            if(user.university_graduate) 
+                                                            h4=personUser.university_major 
+                                                            if(personUser.university_graduate) 
                                                                 h5
                                                                 h4 졸업 
-                                                    span#menu1_university_edit 수정 
+                                                    if(user.id == personUser.id)
+                                                        span#menu1_university_edit 수정 
                                             else 
-                                                #personInfo_menu1_school  
-                                                    i.far.fa-plus-square 
-                                                    span 학교 추가  
-                                            if(user.residence)
+                                                if(user.id == personUser.id)
+                                                    #personInfo_menu1_school  
+                                                        i.far.fa-plus-square 
+                                                        span 학교 추가 
+                                                else 
+                                                    #person_school_nothing 
+                                                        i.fas.fa-exclamation-circle
+                                                        .personInfo_school_nothingText 등록된 학교가 없습니다.
+                                            if(personUser.residence)
                                                 #menu1_residence_showDiv
                                                     .residence_icon
                                                         i.fas.fa-map-marker-alt 
                                                     #menu1_residence_showText
-                                                        if(user.hometown)
+                                                        if(personUser.hometown)
                                                             .residence_showText_residence
-                                                                h3=user.residence
+                                                                h3=personUser.residence
                                                                 h5 현재 거주지 
                                                             .residence_showText_hometown 
                                                                 h3=user.hometown
                                                                 h5 출신지
                                                         else  
-                                                            h3=user.residence 
+                                                            h3=personUser.residence 
                                                             h4 현재 거주지 
-                                                    span#menu1_residence_edit 수정 
-                                            else if(!user.residence && user.hometown) 
+                                                    if(user.id == personUser.id)
+                                                        span#menu1_residence_edit 수정 
+                                            else if(!personUser.residence && personUser.hometown) 
                                                 #menu1_hometown_showDiv 
                                                     .hometown_icon 
                                                         i.fas.fa-map-marker-alt 
                                                     #menu1_hometown_showText 
-                                                        h3=user.hometown 
+                                                        h3=personUser.hometown 
                                                         h4 출신지 
-                                                    span#menu1_hometown_edit 수정 
+                                                    if(user.id == personUser.id)
+                                                        span#menu1_hometown_edit 수정 
                                             else     
-                                                #personInfo_menu1_live    
-                                                    i.far.fa-plus-square 
-                                                    span 거주지 추가
+                                                if(user.id == personUser.id)
+                                                    #personInfo_menu1_live    
+                                                        i.far.fa-plus-square 
+                                                        span 거주지 추가
+                                                else 
+                                                    #person_live_nothing 
+                                                        i.fas.fa-exclamation-circle
+                                                        .personInfo_live_nothingText 등록된 거주지가 없습니다.
                                         .personInfo_menu1_right
-                                            if(user.phone)
+                                            if(personUser.phone)
                                                 #personInfo_menu1_phone 
                                                     i.fas.fa-mobile-alt
                                                     span=user.phone
-                                                    #personInfo_menu1_phoneEdit 수정
+                                                    if(user.id == personUser.id)
+                                                        #personInfo_menu1_phoneEdit 수정
                                             else 
-                                                #personInfo_menu1_phoneAdd 
-                                                    i.far.fa-plus-square 
-                                                    span 연락처 추가 
+                                                if(user.id == personUser.id)
+                                                    #personInfo_menu1_phoneAdd 
+                                                        i.far.fa-plus-square 
+                                                        span 연락처 추가 
                                             #personInfo_menu1_birthday  
                                                 i.fas.fa-birthday-cake 
-                                                span=user.birthday_year+"년 "+user.birthday_month+"월 "+user.birthday_day+"일"
-                                                #personInfo_menu1_birthdayEdit 수정 
+                                                span=personUser.birthday_year+"년 "+personUser.birthday_month+"월 "+personUser.birthday_day+"일"
+                                                if(user.id == personUser.id)
+                                                    #personInfo_menu1_birthdayEdit 수정 
                                     #personInfo_content_menu2 
                                         .personInfo_menu2_workspace 
                                             .personInfo_menu2_workspaceText 직장  
-                                            if(user.workspace)
+                                            if(personUser.workspace)
                                                 #menu2_workspaceShowDiv 
                                                     #workspace_icon 
                                                         i.fas.fa-building 
                                                     #workspace_showTextDiv  
                                                         .workspace_showText1
-                                                            h3=user.workspace
+                                                            h3=personUser.workspace
                                                         .workspace_showText2 
-                                                            h4=user.workspace_position 
+                                                            h4=personUser.workspace_position 
                                                             h5  
-                                                            h4=user.workspace_city
-                                                    form(action=`/user${routes.deleteCompany}`, method="post", id="workspace_deleteform")
-                                                        input(type="submit", id="workspace_delete", value="삭제")                                                            
-                                                    span#workspace_edit 수정 
+                                                            h4=personUser.workspace_city
+                                                    if(user.id == personUser.id)
+                                                        form(action=`/user${routes.deleteCompany}`, method="post", id="workspace_deleteform")
+                                                            input(type="submit", id="workspace_delete", value="삭제")                                                            
+                                                        span#workspace_edit 수정 
                                                 #personInfo_menu2_workspaceEdit_formDiv 
                                                     form(action=`/user${routes.changeCompany}`, method="post", id="personInfo_workspaceEdit_form") 
                                                         div 
                                                             label(for="personInfo_workspaceEditform_company") 회사 
-                                                            input(type="text", id="personInfo_workspaceEditform_company", name="company", value=user.workspace, required)
+                                                            input(type="text", id="personInfo_workspaceEditform_company", name="company", value=personUser.workspace, required)
                                                         div
                                                             label(for="personInfo_workspaceEditform_staff") 직위 
-                                                            input(type="text", id="personInfo_workspaceEditform_staff", name="position", value=user.workspace_position, required)
+                                                            input(type="text", id="personInfo_workspaceEditform_staff", name="position", value=personUser.workspace_position, required)
                                                         div 
                                                             label(for="personInfo_workspaceEditform_city") 도시 
-                                                            input(type="text", id="personInfo_workspaceEditform_city", name="city", value=user.workspace_city, required) 
+                                                            input(type="text", id="personInfo_workspaceEditform_city", name="city", value=personUser.workspace_city, required) 
                                                         div 
                                                             button(type="submit", id="personInfo_workspaceEditform_submit") 변경 내용 저장 
                                                             button#personInfo_workspaceEditform_cancel(type="button") 취소
                                             else 
-                                                #personInfo_menu2_workspaceAdd 
-                                                    i.far.fa-plus-square 
-                                                    span 직장 추가 
-                                                #personInfo_menu2_workspaceAdd_formDiv 
-                                                    form(action=`/user${routes.changeCompany}`, method="post", id="personInfo_workspaceAdd_form") 
-                                                        div 
-                                                            label(for="personInfo_workspaceAddform_company") 회사 
-                                                            input(type="text", id="personInfo_workspaceAddform_company", name="company", required)
-                                                        div
-                                                            label(for="personInfo_workspaceAddform_staff") 직위 
-                                                            input(type="text", id="personInfo_workspaceAddform_staff", name="position", required)
-                                                        div 
-                                                            label(for="personInfo_workspaceAddform_city") 도시 
-                                                            input(type="text", id="personInfo_workspaceAddform_city", name="city", required) 
-                                                        div 
-                                                            button(type="submit", id="personInfo_workspaceAddform_submit") 변경 내용 저장 
-                                                            button#personInfo_workspaceAddform_cancel(type="button") 취소
+                                                if(user.id == personUser.id)
+                                                    #personInfo_menu2_workspaceAdd 
+                                                        i.far.fa-plus-square 
+                                                        span 직장 추가 
+                                                    #personInfo_menu2_workspaceAdd_formDiv 
+                                                        form(action=`/user${routes.changeCompany}`, method="post", id="personInfo_workspaceAdd_form") 
+                                                            div 
+                                                                label(for="personInfo_workspaceAddform_company") 회사 
+                                                                input(type="text", id="personInfo_workspaceAddform_company", name="company", required)
+                                                            div
+                                                                label(for="personInfo_workspaceAddform_staff") 직위 
+                                                                input(type="text", id="personInfo_workspaceAddform_staff", name="position", required)
+                                                            div 
+                                                                label(for="personInfo_workspaceAddform_city") 도시 
+                                                                input(type="text", id="personInfo_workspaceAddform_city", name="city", required) 
+                                                            div 
+                                                                button(type="submit", id="personInfo_workspaceAddform_submit") 변경 내용 저장 
+                                                                button#personInfo_workspaceAddform_cancel(type="button") 취소
+                                                else 
+                                                    #person_menu2_workspaceNothing 
+                                                        i.fas.fa-exclamation-circle
+                                                        .menu2_workspace_nothingText 등록된 직장이 없습니다.
                                         .personInfo_menu2_university
                                             .personInfo_menu2_universityText 대학 
-                                            if(user.university)
+                                            if(personUser.university)
                                                 #menu2_universityShowDiv 
                                                     #university_icon 
                                                         i.fas.fa-university 
                                                     #university_showTextDiv 
                                                         .university_showText1
-                                                            h3=user.university 
+                                                            h3=personUser.university 
                                                         .university_showText2 
-                                                            h4=user.university_major 
-                                                            if(user.university_graduate) 
+                                                            h4=personUser.university_major 
+                                                            if(personUser.university_graduate) 
                                                                 h5
                                                                 h4 졸업
-                                                    form(action=`/user${routes.deleteUniversity}`, method="post", id="university_deleteForm")
-                                                        input(type="submit", id="university_delete", value="삭제")
-	                                                    
-                                                    span#university_edit 수정 
+                                                    if(user.id == personUser.id)
+                                                        form(action=`/user${routes.deleteUniversity}`, method="post", id="university_deleteForm")
+                                                            input(type="submit", id="university_delete", value="삭제")  
+                                                        span#university_edit 수정 
                                                 #personInfo_menu2_universityEdit_formDiv
                                                     form(action=`/user${routes.changeUniversity}`, method="post", id="personInfo_universityEdit_form") 
                                                         div 
                                                             label(for="personInfo_universityEditform_university") 학교 
-                                                            input(type="text", id="personInfo_universityEditform_university", name="university", value=user.university, required)
+                                                            input(type="text", id="personInfo_universityEditform_university", name="university", value=personUser.university, required)
                                                         div
                                                             label(for="personInfo_universityEditform_gradu") 졸업  
                                                             input(type="checkbox", id="personInfo_universityEditform_gradu", name="graduate")
                                                         div 
                                                             label(for="personInfo_universityEditform_major") 전공 
-                                                            input(type="text", id="personInfo_universityEditform_major", name="major", value=user.university_major, required) 
+                                                            input(type="text", id="personInfo_universityEditform_major", name="major", value=personUser.university_major, required) 
                                                         div 
                                                             button(type="submit", id="personInfo_universityEditform_submit") 변경 내용 저장 
                                                             button#personInfo_universityEditform_cancel(type="button") 취소
-                                            else 
-                                                #personInfo_menu2_universityAdd
-                                                    i.far.fa-plus-square 
-                                                    span 대학 추가
-                                                #personInfo_menu2_universityAdd_formDiv
-                                                    form(action=`/user${routes.changeUniversity}`, method="post", id="personInfo_universityAdd_form") 
-                                                        div 
-                                                            label(for="personInfo_universityAddform_university") 학교 
-                                                            input(type="text", id="personInfo_universityAddform_university", name="university", required)
-                                                        div
-                                                            label(for="personInfo_universityAddform_gradu") 졸업  
-                                                            input(type="checkbox", id="personInfo_universityAddform_gradu", name="graduate")
-                                                        div 
-                                                            label(for="personInfo_universityAddform_major") 전공 
-                                                            input(type="text", id="personInfo_universityAddform_major", name="major", required) 
-                                                        div 
-                                                            button(type="submit", id="personInfo_universityAddform_submit") 변경 내용 저장 
-                                                            button#personInfo_universityAddform_cancel(type="button") 취소
+                                            else
+                                                if(user.id == personUser.id) 
+                                                    #personInfo_menu2_universityAdd
+                                                        i.far.fa-plus-square 
+                                                        span 대학 추가
+                                                    #personInfo_menu2_universityAdd_formDiv
+                                                        form(action=`/user${routes.changeUniversity}`, method="post", id="personInfo_universityAdd_form") 
+                                                            div 
+                                                                label(for="personInfo_universityAddform_university") 학교 
+                                                                input(type="text", id="personInfo_universityAddform_university", name="university", required)
+                                                            div
+                                                                label(for="personInfo_universityAddform_gradu") 졸업  
+                                                                input(type="checkbox", id="personInfo_universityAddform_gradu", name="graduate")
+                                                            div 
+                                                                label(for="personInfo_universityAddform_major") 전공 
+                                                                input(type="text", id="personInfo_universityAddform_major", name="major", required) 
+                                                            div 
+                                                                button(type="submit", id="personInfo_universityAddform_submit") 변경 내용 저장 
+                                                                button#personInfo_universityAddform_cancel(type="button") 취소
+                                                else 
+                                                    #person_menu2_universityNothing 
+                                                        i.fas.fa-exclamation-circle
+                                                        .menu2_university_nothingText 등록된 학교가 없습니다.
                                     #personInfo_content_menu3
                                         .personInfo_menu3_residence
                                             .personInfo_menu3_residenceText 거주지와 출신지
-                                            if(user.residence)
+                                            if(personUser.residence)
                                                 #residence_showDiv 
                                                     .residence_icon
                                                         i.fas.fa-map-marker-alt  
                                                     #residence_showText 
                                                         h3=user.residence 
                                                         h4 현재 거주지
-                                                    form(action=`/user${routes.deleteResidence}`, method="post", id="delete_residenceForm")
-                                                        input(type="submit", id="residence_delete", value="삭제")    
-                                                    span#residence_edit 수정
+                                                    if(user.id == personUser.id) 
+                                                        form(action=`/user${routes.deleteResidence}`, method="post", id="delete_residenceForm")
+                                                            input(type="submit", id="residence_delete", value="삭제")    
+                                                        span#residence_edit 수정
                                                 #personInfo_menu3_residenceEditFormDiv 
                                                     form(action=`/user${routes.changeResidence}`, method="post", id="personInfo_residenceEditForm_form")
                                                         div 
                                                             label(for="personInfo_residenceEidtform_residence") 거주지 
-                                                            input(type="text", id="personInfo_residenceEditform_residence", placeholder="도시명을 입력해주세요.", name="residence", value=user.residence)
+                                                            input(type="text", id="personInfo_residenceEditform_residence", placeholder="도시명을 입력해주세요.", name="residence", value=personUser.residence)
                                                         div 
                                                             button(type="submit", id="personInfo_residenceEditform_submit") 변경 내용 저장 
                                                             button#personInfo_residenceEditform_cancel(type="button") 취소
                                             else
-                                                #personInfo_menu3_residenceAdd 
-                                                    i.far.fa-plus-square 
-                                                    span 거주지 추가
-                                                #personInfo_menu3_residenceAddFormDiv 
-                                                    form(action=`/user${routes.changeResidence}`, method="post", id="personInfo_residenceAddForm_form")
-                                                        div 
-                                                            label(for="personInfo_residenceAddform_residence") 거주지 
-                                                            input(type="text", id="personInfo_residenceAddform_residence", placeholder="도시명을 입력해주세요.", name="residence")
-                                                        div 
-                                                            button(type="submit", id="personInfo_residenceAddform_submit") 변경 내용 저장 
-                                                            button#personInfo_residenceAddform_cancel(type="button") 취소
-                                            if(user.hometown)
+                                                if(user.id == personUser.id) 
+                                                    #personInfo_menu3_residenceAdd 
+                                                        i.far.fa-plus-square 
+                                                        span 거주지 추가
+                                                    #personInfo_menu3_residenceAddFormDiv 
+                                                        form(action=`/user${routes.changeResidence}`, method="post", id="personInfo_residenceAddForm_form")
+                                                            div 
+                                                                label(for="personInfo_residenceAddform_residence") 거주지 
+                                                                input(type="text", id="personInfo_residenceAddform_residence", placeholder="도시명을 입력해주세요.", name="residence")
+                                                            div 
+                                                                button(type="submit", id="personInfo_residenceAddform_submit") 변경 내용 저장 
+                                                                button#personInfo_residenceAddform_cancel(type="button") 취소
+                                                else 
+                                                    #person_menu3_residenceNothing
+                                                        i.fas.fa-exclamation-circle
+                                                        .menu3_residence_nothingText 등록된 거주지가 없습니다.
+                                            if(personUser.hometown)
                                                 #hometown_showDiv 
                                                     .hometown_icon 
                                                         i.fas.fa-map-marker-alt 
                                                     #hometown_showText 
                                                         h3=user.hometown 
                                                         h4 출신지 
-                                                    form(action=`/user${routes.deleteHometown}`, method="post", id="delete_hometownForm")
-                                                        input(type="submit", id="hometown_delete", value="삭제")
-                                                    span#hometown_edit 수정 
+                                                    if(user.id == personUser.id) 
+                                                        form(action=`/user${routes.deleteHometown}`, method="post", id="delete_hometownForm")
+                                                            input(type="submit", id="hometown_delete", value="삭제")
+                                                        span#hometown_edit 수정 
                                                 #personInfo_menu3_hometownEditFormDiv 
                                                     form(action=`/user${routes.changeHometown}`, method="post", id="personInfo_hometownEditForm_form")
                                                         div 
                                                             label(for="personInfo_hometownEditform_hometown") 출신지 
-                                                            input(type="text", id="personInfo_hometownEditform_hometown", name="hometown", value=user.hometown)
+                                                            input(type="text", id="personInfo_hometownEditform_hometown", name="hometown", value=personUser.hometown)
                                                         div 
                                                             button(type="submit", id="personInfo_hometownEditform_submit") 변경 내용 저장 
                                                             button#personInfo_hometownEditform_cancel(type="button") 취소
                                             else 
-                                                #personInfo_menu3_hometownAdd
-                                                    i.far.fa-plus-square 
-                                                    span 출신지 추가
-                                                #personInfo_menu3_hometownAddFormDiv 
-                                                    form(action=`/user${routes.changeHometown}`, method="post", id="personInfo_hometownAddForm_form")
-                                                        div 
-                                                            label(for="personInfo_hometownAddform_hometown") 출신지 
-                                                            input(type="text", id="personInfo_hometownAddform_hometown", name="hometown", placeholder="출신지를 입력해주세요.")
-                                                        div 
-                                                            button(type="submit", id="personInfo_hometownAddform_submit") 변경 내용 저장 
-                                                            button#personInfo_hometownAddform_cancel(type="button") 취소  
+                                                if(user.id == personUser.id)
+                                                    #personInfo_menu3_hometownAdd
+                                                        i.far.fa-plus-square 
+                                                        span 출신지 추가
+                                                    #personInfo_menu3_hometownAddFormDiv 
+                                                        form(action=`/user${routes.changeHometown}`, method="post", id="personInfo_hometownAddForm_form")
+                                                            div 
+                                                                label(for="personInfo_hometownAddform_hometown") 출신지 
+                                                                input(type="text", id="personInfo_hometownAddform_hometown", name="hometown", placeholder="출신지를 입력해주세요.")
+                                                            div 
+                                                                button(type="submit", id="personInfo_hometownAddform_submit") 변경 내용 저장 
+                                                                button#personInfo_hometownAddform_cancel(type="button") 취소  
+                                                else 
+                                                    #person_menu3_liveNothing
+                                                        i.fas.fa-exclamation-circle
+                                                        .menu3_live_nothingText 등록된 출신지가 없습니다.
                                     #personInfo_content_menu4
                                         .personInfo_menu4_phone
                                             .personInfo_menu4_phoneText 연락처 정보
                                             .personInfo_menu4_phoneInfoDiv 
                                                 .personInfo_menu4_phoneInfoText 휴대폰 
                                                 .personInfo_menu4_phoneInfo 
-                                                    if(user.phone)
-                                                        #personInfo_menu4_phoneInfo_show=user.phone
-                                                        form(action=`/user${routes.deletePhone}`, method="post", id="delete_phoneForm")
-                                                            input(type="submit", id="phone_delete", value="삭제")
-                                                        #personInfo_menu4_phoneInfo_edit 수정 
+                                                    if(personUser.phone)
+                                                        #personInfo_menu4_phoneInfo_show=personUser.phone
+                                                        if(user.id == personUser.id)
+                                                            form(action=`/user${routes.deletePhone}`, method="post", id="delete_phoneForm")
+                                                                input(type="submit", id="phone_delete", value="삭제")
+                                                            #personInfo_menu4_phoneInfo_edit 수정 
                                                         #personInfo_menu4_phoneInfo_editForm 
                                                             form(action=`/user${routes.changePhone}`, method="post", id="phoneInfo_editForm") 
                                                                 select(id="phoneInfo_editForm_first", name="phoneInfo_editForm_first")
@@ -318,9 +365,14 @@ block content
                                                                     button(type="submit", id="") 적용 
                                                                     button(type="button", id="personInfo_menu4_phoneForm_editFormcancel") 취소 
                                                     else
-                                                        #personInfo_menu4_phoneInfo_Add
-                                                            i.far.fa-plus-square
-                                                            span 연락처 추가
+                                                        if(user.id == personUser.id)
+                                                            #personInfo_menu4_phoneInfo_Add
+                                                                i.far.fa-plus-square
+                                                                span 연락처 추가
+                                                        else 
+                                                            #person_menu4_phoneNothing
+                                                                i.fas.fa-exclamation-circle
+                                                                .menu3_live_nothingText 등록된 전화번호가 없습니다.
                                                     #personInfo_menu4_phoneInfo_addForm 
                                                         form(action=`/user${routes.changePhone}`, method="post", id="phoneInfo_addForm") 
                                                             select(id="phoneInfo_addForm_first", name="phoneInfo_editForm_first")
@@ -337,14 +389,15 @@ block content
                                                                 button(type="button", id="personInfo_menu4_phoneForm_cancel") 취소 
                                             .personInfo_menu4_emailInfoDiv 
                                                 .personInfo_menu4_emailInfoText 이메일 
-                                                .personInfo_menu4_emailInfo=user.email
+                                                .personInfo_menu4_emailInfo=personUser.email
                                         .personInfo_menu4_person 
                                             .personInfo_menu4_personText 기본 정보 
                                             .personInfo_menu4_personBirthdayDiv 
                                                 .personInfo_menu4_personBirthdayText 생일 
                                                 #personInfo_showBirthday 
-                                                    .personInfo_menu4_personBirthday=user.birthday_year+"년 "+user.birthday_month+"월 "+user.birthday_day+"일"
-                                                    button#personInfo_birthdayEdit 수정
+                                                    .personInfo_menu4_personBirthday=personUser.birthday_year+"년 "+personUser.birthday_month+"월 "+personUser.birthday_day+"일"
+                                                    if(user.id == personUser.id)
+                                                        button#personInfo_birthdayEdit 수정
                                                 #personInfo_editBirthday 
                                                     form(action=`/user${routes.changeBirthday}`, method="post", id="birthday_editForm") 
                                                         select(id="birthday_editForm_year", name="year") 
@@ -365,10 +418,10 @@ block content
                                             #personInfo_menu4_personGenderDiv 
                                                 .personInfo_menu4_personGenderText 성별 
                                                 #personInfo_menu4_showGender 
-                                                    #personInfo_menu4_personGender=user.gender     
+                                                    #personInfo_menu4_personGender=personUser.gender     
                                             #personInfo_menu4_personBloodDiv 
                                                 .personInfo_menu4_personBloodText 혈액형 
-                                                if(user.bloodType)
+                                                if(personUser.bloodType)
                                                     #personInfo_showBloodDiv 
                                                         #personInfo_showBlood=user.bloodType 
                                                         form(action=`/user${routes.deleteBloodType}`, method="post", id="delete_bloodTypeForm")
@@ -385,19 +438,24 @@ block content
                                                                 button(type="submit") 적용 
                                                                 button(type="button", id="personInfo_menu4_editBloodCancel") 취소
                                                 else 
-                                                    #personInfo_addBlood  
-                                                        i.far.fa-plus-square
-                                                        span 혈액형 추가
-                                                    #personInfo_addBloodFormDiv 
-                                                        form(action=`/user${routes.changeBloodType}`, method="post") 
-                                                            select(name="bloodType") 
-                                                                option(value="A") A
-                                                                option(value="B") B
-                                                                option(vlaue="O") O
-                                                                option(value="AB") AB 
-                                                            div 
-                                                                button(type="submit") 적용 
-                                                                button(type="button", id="personInfo_menu4_addBloodCancel") 취소 
+                                                    if(user.id == personUser.id)
+                                                        #personInfo_addBlood  
+                                                            i.far.fa-plus-square
+                                                            span 혈액형 추가
+                                                        #personInfo_addBloodFormDiv 
+                                                            form(action=`/user${routes.changeBloodType}`, method="post") 
+                                                                select(name="bloodType") 
+                                                                    option(value="A") A
+                                                                    option(value="B") B
+                                                                    option(vlaue="O") O
+                                                                    option(value="AB") AB 
+                                                                div 
+                                                                    button(type="submit") 적용 
+                                                                    button(type="button", id="personInfo_menu4_addBloodCancel") 취소 
+                                                    else 
+                                                        #person_menu3_bloodNothing
+                                                            i.fas.fa-exclamation-circle
+                                                            .menu3_blood_nothingText 등록된 혈액형이 없습니다.
                                     #personInfo_content_changePassword  
                                         form(action=`/user${routes.changePassword}`, method="post", id="personInfo_changePassword_form")
                                             div
