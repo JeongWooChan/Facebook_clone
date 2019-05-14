@@ -5,12 +5,13 @@ section#person_coverSection
         .person_coverProfile_img
             img#person_cover_profileImg(src=`/${personUser.avatarUrl}`) 
         .person_coverProfile_name=personUser.username
+        .asdf=personUser.id
     nav#person_nav  
         ul
             li 
-                a(href=routes.person(user.id)) 타임라인 
+                a(href=routes.person(personUser.id)) 타임라인 
             li 
-                a(href=routes.personInfo(user.id)) 정보
+                a(href=routes.personInfo(personUser.id)) 정보
             li 
                 a(href="#") 친구
             li 

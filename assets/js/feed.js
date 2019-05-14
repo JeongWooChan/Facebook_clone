@@ -130,69 +130,78 @@ const init = () => {
     }
 
     // 게시글 등록할 때 검사 
-    feedWriteForm.addEventListener("submit", submitValidate); 
+    if(feedWriteForm){
+        feedWriteForm.addEventListener("submit", submitValidate); 
+    }
 
     // 피드 새로 작성에서의 이미지 프리뷰 
-    feedFile.addEventListener("change", function (e) {
-        const existImg = document.getElementById("imagePreview_img"); 
-
-        if(existImg) {
-            existImg.remove();
-        }
-        
-        const get_file = e.target.files; 
-
-        let image = document.createElement('img'); 
-
-        const reader = new FileReader(); 
-
-        reader.onload = (function (aImg) {
-            return function (e) {
-                aImg.src = e.target.result
+    if(feedFile){
+        feedFile.addEventListener("change", function (e) {
+            const existImg = document.getElementById("imagePreview_img"); 
+    
+            if(existImg) {
+                existImg.remove();
             }
-        })(image) 
-
-        if(get_file) {
-            reader.readAsDataURL(get_file[0]); 
-        }
-        image.id = "imagePreview_img";
-        feedImgPreview.appendChild(image);
-    }); 
+            
+            const get_file = e.target.files; 
+    
+            let image = document.createElement('img'); 
+    
+            const reader = new FileReader(); 
+    
+            reader.onload = (function (aImg) {
+                return function (e) {
+                    aImg.src = e.target.result
+                }
+            })(image) 
+    
+            if(get_file) {
+                reader.readAsDataURL(get_file[0]); 
+            }
+            image.id = "imagePreview_img";
+            feedImgPreview.appendChild(image);
+        });
+    } 
     
     // 피드 수정에서의 이미지 프리뷰 
-    editFeedFile.addEventListener("change", function (e) {
-        const existImg = document.getElementById("edit_imagePreview_img"); 
-
-        if(existImg) {
-            existImg.remove();
-        }
-        
-        if(editFormImg) {
-            editFormImg.remove();
-        }
-
-        const get_file = e.target.files; 
-
-        let image = document.createElement('img'); 
-
-        const reader = new FileReader(); 
-
-        reader.onload = (function (aImg) {
-            return function (e) {
-                aImg.src = e.target.result
+    if(editFeedFile) {
+        editFeedFile.addEventListener("change", function (e) {
+            const existImg = document.getElementById("edit_imagePreview_img"); 
+    
+            if(existImg) {
+                existImg.remove();
             }
-        })(image)
+            
+            if(editFormImg) {
+                editFormImg.remove();
+            }
+    
+            const get_file = e.target.files; 
+    
+            let image = document.createElement('img'); 
+    
+            const reader = new FileReader(); 
+    
+            reader.onload = (function (aImg) {
+                return function (e) {
+                    aImg.src = e.target.result
+                }
+            })(image)
+    
+            if(get_file) {
+                reader.readAsDataURL(get_file[0]); 
+            }
+            image.id = "edit_imagePreview_img"; 
+            editFeedImgPreview.appendChild(image);
+        });
+    }
 
-        if(get_file) {
-            reader.readAsDataURL(get_file[0]); 
-        }
-        image.id = "edit_imagePreview_img"; 
-        editFeedImgPreview.appendChild(image);
-    });
-
-    customBtn.addEventListener("click", function() {
-        realFileBtn.click();
-    }); 
+    if(customBtn) {
+        customBtn.addEventListener("click", function() {
+            realFileBtn.click();
+        }); 
+    }
+    
 
     if(editCustomBtn) {
         editCustomBtn.addEventListener("click", function() {

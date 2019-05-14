@@ -78,7 +78,7 @@ export const getPersonInfo = async (req, res) => {
         if( err ) {
             console.log("❌  ERROR : " + err);
         } else {
-            const personUser = rows[0]; 
+            const personUser = rows[0];
             res.render("personInfo", { pageTitle: personUser.username, personUser })
         }
     });

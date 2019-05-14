@@ -8,9 +8,19 @@ section#main_content_newFeedSection
                     img(src=`/${user.avatarUrl}`)
             .content_section 
                 .contentDiv 
-                    textarea#main_content_newFeedTextarea(name="content", cols="30", rows="3", placeholder=user.username+"님, 무슨 생각을 하고 계신가요? ")
-                    #imgPreview
-                        img(src="#", alt="feed_img", style="display: none;", id="write_feedImg")
+                    if(personUser)
+                        if(personUser.id != user.id) 
+                            textarea#main_content_newFeedTextarea(name="content", cols="30", rows="3", placeholder=personUser.username+"님에게 글을 남겨보세요...")
+                            #imgPreview
+                            img(src="#", alt="feed_img", style="display: none;", id="write_feedImg")
+                        else 
+                            textarea#main_content_newFeedTextarea(name="content", cols="30", rows="3", placeholder=user.username+"님, 무슨 생각을 하고 계신가요? ")
+                            #imgPreview
+                            img(src="#", alt="feed_img", style="display: none;", id="write_feedImg")
+                    else 
+                        textarea#main_content_newFeedTextarea(name="content", cols="30", rows="3", placeholder=user.username+"님, 무슨 생각을 하고 계신가요? ")
+                        #imgPreview
+                            img(src="#", alt="feed_img", style="display: none;", id="write_feedImg")
         .main_content_newFeedFooter 
             .main_content_borderSection
                 input(type="file", id="feed", name="feed", hidden="hidden", accept="image/*")

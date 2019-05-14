@@ -487,8 +487,11 @@ const init = () => {
     menu2.addEventListener("click", handleMenu2);
     menu3.addEventListener("click", handleMenu3);
     menu4.addEventListener("click", handleMenu4);
-    menu5.addEventListener("click", handleMenu5);
-    menu6.addEventListener("click", handleMenu6);
+    if(menu5) {
+        menu5.addEventListener("click", handleMenu5);
+        menu6.addEventListener("click", handleMenu6);
+    }
+
 
     // 직장 추가 클릭 이벤트 
     if(addWorkspace) {
@@ -528,9 +531,10 @@ const init = () => {
     menu1_dropdown.addEventListener("click", mqHandleMenu1);
     menu2_dropdown.addEventListener("click", mqHandleMenu2);
     menu3_dropdown.addEventListener("click", mqHandleMenu3);
-    menu4_dropdown.addEventListener("click", mqHandleMenu4);
-    menu5_dropdown.addEventListener("click", mqHandleMenu5);
-
+    if(menu4_dropdown) {
+        menu4_dropdown.addEventListener("click", mqHandleMenu4);
+        menu5_dropdown.addEventListener("click", mqHandleMenu5);
+    }
     window.addEventListener("resize", onResize);
 }
 
