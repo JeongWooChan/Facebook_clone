@@ -280,3 +280,19 @@ export const like = async (req, res) => {
         }
     })
 }
+
+export const addIntroduce = async (req, res) => {
+    const {
+        body : {textAreaInput, id} 
+    } = req;
+    const $introduce = `UPDATE users SET introduce='${textAreaInput}' WHERE id=${id};`; 
+
+    await connection.query($introduce, (err, rows) => {
+        if(err) { 
+            console.log("❌  ERROR : " + err); 
+        } else {
+            res.status(200);
+            res.end();
+        }
+    })
+}

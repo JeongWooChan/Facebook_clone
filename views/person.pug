@@ -15,20 +15,30 @@ block content
                                     .person_introduce_text 
                                         i.fas.fa-globe-asia 
                                         span 소개 
-                                    .person_introduce_add
-                                        i.far.fa-comment-alt
-                                        p.person_add_p 간단한 소개를 추가하여 회원님에 대해 자세히 알려주세요.
-                                        span.person_add_add 소개 추가 
-                                    .person_introduce_textarea 
-                                        form(action="#", method="post") 
-                                            div 
-                                                <textarea name="introduce_textArea" placeholder="간단한 소개글을 작성해 주세요. &#13;&#10;(30자까지 입력가능)"></textarea>
-                                            button(type="submit") 적용 
-                                            button(type="button") 취소
-                                    .person_introduce_textDiv 
-                                        i.far.fa-comment-alt 
-                                        p#person_introduce_textP 하나둘셋넷다섯여섯일곱여덟아홉열하나둘셋넷다섯여섯일곱여덟아홉열
-                                        span#person_introduce_editBtn 소개 수정 
+                                    if(personUser.introduce == null && personUser.id == user.id) 
+                                        .person_introduce_add
+                                            i.far.fa-comment-alt
+                                            p.person_add_p 간단한 소개를 추가하여 회원님에 대해 자세히 알려주세요.
+                                            span.person_add_add 소개 추가 
+                                        .person_introduce_textarea 
+                                            form(action="#", method="post") 
+                                                div 
+                                                    <textarea id="introduce_textarea" name="introduce_textArea" placeholder="간단한 소개글을 작성해 주세요. &#13;&#10;(30자까지 입력가능)"></textarea>
+                                                button#introduce_textarea_submit(type="submit") 적용 
+                                                button#introduce_textarea_cancel(type="button") 취소
+                                        .person_introduce_textDiv(style="display:none") 
+                                            i.far.fa-comment-alt 
+                                            p#person_introduce_textP
+                                            span#person_introduce_editBtn 소개 수정
+                                    else 
+                                        .person_introduce_textDiv 
+                                            i.far.fa-comment-alt
+                                            if(personUser.introduce == null) 
+                                                p#person_introduce_textP 작성된 소개글이 없습니다.
+                                            else  
+                                                p#person_introduce_textP=personUser.introduce
+                                            if(personUser.id == user.id)
+                                                span#person_introduce_editBtn 소개 수정
                                     .person_introduce_info 
                                         p 정보 1 
                                         p 정보 2 

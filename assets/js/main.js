@@ -4,6 +4,7 @@ import "./login";
 import "./join"; 
 import "./feed";
 import "./header";
+import "./person";
 
 // personInfo 
 import "./personInfo/overview";
