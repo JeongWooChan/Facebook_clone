@@ -46,13 +46,24 @@ export const getPerson = async (req, res) => {
     const {
         params : { id }
     }= req;
-    const $user = `select * from users WHERE id=${id}`;
-    await connection.query($user, (err, rows) => {
+    const $user = `select * from users WHERE id=${id};`;
+    const $feed = `SELECT feed.content, feed.id, feed.userId, feed.feedImg, feed.date, feed.likeCount, feed.commentCount, users.username, users.avatarUrl FROM feed left join users on feed.userId=users.id ORDER BY date DESC;`;  
+    const $like = `SELECT feedid from liketable where userid="${req.user.id}";`;
+    const $comment = 'SELECT * from comment;'; 
+    const $reply = 'SELECT * from reply;'; 
+    await connection.query($user+$feed+$like+$comment+$reply, (err, rows) => {
         if( err ) {
             console.log("❌  ERROR : " + err);
         } else {
-            const personUser = rows[0];
-            res.render("person", { pageTitle: personUser.username, personUser })
+            const personUser = rows[0][0];
+            const personFeed = rows[1]; 
+            const likeList = []; 
+            const comment = rows[3];
+            const reply = rows[4];
+            for(let i = 0; i < rows[2].length; i++){
+                likeList.push(rows[2][i].feedid);
+            }
+            res.render("person", { pageTitle: personUser.username, personUser, personFeed, likeList, comment, reply })
         }
     })
 }

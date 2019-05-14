@@ -1,7 +1,7 @@
 import routes from "../../routes";
 import axios from "axios";
 
-const main = document.getElementById("main_contents");
+const main = document.getElementsByClassName("main_content_feedSection");
 
 const feed = document.querySelector(".main_content_feed");
 const menuIcon = document.getElementsByClassName("main_content_more");

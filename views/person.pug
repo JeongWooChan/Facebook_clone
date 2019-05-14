@@ -52,15 +52,16 @@ block content
                             .person_feed_myFeed
                                 include partials/feedWriteBlock.pug
                                 .person_myFeed_text 게시물 
-                                //- each item in feeds
-                                //-     +feedBlock({
-                                //-         id: item.id, 
-                                //-         date: item.date,
-                                //-         userId: item.userId,
-                                //-         userName: item.username,
-                                //-         content: item.content,
-                                //-         avatar: item.avatarUrl, 
-                                //-         feedImg: item.feedImg,
-                                //-         likeCount: item.likeCount, 
-                                //-         commentCount: item.commentCount
-                                //-     })                            
+                                each item in personFeed
+                                    if(item.userId == personUser.id)
+                                        +feedBlock({
+                                            id: item.id, 
+                                            date: item.date,
+                                            userId: item.userId,
+                                            userName: item.username,
+                                            content: item.content,
+                                            avatar: item.avatarUrl, 
+                                            feedImg: item.feedImg,
+                                            likeCount: item.likeCount, 
+                                            commentCount: item.commentCount
+                                        })                            
