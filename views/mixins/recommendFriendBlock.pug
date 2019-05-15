@@ -1,9 +1,9 @@
 mixin recommendFriendBlock(recFriend = {}) 
     .header_friendbox_recommend
         .friendbox_recommend_image 
-            img(src=`/${user.avatarUrl}`)
+            img(src=`/${recFriend.avatar}`)
         .friendbox_recommend_name 
-            h4=user.username
+            h4=recFriend.name
         .friendbox_recommend_button 
             .friendbox_recommendAdd_button 
                 i.fas.fa-user-plus

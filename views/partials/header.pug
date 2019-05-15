@@ -50,5 +50,11 @@ header#header_header
         .header_friendbox_text 친구 요청
         +reqFriendBlock({})
         .header_friendbox_recommentText 친구 추천
-        +recommendFriendBlock({})
+        each item in recommendFriend
+            if(item.id != user.id) 
+                +recommendFriendBlock({
+                    id: item.id, 
+                    name: item.username, 
+                    avatar: item.avatarUrl
+                })
         
