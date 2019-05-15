@@ -19,7 +19,7 @@ header#header_header
                                 span(id="main_header_profileName")=user.username
                             a(href=routes.main) 
                                 i.fas.fa-home
-                            a(href="#")
+                            a#header_friend_button
                                 i.fas.fa-user-friends
                             a(href="#")
                                 i.fas.fa-bell 
@@ -42,3 +42,6 @@ header#header_header
         li 개인페이지
         li 친구
         li 로그아웃 
+#header_friend_box(style="visibility: hidden") 
+    #header_friend  
+        .asdf 123

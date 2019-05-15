@@ -193,3 +193,11 @@
         }
     }
 }
+#header_friend_box {
+    visibility: hidden;
+    position: fixed; 
+    top: 42px;
+    background-color: red;
+    width: 380px;
+    z-index: 2000;
+}
