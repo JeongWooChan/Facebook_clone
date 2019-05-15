@@ -121,10 +121,60 @@
                         margin-bottom: 17px;
                     }
                 }
+                .person_introduce_editTextarea {
+                    display: none;
+                    form {
+                        border-bottom: 1px solid #d3d6db;
+                        padding-bottom: 20px;
+                        div {
+                            textarea {
+                                width: 90%;
+                                height: 100px;
+                                resize: none;
+                                outline-style: none;
+                                margin-left: 10px;
+                                padding: 7px;
+                                font-size: 20px;
+                                border: 1px solid #d3d6db;
+                                border-radius: 5px;
+                            }
+                        }
+                        button[type=submit] {
+                            margin-left: 10px;
+                            padding: 5px 40px;
+                            font-size: 15px;
+                            background-color: #4267b2;
+                            color: #fff;
+                            font-weight: bold;
+                            cursor: pointer;
+                            width: 45%;
+                            border-radius: 3px;
+                        }
+                        button[type=button] {
+                            float: right;
+                            margin-right: 12px;
+                            padding: 5px 40px;
+                            font-size: 15px;
+                            font-weight: bold;
+                            cursor: pointer;
+                            width: 45%;
+                            border-radius: 3px;
+                        }
+                    }
+                }
                 .person_introduce_info {
-                    margin: 15px;
-                    p {
-                        font-size: 14px;
+                    margin: 15px; 
+                    div {
+                        width: 150px;
+                        overflow: hidden;
+                        margin: 0 auto;
+                        i {
+                            float: left;
+                        }
+                        p {
+                            float: left;
+                            font-size: 14px;
+                        }
                     }
                 }
             }
