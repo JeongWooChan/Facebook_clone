@@ -1,3 +1,6 @@
+include ../mixins/reqFriendBlock.pug
+include ../mixins/recommendFriendBlock.pug
+
 header#header_header
     .header_container
         .header_row 
@@ -43,5 +46,9 @@ header#header_header
         li 친구
         li 로그아웃 
 #header_friend_box(style="visibility: hidden") 
-    #header_friend  
-        .asdf 123
+    #header_friendbox   
+        .header_friendbox_text 친구 요청
+        +reqFriendBlock({})
+        .header_friendbox_recommentText 친구 추천
+        +recommendFriendBlock({})
+        

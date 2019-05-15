@@ -1,0 +1,11 @@
+mixin recommendFriendBlock(recFriend = {}) 
+    .header_friendbox_recommend
+        .friendbox_recommend_image 
+            img(src=`/${user.avatarUrl}`)
+        .friendbox_recommend_name 
+            h4=user.username
+        .friendbox_recommend_button 
+            .friendbox_recommendAdd_button 
+                i.fas.fa-user-plus
+                h5 친구 추가   
+            button 삭제  

@@ -1,0 +1,54 @@
+.header_friendbox_recommend {
+    padding: 6px 12px;
+    overflow: hidden;
+    .friendbox_recommend_image {
+        float: left;
+        img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+    }
+    .friendbox_recommend_name {
+        float: left; 
+        margin-left: 10px;
+        h4 {
+            font-size: 18px;
+            line-height: 50px;
+            color: #385898;
+            cursor: pointer;
+            font-weight: bold;
+        }
+    }
+    .friendbox_recommend_button {
+        float: right;
+        margin-top: 14px;
+        .friendbox_recommendAdd_button {
+            overflow: hidden;
+            float: left;
+            background-color: #4267b2; 
+            padding: 2px 8px; 
+            color: #fff;
+            border-radius: 2px;
+            margin-right: 7px;
+            cursor: pointer;
+            i {
+                float: left;
+                margin-top: 3px;
+                padding-right: 8px;
+            }
+            h5 {
+                float: left;
+            }
+        }
+        button {
+            color: #4b4f56;
+            background-color: #f5f6f7; 
+            padding: 2px 8px;
+            border: 1px solid #ccd0d5;
+            cursor: pointer;
+            box-sizing: border-box;
+        }
+    }
+}
