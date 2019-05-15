@@ -11,6 +11,9 @@
     width: 1000px; 
     height: inherit; 
     margin: 0 auto;
+    @media (max-width: 1024px) {
+        width: 100%;
+    }
 }
 
 /* main */
@@ -22,11 +25,22 @@
         .person_feed_detailInfo {
             float: left;
             width: 38%;
+            @media (max-width:900px) {
+                width: 100%;
+                overflow: hidden;
+            }
             #person_detailInfo_introduce {
                 background-color: #fff;
                 border: 1px solid #d3d6db;
                 border-radius: 5px;
                 margin-bottom: 15px;
+                @media (max-width:900px) {
+                    width: 48%; 
+                    float: left;
+                }
+                @media (max-width:650px) {
+                    width: 99%;
+                }
                 .person_introduce_text {
                     padding: 15px;
                     overflow: hidden;
@@ -164,6 +178,9 @@
                 }
                 .person_introduce_info {
                     margin: 15px; 
+                    @media (max-width: 900px) {
+                        margin: 29px 15px;
+                    }
                     div {
                         width: 150px;
                         overflow: hidden;
@@ -187,6 +204,13 @@
                 border-radius: 5px;
                 padding-bottom: 10px;
                 margin-bottom: 15px;
+                @media (max-width: 900px) {
+                    width: 48%;
+                    float: right;
+                }
+                @media (max-width: 650px) {
+                    display: none;
+                }
                 .person_detailInfo_friendsText {
                     padding: 15px 15px 5px 15px;
                     overflow: hidden;
@@ -231,14 +255,31 @@
                     display: grid; 
                     grid-template-columns: 33% 33% 33%; 
                     grid-template-rows: 110px 110px 110px;
+                    @media (max-width: 900px) {
+                        grid-template-rows: 110px 110px;
+                    }
                     div {
                         margin-right: 5px;
                         margin-top: 5px;
                         background-color: black;
+                        @media (max-width: 900px) {
+                            &:nth-child(7) {
+                                display: none;
+                            }
+                            &:nth-child(8) {
+                                display: none;
+                            }
+                            &:nth-child(9) {
+                                display: none;
+                            }   
+                        }
                     }
                 }
             }
             #person_detailInfo_footer {
+                @media (max-width: 900px) {
+                    display: none;
+                }
                 ul {
                     li {
                         display: inline-block;
@@ -273,6 +314,9 @@
         .person_feed_myFeed {
             float: right;
             width: 60%;
+            @media (max-width: 900px) {
+                width: 100%;
+            }
             #main_content_newFeedSection {
                 margin: 0 0 15px 0;
             }
@@ -282,8 +326,26 @@
                 margin-bottom: 15px;
                 font-weight: bold;
             }
-            #main_content_feedSection {
+            .main_content_feedSection {
                 margin: 0;
+                .main_content_feed {
+                    .main_content_Comment {
+                        .commentBlock_section {
+                            .registered_comments {
+                                .commentPart {
+                                    .registered_comments_comment {
+                                        @media (max-width: 900px) {
+                                            margin-left: 1%;
+                                        }
+                                        @media (max-width: 650px) {
+                                            margin-left: 3%;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
             }
             .main_content_feedSection {
                 margin: 0;
