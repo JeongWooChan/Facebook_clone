@@ -312,5 +312,35 @@ export const reqFriend = async (req, res) => {
             res.status(200);
             res.end();
         }
+    });
+}
+
+export const addFriend = async (req, res) => {
+    const {
+        body: { userid, friendid }
+    }=req; 
+    let $set = {
+        userid, 
+        friendid
+    }
+    let $set2 = {
+        userid : friendid, 
+        friendid : userid
+    }
+    let $sql1 = 'INSERT INTO friend SET ?;';
+    let $sql2 = 'INSERT INTO friend SET ?;'; 
+    await connection.query($sql1 + $sql2, [$set, $set2], async (err, rows) => {
+        if(err) { 
+            console.log("❌  ERROR : " + err); 
+        } else {
+            await connection.query('DELETE FROM reqfriend WHERE target=? AND applicant = ?', [friendid, userid], (err, rows) => {
+                if(err) {
+                    console.log("❌  ERROR : " + err); 
+                } else {
+                    res.status(200);
+                    res.end();
+                }
+            });
+        }
     })
 }

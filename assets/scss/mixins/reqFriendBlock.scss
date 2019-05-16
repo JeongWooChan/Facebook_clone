@@ -51,4 +51,19 @@
             box-sizing: border-box;
         }
     }
+    .frinedbox_request_add {
+        float: right;
+        overflow: hidden;
+        margin-top: 14px;
+        background-color: #f5f6f7;
+        border: 1px solid #ccd0d5; 
+        padding: 2px 8px; 
+        i {
+            float: left;
+            margin-top: 3px;
+        }
+        h5 {
+            float: left;
+        }
+    }
 }

@@ -57,6 +57,7 @@ const EDIT_REPLY = "/:id/editReply";
 const LIKE = "/:id/like";
 
 const REQ_FRINED = "/requestFriend"; 
+const ADD_FRIEND = "/addFriend"; 
 
 
 const routes = {
@@ -121,7 +122,8 @@ const routes = {
     editReply: EDIT_REPLY,
     like:LIKE,
     addIntroduce: ADD_INTRODUCE,
-    reqFriend: REQ_FRINED
+    reqFriend: REQ_FRINED,
+    addFriend: ADD_FRIEND
 }
 
 export default routes;
