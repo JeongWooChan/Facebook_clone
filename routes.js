@@ -56,6 +56,8 @@ const EDIT_REPLY = "/:id/editReply";
 
 const LIKE = "/:id/like";
 
+const REQ_FRINED = "/requestFriend"; 
+
 
 const routes = {
     home : HOME,
@@ -118,7 +120,8 @@ const routes = {
     deleteReply: DELETE_REPLY,
     editReply: EDIT_REPLY,
     like:LIKE,
-    addIntroduce: ADD_INTRODUCE
+    addIntroduce: ADD_INTRODUCE,
+    reqFriend: REQ_FRINED
 }
 
 export default routes;

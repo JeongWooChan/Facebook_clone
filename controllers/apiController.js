@@ -296,3 +296,21 @@ export const addIntroduce = async (req, res) => {
         }
     })
 }
+
+export const reqFriend = async (req, res) => {
+    const {
+        body: { target, applicant }
+    }=req;
+    let $set = {
+        target,
+        applicant
+    }
+    await connection.query(`INSERT INTO reqfriend SET ?`, $set, (err, rows) => {
+        if(err) { 
+            console.log("❌  ERROR : " + err); 
+        } else {
+            res.status(200);
+            res.end();
+        }
+    })
+}

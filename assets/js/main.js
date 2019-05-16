@@ -5,6 +5,7 @@ import "./join";
 import "./feed";
 import "./header";
 import "./person";
+import "./friendBox";
 
 // personInfo 
 import "./personInfo/overview";

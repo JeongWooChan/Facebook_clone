@@ -52,4 +52,20 @@
             box-sizing: border-box;
         }
     }
+    .friendbox_recommended_button {
+        float: right;
+        overflow: hidden;
+        margin-top: 13px;
+        border: 1px solid #ccd0d5;
+        padding: 2px 8px;
+        background-color: #f5f6f7;
+        cursor: pointer;
+        i {
+            float: left;
+            margin-top: 3px;
+        }
+        h5 {
+            float: left;
+        }
+    }
 }

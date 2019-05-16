@@ -15,6 +15,7 @@ export const getMain = async (req, res) => {
     const $like = `SELECT feedid from liketable where userid="${req.user.id}";`;
     const $ad = 'SELECT * from ad order by RAND() LIMIT 3;'; 
     const $recommendFriend = 'SELECT id, username, avatarUrl from users order by RAND() LIMIT 5;'; 
+    const $requestFriend = `SELECT * FROM reqfriend WHERE applicant='${req.user.id}';`     
     // 다중쿼리문 방식을 사용하였으며 
     // 다중쿼리문을 사용하기 위해서는 db connection을 할 때, 
     // multipleStatements: true 를 추가해줘야 한다. 
@@ -24,7 +25,8 @@ export const getMain = async (req, res) => {
         $reply + 
         $like + 
         $ad +
-        $recommendFriend, 
+        $recommendFriend +
+        $requestFriend, 
         (err, rows) => {
         if (err) {
             console.log("❌  ERROR : " + err);
@@ -34,12 +36,16 @@ export const getMain = async (req, res) => {
             const reply = rows[2];
             const likeList = [];   
             const ad = rows[4] 
-            const recommendFriend = rows[5];     
+            const recommendFriend = rows[5];
+            const reqFriendList = [];      
             if (req.user) {
                 for(let i = 0; i < rows[3].length; i++){
                     likeList.push(rows[3][i].feedid);
                 }
-                res.render("main", { pageTitle: "FaceBook", feeds, comment, reply, likeList, ad, recommendFriend });
+                for(let i = 0; i < rows[6].length; i++) {
+                    reqFriendList.push(rows[6][i].target); 
+                }
+                res.render("main", { pageTitle: "FaceBook", feeds, comment, reply, likeList, ad, recommendFriend, reqFriendList });
             } else {
                 res.redirect(routes.home);
             }
@@ -60,7 +66,9 @@ export const getPerson = async (req, res) => {
     const $like = `SELECT feedid from liketable where userid="${req.user.id}";`;
     const $comment = 'SELECT * from comment;'; 
     const $reply = 'SELECT * from reply;'; 
-    await connection.query($user+$feed+$like+$comment+$reply, (err, rows) => {
+    const $recommendFriend = 'SELECT id, username, avatarUrl from users order by RAND() LIMIT 5;';
+    const $requestFriend = `SELECT * FROM reqfriend WHERE applicant='${req.user.id}';` 
+    await connection.query($user+$feed+$like+$comment+$reply+$recommendFriend+$requestFriend, (err, rows) => {
         if( err ) {
             console.log("❌  ERROR : " + err);
         } else {
@@ -69,10 +77,15 @@ export const getPerson = async (req, res) => {
             const likeList = []; 
             const comment = rows[3];
             const reply = rows[4];
+            const recommendFriend = rows[5];
+            const reqFriendList = []; 
             for(let i = 0; i < rows[2].length; i++){
                 likeList.push(rows[2][i].feedid);
             }
-            res.render("person", { pageTitle: personUser.username, personUser, personFeed, likeList, comment, reply })
+            for(let i = 0; i < rows[6].length; i++) {
+                reqFriendList.push(rows[6][i].target); 
+            }
+            res.render("person", { pageTitle: personUser.username, personUser, personFeed, likeList, comment, reply, recommendFriend, reqFriendList })
         }
     })
 }

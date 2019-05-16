@@ -4,8 +4,25 @@ mixin recommendFriendBlock(recFriend = {})
             img(src=`/${recFriend.avatar}`)
         .friendbox_recommend_name 
             h4=recFriend.name
-        .friendbox_recommend_button 
-            .friendbox_recommendAdd_button 
-                i.fas.fa-user-plus
-                h5 친구 추가   
-            button 삭제  
+        if(reqFriendList.indexOf(recFriend.id) == -1) 
+            .friendbox_recommend_button(style="display: block") 
+                .friendbox_recommendAdd_button 
+                    i.fas.fa-user-plus
+                    h5 친구 추가   
+                button 삭제
+                .targetid(style="display: none")=recFriend.id
+                .applicantid(style="display:none")=user.id
+            .friendbox_recommended_button(style="display: none") 
+                    i.fas.fa-check 
+                    h5 요청함
+        else 
+            .friendbox_recommend_button(style="display: none") 
+                .friendbox_recommendAdd_button 
+                    i.fas.fa-user-plus
+                    h5 친구 추가   
+                button 삭제
+                .targetid(style="display: none")=recFriend.id
+                .applicantid(style="display:none")=user.id
+            .friendbox_recommended_button(style="display: block") 
+                    i.fas.fa-check 
+                    h5 요청함
