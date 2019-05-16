@@ -17,9 +17,22 @@ const requestDeleteBtn = document.getElementsByClassName("friendbox_delete_butto
 const requestBox = document.getElementsByClassName("header_friendbox_request");
 const requestNull = document.getElementsByClassName("header_friendbox_null");
 
-const deleteFriendReq = i => {
-    requestBox[i].remove();
-    requestNull[0].style.display = "block";
+const deleteFriendReq = async i => {
+    const friendid = document.getElementsByClassName("friendbox_request_targetId")[i].innerHTML;
+    const userid = document.getElementsByClassName("friendbox_request_applicantId")[i].innerHTML;
+
+    const response = await axios({
+        url:`/api${routes.deleteRequesetFriend}`, 
+        method:"POST", 
+        data: {
+            userid, 
+            friendid
+        }
+    }); 
+    if(response.status === 200) {
+        requestBox[i].remove();
+        requestNull[0].style.display = "block";
+    }
 }
 
 const addFriend = async i => {

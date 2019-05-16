@@ -342,5 +342,19 @@ export const addFriend = async (req, res) => {
                 }
             });
         }
+    });
+}
+
+export const deleteRequestFriend = async(req,res) => {
+    const {
+        body: { userid, friendid }
+    }=req; 
+    await connection.query('DELETE FROM reqfriend WHERE target=? AND applicant = ?', [friendid, userid], (err, rows) => {
+        if(err) {
+            console.log("❌  ERROR : " + err); 
+        } else {
+            res.status(200);
+            res.end();
+        }
     })
 }

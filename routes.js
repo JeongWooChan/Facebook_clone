@@ -58,6 +58,7 @@ const LIKE = "/:id/like";
 
 const REQ_FRINED = "/requestFriend"; 
 const ADD_FRIEND = "/addFriend"; 
+const DELETE_REQ_FRIENC = "/deleteRequestFriend";
 
 
 const routes = {
@@ -123,7 +124,8 @@ const routes = {
     like:LIKE,
     addIntroduce: ADD_INTRODUCE,
     reqFriend: REQ_FRINED,
-    addFriend: ADD_FRIEND
+    addFriend: ADD_FRIEND, 
+    deleteRequesetFriend: DELETE_REQ_FRIENC
 }
 
 export default routes;
