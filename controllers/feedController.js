@@ -77,7 +77,11 @@ export const getPerson = async (req, res) => {
     const $reply = 'SELECT * from reply;'; 
     const $recommendFriend = 'SELECT id, username, avatarUrl from users order by RAND() LIMIT 5;';
     const $requestFriend = `SELECT * FROM reqfriend WHERE applicant='${req.user.id}';` 
-    await connection.query($user+$feed+$like+$comment+$reply+$recommendFriend+$requestFriend, (err, rows) => {
+    const $requestedFriend = `SELECT reqfriend.applicant, reqfriend.target, users.id, users.username, users.avatarUrl from reqfriend join users on reqfriend.applicant=users.id WHERE reqfriend.target='${req.user.id}';`
+    const $friend = `SELECT friendid FROM friend WHERE userid='${req.user.id}';`;
+    const $friendGrid = `SELECT users.id, users.username, users.avatarUrl, friend.friendid from friend join users on friend.friendid=users.id where friend.userid='${id}';`;
+
+    await connection.query($user+$feed+$like+$comment+$reply+$recommendFriend+$requestFriend+$requestedFriend+$friend+$friendGrid, (err, rows) => {
         if( err ) {
             console.log("❌  ERROR : " + err);
         } else {
@@ -88,13 +92,19 @@ export const getPerson = async (req, res) => {
             const reply = rows[4];
             const recommendFriend = rows[5];
             const reqFriendList = []; 
+            const requestedFriend = rows[7];  
+            const friendList = []; 
+            const friendGrid = rows[9];
             for(let i = 0; i < rows[2].length; i++){
                 likeList.push(rows[2][i].feedid);
             }
             for(let i = 0; i < rows[6].length; i++) {
                 reqFriendList.push(rows[6][i].target); 
             }
-            res.render("person", { pageTitle: personUser.username, personUser, personFeed, likeList, comment, reply, recommendFriend, reqFriendList })
+            for(let i = 0; i < rows[8].length; i++) {
+                friendList.push(rows[8][i].friendid); 
+            }
+            res.render("person", { pageTitle: personUser.username, personUser, personFeed, likeList, comment, reply, recommendFriend, reqFriendList, requestedFriend, friendList, friendGrid })
         }
     })
 }
@@ -104,13 +114,28 @@ export const getPersonInfo = async (req, res) => {
     const {
         params : { id }
     }= req;
-    const $user = `select * from users WHERE id=${id}`; 
-    await connection.query($user, (err, rows) => {
+    const $user = `select * from users WHERE id=${id};`;
+    const $recommendFriend = 'SELECT id, username, avatarUrl from users order by RAND() LIMIT 5;';
+    const $requestFriend = `SELECT * FROM reqfriend WHERE applicant='${req.user.id}';` 
+    const $requestedFriend = `SELECT reqfriend.applicant, reqfriend.target, users.id, users.username, users.avatarUrl from reqfriend join users on reqfriend.applicant=users.id WHERE reqfriend.target='${req.user.id}';`
+    const $friend = `SELECT friendid FROM friend WHERE userid='${req.user.id}';`;
+
+    await connection.query($user + $recommendFriend + $requestFriend + $requestedFriend + $friend, (err, rows) => {
         if( err ) {
             console.log("❌  ERROR : " + err);
         } else {
-            const personUser = rows[0];
-            res.render("personInfo", { pageTitle: personUser.username, personUser })
+            const personUser = rows[0][0];
+            const recommendFriend = rows[1];
+            const reqFriendList = []; 
+            const requestedFriend = rows[3];  
+            const friendList = [];  
+            for(let i = 0; i < rows[2].length; i++) {
+                reqFriendList.push(rows[2][i].target); 
+            }
+            for(let i = 0; i < rows[4].length; i++) {
+                friendList.push(rows[4][i].friendid); 
+            }
+            res.render("personInfo", { pageTitle: personUser.username, personUser, recommendFriend, reqFriendList, requestedFriend, friendList })
         }
     });
 }

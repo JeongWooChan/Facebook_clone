@@ -253,15 +253,15 @@
                 .person_detailInfo_friendsGrid {
                     margin-left: 9px;
                     display: grid; 
-                    grid-template-columns: 33% 33% 33%; 
-                    grid-template-rows: 110px 110px 110px;
+                    grid-template-columns: repeat(3, 1fr); 
+                    grid-template-rows: repeat(3, 1fr);
                     @media (max-width: 900px) {
                         grid-template-rows: 110px 110px;
                     }
-                    div {
+                    .person_friendImg_div {
                         margin-right: 5px;
                         margin-top: 5px;
-                        background-color: black;
+                        position: relative;
                         @media (max-width: 900px) {
                             &:nth-child(7) {
                                 display: none;
@@ -272,6 +272,15 @@
                             &:nth-child(9) {
                                 display: none;
                             }   
+                        }
+                        img {
+                            height: 110px;
+                        }
+                        span {
+                            position: absolute;
+                            top: 80%;
+                            left: 9px;
+                            color: #fff;
                         }
                     }
                 }

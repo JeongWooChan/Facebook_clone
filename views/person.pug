@@ -1,5 +1,6 @@
 extends layouts/mainLayout.pug
 include mixins/feedBlock.pug
+include mixins/friendGrid.pug
 
 block content
     include partials/header
@@ -108,18 +109,14 @@ block content
                                     .person_detailInfo_friendsText 
                                         i.fas.fa-user-friends 
                                         span 친구 
-                                        span.person_friendsText_count 100명 
-                                        span.person_friendsText_find 친구 찾기
+                                        span.person_friendsText_count=friendList.length+"명" 
                                     .person_detailInfo_friendsGrid 
-                                        div 1
-                                        div 2
-                                        div 3
-                                        div 4
-                                        div 5
-                                        div 6
-                                        div 7
-                                        div 8
-                                        div 9
+                                        each item in friendGrid
+                                            +friendGrid({
+                                                id: item.id,
+                                                name: item.username, 
+                                                avatar: item.avatarUrl
+                                            })
                                 article#person_detailInfo_footer 
                                     ul
                                         li 
