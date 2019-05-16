@@ -22,8 +22,9 @@
                     }
                 }
                 #main_content_adSection {
-                    float: left;
-                    width: 32%;
+                    position: fixed; 
+                    width: 320px;
+                    right: 0;
                     @media (max-width: 786px) {
                         display: none;
                     }

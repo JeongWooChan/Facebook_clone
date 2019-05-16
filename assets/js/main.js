@@ -6,6 +6,7 @@ import "./feed";
 import "./header";
 import "./person";
 import "./friendBox";
+import "./mainPage";
 
 // personInfo 
 import "./personInfo/overview";
