@@ -15,7 +15,8 @@ export const getMain = async (req, res) => {
     const $like = `SELECT feedid from liketable where userid="${req.user.id}";`;
     const $ad = 'SELECT * from ad order by RAND() LIMIT 3;'; 
     const $recommendFriend = 'SELECT id, username, avatarUrl from users order by RAND() LIMIT 5;'; 
-    const $requestFriend = `SELECT * FROM reqfriend WHERE applicant='${req.user.id}';`     
+    const $requestFriend = `SELECT * FROM reqfriend WHERE applicant='${req.user.id}';`   
+    const $requestedFriend = `SELECT reqfriend.applicant, reqfriend.target, users.id, users.username, users.avatarUrl from reqfriend join users on reqfriend.applicant=users.id WHERE reqfriend.target='${req.user.id}';`
     // 다중쿼리문 방식을 사용하였으며 
     // 다중쿼리문을 사용하기 위해서는 db connection을 할 때, 
     // multipleStatements: true 를 추가해줘야 한다. 
@@ -26,7 +27,8 @@ export const getMain = async (req, res) => {
         $like + 
         $ad +
         $recommendFriend +
-        $requestFriend, 
+        $requestFriend + 
+        $requestedFriend, 
         (err, rows) => {
         if (err) {
             console.log("❌  ERROR : " + err);
@@ -37,7 +39,8 @@ export const getMain = async (req, res) => {
             const likeList = [];   
             const ad = rows[4] 
             const recommendFriend = rows[5];
-            const reqFriendList = [];      
+            const reqFriendList = [];  
+            const requestedFriend = rows[7];    
             if (req.user) {
                 for(let i = 0; i < rows[3].length; i++){
                     likeList.push(rows[3][i].feedid);
@@ -45,7 +48,8 @@ export const getMain = async (req, res) => {
                 for(let i = 0; i < rows[6].length; i++) {
                     reqFriendList.push(rows[6][i].target); 
                 }
-                res.render("main", { pageTitle: "FaceBook", feeds, comment, reply, likeList, ad, recommendFriend, reqFriendList });
+                console.log(requestedFriend);
+                res.render("main", { pageTitle: "FaceBook", feeds, comment, reply, likeList, ad, recommendFriend, reqFriendList, requestedFriend });
             } else {
                 res.redirect(routes.home);
             }

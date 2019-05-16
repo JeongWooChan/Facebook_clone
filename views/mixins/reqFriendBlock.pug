@@ -1,9 +1,9 @@
 mixin reqFriendBlock(reqFriend = {}) 
     .header_friendbox_request 
         .friendbox_request_image 
-            img(src=`/${user.avatarUrl}`)
+            img(src=`/${reqFriend.avatar}`)
         .friendbox_request_name 
-            h4=user.username
+            h4=reqFriend.name
         .friendbox_request_button 
             .friendbox_add_button 
                 i.fas.fa-user-plus

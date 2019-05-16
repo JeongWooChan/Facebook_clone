@@ -48,13 +48,32 @@ header#header_header
 #header_friend_box(style="visibility: hidden") 
     #header_friendbox   
         .header_friendbox_text 친구 요청
-        +reqFriendBlock({})
-        .header_friendbox_recommentText 친구 추천
-        each item in recommendFriend
-            if(item.id != user.id) 
-                +recommendFriendBlock({
+        if(requestedFriend.length != 0)
+            each item in requestedFriend
+                +reqFriendBlock({
                     id: item.id, 
                     name: item.username, 
-                    avatar: item.avatarUrl
+                    avatar: item.avatarUrl 
                 })
+        else 
+            .header_friendbox_null 
+                h5 새로운 요청이 없습니다. 
+        .header_friendbox_recommentText 친구 추천
+        if(requestedFriend.length != 0)
+            each item in recommendFriend
+                each item2 in requestedFriend 
+                    if(item.id != user.id && item2.applicant != item.id) 
+                        +recommendFriendBlock({
+                            id: item.id, 
+                            name: item.username, 
+                            avatar: item.avatarUrl
+                        })
+        else 
+            each item in recommendFriend 
+                if(item.id != user.id) 
+                    +recommendFriendBlock({
+                        id: item.id, 
+                        name: item.username, 
+                        avatar: item.avatarUrl
+                    })
         
