@@ -13,17 +13,18 @@ block content
                         section#main_contentFeedSection
                             include partials/feedWriteBlock.pug
                             each item in feeds
-                                +feedBlock({
-                                    id: item.id, 
-                                    date: item.date,
-                                    userId: item.userId,
-                                    userName: item.username,
-                                    content: item.content,
-                                    avatar: item.avatarUrl, 
-                                    feedImg: item.feedImg,
-                                    likeCount: item.likeCount, 
-                                    commentCount: item.commentCount
-                                })
+                                if(friendList.indexOf(item.userId) !== -1 || user.id === item.userId)
+                                    +feedBlock({
+                                        id: item.id, 
+                                        date: item.date,
+                                        userId: item.userId,
+                                        userName: item.username,
+                                        content: item.content,
+                                        avatar: item.avatarUrl, 
+                                        feedImg: item.feedImg,
+                                        likeCount: item.likeCount, 
+                                        commentCount: item.commentCount
+                                    })
                         section#main_content_adSection
                             article#main_content_adContent  
                                 .main_content_ad 
