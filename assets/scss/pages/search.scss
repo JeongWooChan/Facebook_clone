@@ -1,0 +1,92 @@
+#search_contents {
+    padding: 52px 0; 
+    background-color: #e9ebee; 
+    width: 100%;
+    .search_container {
+        width: 1000px; 
+        height: inherit;
+        margin: 0 auto;
+        .search_row {
+            .search_contents {
+                overflow: hidden;
+                #search_contentSection {
+                    float: left;
+                    width: 65%;
+                    .search_person_div {
+                        .search_person_text {
+                            font-size: 20px;
+                            font-weight: bold;
+                            margin-bottom: 10px;
+                        }
+                    }
+                    .search_feed_div {
+                        .search_feed_text {
+                            font-size: 20px;
+                            font-weight: bold;
+                            margin: 10px 0;
+                        }
+                        .main_content_feedSection {
+                            margin: 0;
+                            margin-bottom: 15px;
+                        }
+                    }
+                }
+                #search_adSection {
+                    position: fixed;
+                    width: 320px;
+                    right: 0; 
+                    #search_content_adContent {
+                        min-height: 500px;
+                        width: 100%;
+                        background-color: #fff; 
+                        margin-bottom: 15px; 
+                        .search_content_ad {
+                            padding: 15px 15px 5px 15px; 
+                            .search_ad_text {
+                                font-size: 13px; 
+                                color: #616770; 
+                                font-weight: 600; 
+                            }
+                        }
+                    }
+                    #search_content_footerContent {
+                        ul {
+                            li {
+                                display: inline-block;
+                                padding-right: 8px;
+                                position: relative;
+                                a {
+                                    color: #90949C;
+                                }
+                                &:before {
+                                    content: ''; 
+                                    width: 3px;
+                                    height: 3px;
+                                    border-radius: 50%; 
+                                    position: absolute; 
+                                    right: 1.5px;
+                                    top: 8px;
+                                    background-color: #90949C;
+                                }
+                                &:last-child:before {
+                                    width: 0;
+                                }
+                                &:first-child {
+                                    font-weight: bold;
+                                }
+                                &:hover {
+                                    text-decoration: underline;
+                                }
+                            }
+                        }
+                        address {
+                            color: #616770; 
+                            font-size: 13px;
+                            font-weight: bold;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

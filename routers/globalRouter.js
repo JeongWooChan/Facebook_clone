@@ -1,6 +1,6 @@
 import express from "express"; 
 import routes from "../routes"; 
-import { home, postJoin, getJoin, getLogin, postLogin, logout } from "../controllers/globalController";
+import { home, postJoin, getJoin, getLogin, postLogin, logout, getSearch } from "../controllers/globalController";
 
 const globalRouter = express.Router(); 
 
@@ -16,5 +16,8 @@ globalRouter.post(routes.login, postLogin);
 
 //Logout 
 globalRouter.get(routes.logout, logout); 
+
+//Search 
+globalRouter.get(routes.search, getSearch); 
 
 export default globalRouter; 

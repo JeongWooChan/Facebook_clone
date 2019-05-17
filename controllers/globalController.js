@@ -97,3 +97,39 @@ export const logout = (req, res) => {
         res.redirect(routes.home);
     }
 }
+
+export const getSearch = async (req, res) => {
+    const {
+        query: {header_searchText}
+    } = req;
+    const $requestedFriend = `SELECT reqfriend.applicant, reqfriend.target, users.id, users.username, users.avatarUrl from reqfriend join users on reqfriend.applicant=users.id WHERE reqfriend.target='${req.user.id}';`
+    const $recommendFriend = 'SELECT id, username, avatarUrl from users order by RAND() LIMIT 5;';
+    const $friend = `SELECT friendid FROM friend WHERE userid='${req.user.id}';`;
+    const $ad = 'SELECT * from ad order by RAND() LIMIT 3;';
+    const $feed = 'SELECT feed.content, feed.id, feed.userId, feed.feedImg, feed.date, feed.likeCount, feed.commentCount, users.username, users.avatarUrl FROM feed left join users on feed.userId=users.id ORDER BY date DESC;';
+    const $like = `SELECT feedid from liketable where userid="${req.user.id}";`;
+    const $comment = 'SELECT * from comment;'; 
+    const $reply = 'SELECT * from reply;'; 
+
+    await connection.query($requestedFriend+$recommendFriend+$friend+$ad+$feed+$like+$comment+$reply, (err,rows) => {
+        const requestedFriend = rows[0]; 
+        const recommendFriend = rows[1];
+        const friendList = [];  
+        const ad = rows[3]; 
+        const feeds = rows[4];
+        const likeList = [];  
+        const comment = rows[6];
+        const reply = rows[7];
+
+
+        for(let i = 0; i < rows[5].length; i++){
+            likeList.push(rows[5][i].feedid);
+        }
+        for(let i = 0; i < rows[2].length; i++) {
+            friendList.push(rows[2][i].friendid); 
+        }
+        res.render("search", { pageTitle: header_searchText + "- Facebook 검색", requestedFriend, recommendFriend, friendList, ad, feeds, likeList, comment, reply });
+    })
+    
+   
+}

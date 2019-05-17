@@ -9,10 +9,12 @@
 @import "./mixins/replyBlock.scss";
 @import "./mixins/adBlock.scss";
 @import "./mixins/reqFriendBlock.scss";
-@import "./mixins//recommendFriendBlock.scss";
+@import "./mixins/recommendFriendBlock.scss";
+@import "./mixins/searchFriendBlock.scss";
 
 @import "./pages/login.scss"; 
 @import "./pages/join.scss";
 @import "./pages/main.scss";
 @import "./pages/person.scss";
 @import "./pages/personInfo.scss";
+@import "./pages/search.scss";

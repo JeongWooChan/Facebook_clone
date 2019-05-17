@@ -10,7 +10,7 @@ header#header_header
                         a(href=routes.main)
                             i.fab.fa-facebook
                     .header_search 
-                        form(action="#", method="get", id="header_searchForm")
+                        form(action=routes.search, method="get", id="header_searchForm")
                             input(type="text", placeholder="검색", id="header_searchText", name="header_searchText")
                             button(type="submit", id="header_searchSubmit")
                                 i.fas.fa-search

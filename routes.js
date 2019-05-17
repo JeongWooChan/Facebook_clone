@@ -3,6 +3,7 @@ const HOME = "/";
 const JOIN = "/join"; 
 const LOGIN = "/login"; 
 const LOGOUT = "/logout"; 
+const SEARCH = "/search";
 
 // Feed 
 const MAIN = "/main"; 
@@ -66,6 +67,7 @@ const routes = {
     join : JOIN, 
     login : LOGIN,
     logout : LOGOUT,
+    search : SEARCH,
     main : MAIN, 
     api: API, 
     email_check: EMAIL_CHECK, 

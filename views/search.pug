@@ -1,0 +1,51 @@
+extends layouts/mainLayout.pug 
+include mixins/adBlock.pug
+include mixins/feedBlock.pug
+include mixins/searchFriendBlock.pug
+
+block content 
+    include partials/header
+    main 
+        section#search_contents 
+            .search_container 
+                .search_row 
+                    .search_contents 
+                        article#search_contentSection 
+                            .search_person_div
+                                .search_person_text 인물
+                                +searchFriend({})
+                            .search_feed_div
+                                .search_feed_text 게시물 
+                                each item in feeds 
+                                    +feedBlock({
+                                        id: item.id, 
+                                        date: item.date,
+                                        userId: item.userId,
+                                        userName: item.username,
+                                        content: item.content,
+                                        avatar: item.avatarUrl, 
+                                        feedImg: item.feedImg,
+                                        likeCount: item.likeCount, 
+                                        commentCount: item.commentCount
+                                    }) 
+                        aside#search_adSection
+                            article#search_content_adContent 
+                                .search_content_ad 
+                                    .search_ad_text Advertisement 
+                                each item in ad 
+                                    +adBlock({
+                                        title: item.title,
+                                        img: item.img,
+                                        address: item.address,
+                                        addressName: item.address_name, 
+                                        description: item.description
+                                    })
+                            article#search_content_footerContent 
+                                ul
+                                    li 
+                                        a(href="#") 개인정보처리방침 
+                                    li 
+                                        a(href="#") 이용 약관 
+                                    li  
+                                        a(href="#") 광고 
+                                address Facebook &copy; #{new Date().getFullYear()}

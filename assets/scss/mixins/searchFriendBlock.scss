@@ -1,0 +1,28 @@
+.search_person_block {
+    width: 100%;
+    overflow: hidden;
+    background-color: #fff;
+    padding: 15px;
+    box-sizing: border-box;
+    border: 1px solid #d3d6db;
+    border-radius: 5px;
+    img {
+        float: left;
+        width: 60px;
+        height: 60px;
+        object-fit: cover;
+        border-radius: 50%;
+        margin-right: 15px;
+    }
+    h4 {
+        line-height: 60px;
+        float: left;
+        font-size: 18px;
+        color: #365899;
+        font-weight: bold;
+    }
+    .search_person_button {
+        float: right;
+        line-height: 60px;
+    }
+}
