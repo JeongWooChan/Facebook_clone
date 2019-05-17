@@ -4,7 +4,7 @@ mixin replyBlock(reply = {})
             .registered_reply_img 
                 img(src=`/${reply.userAvatar}`)
             .registered_reply_reply 
-                a.registered_reply_name(href="#")=reply.userName
+                a.registered_reply_name(href=routes.person(reply.userid))=reply.userName
                 span.registered_reply_content=reply.reply
             if(reply.feed_userid == user.id || reply.userid == user.id)
                 i.fas.fa-ellipsis-h.reply_menuIcon 
