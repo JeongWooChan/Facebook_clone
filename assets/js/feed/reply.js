@@ -9,7 +9,7 @@ const commentInput = document.getElementsByClassName("reply_input");
 
 
 const fakeAddReply = (comment, i) => {
-    const avatar = document.getElementsByClassName("addCommentForm_avatar");
+    const avatar = document.querySelector(".header_iconMenu a img");
     const name = document.getElementById("main_header_profileName").innerHTML;
 
     // CreateElement
@@ -42,8 +42,8 @@ const fakeAddReply = (comment, i) => {
     userName.className = "registered_reply_name";
     replyContent.className = "registered_reply_content";
 
-    // input value 
-    image.src=avatar[i].src;
+    // input value
+    image.src=avatar.src;
     userName.href="#";
     userName.innerHTML = name;
     replyContent.innerHTML = comment;

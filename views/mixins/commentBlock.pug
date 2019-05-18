@@ -4,7 +4,7 @@ mixin commentBlock(comment = {})
     .registered_comments
         .commentPart 
             .registered_comments_img  
-                img(src=`/${comment.avatar}`)
+                img.comments_img1(src=`/${comment.avatar}`)
             .registered_comments_comment
                 a.registered_comment_name(href=routes.person(comment.userid))=comment.username
                 span.registered_comment_content=comment.comment 

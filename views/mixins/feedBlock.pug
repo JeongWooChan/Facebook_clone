@@ -1,6 +1,7 @@
 include ./commentBlock.pug
 
 mixin feedBlock(feed = {}) 
+    input#autopaging_number(type="text", value="1", style="display:none")
     section.main_content_feedSection 
         article.main_content_feed
             .main_content_header 
@@ -58,7 +59,7 @@ mixin feedBlock(feed = {})
                         span.main_content_likeCount=feed.likeCount
                     .main_content_comment
                         span.main_content_commentText 댓글 
-                        span.main_content_commentCount=feed.commentCount
+                        span.main_content_commentCount=feed.commentCount+feed.replyCount
                         span.main_content_commentCountText 개
                 .main_content_buttonSection 
                     //- 현재 계정이 좋아요 누른 feedId가 likeList에 배열로 담겨져 있다. 

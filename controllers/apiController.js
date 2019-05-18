@@ -98,11 +98,13 @@ export const deleteComment = async (req, res) => {
             await connection.query($feedid + $deleteReply + $replyCount + $deleteComment, [id,id,id,id], async (err, result) => {
                 const feedId = result[0][0].feedId;
                 const replyCount = result[1].affectedRows; 
+
+                console.log(replyCount);
                 console.log(feedId);
                 if(err) {
                     console.log("❌  ERROR1 : " + err); 
                 } else {
-                    await connection.query(`UPDATE feed SET commentCount=commentCount-${replyCount+1} WHERE id=?`, feedId, (err, results) => {
+                    await connection.query(`UPDATE feed SET commentCount=commentCount-1, replyCount=replyCount-${replyCount} WHERE id=?`, feedId, (err, results) => {
                         if(err) {
                             console.log("❌  ERROR2 : " + err); 
                         } else {
@@ -173,7 +175,7 @@ export const addReply = async (req, res) => {
                 feedId: feedId 
             }
             const $addReply = 'INSERT INTO reply SET ?;'; 
-            const $update_CommentCnt = 'UPDATE feed SET commentCount=commentCount+1 WHERE `id`=?;'; 
+            const $update_CommentCnt = 'UPDATE feed SET replyCount=replyCount+1 WHERE `id`=?;'; 
 
             await connection.query($addReply + $update_CommentCnt, [$set, feedId], (err, result) => {
                 if(err) {
@@ -196,7 +198,7 @@ export const deleteReply = async (req, res) => {
             console.log("❌  ERROR : " + err); 
         } else {
             const feedId = rows[0].feedId;
-            await connection.query('UPDATE feed SET commentCount=commentCount-1 WHERE `id`=?', feedId, (err, result) => {
+            await connection.query('UPDATE feed SET replyCount=replyCount-1 WHERE `id`=?', feedId, (err, result) => {
                 if(err) {
                     console.log("❌  ERROR : " + err); 
                 }

@@ -36,8 +36,8 @@ const fakeAddComment = (comment, i) => {
     
     img.src=avatar[i].src; 
     username.className="registered_comment_name";
-    username.href="#"; 
-    username.innerHTML="정우찬"; 
+    username.href=document.querySelector(".header_iconMenu a"); 
+    username.innerHTML=document.getElementById("main_header_profileName").innerHTML; 
     commentSpan.className= "registered_comment_content";
     commentSpan.innerHTML=comment; 
     co_comentA.innerHTML = "답글달기"; 
