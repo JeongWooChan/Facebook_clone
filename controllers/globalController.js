@@ -110,8 +110,10 @@ export const getSearch = async (req, res) => {
     const $like = `SELECT feedid from liketable where userid="${req.user.id}";`;
     const $comment = 'SELECT * from comment;'; 
     const $reply = 'SELECT * from reply;'; 
+    const $searchPerson = `SELECT id, username, avatarUrl FROM users WHERE username LIKE '%${header_searchText}%';`
+    const $requestFriend = `SELECT * FROM reqfriend WHERE applicant='${req.user.id}';`   
 
-    await connection.query($requestedFriend+$recommendFriend+$friend+$ad+$feed+$like+$comment+$reply, (err,rows) => {
+    await connection.query($requestedFriend+$recommendFriend+$friend+$ad+$feed+$like+$comment+$reply+$searchPerson+$requestFriend, (err,rows) => {
         const requestedFriend = rows[0]; 
         const recommendFriend = rows[1];
         const friendList = [];  
@@ -120,15 +122,20 @@ export const getSearch = async (req, res) => {
         const likeList = [];  
         const comment = rows[6];
         const reply = rows[7];
+        const searchPerson = rows[8]; 
+        const reqFriendList = []; 
 
 
+        for(let i = 0; i < rows[9].length; i++) {
+            reqFriendList.push(rows[9][i].target); 
+        }
         for(let i = 0; i < rows[5].length; i++){
             likeList.push(rows[5][i].feedid);
         }
         for(let i = 0; i < rows[2].length; i++) {
             friendList.push(rows[2][i].friendid); 
         }
-        res.render("search", { pageTitle: header_searchText + "- Facebook 검색", requestedFriend, recommendFriend, friendList, ad, feeds, likeList, comment, reply });
+        res.render("search", { pageTitle: header_searchText + "- Facebook 검색", requestedFriend, recommendFriend, friendList, ad, feeds, likeList, comment, reply, searchPerson, reqFriendList });
     })
     
    

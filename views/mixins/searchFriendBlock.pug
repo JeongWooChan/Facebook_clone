@@ -1,6 +1,16 @@
 mixin searchFriend(friend = {}) 
     .search_person_block 
-        img(src="/uploads/download/basicAvatar.png")
-        h4 정우찬
-        .search_person_button 
-            button 친구 추가
+        img(src=`/${friend.avatar}`)
+        h4
+            a(href=routes.person(friend.id))=friend.name
+        if(user.id == friend.id)
+
+        else
+            if(friend.friend === 1) 
+                .search_person_friendbutton 
+                    i.fas.fa-check
+                    h5.search_person_friend 친구 
+            else 
+                .search_person_addFriendbutton
+                    i.fas.fa-user-plus  
+                    h5.addFriend 친구추가   

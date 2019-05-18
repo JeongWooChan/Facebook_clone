@@ -13,7 +13,21 @@ block content
                         article#search_contentSection 
                             .search_person_div
                                 .search_person_text 인물
-                                +searchFriend({})
+                                each item in searchPerson
+                                    if(friendList.indexOf(item.id) !== -1)
+                                        +searchFriend({
+                                            id: item.id, 
+                                            name: item.username, 
+                                            avatar: item.avatarUrl, 
+                                            friend: 1 
+                                        })
+                                    else 
+                                        +searchFriend({
+                                            id: item.id, 
+                                            name: item.username, 
+                                            avatar: item.avatarUrl, 
+                                            friend: 0
+                                        })
                             .search_feed_div
                                 .search_feed_text 게시물 
                                 each item in feeds 
