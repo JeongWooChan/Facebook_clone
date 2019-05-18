@@ -11,6 +11,19 @@ mixin searchFriend(friend = {})
                     i.fas.fa-check
                     h5.search_person_friend 친구 
             else 
-                .search_person_addFriendbutton
-                    i.fas.fa-user-plus  
-                    h5.addFriend 친구추가   
+                if(reqFriendList.indexOf(friend.id) === -1)
+                    .search_person_addFriendbutton
+                        i.fas.fa-user-plus  
+                        h5.addFriend 친구추가
+                    .serach_person_reqFriendbutton(style="display:none") 
+                        i.fas.fa-check 
+                        h5 요청함 
+                else 
+                    .search_person_addFriendbutton(style="display:none")
+                        i.fas.fa-user-plus  
+                        h5.addFriend 친구추가
+                    .serach_person_reqFriendbutton(style="display:block") 
+                        i.fas.fa-check 
+                        h5 요청함 
+                .search_targetid(style="display:none")=friend.id 
+                .search_applicantid(style="display:none")=user.id   

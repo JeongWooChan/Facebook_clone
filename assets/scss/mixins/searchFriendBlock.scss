@@ -29,6 +29,7 @@
         border-radius: 2px;
         padding: 5px 8px;
         margin-top: 16px;
+        cursor: pointer;
         i {
             float: left;
             margin-top: 3px;
@@ -45,10 +46,11 @@
         float: right;
         overflow: hidden;
         background-color: #e9ebee; 
-        color: balck;
+        color: black;
         border-radius: 2px;
         padding: 5px 8px;
         margin-top: 16px;
+        cursor: pointer;
         i {
             float: left;
             margin-top: 3px;
@@ -61,5 +63,22 @@
             float: left;
         }
     }
-
+    .serach_person_reqFriendbutton {
+        float: right;
+        overflow: hidden;
+        background-color: #e9ebee; 
+        color: black;
+        border-radius: 2px;
+        padding: 5px 8px;
+        margin-top: 16px;
+        cursor: pointer;
+        i {
+            float: left;
+            margin-top: 3px;
+            margin-right: 5px;
+        }
+        h5 {
+            float: left;
+        }
+    }
 }

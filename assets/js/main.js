@@ -7,6 +7,7 @@ import "./header";
 import "./person";
 import "./friendBox";
 import "./mainPage";
+import "./search"; 
 
 // personInfo 
 import "./personInfo/overview";

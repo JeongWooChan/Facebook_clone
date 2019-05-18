@@ -135,6 +135,7 @@ export const getSearch = async (req, res) => {
         for(let i = 0; i < rows[2].length; i++) {
             friendList.push(rows[2][i].friendid); 
         }
+        console.log(requestedFriend);
         res.render("search", { pageTitle: header_searchText + "- Facebook 검색", requestedFriend, recommendFriend, friendList, ad, feeds, likeList, comment, reply, searchPerson, reqFriendList });
     })
     
