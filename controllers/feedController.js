@@ -9,7 +9,7 @@ const PORT = process.env.PORT;
 
 // Main 페이지 
 export const getMain = async (req, res) => {
-    const $feed = 'SELECT feed.content, feed.id, feed.userId, feed.feedImg, feed.date, feed.likeCount, feed.commentCount, feed.replyCount, users.username, users.avatarUrl FROM feed left join users on feed.userId=users.id ORDER BY date DESC;';
+    const $feed = 'SELECT feed.content, feed.id, feed.userId, feed.feedImg, feed.date, feed.likeCount, feed.commentCount, feed.replyCount, users.username, users.avatarUrl FROM feed left join users on feed.userId=users.id ORDER BY date DESC LIMIT 3;';
     const $comment = 'SELECT * from comment;'; 
     const $reply = 'SELECT * from reply;'; 
     const $like = `SELECT feedid from liketable where userid="${req.user.id}";`;
