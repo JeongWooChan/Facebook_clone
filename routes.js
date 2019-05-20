@@ -9,6 +9,7 @@ const SEARCH = "/search";
 const MAIN = "/main"; 
 const PERSON = "/:id"; 
 const PERSON_INFO = "/:id/info";
+const FEED_STORE = "/:id/feedStore"; 
 const UPLOAD = "/upload";
 const EDIT_FEED = "/:id/edit-feed";
 const DELETE_FEED = "/:id/delete-feed"; 
@@ -103,6 +104,13 @@ const routes = {
             return PERSON_INFO;
         }
     }, 
+    feedStore: (id) => {
+        if(id) {
+            return `/main/${id}/feedStore`;
+        } else {
+            return FEED_STORE
+        }
+    },
     checkPassword: CHECK_PASSWORD, 
     upload: UPLOAD, 
     editFeed: (id) => {

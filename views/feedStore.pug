@@ -1,0 +1,35 @@
+extends layouts/mainLayout.pug 
+include mixins/feedBlock.pug
+
+block content 
+    include partials/header 
+    main
+        section#feedStore_contents 
+            .feedStore_container 
+                .feedStore_row 
+                    .feedStore_contents 
+                        include partials/person_coverSection.pug
+                        section#person_feedstore_feed 
+                            .feedStore_text 보관중인 게시물 
+                            if (storeFeedList.length === 0) 
+                                .feedStore_null 
+                                    i.fas.fa-exclamation-triangle
+                                    span 보관중인 게시물이 없습니다.
+                            else 
+                                .feedStore_storeFeeds 
+                                    each item in feed 
+                                        if(storeFeedList.indexOf(item.id) !== -1)
+                                            figure 
+                                                +feedBlock({
+                                                    id: item.id, 
+                                                    date: item.date,
+                                                    userId: item.userId,
+                                                    userName: item.username,
+                                                    content: item.content,
+                                                    avatar: item.avatarUrl, 
+                                                    feedImg: item.feedImg,
+                                                    likeCount: item.likeCount, 
+                                                    commentCount: item.commentCount, 
+                                                    replyCount: item.replyCount
+                                                })   
+                                

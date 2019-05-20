@@ -140,6 +140,52 @@ export const getPersonInfo = async (req, res) => {
     });
 }
 
+export const feedStore = async (req, res) => {
+    const {
+        params : { id }
+    }= req;
+    const $user = `select * from users WHERE id=${id};`;
+    const $recommendFriend = 'SELECT id, username, avatarUrl from users order by RAND() LIMIT 5;';
+    const $requestFriend = `SELECT * FROM reqfriend WHERE applicant='${req.user.id}';` 
+    const $requestedFriend = `SELECT reqfriend.applicant, reqfriend.target, users.id, users.username, users.avatarUrl from reqfriend join users on reqfriend.applicant=users.id WHERE reqfriend.target='${req.user.id}';`
+    const $friend = `SELECT friendid FROM friend WHERE userid='${req.user.id}';`;
+    const $storeFeedId = `SELECT feedid FROM feedstore WHERE userid=${req.user.id};`
+    const $feed = `SELECT feed.content, feed.id, feed.userId, feed.feedImg, feed.date, feed.likeCount, feed.commentCount, feed.replyCount, users.username, users.avatarUrl FROM feed left join users on feed.userId=users.id ORDER BY date DESC;`;  
+    const $like = `SELECT feedid from liketable where userid="${req.user.id}";`;
+    const $comment = 'SELECT * from comment;'; 
+    const $reply = 'SELECT * from reply;'; 
+
+    await connection.query($user + $recommendFriend + $requestFriend + $requestedFriend + $friend + $storeFeedId+ $feed +$like + $comment + $reply, (err, rows) => {
+        if( err ) {
+            console.log("❌  ERROR : " + err);
+        } else {
+            const personUser = rows[0][0];
+            const recommendFriend = rows[1];
+            const reqFriendList = []; 
+            const requestedFriend = rows[3];  
+            const friendList = [];  
+            const storeFeedList = [];
+            const feed = rows[6]; 
+            const likeList = [];
+            const comment = rows[8]; 
+            const reply = rows[9]; 
+            for(let i = 0; i < rows[2].length; i++) {
+                reqFriendList.push(rows[2][i].target); 
+            }
+            for(let i = 0; i < rows[4].length; i++) {
+                friendList.push(rows[4][i].friendid); 
+            }
+            for(let i = 0 ; i < rows[5].length; i++) {
+                storeFeedList.push(rows[5][i].feedid); 
+            }
+            for(let i = 0; i < rows[7].length; i++) {
+                likeList.push(rows[7][i].feedid); 
+            }
+            res.render("feedStore", { pageTitle: "보관함", personUser, recommendFriend, reqFriendList, requestedFriend, friendList, storeFeedList, feed, likeList, comment, reply });
+        }
+    });
+}
+
 export const postUpload = async (req, res) => {
     const {
         body: {content},
@@ -210,3 +256,4 @@ export const deleteFeed = async (req, res) => {
         }
     })
 }
+

@@ -11,5 +11,6 @@ section#person_coverSection
                 a(href=routes.person(personUser.id)) 타임라인 
             li 
                 a(href=routes.personInfo(personUser.id)) 정보
-            li 
-                a(href="#") 보관함
+            if(personUser.id == user.id)
+                li 
+                    a(href=routes.feedStore(personUser.id)) 보관함
