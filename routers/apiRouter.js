@@ -23,6 +23,4 @@ apiRouter.post(routes.reqFriend, reqFriend);
 apiRouter.post(routes.addFriend, addFriend);
 apiRouter.post(routes.deleteRequesetFriend, deleteRequestFriend);
 
-apiRouter.post(routes.feedAuto, feedAutoPaging); 
-
 export default apiRouter;

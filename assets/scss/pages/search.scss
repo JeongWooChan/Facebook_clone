@@ -7,12 +7,22 @@
         width: 1000px; 
         height: inherit;
         margin: 0 auto;
+        @media (max-width:1024px) {
+            width: 100%;
+        }
         .search_row {
+            @media(max-width: 1024px) {
+                padding: 0 20px;
+            }
             .search_contents {
                 overflow: hidden;
                 #search_contentSection {
                     float: left;
                     width: 65%;
+                    @media (max-width: 786px) {
+                        width: 100%;
+                        margin-top: 20px;
+                    }
                     .search_person_div {
                         .search_person_text {
                             font-size: 20px;
@@ -36,6 +46,9 @@
                     position: fixed;
                     width: 320px;
                     right: 0; 
+                    @media (max-width: 786px) {
+                        display: none;
+                    }
                     #search_content_adContent {
                         min-height: 500px;
                         width: 100%;

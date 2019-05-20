@@ -33,7 +33,13 @@ const searchLoad = () => {
 }
 
 const responsiveAdBox = () => {
-
+    if(matchMedia("(max-width: 1024px)").matches) {
+        adSection.style.right = "10px";
+        adSection.style.width = 31+"%";
+    } else {
+        adSection.style.width = "320px";
+        adSection.style.right = feedSection.offsetLeft + 20 + "px";
+    }
 }
 
 const init = () => {

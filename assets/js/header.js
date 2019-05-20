@@ -11,7 +11,6 @@ const headerFriendBox = document.getElementById("header_friend_box");
 
 
 const toggleFriendBox = e => {
-
     if(headerFriendBox.style.visibility == "hidden") {
         headerFriendBox.style.visibility = "visible";
         headerFriendBox.style.left = headerFriendBtn.offsetLeft - 180 + "px";
@@ -21,7 +20,14 @@ const toggleFriendBox = e => {
 }
 
 const responsiveFriendBox = () => {
-    headerFriendBox.style.left = headerFriendBtn.offsetLeft - 180 + "px";
+    
+
+    if(matchMedia("(max-width: 786px)").matches) {
+        headerFriendBox.style.visibility = "hidden";
+    } else {
+        headerFriendBox.style.left = headerFriendBtn.offsetLeft - 180 + "px";
+        headerMenu.style.display = "none";
+    }
 }
 
 const toggleMenu = () => {

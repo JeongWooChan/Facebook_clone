@@ -106,7 +106,7 @@ export const getSearch = async (req, res) => {
     const $recommendFriend = 'SELECT id, username, avatarUrl from users order by RAND() LIMIT 5;';
     const $friend = `SELECT friendid FROM friend WHERE userid='${req.user.id}';`;
     const $ad = 'SELECT * from ad order by RAND() LIMIT 3;';
-    const $feed = `SELECT feed.content, feed.id, feed.userId, feed.feedImg, feed.date, feed.likeCount, feed.commentCount, users.username, users.avatarUrl FROM feed left join users on feed.userId=users.id WHERE content LIKE '%${header_searchText}%' OR username LIKE '%${header_searchText}%' ORDER BY date DESC;`;
+    const $feed = `SELECT feed.content, feed.id, feed.userId, feed.feedImg, feed.date, feed.likeCount, feed.commentCount, feed.replyCount, users.username, users.avatarUrl FROM feed left join users on feed.userId=users.id WHERE content LIKE '%${header_searchText}%' OR username LIKE '%${header_searchText}%' ORDER BY date DESC;`;
     const $like = `SELECT feedid from liketable where userid="${req.user.id}";`;
     const $comment = 'SELECT * from comment;'; 
     const $reply = 'SELECT * from reply;'; 

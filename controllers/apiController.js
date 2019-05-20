@@ -360,23 +360,3 @@ export const deleteRequestFriend = async(req,res) => {
         }
     })
 }
-
-export const feedAutoPaging = async (req, res) => {
-    const { 
-        body: {pagingNumber}
-    }=req;
-
-    const $pagingCount = 3;
-
-    const $feed = `SELECT feed.content, feed.id, feed.userId, feed.feedImg, feed.date, feed.likeCount, feed.commentCount, feed.replyCount, users.username, users.avatarUrl FROM feed left join users on feed.userId=users.id ORDER BY date DESC LIMIT ${pagingNumber * 3},${$pagingCount};`;
-
-    await connection.query($feed, (err, rows) => {
-        if(err) {
-            console.log("❌  ERROR : " + err); 
-        } else {
-            res.status(200).json({feed: rows}); 
-            res.end();
-        }
-    })
-    
-}

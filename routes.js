@@ -61,8 +61,6 @@ const REQ_FRINED = "/requestFriend";
 const ADD_FRIEND = "/addFriend"; 
 const DELETE_REQ_FRIENC = "/deleteRequestFriend";
 
-const FEED_AUTO = "/feedAuto"; 
-
 
 const routes = {
     home : HOME,
@@ -129,8 +127,7 @@ const routes = {
     addIntroduce: ADD_INTRODUCE,
     reqFriend: REQ_FRINED,
     addFriend: ADD_FRIEND, 
-    deleteRequesetFriend: DELETE_REQ_FRIENC,
-    feedAuto: FEED_AUTO
+    deleteRequesetFriend: DELETE_REQ_FRIENC
 }
 
 export default routes;
