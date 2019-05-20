@@ -43,6 +43,31 @@ const TimeGap = document.getElementsByClassName("main_time_gap");
 // Store and notWatch 
 const feedStore = document.getElementsByClassName("menu_store"); 
 const feedStore_delete = document.getElementsByClassName("menu_store_delete");
+const feedNoWatch = document.getElementsByClassName("menu_noView");
+
+const jsFeedNoWatch = async i => {
+    const feedId = document.getElementsByClassName("feedId")[i].innerHTML;
+    const userId = document.getElementsByClassName("userId")[i].innerHTML;
+
+    let check = confirm("이 게시물을 더이상 피드에 표시하지 않습니다. 계속하시겠습니까?");
+    
+    if(check == true) {
+        const response = await axios({
+            url:`/api${routes.feedNowatch}`,
+            method: "POST", 
+            data: {
+                feedId, 
+                userId
+            }
+        }); 
+    
+        if(response.status === 200) {
+            window.location.reload(true);
+        }
+    } else {
+        return false;
+    }
+}
 
 const jsFeedStoreDelete = async i => {
     const feedId = document.getElementsByClassName("feedId")[i].innerHTML;
@@ -177,6 +202,9 @@ const init = () => {
         }
         if(feedStore_delete[i]) {
             feedStore_delete[i].addEventListener("click", jsFeedStoreDelete.bind(null, i), false);
+        }
+        if(feedNoWatch[i]) {
+            feedNoWatch[i].addEventListener("click", jsFeedNoWatch.bind(null,i), false);
         }
     }
 

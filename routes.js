@@ -64,6 +64,7 @@ const DELETE_REQ_FRIENC = "/deleteRequestFriend";
 
 const ADD_STORE = "/addStore"; 
 const DELETE_STORE = "/deleteStore";
+const FEED_NOWATCH = "/feedNowatch"; 
 
 
 const routes = {
@@ -140,7 +141,8 @@ const routes = {
     addFriend: ADD_FRIEND, 
     deleteRequesetFriend: DELETE_REQ_FRIENC,
     addStore: ADD_STORE,
-    deleteStore: DELETE_STORE
+    deleteStore: DELETE_STORE,
+    feedNowatch: FEED_NOWATCH
 }
 
 export default routes;

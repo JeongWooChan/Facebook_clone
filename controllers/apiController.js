@@ -394,3 +394,22 @@ export const deleteStore = async (req, res) => {
         }
     })
 }
+
+export const feedNoWatch = async (req, res) => {
+    const {
+        body: {feedId, userId}
+    }=req;
+ 
+    let $set = {
+        userid : userId,
+        feedid : feedId
+    }
+    await connection.query('INSERT INTO noWatchFeed SET ?', $set, (err, rows)=> {
+        if(err) {
+            console.log("❌  ERROR : " + err); 
+        } else {
+            res.status(200); 
+            res.end(); 
+        }
+    })
+}
