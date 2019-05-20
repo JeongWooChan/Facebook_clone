@@ -2,7 +2,7 @@
 #person_contents {
     padding: 41px 0;
     width: 100%; 
-    height: 100%;
+    min-height: 887px;
     background-color: #e9ebee;
 }
 
@@ -336,7 +336,7 @@
                 font-weight: bold;
             }
             .main_content_feedSection {
-                margin: 0;
+                margin: 0 0 15px 0; 
                 .main_content_feed {
                     .main_content_Comment {
                         .commentBlock_section {
@@ -355,9 +355,6 @@
                         }
                     }
                 }
-            }
-            .main_content_feedSection {
-                margin: 0;
             }
         }
     }

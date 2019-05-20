@@ -88,6 +88,7 @@
                                 width: 30px;
                                 height: 30px;
                                 border-radius: 50%;
+                                object-fit: cover;
                             }
                             span {
                                 float: left;
@@ -141,12 +142,12 @@
                             form {
                                 display: none;
                                 float: left;
-                                width: 90%;
+                                width: 70%;
                                 margin-top: 2px;
                                 overflow: hidden;
                                 input {
                                     float: left;
-                                    width: 85%;
+                                    width: 70%;
                                     border-radius: 3px 0 0 3px;
                                     padding: 3px 5px;
                                     border: 1px solid #e6e6e6;

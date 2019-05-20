@@ -16,6 +16,7 @@
                 height: 60px;
                 border-radius: 50%;
                 margin-right: 15px;
+                object-fit: cover;
             }
             .main_content_headerTop {
                 overflow: hidden;
@@ -191,6 +192,7 @@
                         height: 40px;
                         border-radius: 50%;
                         margin-right: 2%;
+                        object-fit: cover;
                     }
                     input {
                         float: left;

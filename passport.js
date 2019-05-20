@@ -11,21 +11,22 @@ passport.use(new LocalStrategy({
 }, function(username, password, done) {
     connection.query('SELECT * FROM users WHERE `email`=?', [username], function(err, rows) {
         const user = rows[0];
-        let user_salt = user.salt; 
 
-        // passwordField로 부터 넘어온 비밀번호를 db에 적재되어 있던 salt값으로 암호화를 시킨다. 
-        hasher({password: password, salt: user_salt}, (err, pass, salt, hash) => {
+        if (!user) {
+            return done(null, false, { message: 'Incorrect username' }); 
+        } else {
+            let user_salt = user.salt; 
+            // passwordField로 부터 넘어온 비밀번호를 db에 적재되어 있던 salt값으로 암호화를 시킨다. 
+            hasher({password: password, salt: user_salt}, (err, pass, salt, hash) => {
             if (err) {
                 return done(err); 
-            }
-            if (!user) {
-                return done(null, false, { message: 'Incorrect username' }); 
             }
             if(hash !== user.password) {
                 return done(null, false, { message: 'Incorrect password.' });
             }
             return done(null, user);
-        });     
+        });  
+        }   
     });
 }));
 

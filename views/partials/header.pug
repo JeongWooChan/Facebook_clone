@@ -33,8 +33,8 @@ header#header_header
                         a(href=routes.main) 
                             i.fab.fa-facebook
                             h3#header_section3_logoName Facebook
-                        form(action="#", method="get", id="section3_search_form")
-                            input(type="text", placeholder="검색")
+                        form(action=routes.search, method="get", id="section3_search_form")
+                            input(type="text", placeholder="검색",name="header_searchText")
                             button(type="submit")
                                 i.fas.fa-search
                     .header_menu 
@@ -42,9 +42,11 @@ header#header_header
                         i.fas.fa-bars#section3_menu_icon
 #header_menu(style="display:none;")
     ul 
-        li 개인페이지
+        li
+            a(href=routes.person(user.id)) 개인페이지
         li 친구
-        li 로그아웃 
+        li
+            a(href=routes.logout) 로그아웃 
 #header_friend_box(style="visibility: hidden") 
     #header_friendbox   
         .header_friendbox_text 친구 요청
