@@ -1,6 +1,6 @@
 import express from "express"; 
 import routes from "../routes"; 
-import { emailCheck, passwordCheck, addComment, deleteComment, editComment, addReply, deleteReply, editReply, like, addIntroduce, reqFriend, addFriend, deleteRequestFriend, feedAutoPaging } from "../controllers/apiController";
+import { emailCheck, passwordCheck, addComment, deleteComment, editComment, addReply, deleteReply, editReply, like, addIntroduce, reqFriend, addFriend, deleteRequestFriend, addStore } from "../controllers/apiController";
 
 const apiRouter = express.Router(); 
 
@@ -22,5 +22,7 @@ apiRouter.post(routes.addIntroduce, addIntroduce);
 apiRouter.post(routes.reqFriend, reqFriend); 
 apiRouter.post(routes.addFriend, addFriend);
 apiRouter.post(routes.deleteRequesetFriend, deleteRequestFriend);
+
+apiRouter.post(routes.addStore, addStore);
 
 export default apiRouter;

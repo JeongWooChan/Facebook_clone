@@ -1,7 +1,6 @@
 include ./commentBlock.pug
 
 mixin feedBlock(feed = {}) 
-    input#autopaging_number(type="text", value="1", style="display:none")
     section.main_content_feedSection 
         article.main_content_feed
             .main_content_header 
@@ -25,10 +24,11 @@ mixin feedBlock(feed = {})
                             li.menu_edit(style="display: none;")  
                                 i.far.fa-edit 
                                 span 게시물 수정하기
-                                .feedId(style="display: none;")=feed.id 
                             li.menu_delete(style="display: none;")
                                 i.far.fa-trash-alt 
-                                span 게시물 삭제하기 
+                                span 게시물 삭제하기
+                            .feedId(style="display: none;")=feed.id 
+                            .userId(style="display: none;")=user.id 
                         else 
                             li.menu_store(style="display: none;") 
                                 i.far.fa-bookmark

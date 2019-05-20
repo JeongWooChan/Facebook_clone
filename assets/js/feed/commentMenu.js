@@ -27,13 +27,14 @@ const sendComment = async (comment, id, i) => {
         }
     });
     if(response.status === 200) {
-        commentDiv[i].style.display = "block";
-        commentDiv2[i].style.display = "block"; 
-        commentMenuIcon[i].style.display = "block";
-        commentContent[i].innerHTML = comment;
+        // commentDiv[i].style.display = "block";
+        // commentDiv2[i].style.display = "block"; 
+        // commentMenuIcon[i].style.display = "block";
+        // commentContent[i].innerHTML = comment;
 
-        editComment_Div[i].style.display = "none";
-        editComment_cancel[i].style.display = "none";
+        // editComment_Div[i].style.display = "none";
+        // editComment_cancel[i].style.display = "none";
+        window.location.reload(true);
     }
 }
 

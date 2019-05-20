@@ -40,6 +40,34 @@ const customBtn = document.getElementById("custom-button");
 const writeTime = document.getElementsByClassName("main_content_time");
 const TimeGap = document.getElementsByClassName("main_time_gap");
 
+// Store and notWatch 
+const feedStore = document.getElementsByClassName("menu_store"); 
+
+
+const jsFeedStore = async i => {
+    const feedId = document.getElementsByClassName("feedId")[i].innerHTML;
+    const userId = document.getElementsByClassName("userId")[i].innerHTML;
+
+    const response = await axios({
+        url:`/api${routes.addStore}`,
+        method: "POST", 
+        data: {
+            feedId, 
+            userId 
+        }
+    }); 
+
+    if(response.status === 200) {
+        let check = confirm("게시물이 저장되었습니다. 보관함으로 이동하시겠습니까?"); 
+        if(check == true) {
+
+        } else {
+            return false; 
+        }
+    }
+
+
+}
 
 const submitValidate = event => {
     event.preventDefault();
@@ -126,6 +154,9 @@ const init = () => {
         }
         if(editFormCancel) {
             editFormCancel.addEventListener("click", handleEditFormCancel);
+        }
+        if(feedStore[i]) {
+            feedStore[i].addEventListener("click", jsFeedStore.bind(null, i), false);
         }
     }
 

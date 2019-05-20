@@ -9,60 +9,61 @@ const commentInput = document.getElementsByClassName("reply_input");
 
 
 const fakeAddReply = (comment, i) => {
-    const avatar = document.querySelector(".header_iconMenu a img");
-    const name = document.getElementById("main_header_profileName").innerHTML;
+    // const avatar = document.querySelector(".header_iconMenu a img");
+    // const name = document.getElementById("main_header_profileName").innerHTML;
 
-    // CreateElement
-    const registered_comments = document.getElementsByClassName("registered_comments");
-    const registered_reply = document.createElement("div"); 
+    // // CreateElement
+    // const registered_comments = document.getElementsByClassName("registered_comments");
+    // const registered_reply = document.createElement("div"); 
 
-    const replyPart = document.createElement("div"); 
+    // const replyPart = document.createElement("div"); 
 
-    const registered_reply_img = document.createElement("div"); 
-    const registered_reply_reply = document.createElement("div"); 
-    const icon = document.createElement("i"); 
-    const editReplyDiv = document.createElement("div"); 
-    const editReply_cancel = document.createElement("div"); 
+    // const registered_reply_img = document.createElement("div"); 
+    // const registered_reply_reply = document.createElement("div"); 
+    // const icon = document.createElement("i"); 
+    // const editReplyDiv = document.createElement("div"); 
+    // const editReply_cancel = document.createElement("div"); 
 
-    const image = document.createElement("img");
-    const userName = document.createElement("a");
-    const replyContent = document.createElement("span"); 
+    // const image = document.createElement("img");
+    // const userName = document.createElement("a");
+    // const replyContent = document.createElement("span"); 
 
-    // className 
-    registered_reply.className="registered_reply";
+    // // className 
+    // registered_reply.className="registered_reply";
 
-    replyPart.className = "replyPart"; 
+    // replyPart.className = "replyPart"; 
 
-    registered_reply_img.className = "registered_reply_img";
-    registered_reply_reply.className = "registered_reply_reply";
-    icon.className = "fas fa-ellipsis-h reply_menuIcon"; 
-    editReplyDiv.className = "editReplyDiv";
-    editReply_cancel.className = "editReply_cancel";
+    // registered_reply_img.className = "registered_reply_img";
+    // registered_reply_reply.className = "registered_reply_reply";
+    // icon.className = "fas fa-ellipsis-h reply_menuIcon"; 
+    // editReplyDiv.className = "editReplyDiv";
+    // editReply_cancel.className = "editReply_cancel";
 
-    userName.className = "registered_reply_name";
-    replyContent.className = "registered_reply_content";
+    // userName.className = "registered_reply_name";
+    // replyContent.className = "registered_reply_content";
 
-    // input value
-    image.src=avatar.src;
-    userName.href="#";
-    userName.innerHTML = name;
-    replyContent.innerHTML = comment;
+    // // input value
+    // image.src=avatar.src;
+    // userName.href="#";
+    // userName.innerHTML = name;
+    // replyContent.innerHTML = comment;
 
-    //append 
-    registered_reply_img.appendChild(image);
+    // //append 
+    // registered_reply_img.appendChild(image);
 
-    registered_reply_reply.appendChild(userName);
-    registered_reply_reply.appendChild(replyContent);
+    // registered_reply_reply.appendChild(userName);
+    // registered_reply_reply.appendChild(replyContent);
 
-    replyPart.appendChild(registered_reply_img);
-    replyPart.appendChild(registered_reply_reply);
-    replyPart.appendChild(icon);
-    replyPart.appendChild(editReplyDiv);
-    replyPart.appendChild(editReply_cancel);
+    // replyPart.appendChild(registered_reply_img);
+    // replyPart.appendChild(registered_reply_reply);
+    // replyPart.appendChild(icon);
+    // replyPart.appendChild(editReplyDiv);
+    // replyPart.appendChild(editReply_cancel);
     
-    registered_reply.appendChild(replyPart);
+    // registered_reply.appendChild(replyPart);
 
-    registered_comments[i].appendChild(registered_reply);
+    // registered_comments[i].appendChild(registered_reply);
+    window.location.reload(true);
 }
 
 const sendReply = async (comment, id, feedId, i) => {

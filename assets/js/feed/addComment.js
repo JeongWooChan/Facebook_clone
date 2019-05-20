@@ -11,56 +11,57 @@ const increaseNumber = i => {
 }
 
 const fakeAddComment = (comment, i) => {
-    const section = document.createElement("div"); 
-    const commentPart = document.createElement("div");
+    // const section = document.createElement("div"); 
+    // const commentPart = document.createElement("div");
     
-    const imgDiv = document.createElement("div"); 
-    const commentDiv = document.createElement("div"); 
-    const icon = document.createElement("i"); 
-    const menuDiv = document.createElement("div"); 
+    // const imgDiv = document.createElement("div"); 
+    // const commentDiv = document.createElement("div"); 
+    // const icon = document.createElement("i"); 
+    // const menuDiv = document.createElement("div"); 
     
-    const img = document.createElement("img"); 
-    const username = document.createElement("a"); 
-    const commentSpan = document.createElement("span"); 
-    const co_comentA = document.createElement("a"); 
-    const dot_span = document.createElement("span");
-    const date = document.createElement("div"); 
+    // const img = document.createElement("img"); 
+    // const username = document.createElement("a"); 
+    // const commentSpan = document.createElement("span"); 
+    // const co_comentA = document.createElement("a"); 
+    // const dot_span = document.createElement("span");
+    // const date = document.createElement("div"); 
     
-    section.className = "registered_comments"; 
-    commentPart.className = "commentPart";
+    // section.className = "registered_comments"; 
+    // commentPart.className = "commentPart";
     
-    imgDiv.className = "registered_comments_img"; 
-    commentDiv.className = "registered_comments_comment"; 
-    icon.className="fas fa-ellipsis-h";
-    menuDiv.className="registered_comments_menu";
+    // imgDiv.className = "registered_comments_img"; 
+    // commentDiv.className = "registered_comments_comment"; 
+    // icon.className="fas fa-ellipsis-h";
+    // menuDiv.className="registered_comments_menu";
     
-    img.src=avatar[i].src; 
-    username.className="registered_comment_name";
-    username.href=document.querySelector(".header_iconMenu a"); 
-    username.innerHTML=document.getElementById("main_header_profileName").innerHTML; 
-    commentSpan.className= "registered_comment_content";
-    commentSpan.innerHTML=comment; 
-    co_comentA.innerHTML = "답글달기"; 
-    date.className="registerd_comments_time";
-    date.innerHTML="방금";
-    dot_span.className="dot";
+    // img.src=avatar[i].src; 
+    // username.className="registered_comment_name";
+    // username.href=document.querySelector(".header_iconMenu a"); 
+    // username.innerHTML=document.getElementById("main_header_profileName").innerHTML; 
+    // commentSpan.className= "registered_comment_content";
+    // commentSpan.innerHTML=comment; 
+    // co_comentA.innerHTML = "답글달기"; 
+    // date.className="registerd_comments_time";
+    // date.innerHTML="방금";
+    // dot_span.className="dot";
     
-    imgDiv.appendChild(img); 
-    commentDiv.appendChild(username); 
-    commentDiv.appendChild(commentSpan);
-    menuDiv.appendChild(co_comentA); 
-    menuDiv.appendChild(dot_span); 
-    menuDiv.appendChild(date);
+    // imgDiv.appendChild(img); 
+    // commentDiv.appendChild(username); 
+    // commentDiv.appendChild(commentSpan);
+    // menuDiv.appendChild(co_comentA); 
+    // menuDiv.appendChild(dot_span); 
+    // menuDiv.appendChild(date);
 
-    commentPart.appendChild(imgDiv);
-    commentPart.appendChild(commentDiv);  
-    commentPart.appendChild(icon);
-    commentPart.appendChild(menuDiv);
+    // commentPart.appendChild(imgDiv);
+    // commentPart.appendChild(commentDiv);  
+    // commentPart.appendChild(icon);
+    // commentPart.appendChild(menuDiv);
 
-    section.appendChild(commentPart);
+    // section.appendChild(commentPart);
 
-    commentSection[i].appendChild(section);
-    increaseNumber(i);
+    // commentSection[i].appendChild(section);
+    // increaseNumber(i);
+    window.location.reload(true);
 }
 
 const sendComment = async (comment, id, i) => {
