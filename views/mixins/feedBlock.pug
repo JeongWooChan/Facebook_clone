@@ -15,9 +15,20 @@ mixin feedBlock(feed = {})
                 .main_menuDiv(style="display: none;")
                     ul
                         if(user.id != feed.userId)
-                            li.menu_store 
-                                i.far.fa-bookmark
-                                span 이 게시물 보관하기
+                            if(storeFeedList.indexOf(feed.id) === -1)
+                                li.menu_store 
+                                    i.far.fa-bookmark
+                                    span 이 게시물 보관하기
+                                li.menu_store_delete(style="display:none") 
+                                    i.far.fa-trash-alt 
+                                    span 보관 삭제하기 
+                            else
+                                li.menu_store(style="display:none") 
+                                    i.far.fa-bookmark
+                                    span 이 게시물 보관하기
+                                li.menu_store_delete 
+                                    i.far.fa-trash-alt 
+                                    span 보관 삭제하기 
                             li.menu_noView 
                                 i.far.fa-eye-slash 
                                 span 이 게시물 보지 않기 

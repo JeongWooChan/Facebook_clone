@@ -63,6 +63,7 @@ const ADD_FRIEND = "/addFriend";
 const DELETE_REQ_FRIENC = "/deleteRequestFriend";
 
 const ADD_STORE = "/addStore"; 
+const DELETE_STORE = "/deleteStore";
 
 
 const routes = {
@@ -138,7 +139,8 @@ const routes = {
     reqFriend: REQ_FRINED,
     addFriend: ADD_FRIEND, 
     deleteRequesetFriend: DELETE_REQ_FRIENC,
-    addStore: ADD_STORE
+    addStore: ADD_STORE,
+    deleteStore: DELETE_STORE
 }
 
 export default routes;

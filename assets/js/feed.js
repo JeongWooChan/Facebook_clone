@@ -42,12 +42,29 @@ const TimeGap = document.getElementsByClassName("main_time_gap");
 
 // Store and notWatch 
 const feedStore = document.getElementsByClassName("menu_store"); 
+const feedStore_delete = document.getElementsByClassName("menu_store_delete");
 
+const jsFeedStoreDelete = async i => {
+    const feedId = document.getElementsByClassName("feedId")[i].innerHTML;
+    const userId = document.getElementsByClassName("userId")[i].innerHTML;
+    
+    const response = await axios({
+        url:`/api${routes.deleteStore}`, 
+        method: "POST", 
+        data: {
+            feedId, 
+            userId
+        }
+    }); 
+    if(response.status === 200) {
+        window.location.reload(true);
+    }
+}
 
 const jsFeedStore = async i => {
     const feedId = document.getElementsByClassName("feedId")[i].innerHTML;
     const userId = document.getElementsByClassName("userId")[i].innerHTML;
-
+    
     const response = await axios({
         url:`/api${routes.addStore}`,
         method: "POST", 
@@ -60,7 +77,7 @@ const jsFeedStore = async i => {
     if(response.status === 200) {
         let check = confirm("게시물이 저장되었습니다. 보관함으로 이동하시겠습니까?"); 
         if(check == true) {
-
+            location.href=routes.feedStore(userId);
         } else {
             return false; 
         }
@@ -157,6 +174,9 @@ const init = () => {
         }
         if(feedStore[i]) {
             feedStore[i].addEventListener("click", jsFeedStore.bind(null, i), false);
+        }
+        if(feedStore_delete[i]) {
+            feedStore_delete[i].addEventListener("click", jsFeedStoreDelete.bind(null, i), false);
         }
     }
 

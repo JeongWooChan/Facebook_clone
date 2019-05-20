@@ -18,6 +18,7 @@ export const getMain = async (req, res) => {
     const $requestFriend = `SELECT * FROM reqfriend WHERE applicant='${req.user.id}';`   
     const $requestedFriend = `SELECT reqfriend.applicant, reqfriend.target, users.id, users.username, users.avatarUrl from reqfriend join users on reqfriend.applicant=users.id WHERE reqfriend.target='${req.user.id}';`
     const $friend = `SELECT friendid FROM friend WHERE userid='${req.user.id}';`;
+    const $storeFeedId = `SELECT feedid FROM feedstore WHERE userid=${req.user.id};`
     // 다중쿼리문 방식을 사용하였으며 
     // 다중쿼리문을 사용하기 위해서는 db connection을 할 때, 
     // multipleStatements: true 를 추가해줘야 한다. 
@@ -30,7 +31,8 @@ export const getMain = async (req, res) => {
         $recommendFriend +
         $requestFriend + 
         $requestedFriend +
-        $friend,  
+        $friend +
+        $storeFeedId,  
         (err, rows) => {
         if (err) {
             console.log("❌  ERROR : " + err);
@@ -43,7 +45,8 @@ export const getMain = async (req, res) => {
             const recommendFriend = rows[5];
             const reqFriendList = [];  
             const requestedFriend = rows[7];  
-            const friendList = [];   
+            const friendList = [];  
+            const storeFeedList = []; 
             if (req.user) {
                 for(let i = 0; i < rows[3].length; i++){
                     likeList.push(rows[3][i].feedid);
@@ -54,7 +57,10 @@ export const getMain = async (req, res) => {
                 for(let i = 0; i < rows[8].length; i++) {
                     friendList.push(rows[8][i].friendid); 
                 }
-                res.render("main", { pageTitle: "FaceBook", feeds, comment, reply, likeList, ad, recommendFriend, reqFriendList, requestedFriend, friendList });
+                for(let i = 0 ; i < rows[9].length; i++) {
+                    storeFeedList.push(rows[9][i].feedid); 
+                }
+                res.render("main", { pageTitle: "FaceBook", feeds, comment, reply, likeList, ad, recommendFriend, reqFriendList, requestedFriend, friendList, storeFeedList });
             } else {
                 res.redirect(routes.home);
             }
@@ -80,8 +86,9 @@ export const getPerson = async (req, res) => {
     const $requestedFriend = `SELECT reqfriend.applicant, reqfriend.target, users.id, users.username, users.avatarUrl from reqfriend join users on reqfriend.applicant=users.id WHERE reqfriend.target='${req.user.id}';`
     const $friend = `SELECT friendid FROM friend WHERE userid='${req.user.id}';`;
     const $friendGrid = `SELECT users.id, users.username, users.avatarUrl, friend.friendid from friend join users on friend.friendid=users.id where friend.userid='${id}';`;
+    const $storeFeedId = `SELECT feedid FROM feedstore WHERE userid=${req.user.id};`
 
-    await connection.query($user+$feed+$like+$comment+$reply+$recommendFriend+$requestFriend+$requestedFriend+$friend+$friendGrid, (err, rows) => {
+    await connection.query($user+$feed+$like+$comment+$reply+$recommendFriend+$requestFriend+$requestedFriend+$friend+$friendGrid+$storeFeedId, (err, rows) => {
         if( err ) {
             console.log("❌  ERROR : " + err);
         } else {
@@ -95,6 +102,7 @@ export const getPerson = async (req, res) => {
             const requestedFriend = rows[7];  
             const friendList = []; 
             const friendGrid = rows[9];
+            const storeFeedList = [];
             for(let i = 0; i < rows[2].length; i++){
                 likeList.push(rows[2][i].feedid);
             }
@@ -104,7 +112,10 @@ export const getPerson = async (req, res) => {
             for(let i = 0; i < rows[8].length; i++) {
                 friendList.push(rows[8][i].friendid); 
             }
-            res.render("person", { pageTitle: personUser.username, personUser, personFeed, likeList, comment, reply, recommendFriend, reqFriendList, requestedFriend, friendList, friendGrid })
+            for(let i = 0 ; i < rows[10].length; i++) {
+                storeFeedList.push(rows[10][i].feedid); 
+            }
+            res.render("person", { pageTitle: personUser.username, personUser, personFeed, likeList, comment, reply, recommendFriend, reqFriendList, requestedFriend, friendList, friendGrid, storeFeedList })
         }
     })
 }
@@ -256,4 +267,3 @@ export const deleteFeed = async (req, res) => {
         }
     })
 }
-

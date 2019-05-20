@@ -379,3 +379,18 @@ export const addStore = async (req, res) => {
         }
     })
 }
+
+export const deleteStore = async (req, res) => {
+    const {
+        body: {feedId, userId}
+    }=req;
+
+    await connection.query('DELETE FROM feedstore WHERE userid=? AND feedid=?', [userId, feedId], (err, rows)=>{
+        if(err) {
+            console.log("❌  ERROR : " + err); 
+        } else {
+            res.status(200); 
+            res.end(); 
+        }
+    })
+}

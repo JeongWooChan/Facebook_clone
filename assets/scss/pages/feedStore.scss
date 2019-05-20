@@ -43,6 +43,11 @@
                             display: inline-block;
                             .main_content_feedSection {
                                 margin: 0 0 20px 0;
+                                .main_content_feed {
+                                    .main_content_header {
+                                        overflow: unset;
+                                    }
+                                }
                             }
                         }
                     }
