@@ -1,3 +1,4 @@
+import "@babel/polyfill";
 import express from "express"; 
 import bodyParser from "body-parser"; 
 import cookieParser from "cookie-parser"; 
@@ -13,6 +14,7 @@ import feedRouter from "./routers/feedRouter";
 import userRouter from "./routers/userRouter";
 import apiRouter from "./routers/apiRouter";
 import "./passport";
+import path from "path";
 
 const app = express();
 const MySQLStore = require("express-mysql-session")(session);  
@@ -20,10 +22,11 @@ dotenv.config();
 
 // 템플릿 엔진을 pug로 설정 
 app.set("view engine", "pug"); 
+app.set("views", path.join(__dirname, "views"));
 
 app.use(helmet()); // express 보안을 위한 미들웨어 
-app.use("/static", express.static("static")); 
-app.use("/uploads", express.static("uploads"));
+app.use("/static", express.static(path.join(__dirname,"static"))); 
+app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 app.use(cookieParser()); 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
