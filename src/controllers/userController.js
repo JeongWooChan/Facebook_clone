@@ -247,7 +247,7 @@ export const editProfile = async (req, res) => {
         file
     }=req;
     let $set = {
-        avatarUrl: file ? file.path : req.user.avatarUrl
+        avatarUrl: file ? file.location : req.user.avatarUrl
     }
     await connection.query('UPDATE users SET ? WHERE `id`= ?', [$set, req.user.id], (err, rows) => {
         if(err) {

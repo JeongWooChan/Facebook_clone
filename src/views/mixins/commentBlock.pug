@@ -4,7 +4,7 @@ mixin commentBlock(comment = {})
     .registered_comments
         .commentPart 
             .registered_comments_img  
-                img.comments_img1(src=`/${comment.avatar}`)
+                img.comments_img1(src=comment.avatar)
             .registered_comments_comment
                 a.registered_comment_name(href=routes.person(comment.userid))=comment.username
                 span.registered_comment_content=comment.comment 
@@ -27,7 +27,7 @@ mixin commentBlock(comment = {})
                     form.replyForm
                         span.comment_Id=comment.id
                         span.feed_Id=comment.feedId
-                        img(src=`/${user.avatarUrl}`) 
+                        img(src=user.avatarUrl) 
                         input(type="text", placeholder="댓글 입력", class="reply_input")
                 .editComment_Reply_cancel 취소 
         each item in reply

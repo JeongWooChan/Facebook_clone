@@ -4,7 +4,7 @@ mixin feedBlock(feed = {})
     section.main_content_feedSection 
         article.main_content_feed
             .main_content_header 
-                img(src=`/${feed.avatar}`) 
+                img(src=feed.avatar) 
                 .main_content_headerTop
                     a(href=routes.person(feed.userId), id="main_content_writer")=feed.userName
                     .main_content_more 
@@ -62,7 +62,7 @@ mixin feedBlock(feed = {})
                     .main_content_mainImage(style="display: none;")
                 else 
                     .main_content_mainImage 
-                        img(src=`/${feed.feedImg}`) 
+                        img(src=feed.feedImg) 
             .main_content_footer 
                 .main_content_countSection
                     .main_content_like 
@@ -93,7 +93,7 @@ mixin feedBlock(feed = {})
                 .writeComment 
                     form.addCommentForm
                         span.main_content_feedId(style="display: none")=feed.id
-                        img.addCommentForm_avatar(src=`/${user.avatarUrl}`)
+                        img.addCommentForm_avatar(src=user.avatarUrl)
                         input(type="text", placeholder="댓글을 입력하세요...", class="writeComment_input") 
                 .commentBlock_section
                     each item in comment 

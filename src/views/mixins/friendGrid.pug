@@ -1,5 +1,5 @@
 mixin friendGrid(friend = {}) 
     a.person_friend_grid(href=routes.person(friend.id))
         .person_friendImg_div 
-            img(src=`/${friend.avatar}`, alt="friendImg") 
+            img(src=friend.avatar, alt="friendImg") 
             span=friend.name

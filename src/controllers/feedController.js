@@ -218,7 +218,7 @@ export const postUpload = async (req, res) => {
         $set = {
             userId: req.user.id, 
             content: content, 
-            feedImg: file.path
+            feedImg: file.location
         }
     }
     let $sql = "INSERT INTO feed SET ?"; 
@@ -246,7 +246,7 @@ export const editFeed = async (req, res) => {
     } else {
         $set = {
             content, 
-            feedImg: file.path
+            feedImg: file.location
         }
     }
     await connection.query('UPDATE feed SET ? WHERE `id`= ?', [$set, id], (err, rows) => {

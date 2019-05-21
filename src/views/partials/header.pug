@@ -18,7 +18,7 @@ header#header_header
                     .header_menu
                         .header_iconMenu
                             a(href=routes.person(user.id)) 
-                                img(src=`/${user.avatarUrl}`) 
+                                img(src=user.avatarUrl) 
                                 span(id="main_header_profileName")=user.username
                             a(href=routes.main) 
                                 i.fas.fa-home

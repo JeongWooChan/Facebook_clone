@@ -1,7 +1,7 @@
 mixin reqFriendBlock(reqFriend = {}) 
     .header_friendbox_request 
         .friendbox_request_image 
-            img(src=`/${reqFriend.avatar}`)
+            img(src=reqFriend.avatar)
         .friendbox_request_name 
             h4=reqFriend.name
         .friendbox_request_button(style="display:block") 

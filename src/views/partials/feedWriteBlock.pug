@@ -5,7 +5,7 @@ section#main_content_newFeedSection
         .main_content_newFeedMain 
             .profile_section 
                 a(href=routes.person(user.id), id="main_content_newFeedImg")
-                    img(src=`/${user.avatarUrl}`)
+                    img(src=user.avatarUrl)
             .content_section 
                 .contentDiv 
                     if(personUser)

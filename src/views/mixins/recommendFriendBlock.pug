@@ -1,7 +1,7 @@
 mixin recommendFriendBlock(recFriend = {}) 
     .header_friendbox_recommend
         .friendbox_recommend_image 
-            img(src=`/${recFriend.avatar}`)
+            img(src=recFriend.avatar)
         .friendbox_recommend_name 
             h4=recFriend.name
         if(reqFriendList.indexOf(recFriend.id) == -1) 

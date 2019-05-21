@@ -1,6 +1,6 @@
 mixin searchFriend(friend = {}) 
     .search_person_block 
-        img(src=`/${friend.avatar}`)
+        img(src=friend.avatar)
         h4
             a(href=routes.person(friend.id))=friend.name
         if(user.id == friend.id)

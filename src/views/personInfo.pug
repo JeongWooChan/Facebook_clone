@@ -475,7 +475,7 @@ block content
                                     #personInfo_content_changeProfileImg 
                                         form(action=`/user${routes.editProfile}`, method="post", id="personInfo_changeProfileImg_form", enctype="multipart/form-data") 
                                             div#personInfo_imgPreview
-                                                img#personInfo_basic_imgPreview(src=`/${user.avatarUrl}`)
+                                                img#personInfo_basic_imgPreview(src=user.avatarUrl)
                                             //- img(src=`/${user.avatarUrl}`, id="personInfo_imgPreview") 
                                             input(type="file", name="avatar", id="avatar", accept="image/*")
                                             input(type="submit", value="변경")
