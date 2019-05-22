@@ -10,11 +10,11 @@ passport.use(new LocalStrategy({
     passwordField: 'login_pw', 
 }, function(username, password, done) {
     connection.query('SELECT * FROM users WHERE `email`=?', [username], function(err, rows) {
-        const user = rows[0];
-
-        if (!user) {
+        if (rows.length === 0) {
             return done(null, false, { message: 'Incorrect username' }); 
         } else {
+            let user = rows[0];
+
             let user_salt = user.salt; 
             // passwordField로 부터 넘어온 비밀번호를 db에 적재되어 있던 salt값으로 암호화를 시킨다. 
             hasher({password: password, salt: user_salt}, (err, pass, salt, hash) => {
